@@ -1,9 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="hero-shell">
       <section className="hero" aria-label="Colorado Snomo Expo hero">
+        <Image
+          className="hero-image"
+          src="/images/hero/colorado-snomo-hero.jpg"
+          alt="Snowmobiler carving through deep powder in a snowy Colorado forest"
+          fill
+          priority
+          quality={92}
+          sizes="100vw"
+        />
         <div className="hero-snow" aria-hidden="true" />
         <nav className="hero-nav" aria-label="Primary navigation">
           <Link className="brand" href="/">

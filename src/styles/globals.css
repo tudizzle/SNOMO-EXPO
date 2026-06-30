@@ -38,25 +38,31 @@ a {
   position: relative;
 }
 
+.hero-image {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: 50% center;
+  position: absolute;
+  width: 100%;
+  z-index: -4;
+}
+
 .hero::before {
   background-image:
-    linear-gradient(90deg, rgba(4, 10, 18, 0.9) 0%, rgba(4, 10, 18, 0.76) 34%, rgba(4, 10, 18, 0.34) 60%, rgba(4, 10, 18, 0.12) 100%),
-    linear-gradient(180deg, rgba(4, 10, 18, 0.34) 0%, rgba(4, 10, 18, 0.04) 42%, rgba(4, 10, 18, 0.64) 100%),
-    url("/images/hero/colorado-snomo-hero.jpg");
-  background-position: center;
-  background-size: cover;
+    linear-gradient(90deg, rgba(4, 10, 18, 0.58) 0%, rgba(4, 10, 18, 0.38) 32%, rgba(4, 10, 18, 0.1) 58%, rgba(4, 10, 18, 0) 100%),
+    linear-gradient(180deg, rgba(4, 10, 18, 0.3) 0%, rgba(4, 10, 18, 0) 42%, rgba(4, 10, 18, 0.18) 100%);
   content: "";
   inset: 0;
   position: absolute;
-  transform: scale(1.01);
   z-index: -3;
 }
 
 .hero::after {
-  background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.16), transparent 36%);
+  background: radial-gradient(circle at 16% 28%, rgba(4, 10, 18, 0.22), transparent 34%);
   content: "";
   inset: 0;
-  opacity: 0.42;
+  opacity: 0.5;
   pointer-events: none;
   position: absolute;
   z-index: -2;
@@ -118,10 +124,11 @@ a {
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100svh;
-  padding: 120px clamp(22px, 7vw, 104px) 72px;
-  width: min(760px, 100%);
+  padding: clamp(142px, 18vh, 190px) clamp(22px, 6vw, 84px) 72px;
+  text-shadow: 0 2px 22px rgba(4, 10, 18, 0.34);
+  width: min(650px, 100%);
 }
 
 .hero-kicker {
@@ -135,12 +142,12 @@ a {
 
 h1 {
   color: var(--snow);
-  font-size: clamp(4rem, 10vw, 9.5rem);
+  font-size: clamp(4rem, 8.6vw, 8.25rem);
   font-weight: 760;
   letter-spacing: 0;
-  line-height: 0.86;
+  line-height: 0.9;
   margin: 0;
-  max-width: 760px;
+  max-width: 650px;
   text-wrap: balance;
 }
 
@@ -242,11 +249,14 @@ h1 {
 }
 
 @media (max-width: 760px) {
+  .hero-image {
+    object-position: 52% center;
+  }
+
   .hero::before {
     background-image:
-      linear-gradient(180deg, rgba(4, 10, 18, 0.8) 0%, rgba(4, 10, 18, 0.58) 34%, rgba(4, 10, 18, 0.8) 100%),
-      url("/images/hero/colorado-snomo-hero.jpg");
-    background-position: 58% center;
+      linear-gradient(180deg, rgba(4, 10, 18, 0.58) 0%, rgba(4, 10, 18, 0.14) 42%, rgba(4, 10, 18, 0.42) 100%),
+      linear-gradient(90deg, rgba(4, 10, 18, 0.46) 0%, rgba(4, 10, 18, 0.12) 58%, rgba(4, 10, 18, 0) 100%);
   }
 
   .hero-nav {
@@ -262,8 +272,8 @@ h1 {
   }
 
   .hero-content {
-    padding-bottom: 44px;
-    padding-top: 104px;
+    padding-bottom: 42px;
+    padding-top: 122px;
   }
 
   h1 {
