@@ -9,6 +9,7 @@ export function CountdownSection() {
         <p className="countdown-eyebrow">THE MOUNTAINS ARE CALLING</p>
         <div className="countdown-display" aria-label="114 days until the gates open">
           <span className="countdown-number">114</span>
+          <span className="countdown-label">DAYS</span>
         </div>
         <p className="countdown-support">DAYS UNTIL THE GATES OPEN</p>
       </div>

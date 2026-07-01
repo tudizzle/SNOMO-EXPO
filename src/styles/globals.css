@@ -427,7 +427,11 @@ h1 {
 }
 
 .countdown-display {
+  align-items: center;
+  display: grid;
   flex: 0 0 auto;
+  gap: 8px;
+  justify-items: center;
 }
 
 .countdown-number {
@@ -437,6 +441,15 @@ h1 {
   letter-spacing: 0;
   line-height: 0.82;
   text-shadow: 0 16px 42px rgba(4, 10, 18, 0.46);
+}
+
+.countdown-label {
+  color: var(--ember);
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .experience-section {
