@@ -2,6 +2,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 
+const whyAttendFeatures = [
+  {
+    title: "Latest Snowmobiles",
+    copy: "See new machines up close, compare details, and get a feel for what belongs in your trailer this winter.",
+    image: "/images/why-attend/latest-snowmobiles.jpg",
+    alt: "Latest Polaris snowmobiles on display at the Colorado Snomo Expo",
+  },
+  {
+    title: "New Products & Gear",
+    copy: "Explore parts, accessories, apparel, and mountain-ready equipment from brands built for winter.",
+    image: "/images/why-attend/new-products-gear.jpg",
+    alt: "Winter powersports products and gear displayed in an expo booth",
+  },
+  {
+    title: "The Rocky Mountain Swap Meet",
+    copy: "Find useful gear, hard-to-find parts, and season-starting equipment from across the regional riding community.",
+    image: "/images/why-attend/rocky-mountain-swap-meet.jpg",
+    alt: "Vendor table with winter riding packs, shovels, and backcountry gear",
+  },
+  {
+    title: "Meet the Community",
+    copy: "Talk with riders, dealers, makers, and local experts who understand winter in the Rocky Mountains.",
+    image: "/images/why-attend/meet-the-community.jpg",
+    alt: "Colorado Snomo Expo vendor booth with people greeting attendees",
+  },
+  {
+    title: "Family Friendly",
+    copy: "Bring the crew, walk the floor, and make the expo part of how your family gets ready for the season.",
+    image: "/images/why-attend/family-friendly.jpg",
+    alt: "Open expo display with a snowmobile, brand booth, and attendees",
+  },
+];
+
 export default function Home() {
   return (
     <main className="hero-shell">
@@ -99,6 +132,33 @@ export default function Home() {
               </div>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section className="why-attend-section" aria-labelledby="why-attend-title">
+        <div className="why-attend-intro">
+          <p className="why-attend-kicker">Why Attend</p>
+          <h2 id="why-attend-title">Everything You Need Before the Snow Flies</h2>
+        </div>
+
+        <div className="why-attend-rows">
+          {whyAttendFeatures.map((feature) => (
+            <article className="why-attend-row" key={feature.title}>
+              <div className="why-attend-media">
+                <Image
+                  className="why-attend-image"
+                  src={feature.image}
+                  alt={feature.alt}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                />
+              </div>
+              <div className="why-attend-copy">
+                <h3>{feature.title}</h3>
+                <p>{feature.copy}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </main>

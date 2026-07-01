@@ -485,6 +485,119 @@ h1 {
   color: var(--snow);
 }
 
+.why-attend-section {
+  background:
+    linear-gradient(180deg, #07101c 0%, #091521 48%, #07101c 100%),
+    var(--midnight);
+  padding: clamp(84px, 10vw, 140px) 0 clamp(92px, 12vw, 160px);
+}
+
+.why-attend-intro {
+  display: grid;
+  gap: 14px;
+  margin: 0 auto clamp(42px, 6vw, 78px);
+  max-width: 1480px;
+  padding-inline: clamp(22px, 5vw, 72px);
+}
+
+.why-attend-kicker {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.why-attend-intro h2 {
+  color: var(--snow);
+  font-size: clamp(2.8rem, 5.4vw, 5.8rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.94;
+  margin: 0;
+  max-width: 900px;
+  text-wrap: balance;
+}
+
+.why-attend-rows {
+  display: grid;
+  gap: clamp(46px, 7vw, 92px);
+}
+
+.why-attend-row {
+  align-items: center;
+  display: grid;
+  gap: clamp(28px, 4.5vw, 76px);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  min-height: clamp(520px, 58vw, 760px);
+  padding-inline: clamp(22px, 5vw, 72px);
+}
+
+.why-attend-row:nth-child(even) {
+  grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1.35fr);
+}
+
+.why-attend-row:nth-child(even) .why-attend-media {
+  order: 2;
+}
+
+.why-attend-row:nth-child(even) .why-attend-copy {
+  justify-self: end;
+  order: 1;
+}
+
+.why-attend-media {
+  align-self: stretch;
+  border-radius: 6px;
+  min-height: 440px;
+  overflow: hidden;
+  position: relative;
+}
+
+.why-attend-media::after {
+  background: rgba(4, 10, 18, 0.18);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.why-attend-image {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 700ms ease;
+  width: 100%;
+}
+
+.why-attend-row:hover .why-attend-image {
+  transform: scale(1.018);
+}
+
+.why-attend-copy {
+  max-width: 500px;
+}
+
+.why-attend-copy h3 {
+  color: var(--snow);
+  font-size: clamp(2.65rem, 4.8vw, 5.8rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.9;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.why-attend-copy p {
+  color: rgba(248, 251, 255, 0.74);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.55;
+  margin: clamp(18px, 2.3vw, 28px) 0 0;
+  max-width: 460px;
+}
+
 @keyframes snow-drift {
   from {
     transform: translate3d(0, -4vh, 0);
@@ -511,12 +624,14 @@ h1 {
   .menu-toggle,
   .menu-toggle span,
   .experience-card,
-  .experience-card-image {
+  .experience-card-image,
+  .why-attend-image {
     transition: none;
   }
 
   .experience-card:hover,
-  .experience-card:hover .experience-card-image {
+  .experience-card:hover .experience-card-image,
+  .why-attend-row:hover .why-attend-image {
     transform: none;
   }
 }
@@ -601,6 +716,24 @@ h1 {
     aspect-ratio: 0.82;
     min-height: 700px;
   }
+
+  .why-attend-row,
+  .why-attend-row:nth-child(even) {
+    gap: 28px;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .why-attend-row:nth-child(even) .why-attend-media,
+  .why-attend-row:nth-child(even) .why-attend-copy {
+    justify-self: stretch;
+    order: initial;
+  }
+
+  .why-attend-media {
+    aspect-ratio: 1.28;
+    min-height: 0;
+  }
 }
 
 @media (max-width: 760px) {
@@ -666,6 +799,19 @@ h1 {
 
   .experience-card-content .button {
     width: 100%;
+  }
+
+  .why-attend-section {
+    padding-bottom: 82px;
+    padding-top: 76px;
+  }
+
+  .why-attend-rows {
+    gap: 58px;
+  }
+
+  .why-attend-copy h3 {
+    font-size: clamp(2.7rem, 14vw, 4.8rem);
   }
 }
 
