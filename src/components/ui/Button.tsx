@@ -9,7 +9,7 @@ type SharedButtonProps = {
   variant?: ButtonVariant;
 };
 
-type ButtonProps = SharedButtonProps &
+type NativeButtonProps = SharedButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: never;
   };
@@ -20,18 +20,18 @@ type ButtonLinkProps = SharedButtonProps & {
   rel?: string;
 };
 
-export type DesignButtonProps = ButtonProps | ButtonLinkProps;
+export type ButtonProps = NativeButtonProps | ButtonLinkProps;
 
 function getButtonClassName(variant: ButtonVariant, className?: string) {
   return ["ui-button", `ui-button-${variant}`, className].filter(Boolean).join(" ");
 }
 
-export function DesignButton({
+export function Button({
   children,
   className,
   variant = "primary",
   ...props
-}: DesignButtonProps) {
+}: ButtonProps) {
   const buttonClassName = getButtonClassName(variant, className);
 
   if ("href" in props && props.href) {
@@ -51,10 +51,10 @@ export function DesignButton({
   );
 }
 
-export function PrimaryButton(props: Omit<DesignButtonProps, "variant">) {
-  return <DesignButton variant="primary" {...props} />;
+export function PrimaryButton(props: Omit<ButtonProps, "variant">) {
+  return <Button variant="primary" {...props} />;
 }
 
-export function SecondaryButton(props: Omit<DesignButtonProps, "variant">) {
-  return <DesignButton variant="secondary" {...props} />;
+export function SecondaryButton(props: Omit<ButtonProps, "variant">) {
+  return <Button variant="secondary" {...props} />;
 }
