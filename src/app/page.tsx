@@ -82,8 +82,8 @@ export default function Home() {
             <article className="experience-card">
               <Image
                 className="experience-card-image experience-card-image-vendor"
-                src="/images/expo/custom-sleds.jpg"
-                alt="Custom snowmobiles staged for Colorado winter powersports riders"
+                src="/images/experience/showcase-your-business-02.jpg"
+                alt="Vendor booth with winter powersports gear displays at the Colorado Snomo Expo"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
               />
