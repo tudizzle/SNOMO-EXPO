@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CountdownSection } from "@/components/countdown-section";
 import { SiteHeader } from "@/components/site-header";
 
 export default function Home() {
@@ -50,6 +51,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CountdownSection />
 
       <section className="experience-section" aria-labelledby="experience-title">
         <div className="experience-container">

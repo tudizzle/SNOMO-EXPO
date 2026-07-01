@@ -348,6 +348,110 @@ h1 {
   border-color: rgba(248, 251, 255, 0.58);
 }
 
+.countdown-section {
+  align-items: center;
+  background: #07101c;
+  display: flex;
+  height: clamp(180px, 16vw, 220px);
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0 clamp(22px, 5vw, 72px);
+  position: relative;
+}
+
+.countdown-section::before {
+  background: rgba(216, 167, 93, 0.72);
+  content: "";
+  height: 1px;
+  left: clamp(22px, 5vw, 72px);
+  opacity: 0.56;
+  position: absolute;
+  top: 50%;
+  width: clamp(46px, 5vw, 76px);
+  z-index: 2;
+}
+
+.countdown-mountains {
+  bottom: 0;
+  fill: #1b2a3c;
+  height: 86%;
+  left: 0;
+  opacity: 0.9;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.countdown-snow {
+  animation: countdown-snow-drift 42s linear infinite;
+  background-image:
+    radial-gradient(circle, rgba(248, 251, 255, 0.16) 0 0.8px, transparent 1.2px),
+    radial-gradient(circle, rgba(248, 251, 255, 0.08) 0 0.8px, transparent 1.2px);
+  background-position: 0 0, 86px 42px;
+  background-size: 170px 170px, 250px 250px;
+  inset: -24px;
+  opacity: 0.13;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.countdown-inner {
+  align-items: center;
+  display: flex;
+  gap: clamp(18px, 4vw, 54px);
+  justify-content: center;
+  margin-inline: auto;
+  max-width: 1180px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.countdown-eyebrow,
+.countdown-support {
+  color: rgba(248, 251, 255, 0.62);
+  flex: 1;
+  font-size: clamp(0.68rem, 0.82vw, 0.78rem);
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 280px;
+  text-transform: uppercase;
+}
+
+.countdown-eyebrow {
+  text-align: right;
+}
+
+.countdown-display {
+  align-items: center;
+  display: grid;
+  flex: 0 0 auto;
+  gap: 8px;
+  justify-items: center;
+}
+
+.countdown-number {
+  color: var(--snow);
+  font-size: clamp(4.6rem, 8.8vw, 7.4rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.82;
+  text-shadow: 0 16px 42px rgba(4, 10, 18, 0.46);
+}
+
+.countdown-label {
+  color: var(--ember);
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 .experience-section {
   background:
     linear-gradient(180deg, rgba(7, 16, 28, 0.98), #07101c 12%),
@@ -495,12 +599,26 @@ h1 {
   }
 }
 
+@keyframes countdown-snow-drift {
+  from {
+    transform: translate3d(0, -8px, 0);
+  }
+
+  to {
+    transform: translate3d(-26px, 10px, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .hero-snow {
+    animation: none;
+  }
+
+  .countdown-snow {
     animation: none;
   }
 
@@ -666,6 +784,32 @@ h1 {
 
   .experience-card-content .button {
     width: 100%;
+  }
+
+  .countdown-display {
+    order: -1;
+  }
+
+  .countdown-number {
+    font-size: clamp(4.8rem, 24vw, 7rem);
+  }
+
+  .countdown-inner {
+    gap: 10px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+
+  .countdown-display {
+    grid-column: 1 / -1;
+  }
+
+  .countdown-eyebrow,
+  .countdown-support {
+    font-size: 0.62rem;
+    max-width: 160px;
+    text-align: center;
   }
 }
 
