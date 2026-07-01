@@ -62,18 +62,18 @@ export default function Home() {
             <article className="experience-card">
               <Image
                 className="experience-card-image"
-                src="/images/hero/colorado-snomo-hero.jpg"
-                alt="Snowmobiler riding through fresh Colorado powder"
+                src="/images/gallery/diz-tetons.jpg"
+                alt="Snowmobiler at a snowy overlook with the Tetons in the distance"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
               />
               <div className="experience-card-content">
                 <h3>Coming to the Show?</h3>
                 <p>
-                  Plan your visit, discover exhibitors, explore the schedule and
-                  experience everything the Colorado Snomo Expo has to offer.
+                  Plan your visit, discover exhibitors, explore the schedule,
+                  and experience everything the Colorado Snomo Expo has to offer.
                 </p>
-                <Link className="button button-primary" href="/plan-your-visit">
+                <Link className="button button-secondary" href="/plan-your-visit">
                   Start Planning
                 </Link>
               </div>
@@ -82,8 +82,8 @@ export default function Home() {
             <article className="experience-card">
               <Image
                 className="experience-card-image experience-card-image-vendor"
-                src="/images/expo/vendor-showcase.jpg"
-                alt="Premium snowmobile on display for Colorado winter powersports riders"
+                src="/images/expo/custom-sleds.jpg"
+                alt="Custom snowmobiles staged for Colorado winter powersports riders"
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
               />
