@@ -85,6 +85,9 @@ export function SiteHeader() {
             {item.label}
           </Link>
         ))}
+      </nav>
+
+      <div className="site-header-actions">
         <Link
           className="vendor-link"
           href="/vendors"
@@ -92,7 +95,7 @@ export function SiteHeader() {
         >
           Become a Vendor
         </Link>
-      </nav>
+      </div>
     </header>
   );
 }
