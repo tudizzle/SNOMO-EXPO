@@ -115,14 +115,17 @@ button {
   color: rgba(248, 251, 255, 0.82);
 }
 
-.site-brand-mark {
+.site-brand-logo {
   display: block;
-  fill: none;
-  height: 31px;
-  stroke: currentColor;
-  stroke-linejoin: round;
-  stroke-width: 2.2;
-  width: 46px;
+  height: 50px;
+  object-fit: contain;
+  transition: height 250ms ease;
+  width: auto;
+}
+
+.site-header-scrolled .site-brand-logo,
+.site-header-open .site-brand-logo {
+  height: 45px;
 }
 
 .site-navigation {
@@ -617,9 +620,13 @@ h1 {
     letter-spacing: 0.13em;
   }
 
-  .site-brand-mark {
-    height: 27px;
-    width: 40px;
+  .site-brand-logo {
+    height: 42px;
+  }
+
+  .site-header-scrolled .site-brand-logo,
+  .site-header-open .site-brand-logo {
+    height: 38px;
   }
 
   .hero-content {
@@ -694,8 +701,13 @@ h1 {
     grid-template-columns: 1fr auto auto;
   }
 
-  .site-brand span {
-    display: none;
+  .site-brand-logo {
+    height: 38px;
+  }
+
+  .site-header-scrolled .site-brand-logo,
+  .site-header-open .site-brand-logo {
+    height: 34px;
   }
 
   .vendor-link {
