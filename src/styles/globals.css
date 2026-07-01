@@ -529,13 +529,13 @@ h1 {
   align-items: center;
   display: grid;
   gap: clamp(28px, 4.5vw, 76px);
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  min-height: clamp(520px, 58vw, 760px);
+  grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+  min-height: clamp(520px, 56vw, 760px);
   padding-inline: clamp(22px, 5vw, 72px);
 }
 
 .why-attend-row:nth-child(even) {
-  grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1.35fr);
+  grid-template-columns: minmax(280px, 2fr) minmax(0, 3fr);
 }
 
 .why-attend-row:nth-child(even) .why-attend-media {
@@ -549,7 +549,6 @@ h1 {
 
 .why-attend-media {
   align-self: stretch;
-  border-radius: 6px;
   min-height: 440px;
   overflow: hidden;
   position: relative;
@@ -577,7 +576,7 @@ h1 {
 }
 
 .why-attend-copy {
-  max-width: 500px;
+  max-width: 560px;
 }
 
 .why-attend-copy h3 {
@@ -595,7 +594,7 @@ h1 {
   font-size: clamp(1rem, 1.35vw, 1.18rem);
   line-height: 1.55;
   margin: clamp(18px, 2.3vw, 28px) 0 0;
-  max-width: 460px;
+  max-width: 520px;
 }
 
 @keyframes snow-drift {

@@ -4,34 +4,28 @@ import { SiteHeader } from "@/components/site-header";
 
 const whyAttendFeatures = [
   {
-    title: "Latest Snowmobiles",
-    copy: "See new machines up close, compare details, and get a feel for what belongs in your trailer this winter.",
+    title: "See the Latest Snowmobiles",
+    copy: "Be among the first to experience the newest mountain, crossover and trail snowmobiles from Polaris, Arctic Cat and Ski-Doo.",
     image: "/images/why-attend/latest-snowmobiles.jpg",
     alt: "Latest Polaris snowmobiles on display at the Colorado Snomo Expo",
   },
   {
-    title: "New Products & Gear",
-    copy: "Explore parts, accessories, apparel, and mountain-ready equipment from brands built for winter.",
+    title: "Performance • Gear • Accessories",
+    copy: "Discover the latest aftermarket performance products, riding gear, helmets, apparel and winter accessories from the industry's leading brands.",
     image: "/images/why-attend/new-products-gear.jpg",
     alt: "Winter powersports products and gear displayed in an expo booth",
   },
   {
-    title: "The Rocky Mountain Swap Meet",
-    copy: "Find useful gear, hard-to-find parts, and season-starting equipment from across the regional riding community.",
-    image: "/images/why-attend/rocky-mountain-swap-meet.jpg",
-    alt: "Vendor table with winter riding packs, shovels, and backcountry gear",
-  },
-  {
-    title: "Meet the Community",
-    copy: "Talk with riders, dealers, makers, and local experts who understand winter in the Rocky Mountains.",
+    title: "Learn • Connect • Ride",
+    copy: "Attend informative seminars, connect with snowmobile clubs, meet fellow riders and kick off another unforgettable riding season.",
     image: "/images/why-attend/meet-the-community.jpg",
     alt: "Colorado Snomo Expo vendor booth with people greeting attendees",
   },
   {
-    title: "Family Friendly",
-    copy: "Bring the crew, walk the floor, and make the expo part of how your family gets ready for the season.",
-    image: "/images/why-attend/family-friendly.jpg",
-    alt: "Open expo display with a snowmobile, brand booth, and attendees",
+    title: "Swap • Win • Explore",
+    copy: "Browse the Rocky Mountain Swap Meet, discover rare parts, and enter to win exciting prizes and giveaways throughout the weekend.",
+    image: "/images/why-attend/rocky-mountain-swap-meet.jpg",
+    alt: "Vendor table with winter riding packs, shovels, and backcountry gear",
   },
 ];
 
