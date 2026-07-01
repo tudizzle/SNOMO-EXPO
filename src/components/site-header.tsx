@@ -1,15 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigationItems = [
+  { href: "/the-expo", label: "The Expo" },
   { href: "/exhibitors", label: "Exhibitors" },
   { href: "/schedule", label: "Schedule" },
   { href: "/floorplan", label: "Floorplan" },
   { href: "/swap-meet", label: "Swap Meet" },
   { href: "/plan-your-visit", label: "Plan Your Visit" },
-  { href: "/sponsor", label: "Sponsor" },
+  { href: "/sponsor", label: "Sponsors" },
 ];
 
 export function SiteHeader() {
@@ -51,16 +53,14 @@ export function SiteHeader() {
         aria-label="Colorado Snomo Expo home"
         onClick={() => setIsMenuOpen(false)}
       >
-        <svg
-          className="site-brand-mark"
-          viewBox="0 0 48 32"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path d="M3 28L16.5 7.5L26 20L32 12L45 28H3Z" />
-          <path d="M16.5 7.5L21 17L26 20" />
-        </svg>
-        <span>Colorado Snomo Expo</span>
+        <Image
+          className="site-brand-logo"
+          src="/images/logos/colorado-snomo-expo-primary.png"
+          alt="Colorado Snomo Expo"
+          width={157}
+          height={64}
+          priority
+        />
       </Link>
 
       <button
