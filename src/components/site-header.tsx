@@ -5,12 +5,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigationItems = [
+  { href: "/the-expo", label: "The Expo" },
   { href: "/exhibitors", label: "Exhibitors" },
   { href: "/schedule", label: "Schedule" },
   { href: "/floorplan", label: "Floorplan" },
   { href: "/swap-meet", label: "Swap Meet" },
   { href: "/plan-your-visit", label: "Plan Your Visit" },
-  { href: "/sponsor", label: "Sponsor" },
+  { href: "/sponsor", label: "Sponsors" },
 ];
 
 export function SiteHeader() {
@@ -56,8 +57,8 @@ export function SiteHeader() {
           className="site-brand-logo"
           src="/images/logos/colorado-snomo-expo-primary.png"
           alt="Colorado Snomo Expo"
-          width={122}
-          height={50}
+          width={157}
+          height={64}
           priority
         />
       </Link>
