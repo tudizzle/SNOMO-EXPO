@@ -348,6 +348,87 @@ h1 {
   border-color: rgba(248, 251, 255, 0.58);
 }
 
+.countdown-section {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(216, 167, 93, 0.11), rgba(216, 167, 93, 0) 42%),
+    linear-gradient(180deg, #050b13 0%, #07101c 58%, #081421 100%);
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(58px, 7vw, 92px) clamp(22px, 5vw, 72px);
+  position: relative;
+}
+
+.countdown-section::before {
+  background: linear-gradient(90deg, rgba(184, 58, 47, 0), rgba(216, 167, 93, 0.72), rgba(184, 58, 47, 0));
+  content: "";
+  height: 1px;
+  left: 50%;
+  max-width: 420px;
+  opacity: 0.72;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 42vw;
+}
+
+.countdown-snow {
+  animation: snow-drift 34s linear infinite;
+  background-image:
+    radial-gradient(circle, rgba(248, 251, 255, 0.18) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(248, 251, 255, 0.1) 0 1px, transparent 1.5px);
+  background-position: 0 0, 92px 54px;
+  background-size: 180px 180px, 260px 260px;
+  inset: -18%;
+  opacity: 0.16;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.countdown-inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(18px, 2.6vw, 30px);
+  justify-items: center;
+  margin-inline: auto;
+  max-width: 980px;
+  text-align: center;
+}
+
+.countdown-eyebrow,
+.countdown-support {
+  color: rgba(248, 251, 255, 0.68);
+  font-size: clamp(0.72rem, 1vw, 0.84rem);
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.countdown-display {
+  align-items: baseline;
+  display: flex;
+  gap: clamp(14px, 2vw, 24px);
+  justify-content: center;
+}
+
+.countdown-number {
+  color: var(--snow);
+  font-size: clamp(6.6rem, 18vw, 16rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.78;
+  text-shadow: 0 28px 80px rgba(4, 10, 18, 0.48);
+}
+
+.countdown-label {
+  color: var(--ember);
+  font-size: clamp(1rem, 2.2vw, 2rem);
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .experience-section {
   background:
     linear-gradient(180deg, rgba(7, 16, 28, 0.98), #07101c 12%),
@@ -501,6 +582,10 @@ h1 {
   }
 
   .hero-snow {
+    animation: none;
+  }
+
+  .countdown-snow {
     animation: none;
   }
 
@@ -666,6 +751,16 @@ h1 {
 
   .experience-card-content .button {
     width: 100%;
+  }
+
+  .countdown-display {
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .countdown-number {
+    font-size: clamp(6rem, 30vw, 10rem);
   }
 }
 
