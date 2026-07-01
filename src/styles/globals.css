@@ -81,10 +81,12 @@ button {
     rgba(7, 16, 28, 0);
   background-repeat: no-repeat;
   background-size: 100% 96px;
+  box-sizing: border-box;
   display: grid;
-  gap: clamp(18px, 3vw, 42px);
-  grid-template-columns: minmax(210px, 1fr) auto minmax(210px, 1fr);
+  gap: clamp(16px, 2vw, 34px);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   left: 0;
+  max-width: 100vw;
   padding: 30px clamp(22px, 5vw, 72px);
   position: fixed;
   right: 0;
@@ -111,6 +113,7 @@ button {
   font-weight: 800;
   letter-spacing: 0.16em;
   min-height: 44px;
+  min-width: 0;
   justify-self: start;
   text-transform: uppercase;
   transition: color 180ms ease;
@@ -139,6 +142,7 @@ button {
   gap: clamp(28px, 3.3vw, 52px);
   justify-content: center;
   justify-self: center;
+  min-width: 0;
 }
 
 .site-navigation a {
@@ -152,6 +156,7 @@ button {
   min-height: 44px;
   text-transform: uppercase;
   transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  white-space: nowrap;
 }
 
 .site-navigation a:hover {
@@ -163,6 +168,7 @@ button {
   display: flex;
   justify-content: flex-end;
   justify-self: end;
+  min-width: max-content;
 }
 
 .vendor-link {
@@ -647,13 +653,46 @@ h1 {
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1440px) {
   .site-header {
-    grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
+    gap: clamp(14px, 1.6vw, 28px);
+    padding-left: clamp(22px, 3.4vw, 48px);
+    padding-right: clamp(22px, 3.4vw, 48px);
   }
 
   .site-navigation {
-    gap: 24px;
+    gap: clamp(22px, 2.2vw, 34px);
+  }
+
+  .site-navigation a {
+    font-size: clamp(0.88rem, 0.9vw, 0.98rem);
+    letter-spacing: 0.07em;
+  }
+}
+
+@media (max-width: 1280px) {
+  .site-navigation {
+    gap: 22px;
+  }
+
+  .site-navigation a {
+    font-size: 0.82rem;
+  }
+
+  .site-navigation a:nth-child(4),
+  .site-navigation a:nth-child(5),
+  .site-navigation a:nth-child(7) {
+    display: none;
+  }
+}
+
+@media (max-width: 1180px) {
+  .site-header {
+    gap: 20px;
+  }
+
+  .site-navigation {
+    gap: 20px;
   }
 
   .site-navigation a {
@@ -667,7 +706,7 @@ h1 {
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1080px) {
   .site-header {
     gap: 14px;
     grid-template-columns: 1fr auto auto;
@@ -706,6 +745,7 @@ h1 {
 
   .site-navigation a {
     border-bottom: 1px solid rgba(248, 251, 255, 0.08);
+    display: inline-flex;
     justify-content: flex-start;
     min-height: 54px;
   }
@@ -718,7 +758,9 @@ h1 {
     min-height: 44px;
     padding: 0 16px;
   }
+}
 
+@media (max-width: 920px) {
   .experience-grid {
     grid-template-columns: 1fr;
   }
