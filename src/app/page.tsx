@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
 
 export default function Home() {
   return (
     <main className="hero-shell">
+      <SiteHeader />
       <section className="hero" aria-label="Colorado Snomo Expo hero">
         <Image
           className="hero-image"
@@ -15,15 +17,6 @@ export default function Home() {
           sizes="100vw"
         />
         <div className="hero-snow" aria-hidden="true" />
-        <nav className="hero-nav" aria-label="Primary navigation">
-          <Link className="brand" href="/">
-            Colorado Snomo Expo
-          </Link>
-          <div className="nav-links" aria-label="Event links">
-            <Link href="/plan-your-visit">Plan Your Visit</Link>
-            <Link href="/vendors">Vendors</Link>
-          </div>
-        </nav>
 
         <div className="hero-content">
           <p className="hero-kicker">Colorado Snomo Expo</p>
