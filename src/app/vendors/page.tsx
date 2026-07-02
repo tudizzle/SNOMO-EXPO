@@ -10,8 +10,7 @@ const whyExhibitPoints = [
 
 export const metadata = {
   title: "Become a Vendor | Colorado Snomo Expo",
-  description:
-    "Showcase your business at the Rocky Mountain Region's premier winter powersports event.",
+  description: "Vendor registration for Colorado Snomo Expo.",
 };
 
 export default function VendorsPage() {
@@ -19,27 +18,9 @@ export default function VendorsPage() {
     <main className="vendors-page">
       <SiteHeader />
 
-      <section className="vendors-page-header" aria-labelledby="vendors-title">
-        <p className="vendors-kicker">Colorado Snomo Expo</p>
-        <h1 id="vendors-title">Become a Vendor</h1>
-        <p>
-          Showcase your business at the Rocky Mountain Region&apos;s premier
-          winter powersports event.
-        </p>
-      </section>
-
-      <section className="vendors-introduction" aria-label="Vendor introduction">
-        <p>
-          Colorado Snomo Expo brings together snowmobile riders, families,
-          clubs, dealers, manufacturers and winter powersports enthusiasts from
-          across the Rocky Mountain Region.
-        </p>
-      </section>
-
       <section className="vendors-registration" aria-labelledby="vendor-registration-title">
         <div>
-          <p className="vendors-kicker">Registration</p>
-          <h2 id="vendor-registration-title">Ready to Become a Vendor?</h2>
+          <h1 id="vendor-registration-title">Ready to Become a Vendor?</h1>
           <p>
             Vendor registration is handled through our official Colorado Snomo
             Expo registration form.
@@ -67,12 +48,6 @@ export default function VendorsPage() {
             <p key={point}>{point}</p>
           ))}
         </div>
-
-        <p className="vendors-section-note">
-          Vendor space is designed for dealers, manufacturers, product displays,
-          apparel, accessories, performance parts, clubs and winter powersports
-          organizations.
-        </p>
       </section>
     </main>
   );
