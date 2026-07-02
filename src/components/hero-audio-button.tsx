@@ -5,10 +5,16 @@ import { useRef } from "react";
 export function HeroAudioButton() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const playAudio = async () => {
+  const toggleAudio = async () => {
     const audio = audioRef.current;
 
     if (!audio) {
+      return;
+    }
+
+    if (!audio.paused) {
+      audio.pause();
+      audio.currentTime = 0;
       return;
     }
 
@@ -27,7 +33,7 @@ export function HeroAudioButton() {
       <button
         aria-label="Play snowmobile audio"
         className="hero-audio-button"
-        onClick={playAudio}
+        onClick={toggleAudio}
         type="button"
       >
         Press for Joy
