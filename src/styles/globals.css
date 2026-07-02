@@ -618,6 +618,171 @@ h1 {
   border-color: #c74639;
 }
 
+.exhibitors-page {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(120, 144, 167, 0.14), transparent 34rem),
+    linear-gradient(180deg, #07101c 0%, #091522 48%, #07101c 100%);
+  color: var(--snow);
+  min-height: 100svh;
+  padding: clamp(144px, 16vw, 188px) clamp(22px, 5vw, 72px) clamp(72px, 9vw, 124px);
+}
+
+.exhibitors-page-header,
+.exhibitors-notice,
+.exhibitors-directory,
+.exhibitors-bottom-cta {
+  margin-inline: auto;
+  max-width: 1180px;
+}
+
+.exhibitors-page-header {
+  display: grid;
+  gap: 22px;
+  margin-bottom: clamp(34px, 5vw, 64px);
+}
+
+.exhibitors-kicker {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.exhibitors-page-header h1 {
+  font-size: clamp(4.2rem, 9vw, 9rem);
+  line-height: 0.9;
+  max-width: 780px;
+}
+
+.exhibitors-page-header p:not(.exhibitors-kicker) {
+  color: rgba(248, 251, 255, 0.72);
+  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 740px;
+}
+
+.exhibitors-notice {
+  background: rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.13);
+  display: grid;
+  gap: clamp(22px, 4vw, 52px);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  margin-bottom: clamp(54px, 7vw, 88px);
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.exhibitors-notice h2 {
+  color: var(--snow);
+  font-size: clamp(1.7rem, 3.2vw, 3rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.exhibitors-notice p {
+  color: rgba(248, 251, 255, 0.72);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.58;
+  margin: 0;
+}
+
+.exhibitors-notice p + p {
+  margin-top: 14px;
+}
+
+.exhibitors-directory-header {
+  align-items: end;
+  border-bottom: 1px solid rgba(248, 251, 255, 0.18);
+  display: flex;
+  gap: 22px;
+  justify-content: space-between;
+  padding-bottom: 22px;
+}
+
+.exhibitors-directory-header h2 {
+  color: var(--snow);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 10px 0 0;
+}
+
+.exhibitors-directory-header > p {
+  color: rgba(200, 215, 229, 0.64);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.exhibitors-list {
+  display: grid;
+}
+
+.exhibitors-list-row {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
+  color: rgba(248, 251, 255, 0.86);
+  display: grid;
+  gap: clamp(18px, 3vw, 44px);
+  grid-template-columns: minmax(54px, 0.18fr) minmax(0, 1fr);
+  padding: 17px 0;
+}
+
+.exhibitors-list-heading {
+  color: rgba(200, 215, 229, 0.58);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+
+.exhibitor-booth {
+  color: rgba(248, 251, 255, 0.58);
+  font-weight: 800;
+}
+
+.exhibitors-bottom-cta {
+  align-items: center;
+  border-top: 1px solid rgba(248, 251, 255, 0.16);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: clamp(54px, 7vw, 88px);
+  padding-top: clamp(28px, 4vw, 42px);
+}
+
+.exhibitors-bottom-cta p {
+  color: var(--snow);
+  font-size: clamp(1.35rem, 2.6vw, 2.6rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+  max-width: 700px;
+  text-wrap: balance;
+}
+
+.exhibitors-bottom-cta .button-primary {
+  background: #b83a2f;
+  border-color: #b83a2f;
+  color: var(--snow);
+  flex: 0 0 auto;
+}
+
+.exhibitors-bottom-cta .button-primary:hover {
+  background: #c74639;
+  border-color: #c74639;
+}
+
 .experience-card-content .button-secondary {
   background: rgba(248, 251, 255, 0.04);
   border-color: rgba(248, 251, 255, 0.68);
@@ -845,6 +1010,32 @@ h1 {
     max-width: 160px;
     text-align: center;
   }
+
+  .exhibitors-page {
+    padding-top: 122px;
+  }
+
+  .exhibitors-notice {
+    grid-template-columns: 1fr;
+  }
+
+  .exhibitors-directory-header,
+  .exhibitors-bottom-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .exhibitors-directory-header > p {
+    white-space: normal;
+  }
+
+  .exhibitors-list-row {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .exhibitors-bottom-cta .button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
@@ -863,6 +1054,15 @@ h1 {
 
   .experience-card-content h3 {
     font-size: clamp(3.2rem, 17vw, 5.4rem);
+  }
+
+  .exhibitors-page-header h1 {
+    font-size: clamp(4rem, 20vw, 6.2rem);
+  }
+
+  .exhibitors-list-row {
+    font-size: 0.94rem;
+    gap: 16px;
   }
 }
 
