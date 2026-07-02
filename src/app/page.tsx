@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CountdownSection } from "@/components/countdown-section";
+import { HeroAudioButton } from "@/components/hero-audio-button";
 import { SiteHeader } from "@/components/site-header";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
           sizes="100vw"
         />
         <div className="hero-snow" aria-hidden="true" />
+        <HeroAudioButton />
 
         <div className="hero-content">
           <p className="hero-kicker">Colorado Snomo Expo</p>

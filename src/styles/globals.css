@@ -74,6 +74,45 @@ button {
   z-index: -1;
 }
 
+.hero-audio {
+  position: absolute;
+  right: clamp(24px, 6vw, 88px);
+  top: clamp(132px, 15vh, 176px);
+  z-index: 2;
+}
+
+.hero-audio-button {
+  align-items: center;
+  aspect-ratio: 1;
+  background: rgba(4, 10, 18, 0.42);
+  border: 1px solid rgba(248, 251, 255, 0.28);
+  border-radius: 999px;
+  color: var(--snow);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: clamp(0.72rem, 0.95vw, 0.86rem);
+  font-weight: 850;
+  justify-content: center;
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  padding: 0 18px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  width: clamp(104px, 8.5vw, 132px);
+}
+
+.hero-audio-button:hover {
+  background: rgba(4, 10, 18, 0.58);
+  border-color: rgba(248, 251, 255, 0.42);
+  transform: translateY(-2px);
+}
+
+.hero-audio-button:focus-visible {
+  outline: 2px solid rgba(248, 251, 255, 0.86);
+  outline-offset: 5px;
+}
+
 .site-header {
   align-items: center;
   background:
@@ -2229,12 +2268,14 @@ h1 {
   .vendor-link,
   .menu-toggle,
   .menu-toggle span,
+  .hero-audio-button,
   .experience-card,
   .experience-card-image,
   .visit-action {
     transition: none;
   }
 
+  .hero-audio-button:hover,
   .experience-card:hover,
   .experience-card:hover .experience-card-image,
   .visit-action:hover {
@@ -2349,6 +2390,17 @@ h1 {
   .hero-content::before {
     background: linear-gradient(90deg, rgba(4, 10, 18, 0.66) 0%, rgba(4, 10, 18, 0.38) 46%, rgba(4, 10, 18, 0.08) 82%, rgba(4, 10, 18, 0) 100%);
     inset: 86px -36px 18px -36px;
+  }
+
+  .hero-audio {
+    right: 20px;
+    top: 104px;
+  }
+
+  .hero-audio-button {
+    font-size: 0.62rem;
+    padding: 0 12px;
+    width: 88px;
   }
 
   h1 {
@@ -2687,6 +2739,17 @@ h1 {
 
   .site-header-compact .menu-toggle {
     grid-column: 2;
+  }
+
+  .hero-audio {
+    right: 16px;
+    top: 92px;
+  }
+
+  .hero-audio-button {
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+    width: 76px;
   }
 }
 
