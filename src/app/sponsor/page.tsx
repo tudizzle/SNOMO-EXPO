@@ -106,7 +106,7 @@ export default function SponsorPage() {
             Colorado Snomo Expo experience.
           </p>
         </div>
-        <Link className="button button-primary" href="/contact">
+        <Link className="button button-primary" href="/sponsor-inquiry">
           Contact the Event Host
         </Link>
       </section>
