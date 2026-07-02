@@ -1156,6 +1156,250 @@ h1 {
   color: rgba(255, 186, 176, 0.95);
 }
 
+.schedule-page {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(120, 144, 167, 0.14), transparent 34rem),
+    linear-gradient(180deg, #07101c 0%, #091522 48%, #07101c 100%);
+  color: var(--snow);
+  min-height: 100svh;
+  padding: clamp(144px, 16vw, 188px) clamp(22px, 5vw, 72px) clamp(72px, 9vw, 124px);
+}
+
+.schedule-page-header,
+.schedule-hours,
+.schedule-feature,
+.schedule-bottom-cta {
+  margin-inline: auto;
+  max-width: 1180px;
+}
+
+.schedule-page-header {
+  display: grid;
+  gap: 22px;
+  margin-bottom: clamp(54px, 7vw, 88px);
+}
+
+.schedule-kicker {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.schedule-page-header h1 {
+  font-size: clamp(4.2rem, 9vw, 9rem);
+  line-height: 0.9;
+  max-width: 780px;
+}
+
+.schedule-page-header p:not(.schedule-kicker) {
+  color: rgba(248, 251, 255, 0.72);
+  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 780px;
+}
+
+.schedule-hours,
+.schedule-feature,
+.schedule-bottom-cta {
+  display: grid;
+  gap: clamp(24px, 4vw, 44px);
+}
+
+.schedule-section-heading {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.18);
+  padding-bottom: 22px;
+}
+
+.schedule-section-heading h2 {
+  color: var(--snow);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 10px 0 0;
+}
+
+.schedule-hours-list {
+  display: grid;
+}
+
+.schedule-hours-row {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
+  display: grid;
+  gap: clamp(18px, 4vw, 64px);
+  grid-template-columns: minmax(220px, 0.4fr) minmax(0, 1fr);
+  padding: 26px 0;
+}
+
+.schedule-hours-row p,
+.schedule-hours-row span {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.schedule-hours-row h3,
+.schedule-hours-row strong {
+  color: var(--snow);
+  display: block;
+  font-size: clamp(1.45rem, 2.8vw, 3rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.schedule-feature {
+  align-items: stretch;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  margin-top: clamp(64px, 8vw, 104px);
+}
+
+.schedule-feature-visual {
+  background:
+    linear-gradient(135deg, rgba(248, 251, 255, 0.1), rgba(248, 251, 255, 0.02)),
+    rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.13);
+  display: grid;
+  min-height: 520px;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 44px);
+  position: relative;
+}
+
+.schedule-feature-visual::before {
+  background:
+    linear-gradient(90deg, rgba(216, 167, 93, 0.54), transparent 42%),
+    linear-gradient(180deg, rgba(248, 251, 255, 0.08), transparent 38%);
+  content: "";
+  inset: 0;
+  opacity: 0.58;
+  position: absolute;
+}
+
+.schedule-feature-visual::after {
+  background:
+    linear-gradient(90deg, rgba(248, 251, 255, 0.22) 0 1px, transparent 1px),
+    linear-gradient(180deg, rgba(248, 251, 255, 0.14) 0 1px, transparent 1px);
+  background-size: 72px 72px;
+  content: "";
+  inset: 0;
+  opacity: 0.16;
+  position: absolute;
+}
+
+.schedule-feature-visual div {
+  align-self: end;
+  display: grid;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.schedule-feature-visual span {
+  color: rgba(248, 251, 255, 0.58);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.schedule-feature-visual strong {
+  color: var(--snow);
+  font-size: clamp(3rem, 5.2vw, 5.6rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.92;
+  max-width: 440px;
+}
+
+.schedule-feature-content {
+  background: rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.13);
+  display: grid;
+  gap: 22px;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.schedule-feature-content h2 {
+  color: var(--snow);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.schedule-feature-content p,
+.schedule-topic-list li {
+  color: rgba(248, 251, 255, 0.76);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.58;
+  margin: 0;
+}
+
+.schedule-topic-list {
+  display: grid;
+  gap: 16px;
+}
+
+.schedule-topic-list p {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.schedule-topic-list ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.schedule-topic-list li {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.schedule-bottom-cta {
+  align-items: center;
+  border-top: 1px solid rgba(248, 251, 255, 0.16);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-top: clamp(64px, 8vw, 104px);
+  padding-top: clamp(28px, 4vw, 42px);
+}
+
+.schedule-bottom-cta p {
+  color: var(--snow);
+  font-size: clamp(1.35rem, 2.6vw, 2.6rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+  max-width: 780px;
+  text-wrap: balance;
+}
+
+.schedule-bottom-cta .button-primary {
+  background: #b83a2f;
+  border-color: #b83a2f;
+  color: var(--snow);
+  flex: 0 0 auto;
+}
+
 .experience-card-content .button-secondary {
   background: rgba(248, 251, 255, 0.04);
   border-color: rgba(248, 251, 255, 0.68);
@@ -1452,6 +1696,28 @@ h1 {
   .swap-meet-form .button {
     width: 100%;
   }
+
+  .schedule-page {
+    padding-top: 122px;
+  }
+
+  .schedule-hours-row,
+  .schedule-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-feature-visual {
+    min-height: 420px;
+  }
+
+  .schedule-bottom-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .schedule-bottom-cta .button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1495,6 +1761,18 @@ h1 {
 
   .swap-meet-price-row {
     gap: 10px;
+  }
+
+  .schedule-page-header h1 {
+    font-size: clamp(4rem, 20vw, 6.2rem);
+  }
+
+  .schedule-feature-visual {
+    min-height: 360px;
+  }
+
+  .schedule-feature-visual strong {
+    font-size: clamp(2.8rem, 16vw, 4.8rem);
   }
 }
 
