@@ -679,22 +679,6 @@ h1 {
   }
 }
 
-@media (max-width: 1280px) {
-  .site-navigation {
-    gap: 22px;
-  }
-
-  .site-navigation a {
-    font-size: 0.82rem;
-  }
-
-  .site-navigation a:nth-child(4),
-  .site-navigation a:nth-child(5),
-  .site-navigation a:nth-child(7) {
-    display: none;
-  }
-}
-
 @media (max-width: 1180px) {
   .site-header {
     gap: 20px;
@@ -715,7 +699,7 @@ h1 {
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1279px) {
   .site-header {
     gap: 14px;
     grid-template-columns: 1fr auto auto;
