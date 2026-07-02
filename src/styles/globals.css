@@ -125,7 +125,8 @@ button {
 
 .site-brand-logo {
   display: block;
-  height: 64px;
+  height: 70px;
+  max-width: 100%;
   object-fit: contain;
   transition: height 250ms ease;
   width: auto;
@@ -133,23 +134,25 @@ button {
 
 .site-header-scrolled .site-brand-logo,
 .site-header-open .site-brand-logo {
-  height: 56px;
+  height: 62px;
 }
 
-.site-navigation {
+.site-navigation,
+.site-navigation-measure {
   align-items: center;
   display: flex;
-  gap: clamp(28px, 3.3vw, 52px);
+  gap: clamp(28px, 2.4vw, 42px);
   justify-content: center;
   justify-self: center;
   min-width: 0;
 }
 
-.site-navigation a {
+.site-navigation a,
+.site-navigation-measure span {
   align-items: center;
   color: rgba(248, 251, 255, 0.76);
   display: inline-flex;
-  font-size: clamp(0.95rem, 0.96vw, 1.06rem);
+  font-size: 1rem;
   font-weight: 600;
   justify-content: center;
   letter-spacing: 0.08em;
@@ -161,6 +164,15 @@ button {
 
 .site-navigation a:hover {
   color: var(--snow);
+}
+
+.site-navigation-measure {
+  left: -100vw;
+  pointer-events: none;
+  position: fixed;
+  top: -100vh;
+  visibility: hidden;
+  white-space: nowrap;
 }
 
 .site-header-actions {
@@ -669,88 +681,62 @@ h1 {
     padding-right: clamp(22px, 3.4vw, 48px);
   }
 
-  .site-navigation {
+  .site-navigation,
+  .site-navigation-measure {
     gap: clamp(22px, 2.2vw, 34px);
   }
-
-  .site-navigation a {
-    font-size: clamp(0.88rem, 0.9vw, 0.98rem);
-    letter-spacing: 0.07em;
-  }
 }
 
-@media (max-width: 1180px) {
-  .site-header {
-    gap: 20px;
-  }
-
-  .site-navigation {
-    gap: 20px;
-  }
-
-  .site-navigation a {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-  }
-
-  .vendor-link {
-    font-size: 0.7rem;
-    padding: 0 18px;
-  }
-}
-
-@media (max-width: 1279px) {
-  .site-header {
+.site-header-compact {
     gap: 14px;
     grid-template-columns: 1fr auto auto;
     padding-bottom: 20px;
     padding-top: 20px;
-  }
+}
 
-  .menu-toggle {
-    display: inline-flex;
-    grid-column: 3;
-    justify-self: end;
-  }
+.site-header-compact .menu-toggle {
+  display: inline-flex;
+  grid-column: 2;
+  justify-self: end;
+}
 
-  .site-navigation {
-    align-items: stretch;
-    background: rgba(7, 16, 28, 0.96);
-    border-top: 1px solid rgba(248, 251, 255, 0.08);
-    display: grid;
-    gap: 0;
-    left: 0;
-    opacity: 0;
-    padding: 10px clamp(22px, 5vw, 72px) 24px;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    transform: translateY(-8px);
-    transition: opacity 180ms ease, transform 180ms ease;
-  }
+.site-header-compact .site-navigation {
+  align-items: stretch;
+  background: rgba(7, 16, 28, 0.96);
+  border-top: 1px solid rgba(248, 251, 255, 0.08);
+  display: grid;
+  gap: 0;
+  left: 0;
+  opacity: 0;
+  padding: 10px clamp(22px, 5vw, 72px) 24px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translateY(-8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
 
-  .site-header-open .site-navigation {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
+.site-header-compact.site-header-open .site-navigation {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
-  .site-navigation a {
-    border-bottom: 1px solid rgba(248, 251, 255, 0.08);
-    display: inline-flex;
-    justify-content: flex-start;
-    min-height: 54px;
-  }
+.site-header-compact .site-navigation a {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.08);
+  display: inline-flex;
+  justify-content: flex-start;
+  min-height: 54px;
+}
 
-  .site-header-actions {
-    grid-column: 2;
-  }
+.site-header-compact .site-header-actions {
+  grid-column: 3;
+}
 
-  .vendor-link {
-    min-height: 44px;
-    padding: 0 16px;
-  }
+.site-header-compact .vendor-link {
+  min-height: 44px;
+  padding: 0 16px;
 }
 
 @media (max-width: 920px) {
@@ -905,8 +891,8 @@ h1 {
     padding: 0 10px;
   }
 
-  .menu-toggle {
-    grid-column: 3;
+  .site-header-compact .menu-toggle {
+    grid-column: 2;
   }
 }
 
@@ -935,5 +921,9 @@ h1 {
   .menu-toggle {
     height: 40px;
     width: 40px;
+  }
+
+  .site-header-compact .menu-toggle {
+    grid-column: 2;
   }
 }
