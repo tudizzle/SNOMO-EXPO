@@ -64,9 +64,9 @@ export default function SwapMeetPage() {
       </section>
 
       <section className="swap-meet-notice" aria-labelledby="swap-meet-date-title">
-        <h2 id="swap-meet-date-title">Saturday, October 23rd</h2>
+        <h2 id="swap-meet-date-title">Saturday, October 24th</h2>
         <p>
-          Event date: Saturday, October 23, 2026. The swap meet runs during the
+          Event date: Saturday, October 24, 2026. The swap meet runs during the
           Saturday event day and gives individual swappers a clear place to sell
           sleds, parts, gear and larger trailer setups.
         </p>
