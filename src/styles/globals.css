@@ -873,25 +873,57 @@ h1 {
 @media (max-width: 520px) {
   .site-header {
     align-items: center;
+    gap: 8px;
     grid-template-columns: 1fr auto auto;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .site-brand-logo {
-    height: 42px;
+    height: 38px;
   }
 
   .site-header-scrolled .site-brand-logo,
   .site-header-open .site-brand-logo {
-    height: 38px;
+    height: 34px;
   }
 
   .vendor-link {
-    font-size: 0.62rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
     min-height: 40px;
-    padding: 0 12px;
+    padding: 0 10px;
   }
 
   .menu-toggle {
     grid-column: 3;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header {
+    gap: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .site-brand-logo {
+    height: 34px;
+  }
+
+  .site-header-scrolled .site-brand-logo,
+  .site-header-open .site-brand-logo {
+    height: 32px;
+  }
+
+  .vendor-link {
+    font-size: 0.54rem;
+    min-height: 38px;
+    padding: 0 8px;
+  }
+
+  .menu-toggle {
+    height: 40px;
+    width: 40px;
   }
 }
