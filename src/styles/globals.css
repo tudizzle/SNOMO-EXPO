@@ -1814,18 +1814,10 @@ h1 {
   padding: clamp(144px, 16vw, 188px) clamp(22px, 5vw, 72px) clamp(72px, 9vw, 124px);
 }
 
-.vendors-page-header,
-.vendors-introduction,
 .vendors-section,
 .vendors-registration {
   margin-inline: auto;
   max-width: 1180px;
-}
-
-.vendors-page-header {
-  display: grid;
-  gap: 22px;
-  margin-bottom: clamp(32px, 5vw, 56px);
 }
 
 .vendors-kicker {
@@ -1837,39 +1829,9 @@ h1 {
   text-transform: uppercase;
 }
 
-.vendors-page-header h1 {
-  font-size: clamp(4rem, 8.4vw, 8.8rem);
-  line-height: 0.9;
-  max-width: 920px;
-}
-
-.vendors-page-header p:not(.vendors-kicker) {
-  color: rgba(248, 251, 255, 0.72);
-  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
-  line-height: 1.55;
-  margin: 0;
-  max-width: 760px;
-}
-
-.vendors-introduction {
-  margin-bottom: clamp(28px, 4vw, 44px);
-}
-
-.vendors-introduction p {
-  color: var(--snow);
-  font-size: clamp(1.32rem, 2.2vw, 2.4rem);
-  font-weight: 760;
-  letter-spacing: 0;
-  line-height: 1.08;
-  margin: 0;
-  max-width: 920px;
-  text-wrap: balance;
-}
-
 .vendors-section {
   display: grid;
   gap: clamp(24px, 4vw, 44px);
-  margin-top: clamp(54px, 7vw, 88px);
 }
 
 .vendors-section-heading {
@@ -1878,7 +1840,7 @@ h1 {
 }
 
 .vendors-section-heading h2,
-.vendors-registration h2 {
+.vendors-registration h1 {
   color: var(--snow);
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 760;
@@ -1888,8 +1850,7 @@ h1 {
   text-wrap: balance;
 }
 
-.vendors-list,
-.vendors-section-note {
+.vendors-list {
   display: grid;
 }
 
@@ -1900,14 +1861,6 @@ h1 {
   line-height: 1.28;
   margin: 0;
   padding: 22px 0;
-}
-
-.vendors-section-note {
-  color: rgba(248, 251, 255, 0.68);
-  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
-  line-height: 1.58;
-  margin: 0;
-  max-width: 820px;
 }
 
 .vendors-registration {
@@ -1926,7 +1879,7 @@ h1 {
   gap: 16px;
 }
 
-.vendors-registration h2 {
+.vendors-registration h1 {
   margin-top: 0;
   max-width: 760px;
 }
@@ -2388,8 +2341,8 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .vendors-page-header h1 {
-    font-size: clamp(4rem, 20vw, 6.2rem);
+  .vendors-registration h1 {
+    font-size: clamp(2.8rem, 14vw, 5rem);
   }
 }
 
