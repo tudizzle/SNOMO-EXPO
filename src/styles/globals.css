@@ -1904,6 +1904,173 @@ h1 {
   border-color: #c74639;
 }
 
+.visit-page {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(120, 144, 167, 0.14), transparent 34rem),
+    linear-gradient(180deg, #07101c 0%, #091522 48%, #07101c 100%);
+  color: var(--snow);
+  min-height: 100svh;
+  padding: clamp(144px, 16vw, 188px) clamp(22px, 5vw, 72px) clamp(72px, 9vw, 124px);
+}
+
+.visit-page-header,
+.visit-intro,
+.visit-quick-actions,
+.visit-section,
+.visit-two-column {
+  margin-inline: auto;
+  max-width: 1180px;
+}
+
+.visit-page-header {
+  display: grid;
+  gap: 22px;
+  margin-bottom: clamp(44px, 6vw, 72px);
+}
+
+.visit-kicker {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.visit-page-header h1 {
+  font-size: clamp(4rem, 8.4vw, 8.8rem);
+  line-height: 0.9;
+  max-width: 920px;
+}
+
+.visit-page-header p:not(.visit-kicker) {
+  color: rgba(248, 251, 255, 0.72);
+  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 760px;
+}
+
+.visit-intro {
+  background: rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.13);
+  display: grid;
+  gap: clamp(22px, 4vw, 52px);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  margin-bottom: clamp(24px, 4vw, 34px);
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.visit-intro h2,
+.visit-section-heading h2,
+.visit-two-column h2 {
+  color: var(--snow);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 10px 0 0;
+  text-wrap: balance;
+}
+
+.visit-intro > p,
+.visit-two-column p,
+.visit-info-row p,
+.visit-faq p {
+  color: rgba(248, 251, 255, 0.76);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.58;
+  margin: 0;
+}
+
+.visit-quick-actions {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: clamp(64px, 8vw, 104px);
+}
+
+.visit-action {
+  align-items: end;
+  background: rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.13);
+  color: var(--snow);
+  display: flex;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  min-height: 160px;
+  padding: clamp(18px, 3vw, 30px);
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.visit-action:hover {
+  background: rgba(248, 251, 255, 0.09);
+  border-color: rgba(248, 251, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.visit-section {
+  display: grid;
+  gap: clamp(24px, 4vw, 44px);
+  margin-top: clamp(54px, 7vw, 88px);
+}
+
+.visit-section-heading {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.18);
+  padding-bottom: 22px;
+}
+
+.visit-info-list,
+.visit-faq-list {
+  display: grid;
+}
+
+.visit-info-row,
+.visit-faq {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
+  display: grid;
+  gap: clamp(18px, 4vw, 64px);
+  grid-template-columns: minmax(190px, 0.34fr) minmax(0, 1fr);
+  padding: 22px 0;
+}
+
+.visit-info-row h3,
+.visit-faq h3 {
+  color: var(--snow);
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.visit-info-row div {
+  display: grid;
+  gap: 8px;
+}
+
+.visit-two-column {
+  display: grid;
+  gap: clamp(20px, 4vw, 34px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(64px, 8vw, 104px);
+}
+
+.visit-two-column article {
+  background: rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.13);
+  display: grid;
+  gap: 18px;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.visit-two-column h2 {
+  margin-top: 0;
+}
+
 .experience-card-content .button-secondary {
   background: rgba(248, 251, 255, 0.04);
   border-color: rgba(248, 251, 255, 0.68);
@@ -1950,12 +2117,14 @@ h1 {
   .menu-toggle,
   .menu-toggle span,
   .experience-card,
-  .experience-card-image {
+  .experience-card-image,
+  .visit-action {
     transition: none;
   }
 
   .experience-card:hover,
-  .experience-card:hover .experience-card-image {
+  .experience-card:hover .experience-card-image,
+  .visit-action:hover {
     transform: none;
   }
 }
@@ -2268,6 +2437,21 @@ h1 {
   .vendors-registration .button {
     width: 100%;
   }
+
+  .visit-page {
+    padding-top: 122px;
+  }
+
+  .visit-intro,
+  .visit-info-row,
+  .visit-faq,
+  .visit-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -2343,6 +2527,18 @@ h1 {
 
   .vendors-registration h1 {
     font-size: clamp(2.8rem, 14vw, 5rem);
+  }
+
+  .visit-page-header h1 {
+    font-size: clamp(4rem, 20vw, 6.2rem);
+  }
+
+  .visit-quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-action {
+    min-height: 120px;
   }
 }
 
