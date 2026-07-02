@@ -621,7 +621,12 @@ h1 {
 .exhibitors-page {
   background:
     radial-gradient(circle at 78% 0%, rgba(120, 144, 167, 0.14), transparent 34rem),
+    repeating-radial-gradient(ellipse at 14% 18%, rgba(120, 144, 167, 0.095) 0 1px, transparent 1px 28px),
+    repeating-radial-gradient(ellipse at 86% 34%, rgba(120, 144, 167, 0.07) 0 1px, transparent 1px 34px),
+    repeating-radial-gradient(ellipse at 46% 92%, rgba(120, 144, 167, 0.055) 0 1px, transparent 1px 30px),
+    linear-gradient(180deg, rgba(7, 16, 28, 0.88) 0%, rgba(9, 21, 34, 0.9) 48%, rgba(7, 16, 28, 0.94) 100%),
     linear-gradient(180deg, #07101c 0%, #091522 48%, #07101c 100%);
+  background-blend-mode: normal, screen, screen, screen, normal, normal;
   color: var(--snow);
   min-height: 100svh;
   padding: clamp(144px, 16vw, 188px) clamp(22px, 5vw, 72px) clamp(72px, 9vw, 124px);
