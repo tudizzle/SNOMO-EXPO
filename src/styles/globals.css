@@ -2071,6 +2071,119 @@ h1 {
   margin-top: 0;
 }
 
+.visit-schedule-list {
+  display: grid;
+  gap: clamp(16px, 2.4vw, 24px);
+}
+
+.visit-schedule-card {
+  background: rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.14);
+  display: grid;
+  gap: clamp(12px, 1.8vw, 18px);
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.visit-schedule-card p,
+.visit-schedule-card span {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.visit-schedule-card h3,
+.visit-schedule-card strong {
+  color: var(--snow);
+  display: block;
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.visit-schedule-card h3 {
+  font-size: clamp(1.7rem, 3.4vw, 3.8rem);
+}
+
+.visit-schedule-card strong {
+  font-size: clamp(2.4rem, 5vw, 5.6rem);
+}
+
+.visit-hotel {
+  background:
+    linear-gradient(135deg, rgba(216, 167, 93, 0.12), rgba(248, 251, 255, 0.035)),
+    rgba(248, 251, 255, 0.06);
+  border: 1px solid rgba(216, 167, 93, 0.24);
+  display: grid;
+  gap: clamp(28px, 5vw, 68px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  margin: clamp(64px, 8vw, 104px) auto 0;
+  max-width: 1180px;
+  padding: clamp(28px, 5vw, 58px);
+}
+
+.visit-hotel-heading,
+.visit-hotel-details {
+  display: grid;
+  gap: 20px;
+}
+
+.visit-hotel-heading h2 {
+  color: var(--snow);
+  font-size: clamp(2.6rem, 5.6vw, 6.2rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.92;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.visit-hotel-heading p:not(.visit-kicker),
+.visit-hotel-details p,
+.visit-hotel-details li {
+  color: rgba(248, 251, 255, 0.78);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.58;
+  margin: 0;
+}
+
+.visit-hotel-details strong {
+  color: var(--snow);
+}
+
+.visit-hotel-details ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.visit-hotel-details li {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.visit-hotel-details .button-primary {
+  background: #b83a2f;
+  border-color: #b83a2f;
+  color: var(--snow);
+  justify-self: start;
+}
+
+.visit-hotel-details .button-primary:hover {
+  background: #c74639;
+  border-color: #c74639;
+}
+
+.visit-hotel-note {
+  color: rgba(216, 167, 93, 0.88) !important;
+  font-weight: 760;
+}
+
 .experience-card-content .button-secondary {
   background: rgba(248, 251, 255, 0.04);
   border-color: rgba(248, 251, 255, 0.68);
@@ -2445,12 +2558,17 @@ h1 {
   .visit-intro,
   .visit-info-row,
   .visit-faq,
-  .visit-two-column {
+  .visit-two-column,
+  .visit-hotel {
     grid-template-columns: 1fr;
   }
 
   .visit-quick-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .visit-hotel-details .button {
+    width: 100%;
   }
 }
 
