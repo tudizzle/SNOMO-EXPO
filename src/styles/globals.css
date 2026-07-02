@@ -1227,6 +1227,47 @@ h1 {
   display: grid;
 }
 
+.schedule-card-list {
+  display: grid;
+  gap: clamp(16px, 2.4vw, 24px);
+}
+
+.schedule-card {
+  background: rgba(248, 251, 255, 0.055);
+  border: 1px solid rgba(248, 251, 255, 0.14);
+  display: grid;
+  gap: clamp(12px, 1.8vw, 18px);
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.schedule-card p,
+.schedule-card span {
+  color: rgba(200, 215, 229, 0.66);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.schedule-card h3,
+.schedule-card strong {
+  color: var(--snow);
+  display: block;
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.schedule-card h3 {
+  font-size: clamp(1.7rem, 3.4vw, 3.8rem);
+}
+
+.schedule-card strong {
+  font-size: clamp(2.4rem, 5vw, 5.6rem);
+}
+
 .schedule-hours-row {
   border-bottom: 1px solid rgba(248, 251, 255, 0.1);
   display: grid;

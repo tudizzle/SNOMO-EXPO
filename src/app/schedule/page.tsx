@@ -2,26 +2,27 @@ import { SiteHeader } from "@/components/site-header";
 
 const eventDays = [
   {
-    day: "Friday",
+    title: "Friday",
     date: "October 23, 2026",
-    label: "Show Hours",
     hours: "4:00 PM – 8:00 PM",
+    note: "Opening Night",
   },
   {
-    day: "Saturday",
+    title: "Saturday",
     date: "October 24, 2026",
-    label: "Show Hours",
     hours: "9:00 AM – 5:00 PM",
+    note: "Main Expo Day",
   },
 ];
 
 const swapMeet = {
-  day: "Saturday",
+  title: "Saturday Swap Meet",
   date: "October 24, 2026",
-  label: "Swap Meet",
   hours: "9:00 AM – 5:00 PM",
-  note: "Free Entry to the Swap Meet",
+  note: "FREE ENTRY TO THE SWAP MEET",
 };
+
+const scheduleCards = [...eventDays, swapMeet];
 
 const admissionDetails = [
   "$10 Admission",
@@ -66,40 +67,15 @@ export default function SchedulePage() {
           <h2 id="schedule-hours-title">Expo Weekend</h2>
         </div>
 
-        <div className="schedule-hours-list">
-          {eventDays.map((eventDay) => (
-            <article className="schedule-hours-row" key={eventDay.day}>
-              <div>
-                <p>{eventDay.day}</p>
-                <h3>{eventDay.date}</h3>
-              </div>
-              <div>
-                <span>{eventDay.label}</span>
-                <strong>{eventDay.hours}</strong>
-              </div>
+        <div className="schedule-card-list">
+          {scheduleCards.map((scheduleCard) => (
+            <article className="schedule-card" key={scheduleCard.title}>
+              <p>{scheduleCard.title}</p>
+              <h3>{scheduleCard.date}</h3>
+              <strong>{scheduleCard.hours}</strong>
+              <span>{scheduleCard.note}</span>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="schedule-hours" aria-labelledby="schedule-swap-meet-title">
-        <div className="schedule-section-heading">
-          <p className="schedule-kicker">Swap Meet</p>
-          <h2 id="schedule-swap-meet-title">Saturday Swap Meet</h2>
-        </div>
-
-        <div className="schedule-hours-list">
-          <article className="schedule-hours-row">
-            <div>
-              <p>{swapMeet.day}</p>
-              <h3>{swapMeet.date}</h3>
-            </div>
-            <div>
-              <span>{swapMeet.label}</span>
-              <strong>{swapMeet.hours}</strong>
-              <span>{swapMeet.note}</span>
-            </div>
-          </article>
         </div>
       </section>
 
