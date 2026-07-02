@@ -1225,35 +1225,84 @@ h1 {
 
 .schedule-hours-list {
   display: grid;
+  gap: clamp(18px, 2.4vw, 28px);
 }
 
-.schedule-hours-row {
-  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
+.schedule-hours-card {
+  background:
+    linear-gradient(135deg, rgba(248, 251, 255, 0.08), rgba(248, 251, 255, 0.03) 44%, rgba(4, 10, 18, 0.28)),
+    rgba(19, 25, 32, 0.88);
+  border: 1px solid rgba(248, 251, 255, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 26px 64px rgba(4, 10, 18, 0.26);
   display: grid;
-  gap: clamp(18px, 4vw, 64px);
-  grid-template-columns: minmax(220px, 0.4fr) minmax(0, 1fr);
-  padding: 26px 0;
+  gap: clamp(14px, 2.2vw, 22px);
+  overflow: hidden;
+  padding: clamp(26px, 4vw, 44px);
+  position: relative;
 }
 
-.schedule-hours-row p,
-.schedule-hours-row span {
+.schedule-hours-card::before {
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.schedule-hours-card-red::before {
+  background: #b83a2f;
+}
+
+.schedule-hours-card-gold::before {
+  background: var(--ember);
+}
+
+.schedule-hours-card-header {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.schedule-hours-card p,
+.schedule-hours-card span {
   color: rgba(200, 215, 229, 0.66);
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.16em;
-  margin: 0 0 10px;
+  margin: 0;
   text-transform: uppercase;
 }
 
-.schedule-hours-row h3,
-.schedule-hours-row strong {
+.schedule-hours-card h3,
+.schedule-hours-card strong {
   color: var(--snow);
   display: block;
-  font-size: clamp(1.45rem, 2.8vw, 3rem);
+  font-size: clamp(1.65rem, 3vw, 3.2rem);
   font-weight: 760;
   letter-spacing: 0;
   line-height: 1;
   margin: 0;
+}
+
+.schedule-hours-card strong {
+  font-size: clamp(2rem, 4.2vw, 4.8rem);
+}
+
+.schedule-hours-card > span:not(.schedule-hours-badge) {
+  color: rgba(248, 251, 255, 0.84);
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+}
+
+.schedule-hours-badge {
+  background: rgba(184, 58, 47, 0.18);
+  border: 1px solid rgba(184, 58, 47, 0.56);
+  border-radius: 999px;
+  color: var(--snow) !important;
+  padding: 7px 10px;
+  white-space: nowrap;
 }
 
 .schedule-feature {
@@ -2487,7 +2536,6 @@ h1 {
     padding-top: 122px;
   }
 
-  .schedule-hours-row,
   .schedule-feature {
     grid-template-columns: 1fr;
   }
