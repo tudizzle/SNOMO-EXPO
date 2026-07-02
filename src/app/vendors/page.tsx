@@ -6,19 +6,6 @@ const whyExhibitPoints = [
   "Showcase new products and services",
   "Connect with riders before the winter season begins",
   "Build brand awareness in the Rocky Mountain Region",
-  "Drive booth traffic through the Expo experience",
-  "Be part of the annual kickoff to winter",
-];
-
-const vendorOpportunities = [
-  "Vendor booth space",
-  "Product displays",
-  "Dealer displays",
-  "Manufacturer displays",
-  "Apparel and accessories",
-  "Performance parts",
-  "Clubs and organizations",
-  "Swap meet related businesses",
 ];
 
 export const metadata = {
@@ -49,32 +36,6 @@ export default function VendorsPage() {
         </p>
       </section>
 
-      <section className="vendors-section" aria-labelledby="why-exhibit-title">
-        <div className="vendors-section-heading">
-          <p className="vendors-kicker">Why Exhibit</p>
-          <h2 id="why-exhibit-title">Meet Riders Before Winter Begins</h2>
-        </div>
-
-        <div className="vendors-list">
-          {whyExhibitPoints.map((point) => (
-            <p key={point}>{point}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="vendors-section" aria-labelledby="vendor-opportunities-title">
-        <div className="vendors-section-heading">
-          <p className="vendors-kicker">Vendor Opportunities</p>
-          <h2 id="vendor-opportunities-title">Built for the Winter Powersports Industry</h2>
-        </div>
-
-        <div className="vendors-opportunity-grid">
-          {vendorOpportunities.map((opportunity) => (
-            <p key={opportunity}>{opportunity}</p>
-          ))}
-        </div>
-      </section>
-
       <section className="vendors-registration" aria-labelledby="vendor-registration-title">
         <div>
           <p className="vendors-kicker">Registration</p>
@@ -93,6 +54,25 @@ export default function VendorsPage() {
         >
           Register as a Vendor
         </Link>
+      </section>
+
+      <section className="vendors-section" aria-labelledby="why-exhibit-title">
+        <div className="vendors-section-heading">
+          <p className="vendors-kicker">Why Exhibit</p>
+          <h2 id="why-exhibit-title">Meet the Right Customers Before Winter Begins</h2>
+        </div>
+
+        <div className="vendors-list">
+          {whyExhibitPoints.map((point) => (
+            <p key={point}>{point}</p>
+          ))}
+        </div>
+
+        <p className="vendors-section-note">
+          Vendor space is designed for dealers, manufacturers, product displays,
+          apparel, accessories, performance parts, clubs and winter powersports
+          organizations.
+        </p>
       </section>
     </main>
   );
