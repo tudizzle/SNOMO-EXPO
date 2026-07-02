@@ -5,7 +5,7 @@ const eventDays = [
     day: "Friday",
     date: "October 23, 2026",
     label: "Show Hours",
-    hours: "9:00 AM – 6:00 PM",
+    hours: "4:00 PM – 8:00 PM",
   },
   {
     day: "Saturday",
@@ -13,6 +13,22 @@ const eventDays = [
     label: "Show Hours",
     hours: "9:00 AM – 5:00 PM",
   },
+];
+
+const swapMeet = {
+  day: "Saturday",
+  date: "October 24, 2026",
+  label: "Swap Meet",
+  hours: "9:00 AM – 5:00 PM",
+  note: "Free Entry to the Swap Meet",
+};
+
+const admissionDetails = [
+  "$10 Admission",
+  "Tickets Available at the Box Office Only",
+  "No Online Ticket Sales",
+  "Children 12 and under admitted free",
+  "Cash and major credit cards accepted at the box office",
 ];
 
 const seminarTopics = [
@@ -60,6 +76,47 @@ export default function SchedulePage() {
               <div>
                 <span>{eventDay.label}</span>
                 <strong>{eventDay.hours}</strong>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="schedule-hours" aria-labelledby="schedule-swap-meet-title">
+        <div className="schedule-section-heading">
+          <p className="schedule-kicker">Swap Meet</p>
+          <h2 id="schedule-swap-meet-title">Saturday Swap Meet</h2>
+        </div>
+
+        <div className="schedule-hours-list">
+          <article className="schedule-hours-row">
+            <div>
+              <p>{swapMeet.day}</p>
+              <h3>{swapMeet.date}</h3>
+            </div>
+            <div>
+              <span>{swapMeet.label}</span>
+              <strong>{swapMeet.hours}</strong>
+              <span>{swapMeet.note}</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="schedule-hours" aria-labelledby="schedule-admission-title">
+        <div className="schedule-section-heading">
+          <p className="schedule-kicker">Admission</p>
+          <h2 id="schedule-admission-title">Box Office Admission</h2>
+        </div>
+
+        <div className="schedule-hours-list">
+          {admissionDetails.map((detail) => (
+            <article className="schedule-hours-row" key={detail}>
+              <div>
+                <p>Admission</p>
+              </div>
+              <div>
+                <strong>{detail}</strong>
               </div>
             </article>
           ))}
