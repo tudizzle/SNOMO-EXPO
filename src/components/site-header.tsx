@@ -5,12 +5,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navigationItems = [
-  { href: "/the-expo", label: "The Expo" },
   { href: "/exhibitors", label: "Exhibitors" },
   { href: "/schedule", label: "Schedule" },
   { href: "/floorplan", label: "Floorplan" },
   { href: "/swap-meet", label: "Swap Meet" },
-  { href: "/plan-your-visit", label: "Plan Your Visit" },
   { href: "/sponsor", label: "Sponsors" },
 ];
 
