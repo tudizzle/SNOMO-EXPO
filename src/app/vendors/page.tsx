@@ -105,15 +105,27 @@ const preparationSections = [
   {
     title: "Insurance Requirements",
     content: (
-      <>
-        <p>All vendors must provide proof of insurance before move-in can begin.</p>
-        <p>
-          Vendors may purchase single-event insurance through the third-party
-          insurer linked below, or they may use their own insurance provider.
-        </p>
-        <div className="vendor-center-resource-list">
+      <div className="vendor-accordion-panel">
+        <div className="vendor-accordion-panel-heading">
+          <p className="vendors-kicker">Required Before Move-In</p>
+          <h4>Insurance Requirements</h4>
+          <p>All vendors must provide proof of insurance before move-in can begin.</p>
+          <p>
+            Vendors may purchase single-event insurance through the third-party
+            insurer linked below, or they may use their own insurance provider.
+          </p>
+          <p className="vendor-accordion-note">
+            Proof of insurance must be provided before any move-in can begin.
+          </p>
+        </div>
+
+        <div className="vendor-accordion-panel-details">
+          <div>
+            <p className="vendors-kicker">Complete By</p>
+            <h5>October 11, 2026</h5>
+          </div>
           <Link
-            className="button vendors-terms-link"
+            className="button button-primary"
             href="https://app.actinsurance.com/policy/buy/ai/OTYxMg=="
             target="_blank"
             rel="noopener noreferrer"
@@ -129,67 +141,84 @@ const preparationSections = [
             Download ACORD Liability Certificate
           </Link>
         </div>
-        <p>
-          <strong>
-            Proof of insurance must be provided before any move-in can begin.
-          </strong>
-        </p>
-        <p>
-          <strong>Complete by: October 11, 2026</strong>
-        </p>
-      </>
+      </div>
     ),
   },
   {
     title: "Move-In Schedule",
     content: (
-      <>
-        <p>Vendor move-in times are:</p>
-        <ul>
-          <li>
-            <strong>Wednesday, October 21</strong> — By appointment only
-          </li>
-          <li>
-            <strong>Thursday, October 22</strong> — 10:00 AM to 4:00 PM
-          </li>
-          <li>
-            <strong>Friday, October 23</strong> — 9:00 AM to 2:00 PM
-          </li>
-        </ul>
-        <p>
-          Please be aware of which room your booth is located in and review the
-          height restrictions before arriving.
-        </p>
-        <p>Height restrictions:</p>
-        <ul>
-          <li>
-            <strong>Hall of Education</strong> — 10&apos; 6&quot;
-          </li>
-          <li>
-            <strong>Expo Hall</strong> — 13&apos; 6&quot;
-          </li>
-        </ul>
-      </>
+      <div className="vendor-accordion-panel">
+        <div className="vendor-accordion-panel-heading">
+          <p className="vendors-kicker">Vendor Arrival</p>
+          <h4>Move-In Schedule</h4>
+          <p>
+            Please review your move-in window before arriving and be aware of
+            which room your booth is located in.
+          </p>
+          <ul>
+            <li>
+              <strong>Wednesday, October 21</strong> — By appointment only
+            </li>
+            <li>
+              <strong>Thursday, October 22</strong> — 10:00 AM to 4:00 PM
+            </li>
+            <li>
+              <strong>Friday, October 23</strong> — 9:00 AM to 2:00 PM
+            </li>
+          </ul>
+        </div>
+
+        <div className="vendor-accordion-panel-details">
+          <div>
+            <p className="vendors-kicker">Height Restrictions</p>
+            <h5>Know Your Room</h5>
+            <p>Review the height restrictions for your booth location before arriving.</p>
+          </div>
+          <ul>
+            <li>
+              <strong>Hall of Education</strong> — 10&apos; 6&quot;
+            </li>
+            <li>
+              <strong>Expo Hall</strong> — 13&apos; 6&quot;
+            </li>
+          </ul>
+        </div>
+      </div>
     ),
   },
   {
     title: "Show Regulations",
     content: (
-      <>
-        <p>The Colorado SnoMo Expo opens to the public on:</p>
-        <p>
-          <strong>Friday, October 23, 2026 at 4:00 PM</strong>
-        </p>
-        <ul>
-          <li>Booth requirements</li>
-          <li>Staffing</li>
-          <li>Use of space</li>
-          <li>Liability</li>
-          <li>Security</li>
-          <li>Sound</li>
-          <li>Cancellation</li>
-        </ul>
-      </>
+      <div className="vendor-accordion-panel">
+        <div className="vendor-accordion-panel-heading">
+          <p className="vendors-kicker">Expo Weekend</p>
+          <h4>Show Regulations</h4>
+          <p>The Colorado SnoMo Expo opens to the public on:</p>
+          <p className="vendor-accordion-note">
+            Friday, October 23, 2026 at 4:00 PM
+          </p>
+        </div>
+
+        <div className="vendor-accordion-panel-details">
+          <div>
+            <p className="vendors-kicker">Vendor Reminder</p>
+            <h5>Be Ready Before Doors Open</h5>
+            <p>
+              Please make sure your booth is fully set, staffed, and ready for
+              attendees before the show opens.
+            </p>
+          </div>
+          <ul>
+            <li>Booth requirements</li>
+            <li>Staffing</li>
+            <li>Use of space</li>
+            <li>Liability</li>
+            <li>Security</li>
+            <li>Sound</li>
+            <li>Cancellation</li>
+          </ul>
+        </div>
+      </div>
     ),
   },
 ];
@@ -291,22 +320,32 @@ export default function VendorsPage() {
             <details>
               <summary>Downloads &amp; Resources</summary>
               <div>
-                <p>
-                  Keep these resources close as you finalize your booth,
-                  insurance and sales tax preparation.
-                </p>
-                <div className="vendor-center-resource-list">
-                  {resources.map((resource) => (
-                    <Link
-                      className="button vendors-terms-link"
-                      href={resource.href}
-                      key={resource.label}
-                      target={resource.external ? "_blank" : undefined}
-                      rel={resource.external ? "noopener noreferrer" : undefined}
-                    >
-                      {resource.label}
-                    </Link>
-                  ))}
+                <div className="vendor-accordion-panel">
+                  <div className="vendor-accordion-panel-heading">
+                    <p className="vendors-kicker">Vendor Resources</p>
+                    <h4>Downloads &amp; Resources</h4>
+                    <p>
+                      Keep these resources close as you finalize your booth,
+                      insurance, and show preparation.
+                    </p>
+                  </div>
+
+                  <div className="vendor-accordion-panel-details">
+                    <p className="vendors-kicker">Documents</p>
+                    <div className="vendor-center-resource-list">
+                      {resources.map((resource) => (
+                        <Link
+                          className="button vendors-terms-link"
+                          href={resource.href}
+                          key={resource.label}
+                          target={resource.external ? "_blank" : undefined}
+                          rel={resource.external ? "noopener noreferrer" : undefined}
+                        >
+                          {resource.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </details>

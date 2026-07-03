@@ -2440,7 +2440,8 @@ h1 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.vendor-accommodations-panel {
+.vendor-accommodations-panel,
+.vendor-accordion-panel {
   background:
     linear-gradient(135deg, rgba(216, 167, 93, 0.1), rgba(248, 251, 255, 0.032)),
     rgba(8, 19, 31, 0.72);
@@ -2452,12 +2453,15 @@ h1 {
 }
 
 .vendor-accommodations-heading,
-.vendor-accommodations-details {
+.vendor-accommodations-details,
+.vendor-accordion-panel-heading,
+.vendor-accordion-panel-details {
   display: grid;
   gap: 18px;
 }
 
-.vendor-accommodations-heading h4 {
+.vendor-accommodations-heading h4,
+.vendor-accordion-panel-heading h4 {
   color: var(--snow);
   font-size: clamp(2rem, 4.4vw, 4.8rem);
   font-weight: 760;
@@ -2469,18 +2473,35 @@ h1 {
 
 .vendor-accommodations-heading p:not(.vendors-kicker),
 .vendor-accommodations-details p,
-.vendor-accommodations-details li {
+.vendor-accommodations-details li,
+.vendor-accordion-panel-heading p:not(.vendors-kicker),
+.vendor-accordion-panel-details p,
+.vendor-accordion-panel-details li {
   color: rgba(248, 251, 255, 0.78);
   font-size: clamp(0.98rem, 1.16vw, 1.06rem);
   line-height: 1.58;
   margin: 0;
 }
 
-.vendor-accommodations-details strong {
+.vendor-accommodations-details strong,
+.vendor-accordion-panel-details strong,
+.vendor-accordion-panel-heading strong {
   color: var(--snow);
 }
 
-.vendor-accommodations-details ul {
+.vendor-accordion-panel-details h5 {
+  color: var(--snow);
+  font-size: clamp(1.4rem, 2.2vw, 2.4rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.vendor-accommodations-details ul,
+.vendor-accordion-panel-heading ul,
+.vendor-accordion-panel-details ul {
   display: grid;
   gap: 12px;
   list-style: none;
@@ -2488,24 +2509,29 @@ h1 {
   padding: 0;
 }
 
-.vendor-accommodations-details li {
+.vendor-accommodations-details li,
+.vendor-accordion-panel-heading li,
+.vendor-accordion-panel-details li {
   border-bottom: 1px solid rgba(248, 251, 255, 0.1);
   padding-bottom: 12px;
 }
 
-.vendor-accommodations-details .button-primary {
+.vendor-accommodations-details .button-primary,
+.vendor-accordion-panel-details .button-primary {
   background: #b83a2f;
   border-color: #b83a2f;
   color: var(--snow);
   justify-self: start;
 }
 
-.vendor-accommodations-details .button-primary:hover {
+.vendor-accommodations-details .button-primary:hover,
+.vendor-accordion-panel-details .button-primary:hover {
   background: #c74639;
   border-color: #c74639;
 }
 
-.vendor-accommodations-note {
+.vendor-accommodations-note,
+.vendor-accordion-note {
   color: rgba(216, 167, 93, 0.88) !important;
   font-weight: 760;
 }
@@ -3276,11 +3302,13 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .vendor-accommodations-panel {
+  .vendor-accommodations-panel,
+  .vendor-accordion-panel {
     grid-template-columns: 1fr;
   }
 
-  .vendor-accommodations-details .button {
+  .vendor-accommodations-details .button,
+  .vendor-accordion-panel-details .button {
     width: 100%;
   }
 
