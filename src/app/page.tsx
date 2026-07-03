@@ -44,7 +44,12 @@ const footerColumns: FooterColumn[] = [
         rel: "noopener noreferrer",
         target: "_blank",
       },
-      { label: "Instagram", href: "#" },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/tudizzlefilmz/",
+        rel: "noopener noreferrer",
+        target: "_blank",
+      },
       { label: "Contact", href: "mailto:tudizzle@gmail.com" },
     ],
   },
