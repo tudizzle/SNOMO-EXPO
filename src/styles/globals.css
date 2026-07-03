@@ -2436,8 +2436,18 @@ h1 {
 
 .vendor-center-resource-list {
   display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+.vendor-center-resource-list .button {
+  justify-content: center;
+  line-height: 1.2;
+  min-height: 54px;
+  padding-inline: 22px;
+  width: 100%;
+  white-space: normal;
 }
 
 .vendor-accommodations-panel,
