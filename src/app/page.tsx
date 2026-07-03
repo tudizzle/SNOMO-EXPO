@@ -4,6 +4,34 @@ import { CountdownSection } from "@/components/countdown-section";
 import { HeroAudioButton } from "@/components/hero-audio-button";
 import { SiteHeader } from "@/components/site-header";
 
+const footerColumns = [
+  {
+    title: "Plan",
+    links: [
+      { label: "Exhibitors", href: "/exhibitors" },
+      { label: "Floorplan", href: "/floorplan" },
+      { label: "Schedule", href: "/schedule" },
+      { label: "Swap Meet", href: "/swap-meet" },
+    ],
+  },
+  {
+    title: "Exhibit",
+    links: [
+      { label: "Become a Vendor", href: "/vendors" },
+      { label: "Sponsor the Expo", href: "/sponsor" },
+    ],
+    comingSoon: "Vendor Success Center (Coming Soon)",
+  },
+  {
+    title: "Connect",
+    links: [
+      { label: "Facebook", href: "#" },
+      { label: "Instagram", href: "#" },
+      { label: "Contact", href: "mailto:tudizzle@gmail.com" },
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <main className="hero-shell">
@@ -106,6 +134,80 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="homepage-farewell" aria-labelledby="farewell-title">
+        <div className="homepage-farewell-inner">
+          <h2 id="farewell-title">We&apos;ll See You In Denver.</h2>
+          <div className="homepage-farewell-details" aria-label="Event information">
+            <p>October 23-24, 2026</p>
+            <p>National Western Complex</p>
+            <p>Denver, Colorado</p>
+          </div>
+          <div className="homepage-farewell-actions" aria-label="Farewell actions">
+            <Link className="button button-primary" href="/vendors">
+              Become a Vendor
+            </Link>
+            <Link className="button button-secondary" href="/plan-your-visit">
+              Plan Your Visit
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <footer className="site-footer" aria-label="Colorado Snomo Expo footer">
+        <div className="site-footer-brand">
+          <Image
+            alt="Colorado Snomo Expo"
+            className="site-footer-logo"
+            height={532}
+            src="/images/logos/colorado-snomo-expo-primary.png"
+            width={1301}
+          />
+          <p>Your Winter Starts Here.</p>
+        </div>
+
+        <div className="site-footer-columns">
+          {footerColumns.map((column) => (
+            <nav className="site-footer-column" key={column.title} aria-label={column.title}>
+              <h2>{column.title}</h2>
+              {column.links.map((link) => (
+                <Link href={link.href} key={link.label}>
+                  {link.label}
+                </Link>
+              ))}
+              {column.comingSoon ? <span>{column.comingSoon}</span> : null}
+            </nav>
+          ))}
+
+          <section className="site-footer-column site-footer-newsletter" aria-label="Stay Updated">
+            <h2>Stay Updated</h2>
+            <p>
+              Be the first to hear about new exhibitors, seminar announcements
+              and Colorado Snomo Expo updates.
+            </p>
+            <form className="site-footer-form">
+              <label htmlFor="footer-email">Email address</label>
+              <div>
+                <input
+                  id="footer-email"
+                  name="email"
+                  placeholder="Email address"
+                  type="email"
+                />
+                <button className="button button-primary" type="button">
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div className="site-footer-bottom">
+          <p>© 2026 Colorado Snomo Expo</p>
+          <p>Built with pride for the Rocky Mountain snowmobile community.</p>
+          <span>Version 2026</span>
+        </div>
+      </footer>
     </main>
   );
 }
