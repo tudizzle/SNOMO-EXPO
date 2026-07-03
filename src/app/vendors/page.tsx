@@ -47,39 +47,168 @@ const marketOpportunityCards = [
 const preparationSections = [
   {
     title: "Vendor Pre-Show Checklist",
-    items: [
-      "Hotel Reservations",
-      "Booth Balance Due",
-      "Colorado Sales Tax Registration",
-    ],
-    body:
-      "Confirm your lodging, registration status and required tax setup before arriving so your team can focus on the show floor.",
+    content: (
+      <>
+        <p>
+          <strong>Hotel Reservations</strong>
+        </p>
+        <p>
+          We have a block of rooms reserved for vendors at the{" "}
+          <strong>Residence Inn by Marriott Denver Central Park</strong>.
+        </p>
+        <p>
+          Vendors can book using the group reservation link below or call the
+          hotel directly and mention <strong>Colorado SnoMo Expo</strong> to
+          receive the group rate.
+        </p>
+        <p>
+          <strong>Group rate:</strong> $XXX per night
+        </p>
+        <p>
+          <strong>Residence Inn by Marriott Denver Central Park</strong>
+          <br />
+          4667 North Central Park Boulevard
+          <br />
+          Denver, CO
+          <br />
+          (303) 373-3960
+        </p>
+        <Link
+          className="button vendors-terms-link"
+          href="https://www.marriott.com/en-us/hotels/denre-residence-inn-denver-central-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Book your group rate for Colorado SnoMo Expo 2025"
+        >
+          Book Your Group Rate
+        </Link>
+
+        <p>
+          <strong>Booth Balance Due</strong>
+        </p>
+        <p>
+          If you placed a deposit for your booth space, the remaining balance is
+          due by <strong>August 31, 2026</strong>.
+        </p>
+        <p>
+          Payment may be completed by check or credit card through your Vendor
+          Agreement.
+        </p>
+        <p>
+          <strong>Due: August 31, 2026</strong>
+        </p>
+
+        <p>
+          <strong>Colorado Sales Tax Registration</strong>
+        </p>
+        <p>
+          Any out-of-state retailer must apply for a Colorado Sales Tax License
+          and collect Colorado sales tax.
+        </p>
+        <p>
+          Online applications for a Sales Tax License for out-of-state retailers
+          are available through <strong>Colorado Revenue Online</strong>.
+        </p>
+        <p>
+          Vendors should complete registration before the Colorado SnoMo Expo and
+          report sales after the event.
+        </p>
+        <p>
+          <strong>Complete by: October 4, 2026</strong>
+        </p>
+        {/* TODO: Add Colorado Revenue Online link and sales tax registration forms. */}
+      </>
+    ),
   },
   {
     title: "Insurance Requirements",
-    items: ["Proof of Insurance", "Insurance options", "ACORD form"],
-    body:
-      "Vendors should be prepared to provide proof of insurance and any requested ACORD documentation before move-in.",
+    content: (
+      <>
+        <p>All vendors must provide proof of insurance before move-in can begin.</p>
+        <p>
+          Vendors may purchase single-event insurance through the third-party
+          insurer linked below, or they may use their own insurance provider.
+        </p>
+        <div className="vendor-center-resource-list">
+          <Link
+            className="button vendors-terms-link"
+            href="https://app.actinsurance.com/policy/buy/ai/OTYxMg=="
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Purchase Single-Event Insurance
+          </Link>
+          <Link
+            className="button vendors-terms-link"
+            href="https://coloradosnomoexpo.com/acord-insurance-form"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download ACORD Liability Certificate
+          </Link>
+        </div>
+        <p>
+          <strong>
+            Proof of insurance must be provided before any move-in can begin.
+          </strong>
+        </p>
+        <p>
+          <strong>Complete by: October 11, 2026</strong>
+        </p>
+      </>
+    ),
   },
   {
     title: "Move-In Schedule",
-    items: ["Move-in schedule", "Hall height restrictions"],
-    body:
-      "Plan your arrival around the official move-in schedule and review any hall height restrictions before bringing displays, vehicles or larger booth materials.",
+    content: (
+      <>
+        <p>Vendor move-in times are:</p>
+        <ul>
+          <li>
+            <strong>Wednesday, October 21</strong> — By appointment only
+          </li>
+          <li>
+            <strong>Thursday, October 22</strong> — 10:00 AM to 4:00 PM
+          </li>
+          <li>
+            <strong>Friday, October 23</strong> — 9:00 AM to 2:00 PM
+          </li>
+        </ul>
+        <p>
+          Please be aware of which room your booth is located in and review the
+          height restrictions before arriving.
+        </p>
+        <p>Height restrictions:</p>
+        <ul>
+          <li>
+            <strong>Hall of Education</strong> — 10&apos; 6&quot;
+          </li>
+          <li>
+            <strong>Expo Hall</strong> — 13&apos; 6&quot;
+          </li>
+        </ul>
+      </>
+    ),
   },
   {
     title: "Show Regulations",
-    items: [
-      "Booth requirements",
-      "Staffing",
-      "Use of space",
-      "Liability",
-      "Security",
-      "Sound",
-      "Cancellation",
-    ],
-    body:
-      "Review the show requirements before arrival so your booth is staffed, contained within its assigned space and ready for a professional Expo weekend.",
+    content: (
+      <>
+        <p>The Colorado SnoMo Expo opens to the public on:</p>
+        <p>
+          <strong>Friday, October 23, 2026 at 4:00 PM</strong>
+        </p>
+        <ul>
+          <li>Booth requirements</li>
+          <li>Staffing</li>
+          <li>Use of space</li>
+          <li>Liability</li>
+          <li>Security</li>
+          <li>Sound</li>
+          <li>Cancellation</li>
+        </ul>
+      </>
+    ),
   },
 ];
 
@@ -173,14 +302,7 @@ export default function VendorsPage() {
             {preparationSections.map((section) => (
               <details key={section.title}>
                 <summary>{section.title}</summary>
-                <div>
-                  <p>{section.body}</p>
-                  <ul>
-                    {section.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+                <div>{section.content}</div>
               </details>
             ))}
 
