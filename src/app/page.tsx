@@ -153,6 +153,104 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="homepage-story" aria-labelledby="homepage-story-title">
+        <div className="homepage-story-grid">
+          <article className="homepage-story-panel">
+            <div className="homepage-story-image homepage-story-image-action">
+              <Image
+                alt="Mountain snowmobiler riding through deep Colorado snow"
+                fill
+                sizes="(max-width: 960px) 100vw, 50vw"
+                src="/images/story/why-we-built-this-expo.jpg"
+              />
+            </div>
+            <div className="homepage-story-copy">
+              <p className="homepage-story-kicker">Why It Exists</p>
+              <h2 id="homepage-story-title">Why We Built This Expo</h2>
+              <p>
+                The Colorado Snomo Expo has been a Colorado tradition for
+                decades, bringing together riders, manufacturers, dealers and
+                outdoor enthusiasts from across the Rocky Mountain Region.
+              </p>
+              <p>
+                When the opportunity came to continue that tradition, I knew I
+                couldn&apos;t let it fade away.
+              </p>
+              <p>
+                Today, the Colorado Snomo Expo is locally led and community
+                driven.
+              </p>
+              <p>
+                This year marks my third year hosting the Expo, and each year
+                we&apos;ve worked to make it bigger, better and more
+                representative of the incredible snowmobile community we call
+                home.
+              </p>
+              <p>
+                With the support of the Colorado Snowmobile Association,
+                exhibitors, volunteers and riders from across the region, our
+                goal is simple:
+              </p>
+              <p>
+                Build one of the premier snowmobile expos in the western United
+                States while giving back to the sport that has given so much to
+                all of us.
+              </p>
+            </div>
+          </article>
+
+          <article className="homepage-story-panel">
+            <div className="homepage-story-image homepage-story-image-portrait">
+              <Image
+                alt="Brandon Cox, host of the Colorado Snomo Expo"
+                fill
+                sizes="(max-width: 960px) 100vw, 50vw"
+                src="/images/story/meet-your-host.jpg"
+              />
+            </div>
+            <div className="homepage-story-copy">
+              <p className="homepage-story-kicker">Meet Your Host</p>
+              <h2>Meet Your Host</h2>
+              <p>Hi, I&apos;m Brandon Cox.</p>
+              <p>
+                Snowmobiling has given me far more than just a career.
+              </p>
+              <p>
+                It has given me lifelong friendships, unforgettable experiences
+                and an incredible community that has shaped my life.
+              </p>
+              <p>
+                For more than fifteen years I&apos;ve organized Spring Fling, a
+                600+ person annual mountain campout that brings riders together
+                from across the West.
+              </p>
+              <p>
+                When I was given the opportunity to continue the Colorado Snomo
+                Expo, I saw it as more than just another event.
+              </p>
+              <p>I saw an opportunity to give something back.</p>
+              <p>
+                Today, 25% of every admission ticket sold is donated directly to
+                the Colorado Snowmobile Association to help support and
+                strengthen the future of snowmobiling in Colorado.
+              </p>
+              <p>My hope is simple.</p>
+              <p>
+                That every person who walks through the doors, whether
+                you&apos;re attending for the first time or returning after many
+                years, leaves feeling like they are part of something much
+                bigger than a trade show.
+              </p>
+              <p>I&apos;ll see you in Denver this October.</p>
+              <div className="homepage-story-signature">
+                <p>— Brandon Cox</p>
+                <p>Host, Colorado Snomo Expo</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section className="homepage-farewell" aria-labelledby="farewell-title">
         <div className="homepage-farewell-inner">
           <h2 id="farewell-title">We&apos;ll See You In Denver.</h2>

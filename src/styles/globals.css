@@ -738,6 +738,102 @@ h1 {
   border-color: #c74639;
 }
 
+.homepage-story {
+  background:
+    linear-gradient(180deg, #07101c 0%, #08131f 44%, #07101c 100%),
+    var(--midnight);
+  padding: clamp(92px, 11vw, 156px) clamp(18px, 4vw, 56px);
+}
+
+.homepage-story-grid {
+  display: grid;
+  gap: clamp(18px, 2vw, 30px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-inline: auto;
+  max-width: 1480px;
+}
+
+.homepage-story-panel {
+  align-content: start;
+  display: grid;
+  gap: clamp(30px, 4vw, 54px);
+}
+
+.homepage-story-image {
+  border-radius: 6px;
+  box-shadow: 0 36px 90px rgba(4, 10, 18, 0.3);
+  min-height: clamp(460px, 46vw, 720px);
+  overflow: hidden;
+  position: relative;
+}
+
+.homepage-story-image img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.homepage-story-image-action img {
+  object-position: 44% center;
+}
+
+.homepage-story-image-portrait img {
+  object-position: 54% center;
+}
+
+.homepage-story-copy {
+  display: grid;
+  gap: 18px;
+  padding-inline: clamp(6px, 2vw, 24px);
+}
+
+.homepage-story-kicker {
+  color: rgba(200, 215, 229, 0.62);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+}
+
+.homepage-story-copy h2 {
+  color: var(--snow);
+  font-size: clamp(2.8rem, 5.2vw, 5.9rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.92;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+
+.homepage-story-copy p {
+  color: rgba(248, 251, 255, 0.74);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.66;
+  margin: 0;
+}
+
+.homepage-story-signature {
+  border-top: 1px solid rgba(248, 251, 255, 0.16);
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+  padding-top: 22px;
+}
+
+.homepage-story-signature p:first-child {
+  color: var(--snow);
+  font-weight: 760;
+}
+
+.homepage-story-signature p:last-child {
+  color: rgba(200, 215, 229, 0.62);
+  font-size: 0.84rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .homepage-farewell {
   background:
     radial-gradient(circle at 50% 0%, rgba(120, 144, 167, 0.16), transparent 38rem),
@@ -2649,6 +2745,19 @@ h1 {
     min-height: 700px;
   }
 
+  .homepage-story-grid {
+    gap: clamp(56px, 9vw, 84px);
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-story-panel {
+    gap: 30px;
+  }
+
+  .homepage-story-image {
+    min-height: clamp(420px, 70vw, 680px);
+  }
+
   .site-footer-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2743,6 +2852,27 @@ h1 {
 
   .experience-card-content .button {
     width: 100%;
+  }
+
+  .homepage-story {
+    padding-bottom: 88px;
+    padding-top: 88px;
+  }
+
+  .homepage-story-copy {
+    padding-inline: 4px;
+  }
+
+  .homepage-story-image {
+    min-height: 560px;
+  }
+
+  .homepage-story-image-action img {
+    object-position: 42% center;
+  }
+
+  .homepage-story-image-portrait img {
+    object-position: 52% center;
   }
 
   .homepage-farewell-actions {
@@ -3068,6 +3198,10 @@ h1 {
     font-size: 0.56rem;
     letter-spacing: 0.06em;
     width: 76px;
+  }
+
+  .homepage-story-image {
+    min-height: 460px;
   }
 }
 
