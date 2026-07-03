@@ -179,7 +179,7 @@ const preparationSections = [
 
 const resources = [
   {
-    label: "Vendor Handbook (PDF)",
+    label: "TERMS AND CONDITIONS",
     href: "/documents/vendor-terms-and-conditions.pdf",
   },
   {
