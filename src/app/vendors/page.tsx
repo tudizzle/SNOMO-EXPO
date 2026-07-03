@@ -27,14 +27,24 @@ export default function VendorsPage() {
           </p>
         </div>
 
-        <Link
-          className="button button-primary"
-          href="https://www.jotform.com/build/261379354993068"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Register as a Vendor
-        </Link>
+        <div className="vendors-registration-actions">
+          <Link
+            className="button button-primary"
+            href="https://www.jotform.com/build/261379354993068"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Register as a Vendor
+          </Link>
+          <Link
+            className="button vendors-terms-link"
+            href="/documents/vendor-terms-and-conditions.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Review Vendor Terms &amp; Conditions
+          </Link>
+        </div>
       </section>
 
       <section className="vendors-section" aria-labelledby="why-exhibit-title">

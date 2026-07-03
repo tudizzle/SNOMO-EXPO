@@ -2281,6 +2281,13 @@ h1 {
   max-width: 680px;
 }
 
+.vendors-registration-actions {
+  display: grid;
+  gap: 12px;
+  justify-items: stretch;
+  min-width: min(100%, 320px);
+}
+
 .vendors-registration .button-primary {
   background: #b83a2f;
   border-color: #b83a2f;
@@ -2291,6 +2298,18 @@ h1 {
 .vendors-registration .button-primary:hover {
   background: #c74639;
   border-color: #c74639;
+}
+
+.vendors-terms-link {
+  background: rgba(17, 24, 34, 0.88);
+  border-color: rgba(248, 251, 255, 0.24);
+  color: var(--snow);
+  white-space: nowrap;
+}
+
+.vendors-terms-link:hover {
+  background: rgba(28, 38, 50, 0.96);
+  border-color: rgba(248, 251, 255, 0.42);
 }
 
 .visit-page {
