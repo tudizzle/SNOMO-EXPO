@@ -101,13 +101,9 @@ button {
   cursor: pointer;
   display: inline-grid;
   font-family: "Bank Gothic", "Eurostile Extended", "Arial Narrow", "Avenir Next Condensed", "Roboto Condensed", Arial, Helvetica, sans-serif;
-  font-size: clamp(0.58rem, 0.72vw, 0.7rem);
   font-stretch: condensed;
   font-weight: 900;
-  gap: 2px;
   justify-content: center;
-  letter-spacing: 0.16em;
-  line-height: 0.92;
   overflow: visible;
   padding: 0 18px;
   place-content: center;
@@ -145,8 +141,32 @@ button {
   position: absolute;
 }
 
-.hero-audio-button span {
+.hero-audio-label {
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.18)) drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.82));
+  inset: 10px;
+  letter-spacing: 0.21em;
+  pointer-events: none;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.hero-audio-label text {
+  fill: rgba(222, 235, 245, 0.78);
+  font-size: 8.9px;
+  font-weight: 900;
+}
+
+.hero-audio-ignition {
+  fill: none;
+  height: 30%;
+  pointer-events: none;
   position: relative;
+  stroke: rgba(214, 233, 245, 0.58);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+  width: 30%;
   z-index: 1;
 }
 
