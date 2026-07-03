@@ -38,11 +38,9 @@ export default function VendorsPage() {
           </Link>
           <Link
             className="button vendors-terms-link"
-            href="/documents/vendor-terms-and-conditions.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/vendor-success"
           >
-            Review Vendor Terms &amp; Conditions
+            Open Vendor Success Center
           </Link>
         </div>
       </section>
