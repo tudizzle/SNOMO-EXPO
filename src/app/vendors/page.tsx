@@ -46,7 +46,7 @@ const marketOpportunityCards = [
 
 const preparationSections = [
   {
-    title: "Vendor Pre-Show Checklist",
+    title: "Accommodations",
     content: (
       <>
         <p>
@@ -82,41 +82,6 @@ const preparationSections = [
         >
           Book Your Group Rate
         </Link>
-
-        <p>
-          <strong>Booth Balance Due</strong>
-        </p>
-        <p>
-          If you placed a deposit for your booth space, the remaining balance is
-          due by <strong>August 31, 2026</strong>.
-        </p>
-        <p>
-          Payment may be completed by check or credit card through your Vendor
-          Agreement.
-        </p>
-        <p>
-          <strong>Due: August 31, 2026</strong>
-        </p>
-
-        <p>
-          <strong>Colorado Sales Tax Registration</strong>
-        </p>
-        <p>
-          Any out-of-state retailer must apply for a Colorado Sales Tax License
-          and collect Colorado sales tax.
-        </p>
-        <p>
-          Online applications for a Sales Tax License for out-of-state retailers
-          are available through <strong>Colorado Revenue Online</strong>.
-        </p>
-        <p>
-          Vendors should complete registration before the Colorado SnoMo Expo and
-          report sales after the event.
-        </p>
-        <p>
-          <strong>Complete by: October 4, 2026</strong>
-        </p>
-        {/* TODO: Add Colorado Revenue Online link and sales tax registration forms. */}
       </>
     ),
   },
