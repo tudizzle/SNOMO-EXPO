@@ -48,41 +48,58 @@ const preparationSections = [
   {
     title: "Accommodations",
     content: (
-      <>
-        <p>
-          <strong>Hotel Reservations</strong>
-        </p>
-        <p>
-          We have a block of rooms reserved for vendors at the{" "}
-          <strong>Residence Inn by Marriott Denver Central Park</strong>.
-        </p>
-        <p>
-          Vendors can book using the group reservation link below or call the
-          hotel directly and mention <strong>Colorado SnoMo Expo</strong> to
-          receive the group rate.
-        </p>
-        <p>
-          <strong>Group rate:</strong> $XXX per night
-        </p>
-        <p>
-          <strong>Residence Inn by Marriott Denver Central Park</strong>
-          <br />
-          4667 North Central Park Boulevard
-          <br />
-          Denver, CO
-          <br />
-          (303) 373-3960
-        </p>
-        <Link
-          className="button vendors-terms-link"
-          href="https://www.marriott.com/en-us/hotels/denre-residence-inn-denver-central-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Book your group rate for Colorado SnoMo Expo 2025"
-        >
-          Book Your Group Rate
-        </Link>
-      </>
+      <div className="vendor-accommodations-panel">
+        <div className="vendor-accommodations-heading">
+          <p className="vendors-kicker">Official Recommended Hotel</p>
+          <h4>Residence Inn Denver Central Park</h4>
+          <p>
+            4667 North Central Park Boulevard
+            <br />
+            Denver, Colorado
+          </p>
+          <p>Located just minutes from the National Western Complex.</p>
+        </div>
+
+        <div className="vendor-accommodations-details">
+          <div>
+            <p className="vendors-kicker">Special Event Rate</p>
+            <p>
+              Mention <strong>Colorado Snomo Expo</strong> when making your
+              reservation to receive the special event rate, subject to
+              availability.
+            </p>
+          </div>
+
+          <div>
+            <p className="vendors-kicker">Hotel Features</p>
+            <ul>
+              {[
+                "Complimentary Breakfast",
+                "Free Wi-Fi",
+                "Free Parking",
+                "Spacious Studio & Suite Rooms",
+                "Minutes from the National Western Complex",
+              ].map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+
+          <Link
+            className="button button-primary"
+            href="https://www.marriott.com/en-us/hotels/denre-residence-inn-denver-central-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Hotel
+          </Link>
+
+          <p className="vendor-accommodations-note">
+            Rooms are limited. We recommend booking early to secure the Colorado
+            Snomo Expo event rate.
+          </p>
+        </div>
+      </div>
     ),
   },
   {
