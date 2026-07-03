@@ -547,29 +547,48 @@ h1 {
 }
 
 .countdown-display {
-  align-items: center;
+  align-items: end;
   display: grid;
   flex: 0 0 auto;
+  gap: clamp(16px, 3vw, 34px);
+  grid-template-columns: repeat(4, minmax(72px, 1fr));
+  justify-content: center;
+  width: min(100%, 660px);
+}
+
+.countdown-unit {
+  display: grid;
   gap: 8px;
   justify-items: center;
 }
 
 .countdown-number {
   color: var(--snow);
-  font-size: clamp(4.6rem, 8.8vw, 7.4rem);
+  font-size: clamp(2.8rem, 5.2vw, 4.8rem);
   font-weight: 760;
   letter-spacing: 0;
-  line-height: 0.82;
+  line-height: 0.86;
   text-shadow: 0 16px 42px rgba(4, 10, 18, 0.46);
 }
 
 .countdown-label {
   color: var(--ember);
-  font-size: clamp(1.2rem, 2.2vw, 1.9rem);
+  font-size: clamp(0.66rem, 0.9vw, 0.8rem);
   font-weight: 850;
   letter-spacing: 0.16em;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.countdown-open {
+  color: var(--snow);
+  flex: 0 0 auto;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 0.95;
+  text-align: center;
+  text-shadow: 0 16px 42px rgba(4, 10, 18, 0.46);
 }
 
 .experience-section {
@@ -2854,11 +2873,24 @@ h1 {
   }
 
   .countdown-display {
+    gap: clamp(8px, 3vw, 16px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     order: -1;
+    width: 100%;
   }
 
   .countdown-number {
-    font-size: clamp(4.8rem, 24vw, 7rem);
+    font-size: clamp(1.9rem, 10vw, 3.2rem);
+  }
+
+  .countdown-label {
+    font-size: clamp(0.48rem, 2.2vw, 0.62rem);
+    letter-spacing: 0.12em;
+  }
+
+  .countdown-open {
+    font-size: clamp(2rem, 12vw, 3.4rem);
+    grid-column: 1 / -1;
   }
 
   .countdown-inner {
