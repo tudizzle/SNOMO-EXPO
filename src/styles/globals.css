@@ -2204,7 +2204,7 @@ h1 {
 }
 
 .vendors-section,
-.vendors-registration {
+.vendors-market {
   margin-inline: auto;
   max-width: 1180px;
 }
@@ -2230,7 +2230,7 @@ h1 {
 }
 
 .vendors-section-heading h2,
-.vendors-registration h1 {
+.vendors-market h1 {
   color: var(--snow);
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 760;
@@ -2240,65 +2240,69 @@ h1 {
   text-wrap: balance;
 }
 
-.vendors-list {
+.vendors-market {
   display: grid;
-}
-
-.vendors-list p {
-  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
-  color: rgba(248, 251, 255, 0.84);
-  font-size: clamp(1.05rem, 1.55vw, 1.45rem);
-  line-height: 1.28;
-  margin: 0;
-  padding: 22px 0;
-}
-
-.vendors-registration {
-  align-items: end;
-  background: rgba(248, 251, 255, 0.055);
-  border: 1px solid rgba(248, 251, 255, 0.13);
-  display: grid;
-  gap: clamp(24px, 4vw, 44px);
-  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(28px, 5vw, 58px);
   margin-bottom: clamp(58px, 8vw, 96px);
-  padding: clamp(24px, 4vw, 44px);
 }
 
-.vendors-registration > div {
+.vendors-market-heading {
   display: grid;
-  gap: 16px;
+  gap: 18px;
+  max-width: 920px;
 }
 
-.vendors-registration h1 {
+.vendors-market h1 {
   margin-top: 0;
+  max-width: 900px;
+}
+
+.vendors-market-heading p:not(.vendors-kicker) {
+  color: rgba(248, 251, 255, 0.76);
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  line-height: 1.58;
+  margin: 0;
   max-width: 760px;
 }
 
-.vendors-registration p:not(.vendors-kicker) {
-  color: rgba(248, 251, 255, 0.76);
-  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
-  line-height: 1.58;
-  margin: 0;
-  max-width: 680px;
-}
-
-.vendors-registration-actions {
+.vendors-market-grid {
   display: grid;
-  gap: 12px;
-  justify-items: stretch;
-  min-width: min(100%, 320px);
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.vendors-registration .button-primary {
-  background: #b83a2f;
-  border-color: #b83a2f;
+.vendors-market-card {
+  background:
+    linear-gradient(145deg, rgba(248, 251, 255, 0.08), rgba(248, 251, 255, 0.035));
+  border: 1px solid rgba(248, 251, 255, 0.12);
+  display: grid;
+  gap: 14px;
+  min-height: 260px;
+  padding: clamp(20px, 2.5vw, 28px);
+}
+
+.vendors-market-card span {
+  color: rgba(216, 167, 93, 0.86);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.vendors-market-card h2 {
   color: var(--snow);
-  white-space: nowrap;
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1.05;
+  margin: 0;
+  text-wrap: balance;
 }
 
-.vendors-registration .button-primary:hover {
-  background: #c74639;
-  border-color: #c74639;
+.vendors-market-card p {
+  color: rgba(248, 251, 255, 0.74);
+  font-size: clamp(0.92rem, 1.08vw, 1rem);
+  line-height: 1.52;
+  margin: 0;
 }
 
 .vendors-terms-link {
@@ -3168,13 +3172,12 @@ h1 {
     padding-top: 122px;
   }
 
-  .vendors-registration {
-    align-items: flex-start;
-    grid-template-columns: 1fr;
+  .vendors-market-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .vendors-registration .button {
-    width: 100%;
+  .vendors-market-card {
+    min-height: 230px;
   }
 
   .vendor-center-step-primary {
@@ -3242,6 +3245,14 @@ h1 {
     font-size: clamp(4rem, 20vw, 6.2rem);
   }
 
+  .vendors-market-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vendors-market-card {
+    min-height: auto;
+  }
+
   .floorplan-image-frame img {
     min-width: 640px;
   }
@@ -3280,10 +3291,6 @@ h1 {
 
   .sponsor-inquiry-checklist > div {
     grid-template-columns: 1fr;
-  }
-
-  .vendors-registration h1 {
-    font-size: clamp(2.8rem, 14vw, 5rem);
   }
 
   .visit-page-header h1 {

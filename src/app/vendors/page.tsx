@@ -1,11 +1,47 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 
-const whyExhibitPoints = [
-  "Reach passionate snowmobile customers",
-  "Showcase new products and services",
-  "Connect with riders before the winter season begins",
-  "Build brand awareness in the Rocky Mountain Region",
+const marketOpportunityCards = [
+  {
+    title: "Large Regional Audience",
+    body:
+      "A 100-mile radius around Denver reaches riders, families, clubs, dealers, manufacturers, and outdoor recreation buyers across the Front Range.",
+  },
+  {
+    title: "High-Value Customer Base",
+    body:
+      "The market includes an estimated 250,000–450,000 powersports-adjacent consumers, with 75,000–150,000 high-intent buyers interested in vehicles, gear, accessories, trailers, boats, and outdoor recreation products.",
+  },
+  {
+    title: "Strong Buying Demographics",
+    body:
+      "Core attendees are typically ages 25–55, with many households earning $75,000–$200,000+ annually.",
+  },
+  {
+    title: "Outdoor Lifestyle Market",
+    body:
+      "Front Range consumers actively participate in snowmobiling, ATV/UTV riding, dirt biking, boating, camping, hunting, fishing, overlanding, and mountain travel.",
+  },
+  {
+    title: "Truck, Trailer & Gear Ownership",
+    body:
+      "This market has a strong concentration of consumers who already own or are actively shopping for trucks, trailers, powersports equipment, boats, and premium outdoor gear.",
+  },
+  {
+    title: "Prime Geographic Reach",
+    body:
+      "The Expo draws from Denver, Colorado Springs, Boulder, Fort Collins, Loveland, Greeley, and surrounding mountain gateway communities.",
+  },
+  {
+    title: "Multiple Customer Segments",
+    body:
+      "Vendors can reach hardcore enthusiasts, weekend adventure families, hunters, anglers, campers, premium gear buyers, and newcomers entering the outdoor recreation market.",
+  },
+  {
+    title: "Strong Show Opportunity",
+    body:
+      "A Denver-area powersports and outdoor recreation expo gives vendors direct access to motivated buyers before they make seasonal purchases.",
+  },
 ];
 
 const preparationSections = [
@@ -75,45 +111,24 @@ export default function VendorsPage() {
     <main className="vendors-page">
       <SiteHeader />
 
-      <section className="vendors-registration" aria-labelledby="vendor-registration-title">
-        <div>
-          <p className="vendors-kicker">Vendor Registration</p>
-          <h1 id="vendor-registration-title">Become a Vendor</h1>
+      <section className="vendors-market" aria-labelledby="vendors-market-title">
+        <div className="vendors-market-heading">
+          <p className="vendors-kicker">Vendor Opportunity</p>
+          <h1 id="vendors-market-title">Why Exhibit in the Denver Front Range Market?</h1>
           <p>
-            Showcase your business at the Rocky Mountain Region&apos;s premier
-            winter powersports event.
+            The Colorado Snomo Expo gives vendors direct access to one of the
+            strongest outdoor recreation and powersports markets in the Rocky
+            Mountain region.
           </p>
         </div>
 
-        <div className="vendors-registration-actions">
-          <Link
-            className="button button-primary"
-            href="https://www.jotform.com/build/261379354993068"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Register as a Vendor
-          </Link>
-          <Link
-            className="button vendors-terms-link"
-            href="/documents/vendor-terms-and-conditions.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Review Vendor Terms &amp; Conditions
-          </Link>
-        </div>
-      </section>
-
-      <section className="vendors-section" aria-labelledby="why-exhibit-title">
-        <div className="vendors-section-heading">
-          <p className="vendors-kicker">Why Exhibit</p>
-          <h2 id="why-exhibit-title">Meet the Right Customers Before Winter Begins</h2>
-        </div>
-
-        <div className="vendors-list">
-          {whyExhibitPoints.map((point) => (
-            <p key={point}>{point}</p>
+        <div className="vendors-market-grid">
+          {marketOpportunityCards.map((card, index) => (
+            <article className="vendors-market-card" key={card.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h2>{card.title}</h2>
+              <p>{card.body}</p>
+            </article>
           ))}
         </div>
       </section>
