@@ -4,7 +4,20 @@ import { CountdownSection } from "@/components/countdown-section";
 import { HeroAudioButton } from "@/components/hero-audio-button";
 import { SiteHeader } from "@/components/site-header";
 
-const footerColumns = [
+type FooterLink = {
+  label: string;
+  href: string;
+  rel?: string;
+  target?: string;
+};
+
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+  comingSoon?: string;
+};
+
+const footerColumns: FooterColumn[] = [
   {
     title: "Plan",
     links: [
@@ -25,7 +38,12 @@ const footerColumns = [
   {
     title: "Connect",
     links: [
-      { label: "Facebook", href: "#" },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/profile.php?id=61563698281162",
+        rel: "noopener noreferrer",
+        target: "_blank",
+      },
       { label: "Instagram", href: "#" },
       { label: "Contact", href: "mailto:tudizzle@gmail.com" },
     ],
@@ -171,35 +189,18 @@ export default function Home() {
             <nav className="site-footer-column" key={column.title} aria-label={column.title}>
               <h2>{column.title}</h2>
               {column.links.map((link) => (
-                <Link href={link.href} key={link.label}>
+                <Link
+                  href={link.href}
+                  key={link.label}
+                  rel={link.rel}
+                  target={link.target}
+                >
                   {link.label}
                 </Link>
               ))}
               {column.comingSoon ? <span>{column.comingSoon}</span> : null}
             </nav>
           ))}
-
-          <section className="site-footer-column site-footer-newsletter" aria-label="Stay Updated">
-            <h2>Stay Updated</h2>
-            <p>
-              Be the first to hear about new exhibitors, seminar announcements
-              and Colorado Snomo Expo updates.
-            </p>
-            <form className="site-footer-form">
-              <label htmlFor="footer-email">Email address</label>
-              <div>
-                <input
-                  id="footer-email"
-                  name="email"
-                  placeholder="Email address"
-                  type="email"
-                />
-                <button className="button button-primary" type="button">
-                  Subscribe
-                </button>
-              </div>
-            </form>
-          </section>
         </div>
 
         <div className="site-footer-bottom">

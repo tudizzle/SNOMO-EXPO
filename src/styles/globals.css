@@ -819,9 +819,9 @@ h1 {
 .site-footer-columns {
   display: grid;
   gap: clamp(34px, 5vw, 72px);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: clamp(58px, 8vw, 96px) auto 0;
-  max-width: 1180px;
+  max-width: 980px;
 }
 
 .site-footer-column {
@@ -840,8 +840,7 @@ h1 {
 }
 
 .site-footer-column a,
-.site-footer-column span,
-.site-footer-newsletter p {
+.site-footer-column span {
   color: rgba(248, 251, 255, 0.66);
   font-size: 0.96rem;
   line-height: 1.5;
@@ -853,52 +852,6 @@ h1 {
 
 .site-footer-column a:hover {
   color: var(--snow);
-}
-
-.site-footer-newsletter p {
-  margin: 0;
-  max-width: 320px;
-}
-
-.site-footer-form {
-  display: grid;
-  gap: 12px;
-  margin-top: 8px;
-}
-
-.site-footer-form label {
-  color: rgba(200, 215, 229, 0.66);
-  font-size: 0.68rem;
-  font-weight: 850;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.site-footer-form div {
-  display: grid;
-  gap: 10px;
-}
-
-.site-footer-form input {
-  background: rgba(248, 251, 255, 0.06);
-  border: 1px solid rgba(248, 251, 255, 0.18);
-  color: var(--snow);
-  min-height: 52px;
-  padding: 0 16px;
-}
-
-.site-footer-form input::placeholder {
-  color: rgba(248, 251, 255, 0.42);
-}
-
-.site-footer-form input:focus {
-  border-color: rgba(248, 251, 255, 0.52);
-  outline: none;
-}
-
-.site-footer-form .button {
-  min-height: 52px;
-  width: 100%;
 }
 
 .site-footer-bottom {
@@ -2802,8 +2755,7 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .site-footer-column,
-  .site-footer-newsletter p {
+  .site-footer-column {
     max-width: none;
   }
 
