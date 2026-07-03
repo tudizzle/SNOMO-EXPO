@@ -155,14 +155,6 @@ export default function Home() {
 
       <section className="homepage-story" aria-labelledby="homepage-story-title">
         <article className="homepage-story-feature">
-          <div className="homepage-story-image">
-            <Image
-              alt="Mountain snowmobiler riding through deep Colorado snow"
-              fill
-              sizes="(max-width: 960px) 100vw, 45vw"
-              src="/images/story/why-we-built-this-expo.jpg"
-            />
-          </div>
           <div className="homepage-story-copy">
             <p className="homepage-story-kicker">Why It Exists</p>
             <h2 id="homepage-story-title">Why We Built This Expo</h2>
@@ -202,6 +194,14 @@ export default function Home() {
               <p>— Brandon Cox</p>
               <p>Host, Colorado Snomo Expo</p>
             </div>
+          </div>
+          <div className="homepage-story-image">
+            <Image
+              alt="Brandon Cox with a snowmobile community crowd at Spring Fling"
+              fill
+              sizes="(max-width: 960px) 100vw, 48vw"
+              src="/images/story/why-we-built-this-expo-crowd.jpg"
+            />
           </div>
         </article>
       </section>
