@@ -57,7 +57,7 @@ export default function Home() {
       <section className="hero" aria-label="Colorado Snomo Expo hero">
         <Image
           className="hero-image"
-          src="/images/hero/colorado-snomo-hero-2026.png"
+          src="/images/hero/colorado-snomo-hero.jpg"
           alt="Snowmobiler carving through deep powder in a snowy Colorado forest"
           fill
           priority
