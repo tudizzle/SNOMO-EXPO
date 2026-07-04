@@ -101,6 +101,14 @@ export default function Home() {
               <dt>Location</dt>
               <dd>Denver, Colorado</dd>
             </div>
+            <div>
+              <dt>Admission</dt>
+              <dd>$10</dd>
+            </div>
+            <div>
+              <dt>Tickets</dt>
+              <dd>Sold at the box office only</dd>
+            </div>
           </dl>
 
           <div className="hero-actions" aria-label="Hero actions">
