@@ -156,6 +156,9 @@ export function HeroAudioButton() {
       style={smokeStyle}
     >
       <span className="hero-audio-smoke" aria-hidden="true" />
+      <span className="hero-audio-callout" aria-hidden="true">
+        <span>Push for Joy</span>
+      </span>
       <button
         aria-label="Play snowmobile sound"
         className="hero-audio-button"
