@@ -293,8 +293,8 @@ const preparationSections = [
 
 const resources = [
   {
-    label: "SHOW REGULATIONS",
-    href: "/documents/colorado-snomo-expo-vendor-show-regulations.pdf",
+    label: "TERMS AND CONDITIONS",
+    href: "/documents/colorado-snomo-expo-vendor-terms-and-conditions.pdf",
   },
   {
     label: "ACORD Form",
