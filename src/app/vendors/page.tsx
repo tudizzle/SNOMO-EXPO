@@ -6,42 +6,42 @@ const marketOpportunityCards = [
   {
     title: "Large Regional Audience",
     body:
-      "A 100-mile radius around Denver reaches riders, families, clubs, dealers, manufacturers, and outdoor recreation buyers across the Front Range.",
+      "A 100-mile radius around Denver reaches Colorado snowmobile riders, mountain families, clubs, dealers, manufacturers, and winter powersports buyers across the Front Range.",
   },
   {
     title: "High-Value Customer Base",
     body:
-      "The market includes an estimated 250,000–450,000 powersports-adjacent consumers, with 75,000–150,000 high-intent buyers interested in vehicles, gear, accessories, trailers, boats, and outdoor recreation products.",
+      "The market includes a strong base of snowmobile owners and winter recreation customers who invest in sleds, trailers, parts, gear, apparel, accessories, and performance upgrades.",
   },
   {
     title: "Strong Buying Demographics",
     body:
-      "Core attendees are typically ages 25–55, with many households earning $75,000–$200,000+ annually.",
+      "Core attendees are typically active snowmobile riders and outdoor families ages 25–55, with many households earning $75,000–$200,000+ annually.",
   },
   {
     title: "Outdoor Lifestyle Market",
     body:
-      "Front Range consumers actively participate in snowmobiling, ATV/UTV riding, dirt biking, boating, camping, hunting, fishing, overlanding, and mountain travel.",
+      "Front Range consumers actively participate in mountain snowmobiling, trail riding, skiing, camping, hunting, fishing, and year-round outdoor adventure.",
   },
   {
     title: "Truck, Trailer & Gear Ownership",
     body:
-      "This market has a strong concentration of consumers who already own or are actively shopping for trucks, trailers, powersports equipment, boats, and premium outdoor gear.",
+      "Snowmobile customers often own trucks, enclosed trailers, avalanche gear, riding apparel, tools, storage systems, and premium winter powersports equipment.",
   },
   {
     title: "Prime Geographic Reach",
     body:
-      "The Expo draws from Denver, Colorado Springs, Boulder, Fort Collins, Loveland, Greeley, and surrounding mountain gateway communities.",
+      "The Expo draws snowmobile riders from Denver, Colorado Springs, Boulder, Fort Collins, Loveland, Greeley, and the mountain gateway communities that feed Colorado’s riding areas.",
   },
   {
     title: "Multiple Customer Segments",
     body:
-      "Vendors can reach hardcore enthusiasts, weekend adventure families, hunters, anglers, campers, premium gear buyers, and newcomers entering the outdoor recreation market.",
+      "Vendors can reach mountain riders, trail riders, families, clubs, dealers, new riders, performance enthusiasts, and winter adventure customers in one focused event.",
   },
   {
     title: "Strong Show Opportunity",
     body:
-      "A Denver-area powersports and outdoor recreation expo gives vendors direct access to motivated buyers before they make seasonal purchases.",
+      "A Denver-area snowmobile and winter powersports expo gives vendors direct access to motivated buyers before the season’s biggest purchasing decisions.",
   },
 ];
 
