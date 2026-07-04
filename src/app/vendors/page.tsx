@@ -193,30 +193,98 @@ const preparationSections = [
         <div className="vendor-accordion-panel-heading">
           <p className="vendors-kicker">Expo Weekend</p>
           <h4>Show Regulations</h4>
-          <p>The Colorado SnoMo Expo opens to the public on:</p>
-          <p className="vendor-accordion-note">
-            Friday, October 23, 2026 at 4:00 PM
+          <p>
+            Review these key show rules before arrival. Full regulations are
+            available in the Show Regulations PDF.
           </p>
+          <div>
+            <p className="vendors-kicker">Booth Setup</p>
+            <ul>
+              <li>Standard booths are 10&apos; x 10&apos; unless otherwise noted.</li>
+              <li>Booths include an 8&apos; high back drape.</li>
+              <li>
+                Booths may not block neighboring exhibitors or extend into aisles.
+              </li>
+              <li>
+                Special booth needs or non-standard booth sizes must be approved
+                by show management in advance.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="vendors-kicker">Booth Materials</p>
+            <ul>
+              <li>Booth decorations must comply with fire regulations.</li>
+              <li>Banners may not be hung from Expo Hall conduit pipes.</li>
+              <li>Propane tanks are not permitted in Expo Hall.</li>
+              <li>Fuel tanks must be empty or properly secured.</li>
+              <li>No decals or stickers are allowed on walls or rented tables.</li>
+            </ul>
+          </div>
+          <div>
+            <p className="vendors-kicker">Staffing &amp; Access</p>
+            <ul>
+              <li>Booths must be open and staffed during all show hours.</li>
+              <li>
+                Only staff members with proper show credentials may work booths.
+              </li>
+              <li>
+                Exhibitors may enter the show floor one hour before opening with
+                proper credentials.
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="vendor-accordion-panel-details">
           <div>
-            <p className="vendors-kicker">Vendor Reminder</p>
+            <p className="vendors-kicker">Important Reminders</p>
             <h5>Be Ready Before Doors Open</h5>
-            <p>
-              Please make sure your booth is fully set, staffed, and ready for
-              attendees before the show opens.
+            <p className="vendor-accordion-note">
+              The Colorado SnoMo Expo opens Friday, October 23, 2026 at 4:00 PM.
             </p>
           </div>
-          <ul>
-            <li>Booth requirements</li>
-            <li>Staffing</li>
-            <li>Use of space</li>
-            <li>Liability</li>
-            <li>Security</li>
-            <li>Sound</li>
-            <li>Cancellation</li>
-          </ul>
+          <div>
+            <p className="vendors-kicker">Insurance Required</p>
+            <p>
+              All exhibitors must carry general liability insurance for the
+              duration of the event. Proof of insurance must be provided before
+              move-in can begin.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Security</p>
+            <p>
+              Security will be onsite during the show, but exhibitors remain
+              responsible for their booth materials, displays, and equipment.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Labor</p>
+            <p>Exhibitors may assemble and dismantle their own booths.</p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Sound Levels</p>
+            <p>
+              Sound must be kept at a level that does not disturb neighboring
+              exhibitors.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Cancellations</p>
+            <p>
+              All cancellations must be submitted in writing and are subject to
+              the terms outlined in the official show regulations.
+            </p>
+          </div>
+          <Link
+            className="button button-primary"
+            href="/documents/colorado-snomo-expo-vendor-show-regulations.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DOWNLOAD SHOW REGULATIONS
+          </Link>
         </div>
       </div>
     ),
@@ -225,8 +293,8 @@ const preparationSections = [
 
 const resources = [
   {
-    label: "TERMS AND CONDITIONS",
-    href: "/documents/vendor-terms-and-conditions.pdf",
+    label: "SHOW REGULATIONS",
+    href: "/documents/colorado-snomo-expo-vendor-show-regulations.pdf",
   },
   {
     label: "ACORD Form",
