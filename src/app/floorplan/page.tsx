@@ -35,18 +35,18 @@ export default function FloorplanPage() {
       <section className="floorplan-preview" aria-labelledby="floorplan-preview-title">
         <div className="floorplan-preview-header">
           <div>
-            <p className="floorplan-kicker">Reference Layout</p>
+            <p className="floorplan-kicker">REFERENCE LAYOUT</p>
             <h2 id="floorplan-preview-title">2025 Floorplan Reference</h2>
           </div>
-          <p>Final 2026 Floorplan Coming Soon</p>
+          <p>FINAL 2026 FLOORPLAN COMING SOON</p>
         </div>
 
         <div className="floorplan-image-frame">
           <Image
-            src="/images/floorplan/2025-floorplan-reference.png"
-            alt="2025 Colorado Snomo Expo floorplan reference with booth numbers and venue areas"
-            width={1100}
-            height={793}
+            src="/images/floorplan/colorado-snomo-expo-redrawn-floorplan-v1.png"
+            alt="Colorado Snomo Expo Version 1.0 floorplan with booth numbers and venue areas"
+            width={1448}
+            height={1086}
             sizes="(max-width: 900px) 100vw, 1100px"
             priority
           />

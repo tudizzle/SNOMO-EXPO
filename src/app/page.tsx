@@ -4,6 +4,57 @@ import { CountdownSection } from "@/components/countdown-section";
 import { HeroAudioButton } from "@/components/hero-audio-button";
 import { SiteHeader } from "@/components/site-header";
 
+type FooterLink = {
+  label: string;
+  href: string;
+  rel?: string;
+  target?: string;
+};
+
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+  comingSoon?: string;
+};
+
+const footerColumns: FooterColumn[] = [
+  {
+    title: "Plan",
+    links: [
+      { label: "Exhibitors", href: "/exhibitors" },
+      { label: "Floorplan", href: "/floorplan" },
+      { label: "Schedule", href: "/schedule" },
+      { label: "Swap Meet", href: "/swap-meet" },
+    ],
+  },
+  {
+    title: "Exhibit",
+    links: [
+      { label: "Become a Vendor", href: "/vendors" },
+      { label: "Sponsor the Expo", href: "/sponsor" },
+    ],
+    comingSoon: "Vendor Success Center (Coming Soon)",
+  },
+  {
+    title: "Connect",
+    links: [
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/profile.php?id=61563698281162",
+        rel: "noopener noreferrer",
+        target: "_blank",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/tudizzlefilmz/",
+        rel: "noopener noreferrer",
+        target: "_blank",
+      },
+      { label: "Contact", href: "mailto:tudizzle@gmail.com" },
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <main className="hero-shell">
@@ -106,6 +157,116 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="homepage-story" aria-labelledby="homepage-story-title">
+        <article className="homepage-story-feature">
+          <div className="homepage-story-copy">
+            <p className="homepage-story-kicker">Why It Exists</p>
+            <h2 id="homepage-story-title">Why We Built This Expo</h2>
+            <p>
+              The Colorado Snomo Expo has been a Colorado tradition for decades,
+              bringing together riders, manufacturers, dealers and outdoor
+              enthusiasts from across the Rocky Mountain Region.
+            </p>
+            <p>
+              When the opportunity came to continue that tradition, I knew I
+              couldn&apos;t let it fade away. Snowmobiling has given me lifelong
+              friendships, unforgettable experiences and a community that has
+              shaped my life, so carrying this Expo forward felt like a chance
+              to give something back.
+            </p>
+            <p>
+              Today, the Colorado Snomo Expo is locally led and community
+              driven. This is my third year hosting the event, and each year
+              we&apos;ve worked to make it bigger, better and more representative
+              of the riders, clubs, manufacturers, dealers and families who make
+              this sport what it is.
+            </p>
+            <p>
+              With the support of the Colorado Snowmobile Association,
+              exhibitors, volunteers and riders from across the region, our goal
+              is simple: build one of the premier snowmobile expos in the
+              western United States while giving back to the sport that has
+              given so much to all of us.
+            </p>
+            <p>
+              My hope is that every person who walks through the doors, whether
+              attending for the first time or returning after many years, leaves
+              feeling like they are part of something much bigger than a trade
+              show.
+            </p>
+            <div className="homepage-story-signature">
+              <p>— Brandon Cox</p>
+              <p>Host, Colorado Snomo Expo</p>
+            </div>
+          </div>
+          <div className="homepage-story-image">
+            <Image
+              alt="Brandon Cox with a snowmobile community crowd at Spring Fling"
+              fill
+              sizes="(max-width: 960px) 100vw, 48vw"
+              src="/images/story/why-we-built-this-expo-crowd.jpg"
+            />
+          </div>
+        </article>
+      </section>
+
+      <section className="homepage-farewell" aria-labelledby="farewell-title">
+        <div className="homepage-farewell-inner">
+          <h2 id="farewell-title">We&apos;ll See You In Denver.</h2>
+          <div className="homepage-farewell-details" aria-label="Event information">
+            <p>October 23-24, 2026</p>
+            <p>National Western Complex</p>
+            <p>Denver, Colorado</p>
+          </div>
+          <div className="homepage-farewell-actions" aria-label="Farewell actions">
+            <Link className="button button-primary" href="/vendors">
+              Become a Vendor
+            </Link>
+            <Link className="button button-secondary" href="/plan-your-visit">
+              Plan Your Visit
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <footer className="site-footer" aria-label="Colorado Snomo Expo footer">
+        <div className="site-footer-brand">
+          <Image
+            alt="Colorado Snomo Expo"
+            className="site-footer-logo"
+            height={532}
+            src="/images/logos/colorado-snomo-expo-primary.png"
+            width={1301}
+          />
+          <p>Your Winter Starts Here.</p>
+        </div>
+
+        <div className="site-footer-columns">
+          {footerColumns.map((column) => (
+            <nav className="site-footer-column" key={column.title} aria-label={column.title}>
+              <h2>{column.title}</h2>
+              {column.links.map((link) => (
+                <Link
+                  href={link.href}
+                  key={link.label}
+                  rel={link.rel}
+                  target={link.target}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {column.comingSoon ? <span>{column.comingSoon}</span> : null}
+            </nav>
+          ))}
+        </div>
+
+        <div className="site-footer-bottom">
+          <p>© 2026 Colorado Snomo Expo</p>
+          <p>Built with pride for the Rocky Mountain snowmobile community.</p>
+          <span>Version 2026</span>
+        </div>
+      </footer>
     </main>
   );
 }
