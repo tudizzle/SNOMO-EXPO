@@ -583,7 +583,7 @@ export default function VendorsPage() {
           </div>
 
           <div className="vendor-center-accordion">
-            {showtimeSections.map((section) => (
+            {showtimeSections.slice().reverse().map((section) => (
               <details key={section.title}>
                 <summary>{section.title}</summary>
                 <div>{section.content}</div>
