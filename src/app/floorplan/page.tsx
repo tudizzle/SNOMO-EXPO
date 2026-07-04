@@ -23,24 +23,22 @@ export default function FloorplanPage() {
       </section>
 
       <section className="floorplan-notice" aria-labelledby="floorplan-notice-title">
-        <h2 id="floorplan-notice-title">Floorplan Version 1.0</h2>
+        <h2 id="floorplan-notice-title">2026 Final Floorplan Coming Soon</h2>
         <p>
-          This launch floorplan may be updated as final booth assignments are
-          confirmed.
+          We are currently finalizing the 2026 Colorado Snomo Expo floorplan.
+          The layout below reflects the previous event floorplan and is provided
+          as a reference for vendors and attendees. Please check back soon for
+          the final 2026 booth layout and exhibitor assignments.
         </p>
       </section>
 
       <section className="floorplan-preview" aria-labelledby="floorplan-preview-title">
         <div className="floorplan-preview-header">
           <div>
-            <p className="floorplan-kicker">Launch Layout</p>
-            <h2 id="floorplan-preview-title">Expo Floorplan</h2>
-            <p className="floorplan-preview-copy">
-              Review the current booth layout for the Colorado SnoMo Expo. This
-              Version 1.0 floorplan is provided for launch and may be updated as
-              final booth assignments are confirmed.
-            </p>
+            <p className="floorplan-kicker">REFERENCE LAYOUT</p>
+            <h2 id="floorplan-preview-title">2025 Floorplan Reference</h2>
           </div>
+          <p>FINAL 2026 FLOORPLAN COMING SOON</p>
         </div>
 
         <div className="floorplan-image-frame">
