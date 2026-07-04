@@ -15,7 +15,6 @@ type FooterLink = {
 type FooterColumn = {
   title: string;
   links: FooterLink[];
-  comingSoon?: string;
 };
 
 const footerColumns: FooterColumn[] = [
@@ -33,8 +32,8 @@ const footerColumns: FooterColumn[] = [
     links: [
       { label: "Become a Vendor", href: "/vendors" },
       { label: "Sponsor the Expo", href: "/sponsor" },
+      { label: "Vendor Registration Center", href: "/vendors" },
     ],
-    comingSoon: "Vendor Success Center (Coming Soon)",
   },
   {
     title: "Connect",
@@ -316,7 +315,6 @@ export default function Home() {
                   {link.label}
                 </Link>
               ))}
-              {column.comingSoon ? <span>{column.comingSoon}</span> : null}
             </nav>
           ))}
         </div>
