@@ -455,7 +455,7 @@ const resources = [
   },
   {
     label: "Colorado Sales Tax Information",
-    href: "https://tax.colorado.gov/sales-tax-license",
+    href: "https://tax.colorado.gov/sales-tax-guide",
     external: true,
   },
 ];
