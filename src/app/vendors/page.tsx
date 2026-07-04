@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata } from "@/lib/seo";
 
 const marketOpportunityCards = [
   {
@@ -450,7 +451,7 @@ const resources = [
   },
   {
     label: "ACORD Form",
-    href: "https://www.acord.org/standards-architecture/forms",
+    href: "https://coloradosnomoexpo.com/acord-insurance-form",
     external: true,
   },
   {
@@ -460,11 +461,12 @@ const resources = [
   },
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Become a Vendor | Colorado Snomo Expo",
   description:
     "Vendor registration and preparation resources for Colorado Snomo Expo.",
-};
+  path: "/vendors",
+});
 
 export default function VendorsPage() {
   return (

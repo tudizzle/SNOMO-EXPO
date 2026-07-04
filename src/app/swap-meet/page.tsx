@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { SwapMeetForm } from "@/components/swap-meet-form";
+import { createPageMetadata } from "@/lib/seo";
 
 const swapMeetDetails = [
   "Swap meet opens for setup at 7:00 AM Saturday morning.",
@@ -43,11 +44,12 @@ const pricingOptions = [
   },
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Swap Meet | Colorado Snomo Expo",
   description:
     "Get Colorado Snomo Expo swap meet details, pricing and information for getting on the swap meet list.",
-};
+  path: "/swap-meet",
+});
 
 export default function SwapMeetPage() {
   return (

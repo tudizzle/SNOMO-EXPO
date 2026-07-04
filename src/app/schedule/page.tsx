@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata } from "@/lib/seo";
 
 const eventDays = [
   {
@@ -34,11 +35,12 @@ const seminarTopics = [
   "New Product Demonstrations",
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
     "Plan your Colorado Snomo Expo weekend and don't miss presentations from some of the snowmobile industry's leading experts.",
-};
+  path: "/schedule",
+});
 
 export default function SchedulePage() {
   return (

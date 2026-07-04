@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CountdownSection } from "@/components/countdown-section";
 import { HeroAudioButton } from "@/components/hero-audio-button";
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata, siteUrl } from "@/lib/seo";
 
 type FooterLink = {
   label: string;
@@ -55,9 +56,59 @@ const footerColumns: FooterColumn[] = [
   },
 ];
 
+export const metadata = createPageMetadata({
+  title: "Colorado Snomo Expo | Your Winter Starts Here",
+  description:
+    "The Rocky Mountain Region's Premier Winter Powersports Expo returns October 23-24, 2026 at the National Western Complex in Denver.",
+  path: "/",
+});
+
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Colorado SnoMo Expo",
+  description:
+    "The Rocky Mountain Region's Premier Winter Powersports Expo.",
+  keywords: "snowmobile, winter powersports, expo, Denver, Colorado",
+  startDate: "2026-10-23T16:00:00-06:00",
+  endDate: "2026-10-24T17:00:00-06:00",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  image: [new URL("/images/hero/colorado-snomo-hero.jpg", siteUrl).toString()],
+  location: {
+    "@type": "Place",
+    name: "National Western Complex",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "4655 Humboldt St.",
+      addressLocality: "Denver",
+      addressRegion: "CO",
+      postalCode: "80216",
+      addressCountry: "US",
+    },
+  },
+  organizer: {
+    "@type": "Organization",
+    name: "Colorado Snomo Expo",
+    url: siteUrl.toString(),
+  },
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    price: "10",
+    priceCurrency: "USD",
+    validFrom: "2026-10-23T16:00:00-06:00",
+    url: siteUrl.toString(),
+  },
+};
+
 export default function Home() {
   return (
     <main className="hero-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
       <SiteHeader />
       <section className="hero" aria-label="Colorado Snomo Expo hero">
         <Image

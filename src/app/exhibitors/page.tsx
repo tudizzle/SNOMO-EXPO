@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { placeholderExhibitors } from "@/data/exhibitors";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Exhibitors | Colorado Snomo Expo",
   description:
     "Explore the companies, manufacturers and brands that make Colorado Snomo Expo the Rocky Mountain Region's premier winter powersports event.",
-};
+  path: "/exhibitors",
+});
 
 export default function ExhibitorsPage() {
   return (
