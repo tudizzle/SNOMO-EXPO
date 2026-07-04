@@ -326,35 +326,6 @@ const showtimeSections = [
 
         <div className="vendor-accordion-panel-details">
           <div>
-            <p className="vendors-kicker">Show Set-Up Times</p>
-            <ul>
-              <li>
-                <strong>Wednesday, October 21, 2026</strong> — By appointment only
-              </li>
-              <li>
-                <strong>Thursday, October 22, 2026</strong> — 9:00 AM to 4:00 PM
-              </li>
-              <li>
-                <strong>Friday, October 23, 2026</strong> — 9:00 AM to 2:00 PM
-              </li>
-            </ul>
-            <p className="vendor-accordion-note">
-              Any freight being shipped to the event must arrive on move-in
-              dates only.
-            </p>
-          </div>
-          <div>
-            <p className="vendors-kicker">Ceiling Heights</p>
-            <ul>
-              <li>
-                <strong>Hall of Education</strong> — 10&apos; 6&quot;
-              </li>
-              <li>
-                <strong>Expo Hall</strong> — 13&apos; 6&quot;
-              </li>
-            </ul>
-          </div>
-          <div>
             <p className="vendors-kicker">Vehicle Rules</p>
             <p className="vendor-accordion-note">
               Vehicles cannot be parked inside the event while the show is open.
