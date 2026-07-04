@@ -251,6 +251,184 @@ const preparationSections = [
 
 const showtimeSections = [
   {
+    title: "General Info",
+    content: (
+      <div className="vendor-accordion-panel">
+        <div className="vendor-accordion-panel-heading">
+          <p className="vendors-kicker">2026 Colorado SnoMo Expo</p>
+          <h4>General Info</h4>
+          <div>
+            <p className="vendors-kicker">Main Show Contact</p>
+            <p>
+              <strong>Brandon Cox</strong>
+              <br />
+              719-963-9782
+              <br />
+              <a href="mailto:tudizzle@gmail.com">tudizzle@gmail.com</a>
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Event Location</p>
+            <p>
+              <strong>National Western Complex</strong>
+              <br />
+              4655 Humboldt St.
+              <br />
+              Denver, CO 80216
+            </p>
+            <Link
+              className="button vendors-terms-link"
+              href="https://nationalwesterncomplex.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              National Western Complex
+            </Link>
+          </div>
+          <div>
+            <p className="vendors-kicker">Show Dates</p>
+            <ul>
+              <li>
+                <strong>Friday, October 23, 2026</strong> — 4:00 PM to 8:00 PM
+              </li>
+              <li>
+                <strong>Saturday, October 24, 2026</strong> — 9:00 AM to 5:00 PM
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="vendors-kicker">Internet Service</p>
+            <p>Wi-Fi access is provided free of charge.</p>
+            <p>The password will be provided at vendor check-in onsite.</p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Parking</p>
+            <p>Follow signage and event staff directions for vendor parking during the show.</p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Wristbands</p>
+            <p>
+              Each vendor will be provided with <strong>6 wristbands</strong>{" "}
+              good for access to both days of the event.
+            </p>
+            <p>
+              If you need additional wristbands to meet your staffing needs,
+              please request them during vendor check-in.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Denver Sales Tax</p>
+            <p>
+              Denver sales tax rate: <strong>8.81%</strong>
+            </p>
+          </div>
+        </div>
+
+        <div className="vendor-accordion-panel-details">
+          <div>
+            <p className="vendors-kicker">Show Set-Up Times</p>
+            <ul>
+              <li>
+                <strong>Wednesday, October 21, 2026</strong> — By appointment only
+              </li>
+              <li>
+                <strong>Thursday, October 22, 2026</strong> — 9:00 AM to 4:00 PM
+              </li>
+              <li>
+                <strong>Friday, October 23, 2026</strong> — 9:00 AM to 2:00 PM
+              </li>
+            </ul>
+            <p className="vendor-accordion-note">
+              Any freight being shipped to the event must arrive on move-in
+              dates only.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Ceiling Heights</p>
+            <ul>
+              <li>
+                <strong>Hall of Education</strong> — 10&apos; 6&quot;
+              </li>
+              <li>
+                <strong>Expo Hall</strong> — 13&apos; 6&quot;
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="vendors-kicker">Vehicle Rules</p>
+            <p className="vendor-accordion-note">
+              Vehicles cannot be parked inside the event while the show is open.
+            </p>
+            <p>
+              All non-display vehicles must be out of the building by{" "}
+              <strong>Friday at 2:00 PM</strong> and will not be permitted to
+              enter again until <strong>Saturday after 5:00 PM</strong>.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Floor Protection</p>
+            <p>
+              The National Western Complex has a polished concrete floor with no
+              coverings. We recommend removing all carbides from any snowmobile
+              that will be on display and using care during setup and breakdown
+              to avoid damaging the floor.
+            </p>
+            <p>Vendors are responsible for any damages.</p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Vendor Courtesy</p>
+            <p>
+              When setting up your booth, please be respectful of your fellow
+              vendors and minimize blocking access through the event.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Security</p>
+            <p>
+              Private security will be onsite during move-in, throughout the
+              show, and until breakdown is complete.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Breakdown</p>
+            <p>
+              Breakdown begins immediately following the Expo and must be
+              completed by <strong>11:30 PM on Saturday, October 24, 2026</strong>.
+            </p>
+          </div>
+          <div>
+            <p className="vendors-kicker">Emergency Information</p>
+            <p>
+              For emergencies, call <strong>911</strong>.
+            </p>
+            <p>
+              The National Western Complex is located one block from Denver Fire
+              Department Station 9, which offers EMT and first-responder care to
+              the facility.
+            </p>
+            <ul>
+              <li>
+                <strong>Denver Fire Department — Station 9</strong>
+                <br />
+                720-913-3473
+              </li>
+              <li>
+                <strong>EMS — Stadium Medical</strong>
+                <br />
+                720-630-2000
+              </li>
+              <li>
+                <strong>Denver Police Department — District 2</strong>
+                <br />
+                720-913-1000
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
     title: "Move-In Schedule",
     content: (
       <div className="vendor-accordion-panel">
