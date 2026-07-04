@@ -23,30 +23,32 @@ export default function FloorplanPage() {
       </section>
 
       <section className="floorplan-notice" aria-labelledby="floorplan-notice-title">
-        <h2 id="floorplan-notice-title">2026 Final Floorplan Coming Soon</h2>
+        <h2 id="floorplan-notice-title">Floorplan Version 1.0</h2>
         <p>
-          We are currently finalizing the 2026 Colorado Snomo Expo floorplan.
-          The layout below reflects the previous event floorplan and is provided
-          as a reference for vendors and attendees. Please check back soon for
-          the final 2026 booth layout and exhibitor assignments.
+          This launch floorplan may be updated as final booth assignments are
+          confirmed.
         </p>
       </section>
 
       <section className="floorplan-preview" aria-labelledby="floorplan-preview-title">
         <div className="floorplan-preview-header">
           <div>
-            <p className="floorplan-kicker">Reference Layout</p>
-            <h2 id="floorplan-preview-title">2025 Floorplan Reference</h2>
+            <p className="floorplan-kicker">Launch Layout</p>
+            <h2 id="floorplan-preview-title">Expo Floorplan</h2>
+            <p className="floorplan-preview-copy">
+              Review the current booth layout for the Colorado SnoMo Expo. This
+              Version 1.0 floorplan is provided for launch and may be updated as
+              final booth assignments are confirmed.
+            </p>
           </div>
-          <p>Final 2026 Floorplan Coming Soon</p>
         </div>
 
         <div className="floorplan-image-frame">
           <Image
-            src="/images/floorplan/2025-floorplan-reference.png"
-            alt="2025 Colorado Snomo Expo floorplan reference with booth numbers and venue areas"
-            width={1100}
-            height={793}
+            src="/images/floorplan/colorado-snomo-expo-redrawn-floorplan-v1.png"
+            alt="Colorado Snomo Expo Version 1.0 floorplan with booth numbers and venue areas"
+            width={1448}
+            height={1086}
             sizes="(max-width: 900px) 100vw, 1100px"
             priority
           />
