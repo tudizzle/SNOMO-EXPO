@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata } from "@/lib/seo";
 
 const eventDays = [
   {
@@ -34,11 +35,19 @@ const seminarTopics = [
   "New Product Demonstrations",
 ];
 
-export const metadata = {
+const admissionDetails = [
+  "Tickets Available at the Box Office Only",
+  "No Online Ticket Sales",
+  "Children 12 and under admitted free",
+  "Cash and major credit cards accepted at the box office",
+];
+
+export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
     "Plan your Colorado Snomo Expo weekend and don't miss presentations from some of the snowmobile industry's leading experts.",
-};
+  path: "/schedule",
+});
 
 export default function SchedulePage() {
   return (
@@ -78,6 +87,24 @@ export default function SchedulePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="schedule-hours" aria-labelledby="schedule-admission-title">
+        <div className="schedule-section-heading">
+          <p className="schedule-kicker">Admission</p>
+          <h2 id="schedule-admission-title">$10 Admission</h2>
+        </div>
+
+        <article className="schedule-hours-card schedule-hours-card-gold schedule-admission-card">
+          <div className="schedule-hours-card-header">
+            <p>Box Office Only</p>
+          </div>
+          <ul>
+            {admissionDetails.map((detail) => (
+              <li key={detail}>{detail}</li>
+            ))}
+          </ul>
+        </article>
       </section>
 
       <section className="schedule-feature" aria-labelledby="schedule-feature-title">

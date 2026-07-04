@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
+import { SiteFooter } from "@/components/site-footer";
+import { createPageMetadata, siteUrl } from "@/lib/seo";
 import "@/styles/globals.css";
 import "@/styles/design-system.css";
 
 export const metadata: Metadata = {
-  title: "Colorado Snomo Expo",
-  description: "Your Winter Starts Here.",
+  metadataBase: siteUrl,
+  ...createPageMetadata({
+    title: "Colorado Snomo Expo | Your Winter Starts Here",
+    description:
+      "The Rocky Mountain Region's Premier Winter Powersports Expo returns October 23-24, 2026 at the National Western Complex in Denver.",
+    path: "/",
+  }),
 };
 
 export default function RootLayout({
@@ -14,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

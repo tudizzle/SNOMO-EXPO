@@ -1,11 +1,13 @@
 import { SiteHeader } from "@/components/site-header";
 import { SponsorInquiryForm } from "@/components/sponsor-inquiry-form";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Sponsor Inquiry | Colorado Snomo Expo",
   description:
     "Tell us about your business and the sponsorship opportunities you're interested in.",
-};
+  path: "/sponsor-inquiry",
+});
 
 export default function SponsorInquiryPage() {
   return (

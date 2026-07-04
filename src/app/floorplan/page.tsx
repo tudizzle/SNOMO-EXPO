@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Floorplan | Colorado Snomo Expo",
   description:
     "Explore the Colorado Snomo Expo layout and get a preview of how exhibitors, vendors and event areas are organized.",
-};
+  path: "/floorplan",
+});
 
 export default function FloorplanPage() {
   return (

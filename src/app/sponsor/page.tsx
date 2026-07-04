@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata } from "@/lib/seo";
 
 const sponsorshipOpportunities = [
   "Logo placement on event marketing materials",
@@ -12,11 +13,12 @@ const sponsorshipOpportunities = [
   "Custom sponsorship opportunities tailored to your business",
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Sponsor the Colorado Snomo Expo | Colorado Snomo Expo",
   description:
     "Partner with the Rocky Mountain Region's premier winter powersports event and place your business in front of passionate snowmobile enthusiasts.",
-};
+  path: "/sponsor",
+});
 
 export default function SponsorPage() {
   return (

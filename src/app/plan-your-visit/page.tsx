@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata } from "@/lib/seo";
 
 const quickActions = [
   { href: "/exhibitors", label: "View Exhibitors" },
@@ -79,11 +80,12 @@ const faqs = [
   },
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Plan Your Visit | Colorado Snomo Expo",
   description:
     "Everything you need to plan an incredible weekend at the Colorado Snomo Expo.",
-};
+  path: "/plan-your-visit",
+});
 
 export default function PlanYourVisitPage() {
   return (

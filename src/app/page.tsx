@@ -3,71 +3,80 @@ import Link from "next/link";
 import { CountdownSection } from "@/components/countdown-section";
 import { HeroAudioButton } from "@/components/hero-audio-button";
 import { SiteHeader } from "@/components/site-header";
+import { createPageMetadata, siteUrl } from "@/lib/seo";
 
-type FooterLink = {
-  label: string;
-  href: string;
-  rel?: string;
-  target?: string;
+export const metadata = createPageMetadata({
+  title: "Colorado Snomo Expo | Your Winter Starts Here",
+  description:
+    "The Rocky Mountain Region's Premier Winter Powersports Expo returns October 23-24, 2026 at the National Western Complex in Denver.",
+  path: "/",
+});
+
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Colorado SnoMo Expo",
+  description:
+    "The Rocky Mountain Region's Premier Winter Powersports Expo.",
+  keywords: "snowmobile, winter powersports, expo, Denver, Colorado",
+  startDate: "2026-10-23T16:00:00-06:00",
+  endDate: "2026-10-24T17:00:00-06:00",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  image: [new URL("/images/hero/colorado-snomo-hero.jpg", siteUrl).toString()],
+  location: {
+    "@type": "Place",
+    name: "National Western Complex",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "4655 Humboldt St.",
+      addressLocality: "Denver",
+      addressRegion: "CO",
+      postalCode: "80216",
+      addressCountry: "US",
+    },
+  },
+  organizer: {
+    "@type": "Organization",
+    name: "Colorado Snomo Expo",
+    url: siteUrl.toString(),
+  },
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    price: "10",
+    priceCurrency: "USD",
+    validFrom: "2026-10-23T16:00:00-06:00",
+    url: siteUrl.toString(),
+  },
 };
-
-type FooterColumn = {
-  title: string;
-  links: FooterLink[];
-  comingSoon?: string;
-};
-
-const footerColumns: FooterColumn[] = [
-  {
-    title: "Plan",
-    links: [
-      { label: "Exhibitors", href: "/exhibitors" },
-      { label: "Floorplan", href: "/floorplan" },
-      { label: "Schedule", href: "/schedule" },
-      { label: "Swap Meet", href: "/swap-meet" },
-    ],
-  },
-  {
-    title: "Exhibit",
-    links: [
-      { label: "Become a Vendor", href: "/vendors" },
-      { label: "Sponsor the Expo", href: "/sponsor" },
-    ],
-    comingSoon: "Vendor Success Center (Coming Soon)",
-  },
-  {
-    title: "Connect",
-    links: [
-      {
-        label: "Facebook",
-        href: "https://www.facebook.com/profile.php?id=61563698281162",
-        rel: "noopener noreferrer",
-        target: "_blank",
-      },
-      {
-        label: "Instagram",
-        href: "https://www.instagram.com/tudizzlefilmz/",
-        rel: "noopener noreferrer",
-        target: "_blank",
-      },
-      { label: "Contact", href: "mailto:tudizzle@gmail.com" },
-    ],
-  },
-];
 
 export default function Home() {
   return (
     <main className="hero-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
       <SiteHeader />
       <section className="hero" aria-label="Colorado Snomo Expo hero">
         <Image
-          className="hero-image"
-          src="/images/hero/colorado-snomo-hero.jpg"
+          className="hero-image hero-image-desktop"
+          src="/images/hero/homepage-hero-snowmobile-action.jpg"
           alt="Snowmobiler carving through deep powder in a snowy Colorado forest"
           fill
           priority
           quality={92}
           sizes="100vw"
+        />
+        <Image
+          className="hero-image hero-image-mobile"
+          src="/images/hero/homepage-hero-mobile.jpg"
+          alt="Snowmobiler carving through deep powder in a snowy Colorado forest"
+          fill
+          priority
+          quality={92}
+          sizes="(max-width: 760px) 100vw, 0px"
         />
         <div className="hero-snow" aria-hidden="true" />
         <HeroAudioButton />
@@ -91,6 +100,14 @@ export default function Home() {
             <div>
               <dt>Location</dt>
               <dd>Denver, Colorado</dd>
+            </div>
+            <div>
+              <dt>Admission</dt>
+              <dd>$10</dd>
+            </div>
+            <div>
+              <dt>Tickets</dt>
+              <dd>Sold at the box office only</dd>
             </div>
           </dl>
 
@@ -230,43 +247,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer" aria-label="Colorado Snomo Expo footer">
-        <div className="site-footer-brand">
-          <Image
-            alt="Colorado Snomo Expo"
-            className="site-footer-logo"
-            height={532}
-            src="/images/logos/colorado-snomo-expo-primary.png"
-            width={1301}
-          />
-          <p>Your Winter Starts Here.</p>
-        </div>
-
-        <div className="site-footer-columns">
-          {footerColumns.map((column) => (
-            <nav className="site-footer-column" key={column.title} aria-label={column.title}>
-              <h2>{column.title}</h2>
-              {column.links.map((link) => (
-                <Link
-                  href={link.href}
-                  key={link.label}
-                  rel={link.rel}
-                  target={link.target}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              {column.comingSoon ? <span>{column.comingSoon}</span> : null}
-            </nav>
-          ))}
-        </div>
-
-        <div className="site-footer-bottom">
-          <p>© 2026 Colorado Snomo Expo</p>
-          <p>Built with pride for the Rocky Mountain snowmobile community.</p>
-          <span>Version 2026</span>
-        </div>
-      </footer>
     </main>
   );
 }
