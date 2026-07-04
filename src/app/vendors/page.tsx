@@ -145,48 +145,6 @@ const preparationSections = [
     ),
   },
   {
-    title: "Move-In Schedule",
-    content: (
-      <div className="vendor-accordion-panel">
-        <div className="vendor-accordion-panel-heading">
-          <p className="vendors-kicker">Vendor Arrival</p>
-          <h4>Move-In Schedule</h4>
-          <p>
-            Please review your move-in window before arriving and be aware of
-            which room your booth is located in.
-          </p>
-          <ul>
-            <li>
-              <strong>Wednesday, October 21</strong> — By appointment only
-            </li>
-            <li>
-              <strong>Thursday, October 22</strong> — 10:00 AM to 4:00 PM
-            </li>
-            <li>
-              <strong>Friday, October 23</strong> — 9:00 AM to 2:00 PM
-            </li>
-          </ul>
-        </div>
-
-        <div className="vendor-accordion-panel-details">
-          <div>
-            <p className="vendors-kicker">Height Restrictions</p>
-            <h5>Know Your Room</h5>
-            <p>Review the height restrictions for your booth location before arriving.</p>
-          </div>
-          <ul>
-            <li>
-              <strong>Hall of Education</strong> — 10&apos; 6&quot;
-            </li>
-            <li>
-              <strong>Expo Hall</strong> — 13&apos; 6&quot;
-            </li>
-          </ul>
-        </div>
-      </div>
-    ),
-  },
-  {
     title: "Show Regulations",
     content: (
       <div className="vendor-accordion-panel">
@@ -291,6 +249,51 @@ const preparationSections = [
   },
 ];
 
+const showtimeSections = [
+  {
+    title: "Move-In Schedule",
+    content: (
+      <div className="vendor-accordion-panel">
+        <div className="vendor-accordion-panel-heading">
+          <p className="vendors-kicker">Vendor Arrival</p>
+          <h4>Move-In Schedule</h4>
+          <p>
+            Please review your move-in window before arriving and be aware of
+            which room your booth is located in.
+          </p>
+          <ul>
+            <li>
+              <strong>Wednesday, October 21</strong> — By appointment only
+            </li>
+            <li>
+              <strong>Thursday, October 22</strong> — 10:00 AM to 4:00 PM
+            </li>
+            <li>
+              <strong>Friday, October 23</strong> — 9:00 AM to 2:00 PM
+            </li>
+          </ul>
+        </div>
+
+        <div className="vendor-accordion-panel-details">
+          <div>
+            <p className="vendors-kicker">Height Restrictions</p>
+            <h5>Know Your Room</h5>
+            <p>Review the height restrictions for your booth location before arriving.</p>
+          </div>
+          <ul>
+            <li>
+              <strong>Hall of Education</strong> — 10&apos; 6&quot;
+            </li>
+            <li>
+              <strong>Expo Hall</strong> — 13&apos; 6&quot;
+            </li>
+          </ul>
+        </div>
+      </div>
+    ),
+  },
+];
+
 const resources = [
   {
     label: "TERMS AND CONDITIONS",
@@ -373,7 +376,7 @@ export default function VendorsPage() {
             <h3>Prepare for the Expo</h3>
             <p>
               Review each section before Expo weekend so your team knows what to
-              bring, where to go and how to keep move-in simple.
+              bring and which documents to have ready.
             </p>
           </div>
 
@@ -417,6 +420,26 @@ export default function VendorsPage() {
                 </div>
               </div>
             </details>
+          </div>
+        </div>
+
+        <div className="vendor-center-step">
+          <div className="vendor-center-step-heading">
+            <p className="vendors-kicker">Step 3</p>
+            <h3>It&apos;s Showtime</h3>
+            <p>
+              Final move-in details, show weekend reminders, and arrival
+              information for Expo weekend.
+            </p>
+          </div>
+
+          <div className="vendor-center-accordion">
+            {showtimeSections.map((section) => (
+              <details key={section.title}>
+                <summary>{section.title}</summary>
+                <div>{section.content}</div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
