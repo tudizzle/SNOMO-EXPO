@@ -112,13 +112,22 @@ export default function Home() {
       <SiteHeader />
       <section className="hero" aria-label="Colorado Snomo Expo hero">
         <Image
-          className="hero-image"
+          className="hero-image hero-image-desktop"
           src="/images/hero/homepage-hero-snowmobile-action.jpg"
           alt="Snowmobiler carving through deep powder in a snowy Colorado forest"
           fill
           priority
           quality={92}
           sizes="100vw"
+        />
+        <Image
+          className="hero-image hero-image-mobile"
+          src="/images/hero/homepage-hero-mobile.jpg"
+          alt="Snowmobiler carving through deep powder in a snowy Colorado forest"
+          fill
+          priority
+          quality={92}
+          sizes="(max-width: 760px) 100vw, 0px"
         />
         <div className="hero-snow" aria-hidden="true" />
         <HeroAudioButton />

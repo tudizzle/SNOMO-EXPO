@@ -52,6 +52,10 @@ button {
   z-index: -4;
 }
 
+.hero-image-mobile {
+  display: none;
+}
+
 .hero::before {
   content: none;
 }
@@ -3036,8 +3040,16 @@ h1 {
 }
 
 @media (max-width: 760px) {
+  .hero-image-desktop {
+    display: none;
+  }
+
+  .hero-image-mobile {
+    display: block;
+  }
+
   .hero-image {
-    object-position: 68% center;
+    object-position: 50% center;
   }
 
   .hero::before {
