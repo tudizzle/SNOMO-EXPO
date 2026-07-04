@@ -1659,6 +1659,16 @@ h1 {
   white-space: nowrap;
 }
 
+.schedule-admission-card ul {
+  color: rgba(248, 251, 255, 0.82);
+  display: grid;
+  gap: 12px;
+  line-height: 1.55;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .schedule-feature {
   align-items: stretch;
   grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);

@@ -35,6 +35,13 @@ const seminarTopics = [
   "New Product Demonstrations",
 ];
 
+const admissionDetails = [
+  "Tickets Available at the Box Office Only",
+  "No Online Ticket Sales",
+  "Children 12 and under admitted free",
+  "Cash and major credit cards accepted at the box office",
+];
+
 export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
@@ -80,6 +87,24 @@ export default function SchedulePage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="schedule-hours" aria-labelledby="schedule-admission-title">
+        <div className="schedule-section-heading">
+          <p className="schedule-kicker">Admission</p>
+          <h2 id="schedule-admission-title">$10 Admission</h2>
+        </div>
+
+        <article className="schedule-hours-card schedule-hours-card-gold schedule-admission-card">
+          <div className="schedule-hours-card-header">
+            <p>Box Office Only</p>
+          </div>
+          <ul>
+            {admissionDetails.map((detail) => (
+              <li key={detail}>{detail}</li>
+            ))}
+          </ul>
+        </article>
       </section>
 
       <section className="schedule-feature" aria-labelledby="schedule-feature-title">

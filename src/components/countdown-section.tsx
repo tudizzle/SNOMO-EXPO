@@ -63,7 +63,7 @@ export function CountdownSection() {
           >
             {countdownItems.map((item) => (
               <div className="countdown-unit" key={item.label}>
-                <span className="countdown-number">
+                <span className="countdown-number" suppressHydrationWarning>
                   {item.label === "Days" ? item.value : String(item.value).padStart(2, "0")}
                 </span>
                 <span className="countdown-label">{item.label}</span>
