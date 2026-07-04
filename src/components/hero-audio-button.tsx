@@ -168,7 +168,7 @@ export function HeroAudioButton() {
           className="hero-audio-image"
           draggable="false"
           height={1024}
-          src="/images/icons/press-for-joy-button.png"
+          src="/images/icons/press-for-joy-track-ring-button.png"
           unoptimized
           width={1024}
         />
