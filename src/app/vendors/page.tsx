@@ -401,6 +401,36 @@ const showtimeSections = [
     ),
   },
   {
+    title: "Show Times",
+    content: (
+      <div className="vendor-accordion-panel">
+        <div className="vendor-accordion-panel-heading">
+          <p className="vendors-kicker">Expo Weekend</p>
+          <h4>Show Times</h4>
+          <p>
+            The Colorado SnoMo Expo is open to the public during the following
+            times.
+          </p>
+        </div>
+
+        <div className="vendor-accordion-panel-details">
+          <div>
+            <p className="vendors-kicker">Friday, October 23, 2026</p>
+            <h5>4:00 PM to 8:00 PM</h5>
+          </div>
+          <div>
+            <p className="vendors-kicker">Saturday, October 24, 2026</p>
+            <h5>9:00 AM to 5:00 PM</h5>
+          </div>
+          <p className="vendor-accordion-note">
+            Vendors should have booths fully set, staffed, and ready before
+            doors open each day.
+          </p>
+        </div>
+      </div>
+    ),
+  },
+  {
     title: "Move-In Schedule",
     content: (
       <div className="vendor-accordion-panel">
