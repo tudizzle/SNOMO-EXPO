@@ -109,7 +109,7 @@ export default function SponsorPage() {
           </p>
         </div>
         <Link className="button button-primary" href="/sponsor-inquiry">
-          Contact the Event Host
+          Contact Host
         </Link>
       </section>
     </main>
