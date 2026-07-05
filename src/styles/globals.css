@@ -89,22 +89,62 @@ button {
 
 .hero-audio-smoke {
   background:
-    radial-gradient(circle at 44% 50%, rgba(232, 247, 255, 0.42), rgba(232, 247, 255, 0) 34%),
-    radial-gradient(circle at 62% 42%, rgba(204, 232, 247, 0.3), rgba(204, 232, 247, 0) 32%),
-    radial-gradient(circle at 50% 65%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 36%);
-  filter: blur(12px);
-  inset: -22% -34% -20%;
+    radial-gradient(circle at 34% 48%, rgba(249, 251, 252, 0.5), rgba(217, 223, 226, 0.26) 26%, rgba(217, 223, 226, 0) 55%),
+    radial-gradient(circle at 52% 36%, rgba(236, 240, 242, 0.42), rgba(185, 195, 201, 0.2) 30%, rgba(185, 195, 201, 0) 58%),
+    radial-gradient(circle at 70% 52%, rgba(245, 248, 249, 0.4), rgba(206, 214, 219, 0.18) 28%, rgba(206, 214, 219, 0) 57%),
+    radial-gradient(circle at 44% 74%, rgba(232, 237, 239, 0.32), rgba(174, 184, 190, 0.14) 32%, rgba(174, 184, 190, 0) 62%),
+    radial-gradient(ellipse at 24% 78%, rgba(202, 210, 215, 0.22), rgba(202, 210, 215, 0) 56%);
+  filter: blur(15px);
+  inset: -62% -82% -56%;
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  transform: translate3d(0, 8px, 0) scale(0.88);
-  transition: opacity 220ms ease;
+  transform: translate3d(0, 10px, 0) scale(0.96);
+  transition: opacity 260ms ease;
   z-index: -1;
 }
 
+.hero-audio-smoke::before,
+.hero-audio-smoke::after {
+  border-radius: 999px;
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.hero-audio-smoke::before {
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.38), rgba(215, 221, 224, 0.18) 30%, rgba(215, 221, 224, 0) 60%),
+    radial-gradient(circle at 58% 54%, rgba(225, 231, 234, 0.34), rgba(168, 179, 186, 0.14) 32%, rgba(168, 179, 186, 0) 64%),
+    radial-gradient(circle at 76% 68%, rgba(238, 242, 244, 0.24), rgba(188, 198, 203, 0) 58%);
+  filter: blur(20px);
+  transform: translate3d(-10px, 4px, 0) scale(1.06);
+}
+
+.hero-audio-smoke::after {
+  background:
+    radial-gradient(circle at 60% 38%, rgba(247, 249, 250, 0.34), rgba(213, 220, 224, 0.15) 27%, rgba(213, 220, 224, 0) 58%),
+    radial-gradient(circle at 34% 62%, rgba(223, 229, 232, 0.28), rgba(157, 169, 176, 0.12) 34%, rgba(157, 169, 176, 0) 64%),
+    radial-gradient(circle at 72% 76%, rgba(205, 214, 219, 0.2), rgba(205, 214, 219, 0) 54%);
+  filter: blur(25px);
+  transform: translate3d(14px, -2px, 0) scale(1.16);
+}
+
 .hero-audio[data-playing="true"] .hero-audio-smoke {
-  animation: exhaust-breathe 1.8s ease-in-out infinite;
-  opacity: calc(0.12 + (var(--smoke-intensity) * 0.38));
+  animation: exhaust-breathe 2.4s ease-in-out infinite;
+  opacity: calc(0.39 + (var(--smoke-intensity) * 0.25));
+}
+
+.hero-audio[data-playing="true"] .hero-audio-smoke::before {
+  animation: exhaust-drift-soft 3.2s ease-in-out infinite;
+  opacity: calc(0.24 + (var(--smoke-intensity) * 0.15));
+}
+
+.hero-audio[data-playing="true"] .hero-audio-smoke::after {
+  animation: exhaust-drift-wide 3.8s ease-in-out infinite;
+  opacity: calc(0.18 + (var(--smoke-intensity) * 0.14));
 }
 
 .hero-audio-button {
@@ -2907,15 +2947,43 @@ h1 {
 
 @keyframes exhaust-breathe {
   0% {
-    transform: translate3d(0, 8px, 0) scale(0.86);
+    transform: translate3d(0, 10px, 0) scale(0.92) rotate(0deg);
   }
 
   50% {
-    transform: translate3d(-5px, -4px, 0) scale(calc(0.98 + (var(--smoke-intensity) * 0.16)));
+    transform: translate3d(-12px, -10px, 0) scale(calc(1.14 + (var(--smoke-intensity) * 0.12))) rotate(-3deg);
   }
 
   100% {
-    transform: translate3d(6px, -12px, 0) scale(calc(1.04 + (var(--smoke-intensity) * 0.22)));
+    transform: translate3d(10px, -22px, 0) scale(calc(1.22 + (var(--smoke-intensity) * 0.16))) rotate(3deg);
+  }
+}
+
+@keyframes exhaust-drift-soft {
+  0% {
+    transform: translate3d(-10px, 6px, 0) scale(1.03) rotate(1deg);
+  }
+
+  50% {
+    transform: translate3d(-23px, -12px, 0) scale(calc(1.16 + (var(--smoke-intensity) * 0.12))) rotate(-4deg);
+  }
+
+  100% {
+    transform: translate3d(-15px, -25px, 0) scale(calc(1.26 + (var(--smoke-intensity) * 0.13))) rotate(3deg);
+  }
+}
+
+@keyframes exhaust-drift-wide {
+  0% {
+    transform: translate3d(12px, 0, 0) scale(1.07) rotate(-1deg);
+  }
+
+  50% {
+    transform: translate3d(24px, -12px, 0) scale(calc(1.2 + (var(--smoke-intensity) * 0.1))) rotate(4deg);
+  }
+
+  100% {
+    transform: translate3d(14px, -28px, 0) scale(calc(1.28 + (var(--smoke-intensity) * 0.13))) rotate(-2deg);
   }
 }
 
@@ -2933,6 +3001,12 @@ h1 {
   }
 
   .hero-audio-button[data-pressed="true"]::after {
+    animation: none;
+  }
+
+  .hero-audio[data-playing="true"] .hero-audio-smoke,
+  .hero-audio[data-playing="true"] .hero-audio-smoke::before,
+  .hero-audio[data-playing="true"] .hero-audio-smoke::after {
     animation: none;
   }
 
@@ -3426,6 +3500,11 @@ h1 {
 
   .experience-card-content h3 {
     font-size: clamp(3.2rem, 17vw, 5.4rem);
+  }
+
+  .hero-audio-smoke {
+    filter: blur(13px);
+    inset: -48% -58% -45%;
   }
 
   .exhibitors-page-header h1 {
