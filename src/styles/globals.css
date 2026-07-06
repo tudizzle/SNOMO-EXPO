@@ -1490,6 +1490,26 @@ h1 {
   gap: 18px;
 }
 
+.swap-meet-jotform-cta {
+  align-self: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.swap-meet-jotform-cta .button-primary {
+  background: #b83a2f;
+  border-color: #b83a2f;
+  color: var(--snow);
+  min-height: 50px;
+  padding-inline: 22px;
+  width: auto;
+}
+
+.swap-meet-jotform-cta .button-primary:hover {
+  background: #c74639;
+  border-color: #c74639;
+}
+
 .swap-meet-field {
   display: grid;
   gap: 9px;
@@ -3366,6 +3386,10 @@ h1 {
   }
 
   .swap-meet-form .button {
+    width: 100%;
+  }
+
+  .swap-meet-jotform-cta .button {
     width: 100%;
   }
 

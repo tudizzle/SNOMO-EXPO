@@ -115,7 +115,7 @@ export default function SwapMeetPage() {
           </p>
         </div>
 
-        <div className="swap-meet-form" aria-label="Swap meet list signup">
+        <div className="swap-meet-jotform-cta" aria-label="Swap meet list signup">
           <a
             className="button button-primary"
             href="https://form.jotform.com/261864376544063"
