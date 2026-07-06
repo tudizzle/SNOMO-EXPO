@@ -135,7 +135,7 @@ const preparationSections = [
           </Link>
           <Link
             className="button vendors-terms-link"
-            href="https://coloradosnomoexpo.com/acord-insurance-form"
+            href="/documents/colorado-snomo-expo-acord-insurance-form.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -481,8 +481,7 @@ const resources = [
   },
   {
     label: "ACORD Form",
-    href: "https://coloradosnomoexpo.com/acord-insurance-form",
-    external: true,
+    href: "/documents/colorado-snomo-expo-acord-insurance-form.pdf",
   },
   {
     label: "Colorado Sales Tax Information",
