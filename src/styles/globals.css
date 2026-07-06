@@ -412,7 +412,7 @@ button {
 }
 
 .hero-content::before {
-  background: linear-gradient(270deg, rgba(4, 10, 18, 0.64) 0%, rgba(4, 10, 18, 0.42) 34%, rgba(4, 10, 18, 0.12) 68%, rgba(4, 10, 18, 0) 100%);
+  background: linear-gradient(270deg, rgba(4, 10, 18, 0.7) 0%, rgba(4, 10, 18, 0.48) 34%, rgba(4, 10, 18, 0.16) 68%, rgba(4, 10, 18, 0) 100%);
   content: "";
   inset: 92px -72px 32px -18px;
   pointer-events: none;
@@ -426,7 +426,7 @@ button {
   font-weight: 800;
   letter-spacing: 0.18em;
   margin: 0 0 22px;
-  text-shadow: 0 2px 14px rgba(4, 10, 18, 0.38);
+  text-shadow: 0 3px 18px rgba(4, 10, 18, 0.48);
   text-transform: uppercase;
 }
 
@@ -442,13 +442,17 @@ h1 {
   text-wrap: balance;
 }
 
+.hero-content h1 {
+  text-shadow: 0 4px 26px rgba(4, 10, 18, 0.54);
+}
+
 .hero-subtitle {
   color: rgba(248, 251, 255, 0.86);
   font-size: clamp(1.1rem, 2vw, 1.55rem);
   line-height: 1.35;
   margin: 28px 0 0;
   max-width: 560px;
-  text-shadow: 0 2px 18px rgba(4, 10, 18, 0.4);
+  text-shadow: 0 3px 20px rgba(4, 10, 18, 0.5);
 }
 
 .event-details {
@@ -473,7 +477,7 @@ h1 {
   font-weight: 800;
   letter-spacing: 0.16em;
   margin-bottom: 8px;
-  text-shadow: 0 1px 12px rgba(4, 10, 18, 0.34);
+  text-shadow: 0 2px 14px rgba(4, 10, 18, 0.44);
   text-transform: uppercase;
 }
 
@@ -483,7 +487,7 @@ h1 {
   font-weight: 700;
   line-height: 1.28;
   margin: 0;
-  text-shadow: 0 2px 14px rgba(4, 10, 18, 0.42);
+  text-shadow: 0 3px 18px rgba(4, 10, 18, 0.52);
 }
 
 .hero-actions {
@@ -3211,7 +3215,7 @@ h1 {
   }
 
   .hero-content::before {
-    background: linear-gradient(90deg, rgba(4, 10, 18, 0.58) 0%, rgba(4, 10, 18, 0.32) 46%, rgba(4, 10, 18, 0.08) 78%, rgba(4, 10, 18, 0) 100%);
+    background: linear-gradient(90deg, rgba(4, 10, 18, 0.64) 0%, rgba(4, 10, 18, 0.38) 46%, rgba(4, 10, 18, 0.12) 78%, rgba(4, 10, 18, 0) 100%);
     inset: 86px -22px 18px -24px;
   }
 
