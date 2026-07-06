@@ -186,6 +186,17 @@ button {
   width: 100%;
 }
 
+.hero-audio-label {
+  color: rgba(248, 251, 255, 0.98);
+  display: block;
+  font-size: clamp(0.7rem, 0.72vw, 0.82rem);
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  margin-top: 3px;
+  text-shadow: 0 2px 14px rgba(4, 10, 18, 0.68);
+}
+
 .hero-audio-button:hover {
   filter: brightness(1.06) drop-shadow(0 0 18px rgba(82, 192, 255, 0.28));
   transform: translateY(-2px);
