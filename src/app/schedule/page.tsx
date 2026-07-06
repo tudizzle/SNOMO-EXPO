@@ -138,10 +138,10 @@ export default function SchedulePage() {
       </section>
 
       <section className="schedule-bottom-cta" aria-label="Schedule updates">
-        <p>Want to be the first to know when the seminar schedule is released?</p>
-        <button className="button button-primary" type="button">
-          Check Back Soon
-        </button>
+        <p>
+          Check back for seminar schedule updates and be the first to know when
+          new sessions are announced.
+        </p>
       </section>
     </main>
   );
