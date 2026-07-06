@@ -135,6 +135,7 @@ const preparationSections = [
           </Link>
           <Link
             className="button vendors-terms-link"
+            download="colorado-snomo-expo-acord-insurance-form.pdf"
             href="/documents/colorado-snomo-expo-acord-insurance-form.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -482,6 +483,7 @@ const resources = [
   {
     label: "ACORD Form",
     href: "/documents/colorado-snomo-expo-acord-insurance-form.pdf",
+    download: "colorado-snomo-expo-acord-insurance-form.pdf",
   },
   {
     label: "Colorado Sales Tax Information",
@@ -587,6 +589,7 @@ export default function VendorsPage() {
                       {resources.map((resource) => (
                         <Link
                           className="button vendors-terms-link"
+                          download={resource.download}
                           href={resource.href}
                           key={resource.label}
                           target={resource.external ? "_blank" : undefined}
