@@ -1,5 +1,4 @@
 import { SiteHeader } from "@/components/site-header";
-import { SwapMeetForm } from "@/components/swap-meet-form";
 import { createPageMetadata } from "@/lib/seo";
 
 const swapMeetDetails = [
@@ -116,7 +115,16 @@ export default function SwapMeetPage() {
           </p>
         </div>
 
-        <SwapMeetForm />
+        <div className="swap-meet-jotform-cta" aria-label="Swap meet list signup">
+          <a
+            className="button button-primary"
+            href="https://form.jotform.com/261864376544063"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join the Swap Meet List
+          </a>
+        </div>
       </section>
     </main>
   );

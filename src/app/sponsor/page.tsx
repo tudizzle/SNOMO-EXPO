@@ -108,8 +108,13 @@ export default function SponsorPage() {
             Colorado Snomo Expo experience.
           </p>
         </div>
-        <Link className="button button-primary" href="/sponsor-inquiry">
-          Contact the Event Host
+        <Link
+          className="button button-primary"
+          href="https://form.jotform.com/261864940204053"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Request Sponsorship Info
         </Link>
       </section>
     </main>
