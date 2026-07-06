@@ -173,6 +173,7 @@ export function HeroAudioButton() {
           width={1024}
         />
       </button>
+      <span className="hero-audio-label">sound ON</span>
       <audio
         onEnded={stopSmoke}
         ref={audioRef}
