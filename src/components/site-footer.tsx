@@ -21,6 +21,7 @@ const footerColumns: FooterColumn[] = [
       { label: "Floorplan", href: "/floorplan" },
       { label: "Schedule", href: "/schedule" },
       { label: "Swap Meet", href: "/swap-meet" },
+      { label: "INDUSTRY NEWS", href: "/snowmobile-industry-news" },
     ],
   },
   {

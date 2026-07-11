@@ -4,6 +4,8 @@
 
 The public page lives at `/snowmobile-industry-news`.
 
+The shared footer link is configured in `src/components/site-footer.tsx` with the label `INDUSTRY NEWS` and points to `/snowmobile-industry-news`.
+
 ## Published Data
 
 Published roundup data is stored in `src/data/industry-news.json`.
