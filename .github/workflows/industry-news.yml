@@ -1,0 +1,27 @@
+name: Snowmobile Industry News
+
+on:
+  schedule:
+    - cron: "0 15 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prepare-candidates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Prepare weekly candidate audit
+        run: node scripts/update-industry-news.mjs
+
+      - name: Validate published industry news
+        run: node scripts/validate-industry-news.mjs

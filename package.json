@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "news:update": "node scripts/update-industry-news.mjs",
+    "news:validate": "node scripts/validate-industry-news.mjs"
   },
   "dependencies": {
     "next": "15.5.19",

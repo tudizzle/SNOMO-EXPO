@@ -5,3 +5,4 @@ out
 dist
 .env*
 *.log
+src/data/industry-news.candidates.json

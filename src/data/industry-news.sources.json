@@ -1,0 +1,33 @@
+{
+  "timezone": "America/Denver",
+  "sources": [
+    {
+      "id": "brp-newsroom",
+      "name": "BRP Newsroom",
+      "url": "https://news.brp.com/",
+      "enabled": true,
+      "authority": "manufacturer"
+    },
+    {
+      "id": "polaris-news",
+      "name": "Polaris News",
+      "url": "https://www.polaris.com/en-us/news/",
+      "enabled": true,
+      "authority": "manufacturer"
+    },
+    {
+      "id": "cpsc-recalls",
+      "name": "U.S. Consumer Product Safety Commission",
+      "url": "https://www.cpsc.gov/Recalls",
+      "enabled": true,
+      "authority": "official"
+    },
+    {
+      "id": "isoc-racing",
+      "name": "AMSOIL Championship Snocross",
+      "url": "https://snocross.com/",
+      "enabled": true,
+      "authority": "competition"
+    }
+  ]
+}

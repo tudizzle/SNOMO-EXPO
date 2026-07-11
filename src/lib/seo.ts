@@ -12,6 +12,7 @@ export const publicPagePaths = [
   "/sponsor-inquiry",
   "/plan-your-visit",
   "/vendors",
+  "/snowmobile-industry-news",
 ] as const;
 
 type PageMetadata = {
