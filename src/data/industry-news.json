@@ -1,5 +1,89 @@
 {
   "timezone": "America/Denver",
-  "latestRoundupDate": null,
-  "roundups": []
+  "latestRoundupDate": "2026-07-06T15:00:00.000Z",
+  "roundups": [
+    {
+      "id": "roundup-2026-07-06",
+      "slug": "week-of-2026-07-06",
+      "weekOf": "2026-07-06T15:00:00.000Z",
+      "updatedAt": "2026-07-06T15:00:00.000Z",
+      "stories": [
+        {
+          "id": "polaris-2027-snowmobile-lineup",
+          "slug": "polaris-2027-snowmobile-lineup",
+          "rank": 1,
+          "headline": "Polaris Opens Its 2027 Snowmobile Lineup With New Mountain, Trail and Utility Updates",
+          "category": "Product",
+          "sourceName": "Polaris Inc. via PR Newswire",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/polaris-unveils-2027-snowmobile-lineup-built-for-confidence-capability-and-rider-first-performance-302691374.html",
+          "publishedAt": "2026-02-18T07:00:00-05:00",
+          "roundupDate": "2026-07-06T15:00:00.000Z",
+          "synopsis": "Polaris announced its 2027 snowmobile lineup with updates aimed at mountain, trail, youth and utility riders. The release highlights RMK Factory Edition and RMK SPS mountain sleds, the Patriot 9R INDY VR1 for trail performance, a new INDY 200 youth model, and North American availability for Voyageur Nordic Pro and TITAN Nordic Pro utility machines. The lineup also keeps SnowCheck central for top-tier performance models, making this one of the season's major product announcements.",
+          "thumbnailVariant": "polaris-2027-lineup",
+          "thumbnailAlt": "Original editorial thumbnail representing Polaris 2027 snowmobile product news",
+          "featured": true
+        },
+        {
+          "id": "ski-doo-2027-lineup-technology",
+          "slug": "ski-doo-2027-lineup-technology",
+          "rank": 2,
+          "headline": "Ski-Doo Adds Gen5 Utility Updates, New 600RR E-TEC and X-RS Anniversary Models",
+          "category": "Product",
+          "sourceName": "BRP Inc. via PR Newswire",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/ski-doo-unveils-new-improved-features-and-technologies-to-make-the-most-out-of-winter-302689618.html",
+          "publishedAt": "2026-02-17T14:00:00-05:00",
+          "roundupDate": "2026-07-06T15:00:00.000Z",
+          "synopsis": "Ski-Doo introduced its 2027 snowmobile updates with a broad set of model and technology changes. The announcement includes Skandic and Tundra models moving to the REV Gen5 platform, a new Expedition LE value-focused option, the Rotax 600RR E-TEC engine, lighter deep-snow refinements, a more aggressive Freeride package, and 20th anniversary X-RS models. For dealers and riders, the news sets the tone for Ski-Doo's next winter retail cycle.",
+          "thumbnailVariant": "ski-doo-2027-technology",
+          "thumbnailAlt": "Original editorial thumbnail representing Ski-Doo 2027 snowmobile technology updates",
+          "featured": true
+        },
+        {
+          "id": "polaris-nff-2026-recreation-grants",
+          "slug": "polaris-nff-2026-recreation-grants",
+          "rank": 3,
+          "headline": "Polaris and National Forest Foundation Fund 2026 Projects Supporting Snowmobile Access",
+          "category": "Access",
+          "sourceName": "Polaris Inc. via PR Newswire",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/polaris-and-the-national-forest-foundation-announce-recipients-of-the-2026-polaris-fund-for-outdoor-recreation-grants-302808669.html",
+          "publishedAt": "2026-06-24T10:03:00-04:00",
+          "roundupDate": "2026-07-06T15:00:00.000Z",
+          "synopsis": "Polaris and the National Forest Foundation announced 2026 grant recipients tied to the Polaris Fund for Outdoor Recreation, including multiple projects with direct snowmobile relevance. The funded work includes Vail Pass snowmobile support in Colorado, improvements to a shared ORV and snowmobile route in Michigan, and snowmobile corridor work in New Hampshire. The program also reached a long-term milestone with its endowment fully established, creating recurring support for trail stewardship and responsible access.",
+          "thumbnailVariant": "polaris-nff-access",
+          "thumbnailAlt": "Original editorial thumbnail representing snowmobile trail access and stewardship funding",
+          "featured": true
+        },
+        {
+          "id": "brp-fiscal-2027-q1-results",
+          "slug": "brp-fiscal-2027-q1-results",
+          "rank": 4,
+          "headline": "BRP Reports Q1 Fiscal 2027 Results as Snowmobile Comparisons Weigh on Retail Sales",
+          "category": "Business",
+          "sourceName": "BRP Inc. via PR Newswire",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/brp-reports-fiscal-year-2027-first-quarter-results-302783768.html",
+          "publishedAt": "2026-05-28T06:00:00-04:00",
+          "roundupDate": "2026-07-06T15:00:00.000Z",
+          "synopsis": "BRP reported fiscal 2027 first-quarter results with higher revenue and normalized EBITDA, while noting that North American powersports retail sales declined compared with the prior year. The company specifically tied part of the retail comparison to a stronger snowmobile end-of-season last year, and it revised full-year guidance while accounting for tariff costs and mitigation plans. For the snowmobile industry, the release offers a useful read on demand, dealer inventory pressure and broader powersports market conditions.",
+          "thumbnailVariant": "brp-q1-market",
+          "thumbnailAlt": "Original editorial thumbnail representing BRP snowmobile business and market results",
+          "featured": true
+        },
+        {
+          "id": "ski-doo-iron-dog-2026",
+          "slug": "ski-doo-iron-dog-2026",
+          "rank": 5,
+          "headline": "Ski-Doo Racers Sweep the Top Two Spots at the 2026 Iron Dog",
+          "category": "Racing",
+          "sourceName": "BRP Inc. via PR Newswire",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/ski-doo-racers-conquer-worlds-toughest-race-the-2026-iron-dog-302695893.html",
+          "publishedAt": "2026-02-24T10:20:00-05:00",
+          "roundupDate": "2026-07-06T15:00:00.000Z",
+          "synopsis": "Ski-Doo celebrated a one-two finish at the 2026 Iron Dog, with Tyler Aklestad and Nick Olstad taking the win and Zack Weisz and Thomas Davis finishing second. The company framed the result as a demanding equipment test across the world's longest snowmobile race and linked the race program to production sled relevance. The release also noted continued Snocross momentum, keeping racing performance tied to dealer-floor product credibility.",
+          "thumbnailVariant": "ski-doo-iron-dog",
+          "thumbnailAlt": "Original editorial thumbnail representing Ski-Doo endurance racing news",
+          "featured": true
+        }
+      ]
+    }
+  ]
 }
