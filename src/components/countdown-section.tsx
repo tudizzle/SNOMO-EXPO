@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const EVENT_START_TIME = new Date("2026-10-23T22:00:00.000Z").getTime();
+const EVENT_START_TIME = new Date("2026-10-23T16:00:00-06:00").getTime();
 
 type CountdownTime = {
   days: number;
@@ -26,12 +26,12 @@ function getRemainingTime(): CountdownTime {
 }
 
 export function CountdownSection() {
-  const [remaining, setRemaining] = useState<CountdownTime>(() => getRemainingTime());
+  const [remaining, setRemaining] = useState<CountdownTime | null>(null);
   const countdownItems = [
-    { label: "Days", value: remaining.days },
-    { label: "Hours", value: remaining.hours },
-    { label: "Minutes", value: remaining.minutes },
-    { label: "Seconds", value: remaining.seconds },
+    { label: "Days", value: remaining?.days },
+    { label: "Hours", value: remaining?.hours },
+    { label: "Minutes", value: remaining?.minutes },
+    { label: "Seconds", value: remaining?.seconds },
   ];
 
   useEffect(() => {
@@ -51,20 +51,24 @@ export function CountdownSection() {
       <div className="countdown-snow" aria-hidden="true" />
       <div className="countdown-inner">
         <p className="countdown-eyebrow">THE MOUNTAINS ARE CALLING</p>
-        {remaining.isOpen ? (
+        {remaining?.isOpen ? (
           <div className="countdown-open" role="status">
             The Expo Is Open
           </div>
         ) : (
           <div
             className="countdown-display"
-            aria-label={`${remaining.days} days, ${remaining.hours} hours, ${remaining.minutes} minutes, ${remaining.seconds} seconds until the gates open`}
+            aria-label={
+              remaining
+                ? `${remaining.days} days, ${remaining.hours} hours, ${remaining.minutes} minutes, ${remaining.seconds} seconds until the gates open`
+                : "Countdown loading"
+            }
             suppressHydrationWarning
           >
             {countdownItems.map((item) => (
               <div className="countdown-unit" key={item.label}>
                 <span className="countdown-number" suppressHydrationWarning>
-                  {item.label === "Days" ? item.value : String(item.value).padStart(2, "0")}
+                  {item.value === undefined ? "" : item.label === "Days" ? item.value : String(item.value).padStart(2, "0")}
                 </span>
                 <span className="countdown-label">{item.label}</span>
               </div>
