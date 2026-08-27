@@ -49,6 +49,14 @@ const showHours = [
   },
 ];
 
+const hotelFeatures = [
+  "Complimentary Breakfast",
+  "Free Wi-Fi",
+  "Free Parking",
+  "Spacious Studio & Suite Rooms",
+  "Convenient Denver Central Park Location",
+];
+
 const faqs = [
   {
     question: "Are tickets sold online?",
@@ -163,6 +171,15 @@ export default function PlanYourVisitPage() {
         </div>
 
         <div className="visit-hotel-details">
+          <div>
+            <p className="visit-kicker">Hotel Features</p>
+            <ul>
+              {hotelFeatures.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+
           <Link
             className="button button-primary"
             href="https://www.ihg.com/staybridge/hotels/us/en/denver/denqs/hoteldetail"
@@ -171,6 +188,11 @@ export default function PlanYourVisitPage() {
           >
             View Hotel
           </Link>
+
+          <p className="visit-hotel-note">
+            Rooms may be limited. We recommend booking early while planning your
+            Colorado SnoMo Expo visit.
+          </p>
         </div>
       </section>
 
