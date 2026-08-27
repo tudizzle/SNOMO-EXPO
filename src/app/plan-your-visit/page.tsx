@@ -165,6 +165,13 @@ export default function PlanYourVisitPage() {
             Staybridge Suites Denver - Central Park
           </h2>
           <p>
+            8101 Northfield Blvd
+            <br />
+            Denver, CO 80238
+            <br />
+            United States
+          </p>
+          <p>
             Staybridge Suites Denver - Central Park offers a convenient option
             for guests planning their visit to the Colorado SnoMo Expo.
           </p>
