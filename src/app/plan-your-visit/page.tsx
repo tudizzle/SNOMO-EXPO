@@ -49,14 +49,6 @@ const showHours = [
   },
 ];
 
-const hotelFeatures = [
-  "Complimentary Breakfast",
-  "Free Wi-Fi",
-  "Free Parking",
-  "Spacious Studio & Suite Rooms",
-  "Minutes from the National Western Complex",
-];
-
 const faqs = [
   {
     question: "Are tickets sold online?",
@@ -160,48 +152,25 @@ export default function PlanYourVisitPage() {
 
       <section className="visit-hotel" aria-labelledby="visit-hotel-title">
         <div className="visit-hotel-heading">
-          <p className="visit-kicker">Official Recommended Hotel</p>
-          <h2 id="visit-hotel-title">Residence Inn Denver Central Park</h2>
+          <p className="visit-kicker">Recommended Attendee Hotel</p>
+          <h2 id="visit-hotel-title">
+            Staybridge Suites Denver - Central Park
+          </h2>
           <p>
-            4667 North Central Park Boulevard
-            <br />
-            Denver, Colorado
+            Staybridge Suites Denver - Central Park offers a convenient option
+            for guests planning their visit to the Colorado SnoMo Expo.
           </p>
-          <p>Located just minutes from the National Western Complex.</p>
         </div>
 
         <div className="visit-hotel-details">
-          <div>
-            <p className="visit-kicker">Special Event Rate</p>
-            <p>
-              Mention <strong>Colorado Snomo Expo</strong> when making your
-              reservation to receive the special event rate, subject to
-              availability.
-            </p>
-          </div>
-
-          <div>
-            <p className="visit-kicker">Hotel Features</p>
-            <ul>
-              {hotelFeatures.map((feature) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
-          </div>
-
           <Link
             className="button button-primary"
-            href="https://www.marriott.com/en-us/hotels/denre-residence-inn-denver-central-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
+            href="https://www.ihg.com/staybridge/hotels/us/en/denver/denqs/hoteldetail"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Book Hotel
+            View Hotel
           </Link>
-
-          <p className="visit-hotel-note">
-            Rooms are limited. We recommend booking early to secure the Colorado
-            Snomo Expo event rate.
-          </p>
         </div>
       </section>
 
