@@ -88,7 +88,7 @@ const preparationSections = [
 
           <Link
             className="button button-primary"
-            href="https://www.marriott.com/en-us/hotels/denre-residence-inn-denver-central-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
+            href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1785882938883&key=GRP&app=resvlink&_branch_match_id=1618329749637114502&_branch_referrer=H4sIAAAAAAAAAxXLSw5AMBAA0Nt0qUHEkDSWtsIBpBhMfNpMG42Ns2P%2F3uq9daWU2tro0MxkvI9Gc0hGdxGGpKJJxTlkAEmRAkAqNrxV3TbiK%2BpXO52beBhn%2FPq59AOb4JBVp2fN9ALv60GTYQAAAA%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
           >
