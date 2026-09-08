@@ -544,7 +544,7 @@ export default function VendorsPage() {
           </div>
           <Link
             className="button button-primary"
-            href="https://www.jotform.com/build/261379354993068"
+            href="https://form.jotform.com/261379354993068"
             target="_blank"
             rel="noopener noreferrer"
           >
