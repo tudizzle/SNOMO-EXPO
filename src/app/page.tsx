@@ -124,6 +124,19 @@ export default function Home() {
 
       <CountdownSection />
 
+      <div className="px-[clamp(18px,4vw,56px)] pt-[var(--space-2xl)]">
+        <div className="experience-container">
+          <Image
+            className="block h-auto w-full"
+            src="/images/home/octane-addictions-turcotte-freestyle-show.png"
+            alt="Octane Addictions Freestyle Show starring X Games gold medalist Brett Turcotte"
+            width={1774}
+            height={887}
+            sizes="(min-width: 1592px) 1480px, (min-width: 1400px) calc(100vw - 112px), (min-width: 450px) 92vw, calc(100vw - 36px)"
+          />
+        </div>
+      </div>
+
       <section className="experience-section" aria-labelledby="experience-title">
         <div className="experience-container">
           <div className="experience-heading">
