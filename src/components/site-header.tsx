@@ -12,7 +12,7 @@ const navigationItems = [
   { href: "/sponsor", label: "Sponsors" },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ showVendorCta = true }: { showVendorCta?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
@@ -154,13 +154,15 @@ export function SiteHeader() {
       </nav>
 
       <div className="site-header-actions" ref={actionsRef}>
-        <Link
-          className="vendor-link"
-          href="/vendors"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Become a Vendor
-        </Link>
+        {showVendorCta && (
+          <Link
+            className="vendor-link"
+            href="/vendors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Become a Vendor
+          </Link>
+        )}
       </div>
     </header>
   );

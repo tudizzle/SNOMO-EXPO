@@ -535,21 +535,11 @@ export default function VendorsPage() {
         <div className="vendor-center-step vendor-center-step-primary">
           <div>
             <p className="vendors-kicker">Step 1</p>
-            <h3>Complete Your Registration</h3>
+            <h3>REGISTRATION IS CLOSED</h3>
             <p>
-              Start by completing the official vendor registration form. Once
-              your registration is submitted, use this page to prepare your
-              booth, documents and arrival plan.
+              Vendor registration for the 2026 Colorado SnoMo Expo is closed.
             </p>
           </div>
-          <Link
-            className="button button-primary"
-            href="https://www.jotform.com/build/261379354993068"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Register as a Vendor
-          </Link>
         </div>
 
         <div className="vendor-center-step">

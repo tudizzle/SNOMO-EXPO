@@ -58,7 +58,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
       />
-      <SiteHeader />
+      <SiteHeader showVendorCta={false} />
       <section className="hero" aria-label="Colorado Snomo Expo hero">
         <Image
           className="hero-image hero-image-desktop"
@@ -145,13 +145,16 @@ export default function Home() {
           </div>
 
           <div className="experience-grid">
-            <article className="experience-card">
+            <article
+              className="experience-card"
+              style={{ gridColumn: "1 / -1", aspectRatio: "auto" }}
+            >
               <Image
                 className="experience-card-image"
                 src="/images/gallery/diz-tetons.jpg"
                 alt="Snowmobiler at a snowy overlook with the Tetons in the distance"
                 fill
-                sizes="(max-width: 900px) 100vw, 50vw"
+                sizes="100vw"
               />
               <div className="experience-card-content">
                 <h3>Coming to the Show?</h3>
@@ -161,26 +164,6 @@ export default function Home() {
                 </p>
                 <Link className="button button-secondary" href="/plan-your-visit">
                   Start Planning
-                </Link>
-              </div>
-            </article>
-
-            <article className="experience-card">
-              <Image
-                className="experience-card-image experience-card-image-vendor"
-                src="/images/experience/showcase-your-business-02.jpg"
-                alt="Vendor booth with winter powersports gear displays at the Colorado Snomo Expo"
-                fill
-                sizes="(max-width: 900px) 100vw, 50vw"
-              />
-              <div className="experience-card-content">
-                <h3>Showcase Your Business</h3>
-                <p>
-                  Connect with thousands of riders across the Rocky Mountain
-                  Region by exhibiting at Colorado Snomo Expo.
-                </p>
-                <Link className="button button-primary" href="/vendors">
-                  Become a Vendor
                 </Link>
               </div>
             </article>
