@@ -502,7 +502,7 @@ export const metadata = createPageMetadata({
 export default function VendorsPage() {
   return (
     <main className="vendors-page">
-      <SiteHeader />
+      <SiteHeader showVendorCta={false} />
 
       <section className="vendors-market" aria-labelledby="vendors-market-title">
         <div className="vendors-market-heading">

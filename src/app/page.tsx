@@ -112,9 +112,6 @@ export default function Home() {
           </dl>
 
           <div className="hero-actions" aria-label="Hero actions">
-            <Link className="button button-primary" href="/vendors">
-              Become a Vendor
-            </Link>
             <Link className="button button-secondary" href="/plan-your-visit">
               Plan Your Visit
             </Link>
@@ -233,9 +230,6 @@ export default function Home() {
             <p>Denver, Colorado</p>
           </div>
           <div className="homepage-farewell-actions" aria-label="Farewell actions">
-            <Link className="button button-primary" href="/vendors">
-              Become a Vendor
-            </Link>
             <Link className="button button-secondary" href="/plan-your-visit">
               Plan Your Visit
             </Link>
