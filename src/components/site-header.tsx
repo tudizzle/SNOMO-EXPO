@@ -12,14 +12,13 @@ const navigationItems = [
   { href: "/sponsor", label: "Sponsors" },
 ];
 
-export function SiteHeader({ showVendorCta = true }: { showVendorCta?: boolean }) {
+export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const brandRef = useRef<HTMLAnchorElement>(null);
   const navMeasureRef = useRef<HTMLDivElement>(null);
-  const actionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateHeaderState = () => {
@@ -49,9 +48,8 @@ export function SiteHeader({ showVendorCta = true }: { showVendorCta?: boolean }
       const header = headerRef.current;
       const brand = brandRef.current;
       const navMeasure = navMeasureRef.current;
-      const actions = actionsRef.current;
 
-      if (!header || !brand || !navMeasure || !actions) {
+      if (!header || !brand || !navMeasure) {
         return;
       }
 
@@ -65,10 +63,7 @@ export function SiteHeader({ showVendorCta = true }: { showVendorCta?: boolean }
           : Math.min(Math.max(viewportWidth * 0.02, 16), 34);
       const usableWidth = header.clientWidth - inlinePadding;
       const desktopWidth =
-        brand.offsetWidth +
-        navMeasure.scrollWidth +
-        actions.offsetWidth +
-        desktopColumnGap * 2;
+        brand.offsetWidth + navMeasure.scrollWidth + desktopColumnGap;
 
       const shouldUseCompactNavigation = desktopWidth > usableWidth;
 
@@ -83,7 +78,7 @@ export function SiteHeader({ showVendorCta = true }: { showVendorCta?: boolean }
 
     const resizeObserver = new ResizeObserver(updateNavigationMode);
 
-    [headerRef.current, brandRef.current, navMeasureRef.current, actionsRef.current].forEach(
+    [headerRef.current, brandRef.current, navMeasureRef.current].forEach(
       (element) => {
         if (element) {
           resizeObserver.observe(element);
@@ -152,18 +147,6 @@ export function SiteHeader({ showVendorCta = true }: { showVendorCta?: boolean }
           </Link>
         ))}
       </nav>
-
-      <div className="site-header-actions" ref={actionsRef}>
-        {showVendorCta && (
-          <Link
-            className="vendor-link"
-            href="/vendors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Become a Vendor
-          </Link>
-        )}
-      </div>
     </header>
   );
 }

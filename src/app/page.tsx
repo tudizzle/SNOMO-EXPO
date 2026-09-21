@@ -58,7 +58,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
       />
-      <SiteHeader showVendorCta={false} />
+      <SiteHeader />
       <section className="hero" aria-label="Colorado Snomo Expo hero">
         <Image
           className="hero-image hero-image-desktop"
