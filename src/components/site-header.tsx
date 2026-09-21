@@ -10,6 +10,7 @@ const navigationItems = [
   { href: "/floorplan", label: "Floorplan" },
   { href: "/swap-meet", label: "Swap Meet" },
   { href: "/sponsor", label: "Sponsors" },
+  { href: "/vendors", label: "Vendor Resource Center" },
 ];
 
 export function SiteHeader() {
