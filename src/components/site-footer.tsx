@@ -26,7 +26,6 @@ const footerColumns: FooterColumn[] = [
   {
     title: "Exhibit",
     links: [
-      { label: "Become a Vendor", href: "/vendors" },
       { label: "Sponsor the Expo", href: "/sponsor" },
       { label: "Vendor Registration Center", href: "/vendors" },
     ],

@@ -10,6 +10,7 @@ const navigationItems = [
   { href: "/floorplan", label: "Floorplan" },
   { href: "/swap-meet", label: "Swap Meet" },
   { href: "/sponsor", label: "Sponsors" },
+  { href: "/vendors", label: "Vendor Resource Center" },
 ];
 
 export function SiteHeader() {
@@ -19,7 +20,6 @@ export function SiteHeader() {
   const headerRef = useRef<HTMLElement>(null);
   const brandRef = useRef<HTMLAnchorElement>(null);
   const navMeasureRef = useRef<HTMLDivElement>(null);
-  const actionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateHeaderState = () => {
@@ -49,9 +49,8 @@ export function SiteHeader() {
       const header = headerRef.current;
       const brand = brandRef.current;
       const navMeasure = navMeasureRef.current;
-      const actions = actionsRef.current;
 
-      if (!header || !brand || !navMeasure || !actions) {
+      if (!header || !brand || !navMeasure) {
         return;
       }
 
@@ -65,10 +64,7 @@ export function SiteHeader() {
           : Math.min(Math.max(viewportWidth * 0.02, 16), 34);
       const usableWidth = header.clientWidth - inlinePadding;
       const desktopWidth =
-        brand.offsetWidth +
-        navMeasure.scrollWidth +
-        actions.offsetWidth +
-        desktopColumnGap * 2;
+        brand.offsetWidth + navMeasure.scrollWidth + desktopColumnGap;
 
       const shouldUseCompactNavigation = desktopWidth > usableWidth;
 
@@ -83,7 +79,7 @@ export function SiteHeader() {
 
     const resizeObserver = new ResizeObserver(updateNavigationMode);
 
-    [headerRef.current, brandRef.current, navMeasureRef.current, actionsRef.current].forEach(
+    [headerRef.current, brandRef.current, navMeasureRef.current].forEach(
       (element) => {
         if (element) {
           resizeObserver.observe(element);
@@ -152,16 +148,6 @@ export function SiteHeader() {
           </Link>
         ))}
       </nav>
-
-      <div className="site-header-actions" ref={actionsRef}>
-        <Link
-          className="vendor-link"
-          href="/vendors"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Become a Vendor
-        </Link>
-      </div>
     </header>
   );
 }

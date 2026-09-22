@@ -504,28 +504,6 @@ export default function VendorsPage() {
     <main className="vendors-page">
       <SiteHeader />
 
-      <section className="vendors-market" aria-labelledby="vendors-market-title">
-        <div className="vendors-market-heading">
-          <p className="vendors-kicker">Vendor Opportunity</p>
-          <h1 id="vendors-market-title">Why Exhibit in the Denver Front Range Market?</h1>
-          <p>
-            The Colorado Snomo Expo gives vendors direct access to one of the
-            strongest outdoor recreation and powersports markets in the Rocky
-            Mountain region.
-          </p>
-        </div>
-
-        <div className="vendors-market-grid">
-          {marketOpportunityCards.map((card, index) => (
-            <article className="vendors-market-card" key={card.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h2>{card.title}</h2>
-              <p>{card.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="vendors-section" aria-labelledby="vendor-center-title">
         <div className="vendors-section-heading">
           <p className="vendors-kicker">Vendor Registration Center</p>
@@ -535,21 +513,11 @@ export default function VendorsPage() {
         <div className="vendor-center-step vendor-center-step-primary">
           <div>
             <p className="vendors-kicker">Step 1</p>
-            <h3>Complete Your Registration</h3>
+            <h3>REGISTRATION IS CLOSED</h3>
             <p>
-              Start by completing the official vendor registration form. Once
-              your registration is submitted, use this page to prepare your
-              booth, documents and arrival plan.
+              Vendor registration for the 2026 Colorado SnoMo Expo is closed.
             </p>
           </div>
-          <Link
-            className="button button-primary"
-            href="https://www.jotform.com/build/261379354993068"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Register as a Vendor
-          </Link>
         </div>
 
         <div className="vendor-center-step">
@@ -624,6 +592,28 @@ export default function VendorsPage() {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="vendors-market" aria-labelledby="vendors-market-title">
+        <div className="vendors-market-heading">
+          <p className="vendors-kicker">Vendor Opportunity</p>
+          <h1 id="vendors-market-title">Why Exhibit in the Denver Front Range Market?</h1>
+          <p>
+            The Colorado Snomo Expo gives vendors direct access to one of the
+            strongest outdoor recreation and powersports markets in the Rocky
+            Mountain region.
+          </p>
+        </div>
+
+        <div className="vendors-market-grid">
+          {marketOpportunityCards.map((card, index) => (
+            <article className="vendors-market-card" key={card.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h2>{card.title}</h2>
+              <p>{card.body}</p>
+            </article>
+          ))}
         </div>
       </section>
     </main>
