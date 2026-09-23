@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { InteractiveFloorPlan } from "@/components/interactive-floor-plan";
+import { CloseMapButton } from "./close-map-button";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export default function FullSizeMapPage() {
   return (
     <main className={styles.viewer}>
       <div className={styles.toolbar}>
+        <CloseMapButton />
         <h1>2026 Floor Plan</h1>
         <nav className={`floorplan-actions ${styles.actions}`} aria-label="Full-size map actions">
           <a className="button button-secondary" href="/exhibitors#vendor-assignments">
