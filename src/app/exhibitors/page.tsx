@@ -22,18 +22,6 @@ export default function ExhibitorsPage() {
       <SiteHeader />
 
       <section
-        className={`floorplan-page-header ${styles.pageHeader}`}
-        aria-labelledby="floorplan-title"
-      >
-        <p className="floorplan-kicker">Colorado Snomo Expo</p>
-        <h1 id="floorplan-title">Exhibitors &amp; Floor Plan</h1>
-        <p>
-          Explore the 2026 expo layout, then find your favorite companies in the
-          2026 Participating Vendors directory below.
-        </p>
-      </section>
-
-      <section
         className={`floorplan-preview ${styles.anchorTarget}`}
         id="expo-map"
         aria-labelledby="floorplan-preview-title"
@@ -41,7 +29,7 @@ export default function ExhibitorsPage() {
         <div className="floorplan-preview-header">
           <div>
             <p className="floorplan-kicker">Explore the Expo</p>
-            <h2 id="floorplan-preview-title">2026 Floor Plan</h2>
+            <h1 className={styles.mapHeading} id="floorplan-preview-title">2026 Floor Plan</h1>
           </div>
         </div>
 

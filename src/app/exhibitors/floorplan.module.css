@@ -2,6 +2,15 @@
   scroll-margin-top: 132px;
 }
 
+.mapHeading {
+  color: var(--snow);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 10px 0 0;
+}
+
 .directory {
   margin: clamp(54px, 7vw, 88px) auto 0;
   max-width: 1180px;
@@ -49,10 +58,6 @@
 }
 
 @media (max-width: 600px) {
-  .pageHeader h1 {
-    font-size: clamp(3.4rem, 17vw, 5.6rem);
-  }
-
   .boothColumn {
     width: 72px;
   }
