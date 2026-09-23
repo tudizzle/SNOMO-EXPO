@@ -67,9 +67,7 @@ export default function ExhibitorsPage() {
           </a>
         </div>
 
-        <div className="floorplan-image-frame">
-          <InteractiveFloorPlan src={floorplanImage} />
-        </div>
+        <InteractiveFloorPlan src={floorplanImage} />
       </section>
 
       <section

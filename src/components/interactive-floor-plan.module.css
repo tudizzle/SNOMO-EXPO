@@ -1,5 +1,39 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: start;
+  gap: 20px;
+}
+
 .map {
   position: relative;
+  min-width: 0;
+}
+
+.details {
+  position: sticky;
+  top: 132px;
+  min-width: 0;
+  min-height: 144px;
+}
+
+.hint {
+  margin: 0;
+  padding: 14px;
+  color: var(--color-ice-200);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .details {
+    position: static;
+  }
 }
 
 .overlay {
@@ -35,7 +69,9 @@
 }
 
 .popup {
-  position: absolute;
+  position: relative;
+  width: 100%;
+  max-width: 260px;
   z-index: 2;
   box-sizing: border-box;
   overflow: auto;

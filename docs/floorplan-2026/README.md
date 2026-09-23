@@ -39,7 +39,7 @@ Project: `/Users/brandoncox/Documents/SNOMO EXPO/fix-countdown-and-favicon`.
 
 `src/components/interactive-floor-plan.tsx` places a transparent SVG overlay directly over the unchanged image. Its `0 0 2048 1552` viewBox scales proportionally with the image. Hit areas use the supplied bounds or, for booths 324, 329, and 330, the supplied polygons. Popup company names come from the same `vendorAssignments2026` array used by the directory.
 
-Hover or keyboard focus reveals a booth. Click, Enter, or Space pins the popup. Another booth switches the selection. Escape, the close control, or an outside click dismisses it. The popup allows pointer travel from the booth and clamps to the visible map area. Touch activation uses click without requiring hover; normal scrolling and browser zoom are not disabled.
+Hover or keyboard focus reveals a booth. Click, Enter, or Space pins the popup. Another booth switches the selection. Escape, the close control, or an outside click dismisses it. Details occupy a reserved right-hand rail on desktop and sit below the map at widths of 1000px or less. They never cover a booth or change the map's size when opened. The last hovered booth remains visible while the pointer crosses the map or moves into the details panel. Touch activation uses click without requiring hover; normal scrolling and browser zoom are not disabled.
 
 Run `node scripts/verify-floor-plan.mjs` to verify the approved map fingerprint, dimensions, assignment coverage, ordering, and rotated polygon records. With a running preview, pass its origin to additionally check every rendered hit area's exact coordinates and accessible name, plus the served map fingerprint:
 
