@@ -25,7 +25,6 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
   const [selection, setSelection] = useState<Selection>(null);
   const [position, setPosition] = useState({ left: 8, top: 8, width: 260, maxHeight: 300, visible: false });
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
-  const cornerRef = useRef(0);
   const repositionRef = useRef<(() => void) | null>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -120,22 +119,18 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
         pointer.y >= rect.top && pointer.y <= rect.bottom;
       const x = (usePointer ? pointer.x : (anchor.left + anchor.right) / 2) - rect.left;
       const y = (usePointer ? pointer.y : (anchor.top + anchor.bottom) / 2) - rect.top;
-      const corners = [
-        { left, top },
-        { left: right - width, top },
-        { left, top: bottom - height },
-        { left: right - width, top: bottom - height },
-      ];
-      const distances = corners.map((corner) => Math.hypot(
-        Math.max(corner.left - x, 0, x - corner.left - width),
-        Math.max(corner.top - y, 0, y - corner.top - height),
-      ));
-      // Keep a stable corner until the pointer comes within 72px. Never chase
-      // it booth-by-booth, and do not move a pinned card while it is being read.
-      if (distances[cornerRef.current] < 72 || !position.visible) {
-        cornerRef.current = distances.indexOf(Math.max(...distances));
-      }
-      const next = { ...corners[cornerRef.current], width, maxHeight, visible: width > 0 && maxHeight >= 80 };
+      // Follow at a comfortable diagonal distance, flipping each axis near an
+      // edge. On small maps, use the available space without overflowing.
+      const offset = (point: number, size: number, min: number, max: number, gap: number) => {
+        if (point + gap + size <= max) return Math.max(min, point + gap);
+        if (point - gap - size >= min) return Math.min(max - size, point - gap - size);
+        return point < (min + max) / 2 ? max - size : min;
+      };
+      const next = {
+        left: offset(x, width, left, right, 80),
+        top: offset(y, height, top, bottom, 48),
+        width, maxHeight, visible: width > 0 && maxHeight >= 80,
+      };
       setPosition((previous) => Object.keys(next).every((key) =>
         previous[key as keyof typeof next] === next[key as keyof typeof next]) ? previous : next);
     };
@@ -156,7 +151,7 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
       window.visualViewport?.removeEventListener("resize", updatePosition);
       window.visualViewport?.removeEventListener("scroll", updatePosition);
     };
-  }, [selection, position.visible]);
+  }, [selection]);
 
   return (
     <div
@@ -164,7 +159,15 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
       onPointerEnter={cancelHide}
       onPointerLeave={(event) => { if (event.pointerType !== "touch") scheduleHide(); }}
     >
-        <div className={styles.map} ref={mapRef}>
+        <div
+          className={styles.map}
+          ref={mapRef}
+          onPointerMove={(event) => {
+            if (event.pointerType === "touch" || popupRef.current?.contains(event.target as Node)) return;
+            pointerRef.current = { x: event.clientX, y: event.clientY };
+            if (!selection?.pinned) repositionRef.current?.();
+          }}
+        >
           <Image
             src={src}
             alt="2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas. 2026 Participating Vendors are listed below."
@@ -200,8 +203,6 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
                 }}
                 onPointerMove={(event) => {
                   if (event.pointerType === "touch") return;
-                  pointerRef.current = { x: event.clientX, y: event.clientY };
-                  if (!selection?.pinned) repositionRef.current?.();
                   if (!hoverDismissed.current) return;
                   hoverDismissed.current = false;
                   cancelHide();
