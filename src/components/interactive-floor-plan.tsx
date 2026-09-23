@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import geometry from "../../docs/floorplan-2026/booth-geometry.json";
 import { vendorAssignments2026 } from "@/data/vendor-assignments-2026";
 import styles from "./interactive-floor-plan.module.css";
@@ -23,6 +23,10 @@ type Selection = { number: number; pinned: boolean } | null;
 
 export function InteractiveFloorPlan({ src }: { src: string }) {
   const [selection, setSelection] = useState<Selection>(null);
+  const [position, setPosition] = useState({ left: 8, top: 8, width: 260, maxHeight: 300, visible: false });
+  const pointerRef = useRef<{ x: number; y: number } | null>(null);
+  const cornerRef = useRef(0);
+  const repositionRef = useRef<(() => void) | null>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -86,13 +90,80 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
     };
   }, [selection, dismiss]);
 
+  useLayoutEffect(() => {
+    if (!selection) return;
+    const updatePosition = () => {
+      const map = mapRef.current;
+      const popup = popupRef.current;
+      const booth = boothRefs.current.get(selection.number);
+      if (!map || !popup || !booth) return;
+      const rect = map.getBoundingClientRect();
+      const anchor = booth.getBoundingClientRect();
+      const viewport = window.visualViewport;
+      const viewLeft = viewport?.offsetLeft ?? 0;
+      const viewTop = viewport?.offsetTop ?? 0;
+      const viewRight = viewLeft + (viewport?.width ?? innerWidth);
+      const viewBottom = viewTop + (viewport?.height ?? innerHeight);
+      const headerBottom = document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0;
+      const left = Math.max(8, viewLeft - rect.left + 8);
+      const right = Math.min(rect.width - 8, viewRight - rect.left - 8);
+      const top = Math.max(8, Math.max(viewTop, headerBottom) - rect.top + 8);
+      const bottom = Math.min(rect.height - 8, viewBottom - rect.top - 8);
+      const width = Math.max(0, Math.min(260, right - left));
+      const maxHeight = Math.max(0, bottom - top);
+      popup.style.width = `${width}px`;
+      popup.style.maxHeight = `${maxHeight}px`;
+      const height = popup.getBoundingClientRect().height;
+      const pointer = pointerRef.current;
+      const usePointer = !selection.pinned && pointer &&
+        pointer.x >= rect.left && pointer.x <= rect.right &&
+        pointer.y >= rect.top && pointer.y <= rect.bottom;
+      const x = (usePointer ? pointer.x : (anchor.left + anchor.right) / 2) - rect.left;
+      const y = (usePointer ? pointer.y : (anchor.top + anchor.bottom) / 2) - rect.top;
+      const corners = [
+        { left, top },
+        { left: right - width, top },
+        { left, top: bottom - height },
+        { left: right - width, top: bottom - height },
+      ];
+      const distances = corners.map((corner) => Math.hypot(
+        Math.max(corner.left - x, 0, x - corner.left - width),
+        Math.max(corner.top - y, 0, y - corner.top - height),
+      ));
+      // Keep a stable corner until the pointer comes within 72px. Never chase
+      // it booth-by-booth, and do not move a pinned card while it is being read.
+      if (distances[cornerRef.current] < 72 || !position.visible) {
+        cornerRef.current = distances.indexOf(Math.max(...distances));
+      }
+      const next = { ...corners[cornerRef.current], width, maxHeight, visible: width > 0 && maxHeight >= 80 };
+      setPosition((previous) => Object.keys(next).every((key) =>
+        previous[key as keyof typeof next] === next[key as keyof typeof next]) ? previous : next);
+    };
+    repositionRef.current = updatePosition;
+    updatePosition();
+    const observer = new ResizeObserver(updatePosition);
+    if (mapRef.current) observer.observe(mapRef.current);
+    if (popupRef.current) observer.observe(popupRef.current);
+    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", updatePosition, { passive: true });
+    window.visualViewport?.addEventListener("resize", updatePosition);
+    window.visualViewport?.addEventListener("scroll", updatePosition);
+    return () => {
+      repositionRef.current = null;
+      observer.disconnect();
+      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", updatePosition);
+      window.visualViewport?.removeEventListener("resize", updatePosition);
+      window.visualViewport?.removeEventListener("scroll", updatePosition);
+    };
+  }, [selection, position.visible]);
+
   return (
     <div
-      className={styles.layout}
+      className="floorplan-image-frame"
       onPointerEnter={cancelHide}
       onPointerLeave={(event) => { if (event.pointerType !== "touch") scheduleHide(); }}
     >
-      <div className="floorplan-image-frame">
         <div className={styles.map} ref={mapRef}>
           <Image
             src={src}
@@ -123,17 +194,22 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
                 aria-haspopup="dialog"
                 onPointerEnter={(event) => {
                   if (event.pointerType === "touch" || hoverDismissed.current) return;
+                  pointerRef.current = { x: event.clientX, y: event.clientY };
                   cancelHide();
                   setSelection((current) => current?.pinned ? current : { number: booth.number, pinned: false });
                 }}
                 onPointerMove={(event) => {
-                  if (event.pointerType === "touch" || !hoverDismissed.current) return;
+                  if (event.pointerType === "touch") return;
+                  pointerRef.current = { x: event.clientX, y: event.clientY };
+                  if (!selection?.pinned) repositionRef.current?.();
+                  if (!hoverDismissed.current) return;
                   hoverDismissed.current = false;
                   cancelHide();
                   setSelection((current) => current?.pinned ? current : { number: booth.number, pinned: false });
                 }}
                 onFocus={() => {
                   if (restoringFocus.current) return;
+                  pointerRef.current = null;
                   hoverDismissed.current = false;
                   cancelHide();
                   setSelection({ number: booth.number, pinned: false });
@@ -156,16 +232,14 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
               />
             ))}
           </svg>
-        </div>
-      </div>
-      <aside className={styles.details} aria-label="Selected booth details">
-        {activeBooth ? (
+        {activeBooth && (
           <div
             ref={popupRef}
             id={popupId}
             role="dialog"
             aria-labelledby={`${popupId}-title`}
             className={styles.popup}
+            style={{ left: position.left, top: position.top, width: position.width, maxHeight: position.maxHeight, visibility: position.visible ? "visible" : "hidden" }}
             onPointerEnter={cancelHide}
           >
             <div className={styles.popupHeader}>
@@ -176,10 +250,8 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
             </div>
             {activeBooth.companies.map((company) => <p key={company}>{company}</p>)}
           </div>
-        ) : (
-          <p className={styles.hint}>Select a booth to see participating vendors.</p>
         )}
-      </aside>
+        </div>
     </div>
   );
 }

@@ -1,39 +1,6 @@
-.layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
-  align-items: start;
-  gap: 20px;
-}
-
 .map {
   position: relative;
   min-width: 0;
-}
-
-.details {
-  position: sticky;
-  top: 132px;
-  min-width: 0;
-  min-height: 144px;
-}
-
-.hint {
-  margin: 0;
-  padding: 14px;
-  color: var(--color-ice-200);
-  font-size: 0.875rem;
-  line-height: 1.45;
-}
-
-@media (max-width: 1000px) {
-  .layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-  }
-
-  .details {
-    position: static;
-  }
 }
 
 .overlay {
@@ -69,18 +36,18 @@
 }
 
 .popup {
-  position: relative;
+  position: absolute;
   width: 100%;
   max-width: 260px;
   z-index: 2;
   box-sizing: border-box;
   overflow: auto;
   padding: 10px 14px 12px;
-  background: rgba(238, 244, 250, 0.94);
+  background: rgba(160, 168, 177, 0.96);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: var(--color-night-950);
-  border: 1px solid var(--color-summit-gold-500);
+  border: 1px solid var(--color-ice-200);
   border-radius: var(--radius-sm);
   box-shadow: 0 10px 28px rgba(4, 10, 18, 0.22);
   font-size: 0.875rem;
@@ -98,7 +65,7 @@
 }
 
 .popupHeader strong {
-  color: var(--color-colorado-red-600);
+  color: var(--color-night-950);
 }
 
 .popup p {
@@ -128,6 +95,6 @@
 }
 
 .close:focus-visible {
-  outline: 2px solid var(--color-colorado-red-600);
+  outline: 2px solid var(--color-night-950);
   outline-offset: 2px;
 }
