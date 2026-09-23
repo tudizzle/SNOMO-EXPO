@@ -1,0 +1,202 @@
+{
+  "SnowBigDeal, Inc": {
+    "src": "/images/vendors/snowbigdeal-inc.webp",
+    "background": "light"
+  },
+  "Speedwerx Inc": {
+    "src": "/images/vendors/speedwerx-inc.png",
+    "background": "dark"
+  },
+  "ARVA": {
+    "src": "/images/vendors/arva.svg",
+    "background": "light"
+  },
+  "Oxbow": {
+    "src": "/images/vendors/oxbow.png",
+    "background": "dark"
+  },
+  "Vickery Motorsports, Inc.": {
+    "src": "/images/vendors/vickery-motorsports-inc.png",
+    "background": "light"
+  },
+  "Mountain Grit": {
+    "src": "/images/vendors/mountain-grit.png",
+    "background": "light"
+  },
+  "Mountain Side Performance": {
+    "src": "/images/vendors/mountain-side-performance.png",
+    "background": "light"
+  },
+  "Scott Murdock Trailer Sales": {
+    "src": "/images/vendors/scott-murdock-trailer-sales.png",
+    "background": "light"
+  },
+  "Trails West Trailers": {
+    "src": "/images/vendors/trails-west-trailers.png",
+    "background": "light"
+  },
+  "ARCTIC CAT": {
+    "src": "/images/vendors/arctic-cat.svg",
+    "background": "dark"
+  },
+  "G-Force Powersports": {
+    "src": "/images/vendors/g-force-powersports.webp",
+    "background": "dark"
+  },
+  "Fort Collins Insurance": {
+    "src": "/images/vendors/fort-collins-insurance.png",
+    "background": "light"
+  },
+  "Bikeman Performance": {
+    "src": "/images/vendors/bikeman-performance.png",
+    "background": "dark"
+  },
+  "Blue Ribbon Coalition": {
+    "src": "/images/vendors/blue-ribbon-coalition.png",
+    "background": "light"
+  },
+  "Grand Lake Trail Grooming, Inc.": {
+    "src": "/images/vendors/grand-lake-trail-grooming-inc.webp",
+    "background": "dark"
+  },
+  "Arrowhead Mountain Lodge and Adventures": {
+    "src": "/images/vendors/arrowhead-mountain-lodge-and-adventures.png",
+    "background": "dark"
+  },
+  "Marlon Recreational Products": {
+    "src": "/images/vendors/marlon-recreational-products.png",
+    "background": "dark"
+  },
+  "Avalanche Savvy": {
+    "src": "/images/vendors/avalanche-savvy.png",
+    "background": "dark"
+  },
+  "Mountain Skillz": {
+    "src": "/images/vendors/mountain-skillz.png",
+    "background": "light"
+  },
+  "Alpine Motor Sports": {
+    "src": "/images/vendors/alpine-motor-sports.png",
+    "background": "dark"
+  },
+  "Sledettes Riding Co.": {
+    "src": "/images/vendors/sledettes-riding-co.webp",
+    "background": "dark"
+  },
+  "BSB FAB": {
+    "src": "/images/vendors/bsb-fab.webp",
+    "background": "light"
+  },
+  "Elevated Marine": {
+    "src": "/images/vendors/elevated-marine.png",
+    "background": "light"
+  },
+  "DTI Trucks": {
+    "src": "/images/vendors/dti-trucks.png",
+    "background": "light"
+  },
+  "Push industries": {
+    "src": "/images/vendors/push-industries.png",
+    "background": "dark"
+  },
+  "Saratoga Hot Springs Resort": {
+    "src": "/images/vendors/saratoga-hot-springs-resort.png",
+    "background": "dark"
+  },
+  "All American Heros Foundation": {
+    "src": "/images/vendors/all-american-heros-foundation.webp",
+    "background": "dark"
+  },
+  "Montana State Snowmobile Association": {
+    "src": "/images/vendors/montana-state-snowmobile-association.png",
+    "background": "dark"
+  },
+  "Grand Mesa Lodge LLC": {
+    "src": "/images/vendors/grand-mesa-lodge-llc.png",
+    "background": "light"
+  },
+  "SPOT LLC": {
+    "src": "/images/vendors/spot-llc.svg",
+    "background": "dark"
+  },
+  "Logan Coach": {
+    "src": "/images/vendors/logan-coach.avif",
+    "background": "light"
+  },
+  "K MOD": {
+    "src": "/images/vendors/k-mod.png",
+    "background": "light"
+  },
+  "Rocky Mountain Sled Conditions": {
+    "src": "/images/vendors/rocky-mountain-sled-conditions.png",
+    "background": "light"
+  },
+  "Silber Turbo": {
+    "src": "/images/vendors/silber-turbo.png",
+    "background": "light"
+  },
+  "Rocky Talkie": {
+    "src": "/images/vendors/rocky-talkie.png",
+    "background": "light"
+  },
+  "Ski Doo": {
+    "src": "/images/vendors/ski-doo.svg",
+    "background": "light"
+  },
+  "Powder Pro Lab": {
+    "src": "/images/vendors/powder-pro-lab.webp",
+    "background": "light"
+  },
+  "ORTOVOX": {
+    "src": "/images/vendors/ortovox.svg",
+    "background": "light"
+  },
+  "AIARE": {
+    "src": "/images/vendors/aiare.png",
+    "background": "light"
+  },
+  "Tylers Backcountry Awareness": {
+    "src": "/images/vendors/tylers-backcountry-awareness.png",
+    "background": "dark"
+  },
+  "CAIC": {
+    "src": "/images/vendors/caic.png",
+    "background": "light"
+  },
+  "Friends of CAIC": {
+    "src": "/images/vendors/friends-of-caic.png",
+    "background": "light"
+  },
+  "Fox Factory": {
+    "src": "/images/vendors/fox-factory.svg",
+    "background": "dark"
+  },
+  "Bear Mountain Outfitters": {
+    "src": "/images/vendors/bear-mountain-outfitters.webp",
+    "background": "light"
+  },
+  "TFT-Sno Trac, LLC": {
+    "src": "/images/vendors/tft-sno-trac-llc.png",
+    "background": "light"
+  },
+  "SnowGirl Sportwear": {
+    "src": "/images/vendors/snowgirl-sportwear.png",
+    "background": "dark"
+  },
+  "Mile Hi Snowmobile Club": {
+    "src": "/images/vendors/mile-hi-snowmobile-club.png",
+    "background": "light"
+  },
+  "Burandt’s Backcountry Adventures": {
+    "src": "/images/vendors/burandt-s-backcountry-adventures.png",
+    "background": "dark"
+  },
+  "Colorado Parks and Wildlife": {
+    "src": "/images/vendors/colorado-parks-and-wildlife.png",
+    "background": "light"
+  },
+  "Colorado SnoMo Expo": {
+    "src": "/images/logos/colorado-snomo-expo-primary.png",
+    "background": "dark"
+  }
+}

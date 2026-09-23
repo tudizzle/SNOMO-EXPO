@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import geometry from "../../docs/floorplan-2026/booth-geometry.json";
 import { vendorAssignments2026 } from "@/data/vendor-assignments-2026";
+import vendorLogos from "@/data/vendor-logos-2026.json";
 import styles from "./interactive-floor-plan.module.css";
 
 const booths = geometry.booths.map((booth) => {
@@ -20,6 +21,24 @@ const booths = geometry.booths.map((booth) => {
 });
 
 type Selection = { number: number; pinned: boolean } | null;
+
+const logos: Record<string, { src: string; background: string } | undefined> = vendorLogos;
+
+function PopupCompany({ company }: { company: string }) {
+  const logo = logos[company];
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <div className={styles.company}>
+      {logo && !failed && (
+        <span className={styles.logo} data-background={logo.background}>
+          <Image src={logo.src} alt="" width={64} height={40} unoptimized onError={() => setFailed(true)} />
+        </span>
+      )}
+      <p>{company}</p>
+    </div>
+  );
+}
 
 export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; fullSize?: boolean }) {
   const [selection, setSelection] = useState<Selection>(null);
@@ -255,7 +274,7 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
                 <span aria-hidden="true">×</span>
               </button>
             </div>
-            {activeBooth.companies.map((company) => <p key={company}>{company}</p>)}
+            {activeBooth.companies.map((company) => <PopupCompany key={company} company={company} />)}
           </div>
         )}
         </div>
