@@ -29,7 +29,7 @@ export default function ExhibitorsPage() {
         <h1 id="floorplan-title">Exhibitors &amp; Floor Plan</h1>
         <p>
           Explore the 2026 expo layout, then find your favorite companies in the
-          vendor assignments below.
+          2026 Participating Vendors directory below.
         </p>
       </section>
 
@@ -47,7 +47,7 @@ export default function ExhibitorsPage() {
 
         <div className="floorplan-actions" aria-label="Floorplan actions">
           <a className="button button-primary" href="#vendor-assignments">
-            View Vendor Assignments
+            View 2026 Participating Vendors
           </a>
           <a
             className="button button-secondary"
@@ -70,7 +70,7 @@ export default function ExhibitorsPage() {
         <div className="floorplan-image-frame">
           <Image
             src={floorplanImage}
-            alt="2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas. Vendor assignments are listed below."
+            alt="2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas. 2026 Participating Vendors are listed below."
             width={2048}
             height={1552}
             unoptimized
@@ -87,12 +87,12 @@ export default function ExhibitorsPage() {
         <div className="floorplan-preview-header">
           <div>
             <p className="floorplan-kicker">2026 Colorado Snomo Expo</p>
-            <h2 id="vendor-assignments-title">Vendor Assignments</h2>
+            <h2 id="vendor-assignments-title">2026 Participating Vendors</h2>
           </div>
           <p>Listed by booth number</p>
         </div>
 
-        <table className={styles.table} aria-label="2026 vendor booth assignments">
+        <table className={styles.table} aria-label="2026 Participating Vendors">
           <colgroup>
             <col className={styles.boothColumn} />
             <col />
