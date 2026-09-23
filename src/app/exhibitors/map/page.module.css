@@ -1,0 +1,68 @@
+.viewer {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100svh;
+  min-height: 480px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 16px clamp(16px, 3vw, 32px);
+  padding-right: 80px;
+}
+
+.close {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-colorado-red-600);
+  border-radius: var(--radius-sm);
+  background: var(--color-night-950);
+  color: var(--color-snow-50);
+  cursor: pointer;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.close:hover {
+  background: var(--color-colorado-red-600);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--color-snow-50);
+  outline-offset: 3px;
+}
+
+.toolbar h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 760;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.toolbar p {
+  color: var(--color-ice-200);
+  flex-basis: 100%;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.actions {
+  flex-direction: row;
+  gap: 8px;
+}
+
+.actions a {
+  font-size: 0.68rem;
+  min-height: 44px;
+  padding: 8px 12px;
+}

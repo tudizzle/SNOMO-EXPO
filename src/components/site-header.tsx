@@ -5,9 +5,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const navigationItems = [
-  { href: "/exhibitors", label: "Exhibitors" },
+  { href: "/exhibitors", label: "Exhibitors & Floor Plan" },
   { href: "/schedule", label: "Schedule" },
-  { href: "/floorplan", label: "Floorplan" },
   { href: "/swap-meet", label: "Swap Meet" },
   { href: "/sponsor", label: "Sponsors" },
   { href: "/vendors", label: "Vendor Resource Center" },

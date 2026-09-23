@@ -1,79 +1,61 @@
-import Link from "next/link";
+import { InteractiveFloorPlan } from "@/components/interactive-floor-plan";
 import { SiteHeader } from "@/components/site-header";
-import { placeholderExhibitors } from "@/data/exhibitors";
+import { VendorDirectory } from "./vendor-directory";
 import { createPageMetadata } from "@/lib/seo";
+import styles from "./floorplan.module.css";
+
+const floorplanImage = "/images/floorplan/2026-expo-floor-plan-clean-numbers.png";
 
 export const metadata = createPageMetadata({
-  title: "Exhibitors | Colorado Snomo Expo",
+  title: "Exhibitors & Floor Plan | Colorado SnoMo Expo",
   description:
-    "Explore the companies, manufacturers and brands that make Colorado Snomo Expo the Rocky Mountain Region's premier winter powersports event.",
+    "Explore the 2026 Colorado Snomo Expo floorplan and find vendors by booth number.",
   path: "/exhibitors",
 });
 
 export default function ExhibitorsPage() {
   return (
-    <main className="exhibitors-page">
+    <main className="floorplan-page">
       <SiteHeader />
 
-      <section className="exhibitors-page-header" aria-labelledby="exhibitors-title">
-        <p className="exhibitors-kicker">Colorado Snomo Expo</p>
-        <h1 id="exhibitors-title">Exhibitors</h1>
-        <p>
-          Explore the companies, manufacturers and brands that make Colorado
-          Snomo Expo the Rocky Mountain Region&apos;s premier winter powersports
-          event.
-        </p>
-      </section>
-
-      <section className="exhibitors-notice" aria-labelledby="exhibitors-notice-title">
-        <h2 id="exhibitors-notice-title">2026 Exhibitor List Coming Soon</h2>
-        <div>
-          <p>We are currently finalizing our 2026 exhibitor lineup.</p>
-          <p>
-            The exhibitor directory below reflects last year&apos;s exhibitors to
-            give you an idea of the companies that participate in Colorado Snomo
-            Expo.
-          </p>
-          <p>Please check back soon as exhibitors are confirmed and added.</p>
-        </div>
-      </section>
-
-      <section className="exhibitors-directory" aria-labelledby="directory-title">
-        <div className="exhibitors-directory-header">
+      <section
+        className={`floorplan-preview ${styles.anchorTarget}`}
+        id="expo-map"
+        aria-labelledby="floorplan-preview-title"
+      >
+        <div className="floorplan-preview-header">
           <div>
-            <p className="exhibitors-kicker">Placeholder Directory</p>
-            <h2 id="directory-title">2025 Exhibitors</h2>
+            <p className="floorplan-kicker">Explore the Expo</p>
+            <h1 className={styles.mapHeading} id="floorplan-preview-title">2026 Floor Plan</h1>
           </div>
-          <p>{placeholderExhibitors.length} exhibitors listed</p>
         </div>
 
-        <div className="exhibitors-list" role="table" aria-label="2025 exhibitors">
-          <div className="exhibitors-list-row exhibitors-list-heading" role="row">
-            <span role="columnheader">Booth</span>
-            <span role="columnheader">Company</span>
-          </div>
-
-          {placeholderExhibitors.map((exhibitor, index) => (
-            <div
-              className="exhibitors-list-row"
-              role="row"
-              key={`${exhibitor.booth}-${exhibitor.name}-${index}`}
-            >
-              <span className="exhibitor-booth" role="cell">
-                {exhibitor.booth}
-              </span>
-              <span role="cell">{exhibitor.name}</span>
-            </div>
-          ))}
+        <div className="floorplan-actions" aria-label="Floorplan actions">
+          <a className="button button-primary" href="#vendor-assignments">
+            View 2026 Participating Vendors
+          </a>
+          <a
+            className="button button-secondary"
+            href="/exhibitors/map"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open full-size map in a new tab"
+          >
+            Open Full-Size Map
+          </a>
+          <a
+            className="button button-secondary"
+            href={floorplanImage}
+            download="2026-colorado-snomo-expo-floorplan.png"
+          >
+            Download Map
+          </a>
         </div>
+
+        <InteractiveFloorPlan src={floorplanImage} />
       </section>
 
-      <section className="exhibitors-bottom-cta" aria-label="Become a vendor">
-        <p>Interested in exhibiting at the 2026 Colorado Snomo Expo?</p>
-        <Link className="button button-primary" href="/vendors">
-          Become a Vendor
-        </Link>
-      </section>
+      <VendorDirectory />
     </main>
   );
 }
