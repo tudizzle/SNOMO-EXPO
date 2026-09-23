@@ -1,13 +1,10 @@
 import { InteractiveFloorPlan } from "@/components/interactive-floor-plan";
 import { SiteHeader } from "@/components/site-header";
-import { vendorAssignments2026 } from "@/data/vendor-assignments-2026";
+import { VendorDirectory } from "./vendor-directory";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "./floorplan.module.css";
 
 const floorplanImage = "/images/floorplan/2026-expo-floor-plan-clean-numbers.png";
-const sortedVendorAssignments = [...vendorAssignments2026].sort(
-  (first, second) => first.booth - second.booth,
-);
 
 export const metadata = createPageMetadata({
   title: "Exhibitors & Floor Plan | Colorado SnoMo Expo",
@@ -58,46 +55,7 @@ export default function ExhibitorsPage() {
         <InteractiveFloorPlan src={floorplanImage} />
       </section>
 
-      <section
-        className={`${styles.directory} ${styles.anchorTarget}`}
-        id="vendor-assignments"
-        aria-labelledby="vendor-assignments-title"
-      >
-        <div className="floorplan-preview-header">
-          <div>
-            <p className="floorplan-kicker">2026 Colorado Snomo Expo</p>
-            <h2 id="vendor-assignments-title">2026 Participating Vendors</h2>
-          </div>
-          <p>Listed by booth number</p>
-        </div>
-
-        <table className={styles.table} aria-label="2026 Participating Vendors">
-          <colgroup>
-            <col className={styles.boothColumn} />
-            <col />
-          </colgroup>
-          <thead>
-            <tr>
-              <th scope="col">Booth</th>
-              <th scope="col">Company</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sortedVendorAssignments.map((assignment, index) => (
-              <tr key={`${assignment.booth}-${assignment.name}-${index}`}>
-                <th scope="row">{assignment.booth}</th>
-                <td>{assignment.name}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className="floorplan-actions">
-          <a className="button button-secondary" href="#expo-map">
-            Back to Map
-          </a>
-        </div>
-      </section>
+      <VendorDirectory />
     </main>
   );
 }
