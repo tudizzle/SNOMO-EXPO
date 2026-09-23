@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { InteractiveFloorPlan } from "@/components/interactive-floor-plan";
 import { SiteHeader } from "@/components/site-header";
 import { vendorAssignments2026 } from "@/data/vendor-assignments-2026";
 import { createPageMetadata } from "@/lib/seo";
@@ -68,14 +68,7 @@ export default function ExhibitorsPage() {
         </div>
 
         <div className="floorplan-image-frame">
-          <Image
-            src={floorplanImage}
-            alt="2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas. 2026 Participating Vendors are listed below."
-            width={2048}
-            height={1552}
-            unoptimized
-            priority
-          />
+          <InteractiveFloorPlan src={floorplanImage} />
         </div>
       </section>
 

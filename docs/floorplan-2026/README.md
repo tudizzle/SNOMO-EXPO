@@ -35,6 +35,20 @@ Project: `/Users/brandoncox/Documents/SNOMO EXPO/fix-countdown-and-favicon`.
 - The sorted workbook, JSON reference, and website data were verified to contain the same 82 rows covering all 77 booths, including shared booths and repeated company names.
 - Approved PNG SHA-256: `549540080f409f85fce3093481351f8a156a840c4cd139a31fa3d93c0d0645ae`. The copied asset and the image served by the production preview match this fingerprint.
 
+## Interactive map
+
+`src/components/interactive-floor-plan.tsx` places a transparent SVG overlay directly over the unchanged image. Its `0 0 2048 1552` viewBox scales proportionally with the image. Hit areas use the supplied bounds or, for booths 324, 329, and 330, the supplied polygons. Popup company names come from the same `vendorAssignments2026` array used by the directory.
+
+Hover or keyboard focus reveals a booth. Click, Enter, or Space pins the popup. Another booth switches the selection. Escape, the close control, or an outside click dismisses it. The popup allows pointer travel from the booth and clamps to the visible map area. Touch activation uses click without requiring hover; normal scrolling and browser zoom are not disabled.
+
+Run `node scripts/verify-floor-plan.mjs` to verify the approved map fingerprint, dimensions, assignment coverage, ordering, and rotated polygon records. With a running preview, pass its origin to additionally check every rendered hit area's exact coordinates and accessible name, plus the served map fingerprint:
+
+```sh
+node scripts/verify-floor-plan.mjs http://127.0.0.1:3017
+```
+
+Browser checks cover all 77 popup assignments, alignment at 1440/1024/768/390/320px, narrow and rotated hit areas, popup visibility at 320px, keyboard operation, pointer transitions, and dismissal. Physical touch gestures still need an on-device review; mobile-width click activation and unrestricted scrolling/zoom were checked in the desktop browser.
+
 ## Source
 
 Prepared in the Codex floor-plan editing task continuing “Edit Booth Floor Plan.” Original referenced ChatGPT conversation: `6ab35f5d-c844-83e8-9502-714cf9afc20b` (`chatgpt-conversation://6ab35f5d-c844-83e8-9502-714cf9afc20b`).
