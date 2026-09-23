@@ -23,10 +23,10 @@ assert.ok(assignments.every((row, index) => !index || row.booth >= assignments[i
 assert.deepEqual(geometry.booths.filter((booth) => booth.polygon).map((booth) => booth.number), [324, 329, 330]);
 console.log("PASS: unchanged 2048×1552 PNG; 82 sorted assignments; 77 booths; three rotated polygons.");
 
-// Optional production-preview check: node scripts/verify-floor-plan.mjs http://127.0.0.1:3017
+// Optional preview check; pass /exhibitors/map as a third argument for the full-size view.
 if (process.argv[2]) {
   const base = new URL(process.argv[2]);
-  const response = await fetch(new URL("/exhibitors", base));
+  const response = await fetch(new URL(process.argv[3] ?? "/exhibitors", base));
   assert.equal(response.status, 200);
   const html = await response.text();
   const polygons = [...html.matchAll(/<polygon\b[^>]*>/g)].map(([tag]) => {

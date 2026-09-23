@@ -1,0 +1,39 @@
+.viewer {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100svh;
+  min-height: 480px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 16px clamp(16px, 3vw, 32px);
+}
+
+.toolbar h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 760;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.toolbar p {
+  color: var(--color-ice-200);
+  flex-basis: 100%;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.actions {
+  flex-direction: row;
+  gap: 8px;
+}
+
+.actions a {
+  font-size: 0.68rem;
+  min-height: 44px;
+  padding: 8px 12px;
+}

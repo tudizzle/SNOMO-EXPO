@@ -37,6 +37,8 @@ Project: `/Users/brandoncox/Documents/SNOMO EXPO/fix-countdown-and-favicon`.
 
 ## Interactive map
 
+The **Open Full-Size Map** action opens `/exhibitors/map` in a new tab. This view reuses `InteractiveFloorPlan` at exactly 2048 × 1552 CSS pixels in a scrollable frame, including the same offset hover popups, click/touch pinning, keyboard controls, and translucent black/red styling. Popup positioning accounts for the frame's visible bounds and both scroll directions. The download remains the original PNG; `/exhibitors` remains the canonical directory page.
+
 `src/components/interactive-floor-plan.tsx` places a transparent SVG overlay directly over the unchanged image. Its `0 0 2048 1552` viewBox scales proportionally with the image. Hit areas use the supplied bounds or, for booths 324, 329, and 330, the supplied polygons. Popup company names come from the same `vendorAssignments2026` array used by the directory.
 
 Hover or keyboard focus reveals a booth. Click, Enter, or Space pins the popup. Another booth switches the selection. Escape, the close control, or an outside click dismisses it. The compact, translucent black popup with a red border follows the pointer with an 80px horizontal and 48px vertical gap, flipping sides near map edges. When neither side has enough space, it uses the available map area without overflowing. Keyboard/touch activation uses the selected booth as its anchor. Pinned details do not follow pointer movement. Position and size stay within the visible map area on small screens; the map's size never changes when details open. The last hovered booth remains visible while the pointer crosses the map or moves into the popup. Touch activation uses click without requiring hover; normal scrolling and browser zoom are not disabled.
@@ -45,6 +47,7 @@ Run `node scripts/verify-floor-plan.mjs` to verify the approved map fingerprint,
 
 ```sh
 node scripts/verify-floor-plan.mjs http://127.0.0.1:3017
+node scripts/verify-floor-plan.mjs http://127.0.0.1:3017 /exhibitors/map
 ```
 
 Browser checks cover all 77 popup assignments, alignment at 1440/1024/768/390/320px, narrow and rotated hit areas, popup visibility at 320px, keyboard operation, pointer transitions, and dismissal. Physical touch gestures still need an on-device review; mobile-width click activation and unrestricted scrolling/zoom were checked in the desktop browser.

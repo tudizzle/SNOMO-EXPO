@@ -21,12 +21,13 @@ const booths = geometry.booths.map((booth) => {
 
 type Selection = { number: number; pinned: boolean } | null;
 
-export function InteractiveFloorPlan({ src }: { src: string }) {
+export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; fullSize?: boolean }) {
   const [selection, setSelection] = useState<Selection>(null);
   const [position, setPosition] = useState({ left: 8, top: 8, width: 260, maxHeight: 300, visible: false });
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
   const repositionRef = useRef<(() => void) | null>(null);
   const mapRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const boothRefs = useRef(new Map<number, SVGPolygonElement>());
@@ -99,10 +100,14 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
       const rect = map.getBoundingClientRect();
       const anchor = booth.getBoundingClientRect();
       const viewport = window.visualViewport;
-      const viewLeft = viewport?.offsetLeft ?? 0;
-      const viewTop = viewport?.offsetTop ?? 0;
-      const viewRight = viewLeft + (viewport?.width ?? innerWidth);
-      const viewBottom = viewTop + (viewport?.height ?? innerHeight);
+      const viewportLeft = viewport?.offsetLeft ?? 0;
+      const viewportTop = viewport?.offsetTop ?? 0;
+      // In the full-size viewer, the map scrolls inside its own frame.
+      const frame = fullSize ? frameRef.current?.getBoundingClientRect() : null;
+      const viewLeft = Math.max(viewportLeft, frame?.left ?? viewportLeft);
+      const viewTop = Math.max(viewportTop, frame?.top ?? viewportTop);
+      const viewRight = Math.min(viewportLeft + (viewport?.width ?? innerWidth), frame?.right ?? Infinity);
+      const viewBottom = Math.min(viewportTop + (viewport?.height ?? innerHeight), frame?.bottom ?? Infinity);
       const headerBottom = document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0;
       const left = Math.max(8, viewLeft - rect.left + 8);
       const right = Math.min(rect.width - 8, viewRight - rect.left - 8);
@@ -140,27 +145,28 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
     if (mapRef.current) observer.observe(mapRef.current);
     if (popupRef.current) observer.observe(popupRef.current);
     window.addEventListener("resize", updatePosition);
-    window.addEventListener("scroll", updatePosition, { passive: true });
+    window.addEventListener("scroll", updatePosition, { passive: true, capture: true });
     window.visualViewport?.addEventListener("resize", updatePosition);
     window.visualViewport?.addEventListener("scroll", updatePosition);
     return () => {
       repositionRef.current = null;
       observer.disconnect();
       window.removeEventListener("resize", updatePosition);
-      window.removeEventListener("scroll", updatePosition);
+      window.removeEventListener("scroll", updatePosition, true);
       window.visualViewport?.removeEventListener("resize", updatePosition);
       window.visualViewport?.removeEventListener("scroll", updatePosition);
     };
-  }, [selection]);
+  }, [selection, fullSize]);
 
   return (
     <div
-      className="floorplan-image-frame"
+      className={`floorplan-image-frame${fullSize ? ` ${styles.fullSizeFrame}` : ""}`}
+      ref={frameRef}
       onPointerEnter={cancelHide}
       onPointerLeave={(event) => { if (event.pointerType !== "touch") scheduleHide(); }}
     >
         <div
-          className={styles.map}
+          className={`${styles.map}${fullSize ? ` ${styles.fullSizeMap}` : ""}`}
           ref={mapRef}
           onPointerMove={(event) => {
             if (event.pointerType === "touch" || popupRef.current?.contains(event.target as Node)) return;
@@ -170,7 +176,7 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
         >
           <Image
             src={src}
-            alt="2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas. 2026 Participating Vendors are listed below."
+            alt={`2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas.${fullSize ? " Use View Participating Vendors for the accessible directory." : " 2026 Participating Vendors are listed below."}`}
             width={2048}
             height={1552}
             unoptimized

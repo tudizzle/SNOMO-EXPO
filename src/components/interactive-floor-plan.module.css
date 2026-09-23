@@ -3,6 +3,15 @@
   min-width: 0;
 }
 
+.fullSizeFrame {
+  min-height: 0;
+  min-width: 0;
+}
+
+.fullSizeMap {
+  width: 2048px;
+}
+
 .overlay {
   position: absolute;
   inset: 0;

@@ -36,7 +36,7 @@ export default function ExhibitorsPage() {
           </a>
           <a
             className="button button-secondary"
-            href={floorplanImage}
+            href="/exhibitors/map"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open full-size map in a new tab"
