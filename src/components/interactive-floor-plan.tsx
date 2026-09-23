@@ -23,7 +23,7 @@ type Selection = { number: number; pinned: boolean } | null;
 
 export function InteractiveFloorPlan({ src }: { src: string }) {
   const [selection, setSelection] = useState<Selection>(null);
-  const [position, setPosition] = useState({ left: 0, top: 0, width: 288, maxHeight: 300, visible: false });
+  const [position, setPosition] = useState({ left: 0, top: 0, width: 260, maxHeight: 300, visible: false });
   const mapRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -106,7 +106,7 @@ export function InteractiveFloorPlan({ src }: { src: string }) {
       const maxRight = Math.min(rect.width - 8, viewRight - rect.left - 8);
       const minTop = Math.max(8, Math.max(viewTop, headerBottom) - rect.top + 8);
       const maxBottom = Math.min(rect.height - 8, viewBottom - rect.top - 8);
-      const width = Math.max(0, Math.min(288, maxRight - minLeft));
+      const width = Math.max(0, Math.min(260, maxRight - minLeft));
       const maxHeight = Math.max(0, maxBottom - minTop);
       // Measure at the final width before choosing above/below placement.
       popup.style.width = `${width}px`;
