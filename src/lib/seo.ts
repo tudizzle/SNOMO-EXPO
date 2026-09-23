@@ -5,7 +5,6 @@ export const siteUrl = new URL("https://coloradosnomoexpo.com");
 export const publicPagePaths = [
   "/",
   "/exhibitors",
-  "/floorplan",
   "/schedule",
   "/swap-meet",
   "/sponsor",

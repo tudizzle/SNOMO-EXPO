@@ -3,8 +3,8 @@ import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/seo";
 
 const quickActions = [
-  { href: "/exhibitors", label: "View Exhibitors" },
-  { href: "/floorplan", label: "View Floorplan" },
+  { href: "/exhibitors#vendor-assignments", label: "View Exhibitors" },
+  { href: "/exhibitors#expo-map", label: "View Floor Plan" },
   { href: "/schedule", label: "View Schedule" },
   { href: "/swap-meet", label: "Swap Meet Information" },
 ];

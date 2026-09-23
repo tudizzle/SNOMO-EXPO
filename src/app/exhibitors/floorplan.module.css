@@ -1,0 +1,63 @@
+.anchorTarget {
+  scroll-margin-top: 132px;
+}
+
+.directory {
+  margin: clamp(54px, 7vw, 88px) auto 0;
+  max-width: 1180px;
+}
+
+.table {
+  border-collapse: collapse;
+  margin-bottom: 28px;
+  table-layout: fixed;
+  text-align: left;
+  width: 100%;
+}
+
+.boothColumn {
+  width: 100px;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid rgba(248, 251, 255, 0.1);
+  line-height: 1.5;
+  padding: 17px 0;
+  vertical-align: top;
+}
+
+.table thead th {
+  color: rgba(200, 215, 229, 0.72);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  padding-top: 20px;
+  text-transform: uppercase;
+}
+
+.table tbody th {
+  color: rgba(248, 251, 255, 0.72);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  padding-right: 20px;
+}
+
+.table td {
+  color: rgba(248, 251, 255, 0.86);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .pageHeader h1 {
+    font-size: clamp(3.4rem, 17vw, 5.6rem);
+  }
+
+  .boothColumn {
+    width: 72px;
+  }
+
+  .table {
+    font-size: 0.94rem;
+  }
+}
