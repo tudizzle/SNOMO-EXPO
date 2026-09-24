@@ -1,4 +1,4 @@
-import { InteractiveFloorPlan } from "@/components/interactive-floor-plan";
+import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { VendorDirectory } from "./vendor-directory";
 import { createPageMetadata } from "@/lib/seo";
@@ -39,9 +39,9 @@ export default function ExhibitorsPage() {
             href="/exhibitors/map"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Open full-size map in a new tab"
+            aria-label="Open interactive map in a new tab"
           >
-            Open Full-Size Map
+            Open Interactive Map
           </a>
           <a
             className="button button-secondary"
@@ -52,7 +52,16 @@ export default function ExhibitorsPage() {
           </a>
         </div>
 
-        <InteractiveFloorPlan src={floorplanImage} />
+        <div className="floorplan-image-frame">
+          <Image
+            src={floorplanImage}
+            alt="2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas. Open Interactive Map for booth details, or browse 2026 Participating Vendors below."
+            width={2048}
+            height={1552}
+            unoptimized
+            priority
+          />
+        </div>
       </section>
 
       <VendorDirectory />
