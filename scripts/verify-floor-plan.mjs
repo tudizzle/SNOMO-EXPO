@@ -26,17 +26,32 @@ console.log("PASS: unchanged 2048×1552 PNG; 82 sorted assignments; 77 booths; t
 // Optional preview check; pass /exhibitors/map as a third argument for the full-size view.
 if (process.argv[2]) {
   const base = new URL(process.argv[2]);
-  const response = await fetch(new URL(process.argv[3] ?? "/exhibitors", base));
+  const path = process.argv[3] ?? "/exhibitors";
+  const response = await fetch(new URL(path, base));
   assert.equal(response.status, 200);
   const html = await response.text();
   const polygons = [...html.matchAll(/<polygon\b[^>]*>/g)].map(([tag]) => {
     const attributes = Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(([, key, value]) => [key, value]));
     return attributes;
   });
-  assert.equal(polygons.length, 77);
-  assert.ok(html.includes('viewBox="0 0 2048 1552"'));
+  const interactive = path === "/exhibitors/map";
+  assert.equal(polygons.length, interactive ? 77 : 0);
+  assert.equal(html.includes('viewBox="0 0 2048 1552"'), interactive);
+  if (!interactive) {
+    assert.ok(html.includes('aria-label="Open interactive map in a new tab"'));
+    assert.ok(html.includes('href="/exhibitors/map"'));
+    assert.ok(html.includes("Open Interactive Map"));
+    assert.ok(!html.includes("Open Full-Size Map"));
+    assert.ok(!html.includes('data-booth='));
+    assert.ok(!html.includes('role="dialog"'));
+    assert.equal((html.match(/<th scope="row">/g) ?? []).length, 82);
+    assert.ok(html.includes("List Alphabetically"));
+    assert.ok(html.includes("List by Booth Number"));
+    assert.ok(html.includes('download="2026-colorado-snomo-expo-floorplan.png"'));
+    console.log("PASS: static overview has no booth hit areas or popups; interactive-map link, 82 directory rows, sorting controls and download remain.");
+  }
   const escape = (value) => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("'", "&#x27;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
-  for (const booth of geometry.booths) {
+  for (const booth of interactive ? geometry.booths : []) {
     const polygon = polygons.find((element) => Number(element["data-booth"]) === booth.number);
     const [left, top, right, bottom] = booth.bounds;
     const points = booth.polygon ?? [[left, top], [right, top], [right, bottom], [left, bottom]];
@@ -49,5 +64,6 @@ if (process.argv[2]) {
   const servedImage = await fetch(new URL("/images/floorplan/2026-expo-floor-plan-clean-numbers.png", base));
   assert.equal(servedImage.status, 200);
   assert.equal(createHash("sha256").update(Buffer.from(await servedImage.arrayBuffer())).digest("hex"), fingerprint);
-  console.log("PASS: all 77 rendered hit areas match source geometry exactly; accessible labels match assignments; served PNG unchanged.");
+  if (interactive) console.log("PASS: all 77 rendered hit areas match source geometry exactly; accessible labels match assignments.");
+  console.log("PASS: served PNG unchanged.");
 }
