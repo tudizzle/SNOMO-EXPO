@@ -1,8 +1,8 @@
 # 2026 vendor popup logo sources
 
-Reviewed September 23, 2026. Names and booth assignments remain in `src/data/vendor-assignments-2026.ts`. This inventory records optional decorative logos, not assignment changes.
+Reviewed October 1, 2026. Names and booth assignments remain in `src/data/vendor-assignments-2026.ts`. This inventory records optional decorative logos, not assignment changes.
 
-Logos were downloaded from the identified business’s website/header or its linked CDN, visually reviewed, and stored locally without altering the original image bytes. No search-result thumbnails, generated logos, partner logos, or photographs are used. White marks use a dark tile; dark marks use a light tile. Unverified/unavailable logos remain text-only.
+Logos were downloaded from the identified business’s website/header or its linked CDN, from the exhibitor’s Company Logo attachment in the supplied Jotform table, or from a logo file supplied directly by the event organizer. Each was visually reviewed and stored locally without altering the original image bytes. No search-result thumbnails, generated logos, partner logos, or photographs are used. White marks use a dark tile; dark marks use a light tile. Unverified/unavailable logos remain text-only.
 
 ## Included logos
 
@@ -58,40 +58,42 @@ Logos were downloaded from the identified business’s website/header or its lin
 | Tylers Backcountry Awareness | [Website](https://backcountryawareness.org/) | [Original](https://backcountryawareness.org/wp-content/uploads/2025/07/TBA-no-background-white-MtnBlue-179x140.png) | `c8045db4313d9db290906f7926a6060c12102e0bcfc032a000b35db620badaef` |
 | Vickery Motorsports, Inc. | [Website](https://www.vickerymotorsports.com/) | [Original](https://www.vickerymotorsports.com/portals/vickerymotorsports/VickeryMotorsports.png?ver=dC9xaupYeiA2A0qzXI_Iaw%3d%3d) | `cd582e4028622d9e61f2c3cb343b447376fe442c718c3ab0c558ff7b5b3afaee` |
 | Colorado SnoMo Expo | Existing approved project branding | `public/images/logos/colorado-snomo-expo-primary.png` | Existing asset, unchanged |
+| 3C Guiding LLC | [Website](https://www.3cguiding.com/) | [Original](https://www.3cguiding.com/wp-content/uploads/2021/09/3C-Guiding-Pink-PNG-e1631133274259-180x115.png) | `1917031d015ac71935ff6872b26c2b8e03556a3763f0bd310e3a413d34635074` |
+| All Terrain Motorsports | [Website](https://www.all-terrainmoto.com/) | [Original](https://published-assets.ari-build.com/Content/Published/Site/17749/dealer-logo1.png) | `8dd15726eb42153d7465ffc9e21d362290990b63c5bf31acd17b264468589cd5` |
+| Backcountry Access | [Website](https://backcountryaccess.com/en-us/blog/p/new-branding-2024) | [Original](https://cdn.media.amplience.net/i/bca/bca_2324_logo_hor-stack_1?w=974&qlt=75&fmt=auto&fmt.interlaced=true&dpi=96) | `1250eb529aa190d39b16c1a5c4cf3935a1b6afdb20121ae7d940c0a39cbef7fd` |
+| CF MOTO | [Website](https://www.cfmotousa.com/) | [Original](https://media.vxt.production.ldv-svcs.live/assets/cfmoto/images/home/logo-header-v2.png) | `cdd225204e5e0d317321a92e283959831ae508430062a4e9eb8da06c36d1d2f4` |
+| Colorado Snowmobile Family LLC | Exhibitor-submitted Jotform Company Logo attachment | `OFFICALLOGOCSF.png` | `ea1fe571fc570bae2110dc89d089028c79bcdf04ef15fdbe65ee8499d0b50e9c` |
+| CSA | [Website](https://www.snowmobilecolo.com/) | [Original](https://images.clubexpress.com/45117/graphics/CSA_Logo_Final_72x_1501004825.png) | `de7102d954c71038c796071c06cf4352f0a1ee59bea25b31ddebcf16c426a153` |
+| Eastern Wyoming Avalanche Information Center | Exhibitor-submitted Jotform Company Logo attachment | `FC7857F6-750E-4F75-B40A-CB84092BBE6D.png` | `2b804da1e96c96a7cdb9152636770081ad61d84f994df1f39384c3f7ba5d36f4` |
+| Feral SnowCat Society | [Website](https://www.stickermule.com/theferalsnowcatsociety) | [Original](https://storage.googleapis.com/sm-core/profile/df27b16e-d5dc-4ab7-9f2b-55a196d9cac3.png) | `a634064b4320cabccc3d9472b95833eaac2dd590fedc03e4594a2270e73a8b05` |
+| Front Range Powersports/Arctic Cat | [Website](https://www.frontrangepowersports.com/) | [Original](https://published-assets.ari-build.com/Content/Published/Site/19711/images/dealer-logo-new.png) | `416966f02954e3889cd0aed733ca1c519c0b8c07d88697a927768be52746fbe5` |
+| Mountain Dirty Motorsports/Ski-Doo | Exhibitor-submitted Jotform Company Logo attachment | `Mountain Dirty Logo.png` | `70664481d091fe3240b7c60dc33746df6da443d83558000f124b555541629a98` |
+| Polaris | Exhibitor-submitted Jotform Company Logo attachment | `Polaris-Logo-Blue (1).png` | `38c511c8cc4545ef9f9bd94b444d4b9952b714d070fb810864bbafb69df26521` |
+| Rocky Mountain Snow MX | [Website](https://rockymountainsnowmx.com/) | [Original](https://rockymountainsnowmx.com/wp-content/uploads/2024/04/Rocky_Mountain_Snow_MX_Logo_180x.avif) | `d1cc7568249e222250c9c3461a6b23f0e3698f3c403397435506b304c45ea66f` |
+| Sangre Snowrunners Snowmobile club | [Website](https://www.sangre-snowrunners.com/) | [Original](https://static.wixstatic.com/media/9268fe_582d16527d4f45a9819edce4882db241~mv2.png/v1/fill/w_303,h_303,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Final.png) | `2d3396bc0cdb44fe76dcdb686def0c730a05ebf528e7d6a785ef174ef893de51` |
+| Snowy Range Snowmobile club | [Website](http://srscwy.com/) | [Original](http://srscwy.com/wp-content/uploads/2016/12/cropped-cropped-srsc_hq_no_back.jpg) | `e3162f397c07b6e7ed05de947aa995d00a91029d4d20976c11be12024ff80cce` |
+| Speed Shop Inc | Exhibitor-submitted Jotform Company Logo attachment | `SSI logo red blue.jpg` | `ee1fc6c1644dd8537074d7fc18f50a21a621bf50a2365d27a285e8c51e839f7b` |
+| Summit snow riders | Exhibitor-submitted Jotform Company Logo attachment | `IMG_1716.jpeg` | `709597329c442a34aecdbe38881809f90789d03415bc06ad84db26fbea84b3e7` |
+| TKI CNC | [Website](https://tkicnc.com/) | [Original](https://tkicnc.com/wp-content/uploads/2024/06/TKI-CNC-Logo-2024_Secondary_Light.webp) | `5376099d5ddc2b82490112fe1704c6b108a28725e4afebb3c64625282ac2d02e` |
+| Trailshead lodge LLC | [Website](https://www.trailsheadlodge.com/) | [Original](https://static.wixstatic.com/media/645e0e_5dd2ea30f1524deda27f11ea75fdbe94~mv2.png/v1/crop/x_0,y_142,w_3375,h_3092/fill/w_200,h_183,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/10.png) | `285890bfef4e9f3d1031e6a6d8d679052bdeb1244f1433844aa8005365e1cdb3` |
+| Transwest Truck Trailer RV | [Website](https://www.transwest.com/) | [Original](https://www.transwest.com/img/static/svg/b390bb28207875e1.svg) | `0c5c613ea0faf3cdf9bb2346798a1bec3de7c5bf0ae5e193144819fb13c49d0c` |
+| TruckBoss | [Website](https://truckbossdecks.com/) | [Original](https://truckbossdecks.com/wp-content/uploads/2024/04/truckboss-banner-logo.png) | `4050b8ffd268feb3648dbd023c1cb1785cae432c2f691b6b4d0fc983d3be6a64` |
+| Upper Yellowstone Snowmobile Club | [Website](https://ridecookecity.com/) | [Original](https://img1.wsimg.com/isteam/ip/f65363e7-62c8-471d-95dc-3da422610906/UYSC_NOB-removebg-preview.png) | `568aefe2c28cecac326ec1bb8027e06abeddc5d7e47566b11ba2b02403eb8ebb` |
+| Octane Addictions | User-supplied logo attachment | `octane addictions.png` | `f7f4917f8efb547e65d4118dd3d52f617ad6c153c5473668cf7704d46b064a18` |
+
+The October 1 update adds 22 logos, including six submitted Jotform attachments and the user-supplied Octane Addictions logo. Submitted logos were matched to each record’s Business Name before download. Private table access tokens, contact details, agreements, and insurance attachments are not part of this inventory or the website. Mountain Dirty’s submitted PNG includes a large blank canvas; its map tile uses a centered CSS scale of 5 with clipping to display the logo at a readable size while preserving the original file.
 
 ## Text-only fallbacks
 
-These names were researched but no sufficiently confident, accessible own-brand logo was located. Do not substitute a similarly named company’s or partner’s logo.
+These names were researched but no sufficiently confident, accessible own-brand logo was located. No usable matching logo attachment was found in the supplied Jotform table. Do not substitute a similarly named company’s or partner’s logo.
 
 | Company | Candidate website / reason |
 | --- | --- |
-| TKI CNC | [Candidate website](https://tkicnc.com/); own-brand logo could not be confidently retrieved. |
 | Motofrugal | [Candidate website](https://motofrugals.com/); own-brand logo could not be confidently retrieved. |
-| Rocky Mountain Snow MX | [Candidate website](https://rockymountainsnowmx.com/); own-brand logo could not be confidently retrieved. |
 | Sleddiction/4m Grafix | No unambiguous official website and own-brand logo confirmed. |
-| Front Range Powersports/Arctic Cat | [Candidate website](https://www.frontrangepowersports.com/); own-brand logo could not be confidently retrieved. |
-| CSA | [Candidate website](https://www.snowmobilecolo.com/); own-brand logo could not be confidently retrieved. |
-| Sangre Snowrunners Snowmobile club | No unambiguous official website and own-brand logo confirmed. |
-| Summit snow riders | Candidate site displayed High Country Snowmobile Club branding; withheld pending confirmation of identity. |
-| All Terrain Motorsports | [Candidate website](https://www.all-terrainmoto.com/); own-brand logo could not be confidently retrieved. |
-| Trailshead lodge LLC | Official website located, but candidate image was a photo collage rather than a standalone logo. |
-| Eastern Wyoming Avalanche Information Center | [Related official site](https://ewyoavalanche.org/) located; no separate own-brand logo confirmed. |
-| Snowy Range Snowmobile club | No unambiguous official website and own-brand logo confirmed. |
-| 3C Guiding LLC | [Candidate website](https://www.3cguiding.com/); own-brand logo could not be confidently retrieved. |
-| Speed Shop Inc | No unambiguous official website and own-brand logo confirmed. |
-| Backcountry Access | [Candidate website](https://backcountryaccess.com/); own-brand logo could not be confidently retrieved. |
 | Send It | No unambiguous official website and own-brand logo confirmed. |
 | Pain Management | No unambiguous official website and own-brand logo confirmed. |
 | Cole Wilford #252 Pro Builds | No unambiguous official website and own-brand logo confirmed. |
 | Colorado Backcountry with James Gallegos | No unambiguous official website and own-brand logo confirmed. |
 | Fly High Fire Starters | No unambiguous official website and own-brand logo confirmed. |
-| Upper Yellowstone Snowmobile Club | [Candidate website](https://ridecookecity.com/); own-brand logo could not be confidently retrieved. |
-| Polaris | [Candidate website](https://www.polaris.com/en-us/snowmobiles/); own-brand logo could not be confidently retrieved. |
-| CF MOTO | [Candidate website](https://www.cfmoto.com/); own-brand logo could not be confidently retrieved. |
-| Colorado Snowmobile Family LLC | No unambiguous official website and own-brand logo confirmed. |
-| Transwest Truck Trailer RV | [Candidate website](https://www.transwest.com/); own-brand logo could not be confidently retrieved. |
-| Mountain Dirty Motorsports/Ski-Doo | [Candidate website](https://www.mountaindirtymotorsports.com/); own-brand logo could not be confidently retrieved. |
 | ULTIMATE DOOR PRIZE | Expo activity, not a company; no separate vendor logo assigned. |
-| TruckBoss | [Candidate website](https://truckbossdecks.com/); own-brand logo could not be confidently retrieved. |
-| Octane Addictions | [Candidate website](https://www.octaneaddictions.com/); own-brand logo could not be confidently retrieved. |
-| Feral SnowCat Society | No unambiguous official website and own-brand logo confirmed. |
