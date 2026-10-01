@@ -54,7 +54,7 @@ function PopupCompany({ company, boothNumber }: { company: string; boothNumber: 
 
 export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; fullSize?: boolean }) {
   const [selection, setSelection] = useState<Selection>(null);
-  const [position, setPosition] = useState({ left: 8, top: 8, width: popupWidth, maxHeight: 300, visible: false });
+  const [position, setPosition] = useState({ left: 8, top: 8, width: popupWidth, maxHeight: 300, visible: false, connectorPath: "" });
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
   const repositionRef = useRef<(() => void) | null>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -145,11 +145,12 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
       const right = Math.min(rect.width - 8, viewRight - rect.left - 8);
       const top = Math.max(8, Math.max(viewTop, headerBottom, closeMapBottom) - rect.top + 8);
       const bottom = Math.min(rect.height - 8, viewBottom - rect.top - 8);
-      const width = Math.max(0, Math.min(popupWidth, right - left));
       const compact = window.matchMedia("(max-width: 600px), (max-height: 500px)").matches;
+      const compactWidth = activeBooth && activeBooth.companies.length > 1 ? 360 : 248;
+      const width = Math.max(0, Math.min(compact ? compactWidth : popupWidth, right - left));
       const availableHeight = Math.max(0, bottom - top);
       // Leave map context visible on small screens, including landscape phones.
-      const maxHeight = compact ? Math.min(availableHeight, 190, Math.max(80, availableHeight * 0.6)) : availableHeight;
+      const maxHeight = compact ? Math.min(availableHeight, 220, Math.max(80, availableHeight * 0.6)) : availableHeight;
       popup.style.width = `${width}px`;
       popup.style.maxHeight = `${maxHeight}px`;
       const height = popup.getBoundingClientRect().height;
@@ -166,10 +167,30 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
         if (point - gap - size >= min) return Math.min(max - size, point - gap - size);
         return point < (min + max) / 2 ? max - size : min;
       };
+      // Attach phone details to the visible part of the selected booth, even
+      // when a large booth extends beyond the scrolled map frame.
+      const boothLeft = Math.max(viewLeft, anchor.left) - rect.left;
+      const boothRight = Math.min(viewRight, anchor.right) - rect.left;
+      const boothTop = Math.max(viewTop, anchor.top) - rect.top;
+      const boothBottom = Math.min(viewBottom, anchor.bottom) - rect.top;
+      const boothVisible = boothRight > boothLeft && boothBottom > boothTop;
+      const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
+      const above = boothTop - top;
+      const below = bottom - boothBottom;
+      const gap = 10;
+      const placeAbove = above >= height + gap || (below < height + gap && above >= below);
+      const compactTop = placeAbove ? boothTop - height - gap : boothBottom + gap;
+      const popupLeft = compact ? clamp((boothLeft + boothRight - width) / 2, left, right - width) : offset(x, width, left, right, 80);
+      const popupTop = compact ? clamp(compactTop, top, bottom - height) : offset(y, height, top, bottom, 48);
+      const outsideBooth = popupTop + height <= boothTop || popupTop >= boothBottom;
+      const connectorPath = compact && boothVisible && outsideBooth
+        ? `M ${popupLeft + width / 2} ${placeAbove ? popupTop + height - 6 : popupTop + 4} L ${(boothLeft + boothRight) / 2} ${placeAbove ? boothTop - 2 : boothBottom + 2}`
+        : "";
       const next = {
-        left: compact ? (left + right - width) / 2 : offset(x, width, left, right, 80),
-        top: compact ? (y > (top + bottom) / 2 ? top : bottom - height) : offset(y, height, top, bottom, 48),
-        width, maxHeight, visible: width > 0 && maxHeight >= 80,
+        left: popupLeft,
+        top: popupTop,
+        width, maxHeight, visible: width > 0 && maxHeight >= 80 && (!compact || boothVisible),
+        connectorPath,
       };
       setPosition((previous) => Object.keys(next).every((key) =>
         previous[key as keyof typeof next] === next[key as keyof typeof next]) ? previous : next);
@@ -191,7 +212,7 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
       window.visualViewport?.removeEventListener("resize", updatePosition);
       window.visualViewport?.removeEventListener("scroll", updatePosition);
     };
-  }, [selection, fullSize]);
+  }, [selection, fullSize, activeBooth]);
 
   return (
     <div
@@ -274,6 +295,16 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
               />
             ))}
           </svg>
+        {activeBooth && position.visible && position.connectorPath && (
+          <svg className={styles.connector} aria-hidden="true">
+            <defs>
+              <marker id={`${popupId}-arrow`} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+                <path d="M 0 0 L 6 3 L 0 6 Z" fill="currentColor" />
+              </marker>
+            </defs>
+            <path d={position.connectorPath} fill="none" stroke="currentColor" strokeWidth="2" markerEnd={`url(#${popupId}-arrow)`} />
+          </svg>
+        )}
         {activeBooth && (
           <div
             ref={popupRef}
