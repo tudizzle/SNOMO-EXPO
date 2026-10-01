@@ -18,6 +18,7 @@ export function CloseMapButton() {
   return (
     <button
       type="button"
+      data-map-close
       className={styles.close}
       aria-label="Close full-size map"
       title="Close full-size map"

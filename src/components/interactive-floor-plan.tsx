@@ -21,10 +21,11 @@ const booths = geometry.booths.map((booth) => {
 });
 
 type Selection = { number: number; pinned: boolean } | null;
+const popupWidth = 320;
 
-const logos: Record<string, { src: string; background: string } | undefined> = vendorLogos;
+const logos: Record<string, { src: string; background: string; scale?: number } | undefined> = vendorLogos;
 
-function PopupCompany({ company }: { company: string }) {
+function PopupCompany({ company, boothNumber }: { company: string; boothNumber: number }) {
   const logo = logos[company];
   const [failed, setFailed] = useState(false);
 
@@ -32,17 +33,28 @@ function PopupCompany({ company }: { company: string }) {
     <div className={styles.company}>
       {logo && !failed && (
         <span className={styles.logo} data-background={logo.background}>
-          <Image src={logo.src} alt="" width={64} height={40} unoptimized onError={() => setFailed(true)} />
+          <Image
+            src={logo.src}
+            alt=""
+            width={280}
+            height={175}
+            unoptimized
+            style={logo.scale ? { transform: `scale(${logo.scale})` } : undefined}
+            onError={() => setFailed(true)}
+          />
         </span>
       )}
-      <p>{company}</p>
+      <div className={styles.companyDetails}>
+        <p className={styles.boothNumber}>Booth {boothNumber}</p>
+        <p className={styles.companyName}>{company}</p>
+      </div>
     </div>
   );
 }
 
 export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; fullSize?: boolean }) {
   const [selection, setSelection] = useState<Selection>(null);
-  const [position, setPosition] = useState({ left: 8, top: 8, width: 260, maxHeight: 300, visible: false });
+  const [position, setPosition] = useState({ left: 8, top: 8, width: popupWidth, maxHeight: 300, visible: false });
   const pointerRef = useRef<{ x: number; y: number } | null>(null);
   const repositionRef = useRef<(() => void) | null>(null);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -128,12 +140,16 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
       const viewRight = Math.min(viewportLeft + (viewport?.width ?? innerWidth), frame?.right ?? Infinity);
       const viewBottom = Math.min(viewportTop + (viewport?.height ?? innerHeight), frame?.bottom ?? Infinity);
       const headerBottom = document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0;
+      const closeMapBottom = fullSize ? document.querySelector("[data-map-close]")?.getBoundingClientRect().bottom ?? 0 : 0;
       const left = Math.max(8, viewLeft - rect.left + 8);
       const right = Math.min(rect.width - 8, viewRight - rect.left - 8);
-      const top = Math.max(8, Math.max(viewTop, headerBottom) - rect.top + 8);
+      const top = Math.max(8, Math.max(viewTop, headerBottom, closeMapBottom) - rect.top + 8);
       const bottom = Math.min(rect.height - 8, viewBottom - rect.top - 8);
-      const width = Math.max(0, Math.min(260, right - left));
-      const maxHeight = Math.max(0, bottom - top);
+      const width = Math.max(0, Math.min(popupWidth, right - left));
+      const compact = window.matchMedia("(max-width: 600px), (max-height: 500px)").matches;
+      const availableHeight = Math.max(0, bottom - top);
+      // Leave map context visible on small screens, including landscape phones.
+      const maxHeight = compact ? Math.min(availableHeight, 190, Math.max(80, availableHeight * 0.6)) : availableHeight;
       popup.style.width = `${width}px`;
       popup.style.maxHeight = `${maxHeight}px`;
       const height = popup.getBoundingClientRect().height;
@@ -151,8 +167,8 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
         return point < (min + max) / 2 ? max - size : min;
       };
       const next = {
-        left: offset(x, width, left, right, 80),
-        top: offset(y, height, top, bottom, 48),
+        left: compact ? (left + right - width) / 2 : offset(x, width, left, right, 80),
+        top: compact ? (y > (top + bottom) / 2 ? top : bottom - height) : offset(y, height, top, bottom, 48),
         width, maxHeight, visible: width > 0 && maxHeight >= 80,
       };
       setPosition((previous) => Object.keys(next).every((key) =>
@@ -263,18 +279,17 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
             ref={popupRef}
             id={popupId}
             role="dialog"
-            aria-labelledby={`${popupId}-title`}
+            aria-label={`Booth ${activeBooth.number} vendors`}
             className={styles.popup}
             style={{ left: position.left, top: position.top, width: position.width, maxHeight: position.maxHeight, visibility: position.visible ? "visible" : "hidden" }}
             onPointerEnter={cancelHide}
           >
-            <div className={styles.popupHeader}>
-              <strong id={`${popupId}-title`}>Booth {activeBooth.number}</strong>
-              <button ref={closeRef} type="button" className={styles.close} aria-label="Close booth details" onClick={dismiss}>
-                <span aria-hidden="true">×</span>
-              </button>
+            <button ref={closeRef} type="button" className={styles.close} aria-label="Close booth details" onClick={dismiss}>
+              <span aria-hidden="true">×</span>
+            </button>
+            <div className={styles.companyList} data-shared={activeBooth.companies.length > 1 || undefined}>
+              {activeBooth.companies.map((company) => <PopupCompany key={company} company={company} boothNumber={activeBooth.number} />)}
             </div>
-            {activeBooth.companies.map((company) => <PopupCompany key={company} company={company} />)}
           </div>
         )}
         </div>

@@ -198,5 +198,94 @@
   "Colorado SnoMo Expo": {
     "src": "/images/logos/colorado-snomo-expo-primary.png",
     "background": "dark"
+  },
+  "TKI CNC": {
+    "src": "/images/vendors/tki-cnc.webp",
+    "background": "dark"
+  },
+  "Rocky Mountain Snow MX": {
+    "src": "/images/vendors/rocky-mountain-snow-mx.avif",
+    "background": "light"
+  },
+  "Front Range Powersports/Arctic Cat": {
+    "src": "/images/vendors/front-range-powersports-arctic-cat.png",
+    "background": "dark"
+  },
+  "All Terrain Motorsports": {
+    "src": "/images/vendors/all-terrain-motorsports.png",
+    "background": "light"
+  },
+  "Polaris": {
+    "src": "/images/vendors/polaris.png",
+    "background": "light"
+  },
+  "CF MOTO": {
+    "src": "/images/vendors/cf-moto.png",
+    "background": "dark"
+  },
+  "Transwest Truck Trailer RV": {
+    "src": "/images/vendors/transwest-truck-trailer-rv.svg",
+    "background": "dark"
+  },
+  "TruckBoss": {
+    "src": "/images/vendors/truckboss.png",
+    "background": "light"
+  },
+  "Backcountry Access": {
+    "src": "/images/vendors/backcountry-access.webp",
+    "background": "light"
+  },
+  "CSA": {
+    "src": "/images/vendors/csa.png",
+    "background": "light"
+  },
+  "Summit snow riders": {
+    "src": "/images/vendors/summit-snow-riders.jpg",
+    "background": "light"
+  },
+  "Trailshead lodge LLC": {
+    "src": "/images/vendors/trailshead-lodge-llc.png",
+    "background": "light"
+  },
+  "Eastern Wyoming Avalanche Information Center": {
+    "src": "/images/vendors/eastern-wyoming-avalanche-information-center.png",
+    "background": "dark"
+  },
+  "Snowy Range Snowmobile club": {
+    "src": "/images/vendors/snowy-range-snowmobile-club.jpg",
+    "background": "light"
+  },
+  "3C Guiding LLC": {
+    "src": "/images/vendors/3c-guiding-llc.png",
+    "background": "dark"
+  },
+  "Upper Yellowstone Snowmobile Club": {
+    "src": "/images/vendors/upper-yellowstone-snowmobile-club.png",
+    "background": "light"
+  },
+  "Sangre Snowrunners Snowmobile club": {
+    "src": "/images/vendors/sangre-snowrunners-snowmobile-club.png",
+    "background": "dark"
+  },
+  "Colorado Snowmobile Family LLC": {
+    "src": "/images/vendors/colorado-snowmobile-family-llc.png",
+    "background": "light"
+  },
+  "Feral SnowCat Society": {
+    "src": "/images/vendors/feral-snowcat-society.png",
+    "background": "light"
+  },
+  "Speed Shop Inc": {
+    "src": "/images/vendors/speed-shop-inc.jpg",
+    "background": "light"
+  },
+  "Mountain Dirty Motorsports/Ski-Doo": {
+    "src": "/images/vendors/mountain-dirty-motorsports.png",
+    "background": "light",
+    "scale": 5
+  },
+  "Octane Addictions": {
+    "src": "/images/vendors/octane-addictions.png",
+    "background": "dark"
   }
 }

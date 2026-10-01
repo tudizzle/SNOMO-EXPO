@@ -10,7 +10,7 @@ const logos = JSON.parse(await read("src/data/vendor-logos-2026.json"));
 const sources = await read("docs/floorplan-2026/vendor-logo-sources.md");
 for (const [name, logo] of Object.entries(logos)) {
   assert.ok(names.has(name), `Unknown vendor: ${name}`);
-  assert.match(logo.src, /^\/images\/(vendors|logos)\/[a-z0-9-]+\.(png|webp|svg|avif)$/);
+  assert.match(logo.src, /^\/images\/(vendors|logos)\/[a-z0-9-]+\.(png|jpe?g|webp|svg|avif)$/);
   assert.ok(["light", "dark"].includes(logo.background));
   const bytes = await readFile(new URL(`public${logo.src}`, root));
   const hash = createHash("sha256").update(bytes).digest("hex");
