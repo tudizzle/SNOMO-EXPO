@@ -32,7 +32,7 @@ function PopupCompany({ company, boothNumber }: { company: string; boothNumber: 
   return (
     <div className={styles.company}>
       {logo && !failed && (
-        <span className={styles.logo} data-background={logo.background}>
+        <span className={styles.logo} data-background={logo.background} data-scaled={logo.scale ? true : undefined}>
           <Image
             src={logo.src}
             alt=""
