@@ -20,6 +20,15 @@
   pointer-events: none;
 }
 
+.connector {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  color: var(--color-colorado-red-600);
+}
+
 .booth {
   fill: transparent;
   stroke: transparent;
@@ -47,7 +56,7 @@
 .popup {
   position: absolute;
   width: 100%;
-  max-width: 320px;
+  max-width: 360px;
   z-index: 2;
   box-sizing: border-box;
   overflow: auto;
@@ -183,7 +192,7 @@
   .companyList[data-shared] {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 8px;
   }
 
   .company + .company {
@@ -193,18 +202,27 @@
   }
 
   .logo {
-    width: min(100%, 128px, 19.2svh);
+    width: min(100%, 224px);
     margin-inline: auto;
   }
 
+  .companyList[data-shared] .logo {
+    width: 100%;
+  }
+
   .logo img {
-    max-height: min(80px, 12svh);
+    max-height: min(112px, 22svh);
+  }
+
+  .logo[data-scaled] {
+    max-height: min(112px, 22svh);
   }
 
   .logo[data-scaled] img {
     inset: 4px;
     width: calc(100% - 8px);
     height: calc(100% - 8px);
+    max-height: none;
   }
 
   .companyDetails {
