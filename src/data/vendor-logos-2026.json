@@ -288,5 +288,9 @@
   "Octane Addictions": {
     "src": "/images/vendors/octane-addictions.png",
     "background": "dark"
+  },
+  "Cole Wilford #252 Pro Builds": {
+    "src": "/images/vendors/cole-willford.png",
+    "background": "dark"
   }
 }

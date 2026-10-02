@@ -80,6 +80,7 @@ Logos were downloaded from the identified business’s website/header or its lin
 | TruckBoss | [Website](https://truckbossdecks.com/) | [Original](https://truckbossdecks.com/wp-content/uploads/2024/04/truckboss-banner-logo.png) | `4050b8ffd268feb3648dbd023c1cb1785cae432c2f691b6b4d0fc983d3be6a64` |
 | Upper Yellowstone Snowmobile Club | [Website](https://ridecookecity.com/) | [Original](https://img1.wsimg.com/isteam/ip/f65363e7-62c8-471d-95dc-3da422610906/UYSC_NOB-removebg-preview.png) | `568aefe2c28cecac326ec1bb8027e06abeddc5d7e47566b11ba2b02403eb8ebb` |
 | Octane Addictions | User-supplied logo attachment | `octane addictions.png` | `f7f4917f8efb547e65d4118dd3d52f617ad6c153c5473668cf7704d46b064a18` |
+| Cole Wilford #252 Pro Builds | User-supplied logo attachment | Organizer-supplied `cole logo.png`, October 2, 2026; used on the interactive map | `c21ff82754d8f72c094d8a0418abf660f49165abfd88a069c7933190459fe607` |
 
 The October 1 update adds 22 logos, including six submitted Jotform attachments and the user-supplied Octane Addictions logo. Submitted logos were matched to each record’s Business Name before download. Private table access tokens, contact details, agreements, and insurance attachments are not part of this inventory or the website. Mountain Dirty’s submitted PNG includes a large blank canvas; its map tile uses a centered CSS scale of 5 with clipping to display the logo at a readable size while preserving the original file.
 
@@ -93,7 +94,6 @@ These names were researched but no sufficiently confident, accessible own-brand 
 | Sleddiction/4m Grafix | No unambiguous official website and own-brand logo confirmed. |
 | Send It | No unambiguous official website and own-brand logo confirmed. |
 | Pain Management | No unambiguous official website and own-brand logo confirmed. |
-| Cole Wilford #252 Pro Builds | No unambiguous official website and own-brand logo confirmed. |
 | Colorado Backcountry with James Gallegos | No unambiguous official website and own-brand logo confirmed. |
 | Fly High Fire Starters | No unambiguous official website and own-brand logo confirmed. |
 | ULTIMATE DOOR PRIZE | Expo activity, not a company; no separate vendor logo assigned. |
