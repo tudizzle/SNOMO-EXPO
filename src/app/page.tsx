@@ -112,7 +112,7 @@ export default function Home() {
           </dl>
 
           <div className="hero-actions" aria-label="Hero actions">
-            <Link className="button button-secondary" href="/plan-your-visit">
+            <Link className="button button-primary" href="/plan-your-visit">
               Plan Your Visit
             </Link>
           </div>

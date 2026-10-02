@@ -501,6 +501,23 @@ h1 {
   border-color: rgba(248, 251, 255, 0.58);
 }
 
+.hero-actions .button-primary {
+  background: #b83a2f;
+  border-color: #b83a2f;
+  box-shadow: 0 8px 24px rgba(4, 10, 18, 0.28);
+  color: var(--snow);
+}
+
+.hero-actions .button-primary:hover {
+  background: #c74639;
+  border-color: #c74639;
+}
+
+.hero-actions .button-primary:focus-visible {
+  outline: 2px solid var(--snow);
+  outline-offset: 4px;
+}
+
 .countdown-section {
   align-items: center;
   background: #07101c;
