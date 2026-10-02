@@ -6,14 +6,17 @@ import vendorLogos from "@/data/vendor-logos-2026.json";
 import styles from "./sponsor.module.css";
 
 const sponsors = [
-  { key: "Mountain Side Performance", name: "Mountain Side Performance" },
-  { key: "Polaris", name: "Polaris" },
-  { key: "ARVA", name: "ARVA" },
-  { key: "TKI CNC", name: "TKI CNC" },
-  { key: "Push industries", name: "PUSH Industries" },
-  { key: "ORTOVOX", name: "ORTOVOX" },
-  { key: "Fox Factory", name: "FOX" },
-  { key: "Tylers Backcountry Awareness", name: "Tylers Backcountry Awareness" },
+  { key: "Mountain Side Performance", name: "Mountain Side Performance", treatment: "white-matte" },
+  { key: "Polaris", name: "Polaris", treatment: "blue" },
+  { key: "ARVA", name: "ARVA", treatment: "dark-ink" },
+  { key: "TKI CNC", name: "TKI CNC", treatment: "black-matte" },
+  { key: "Push industries", name: "PUSH Industries", treatment: "original" },
+  { key: "ORTOVOX", name: "ORTOVOX", treatment: "white-cropped" },
+  { key: "Fox Factory", name: "FOX", treatment: "original" },
+  { key: "Tylers Backcountry Awareness", name: "Tylers Backcountry Awareness", treatment: "original" },
+  { key: "Octane Ink", name: "Octane Ink", src: "/images/sponsors/octane-ink.svg", treatment: "dark-ink" },
+  { key: "509", name: "509", src: "/images/sponsors/509.png", treatment: "white" },
+  { key: "Marlon", name: "Marlon Recreational Products USA", src: "/images/sponsors/marlon-usa.jpg", treatment: "monochrome-matte" },
 ] as const;
 
 export const metadata = createPageMetadata({
@@ -38,23 +41,47 @@ export default function SponsorPage() {
       </section>
 
       <section className={styles.sponsors} aria-label="2026 sponsors">
+        {/* Knock out baked-in mattes at render time, leaving the shared assets intact. */}
+        <svg className={styles.filters} aria-hidden="true" focusable="false">
+          <defs>
+            <filter id="sponsor-white-matte" colorInterpolationFilters="sRGB">
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -1 -1 -1 0 1" result="lightInk" />
+              <feComposite in="lightInk" in2="SourceGraphic" operator="over" result="artwork" />
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -1 -1 -1 0 2.85" result="matte" />
+              <feComposite in="artwork" in2="matte" operator="in" result="cutout" />
+              <feComposite in="cutout" in2="SourceAlpha" operator="in" />
+            </filter>
+            <filter id="sponsor-black-matte" colorInterpolationFilters="sRGB">
+              <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  .227 .765 .077 0 -.04" />
+            </filter>
+            <filter id="sponsor-dark-ink" colorInterpolationFilters="sRGB">
+              <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -1.1 -1.1 -1.1 0 1" result="lightInk" />
+              <feComposite in="lightInk" in2="SourceAlpha" operator="in" result="maskedInk" />
+              <feComposite in="maskedInk" in2="SourceGraphic" operator="over" />
+            </filter>
+          </defs>
+        </svg>
         <ul className={styles.grid} role="list">
-          {sponsors.map((sponsor) => {
-            const logo = vendorLogos[sponsor.key];
+          {sponsors.map((sponsor, index) => {
+            const logoSrc = "src" in sponsor ? sponsor.src : vendorLogos[sponsor.key].src;
 
             return (
-              <li className={styles.card} key={sponsor.key}>
-                <div className={styles.logoFrame} data-background={logo.background}>
-                  <Image
-                    className={styles.logo}
-                    src={logo.src}
-                    alt={`${sponsor.name} logo`}
-                    fill
-                    style={"scale" in logo ? { transform: `scale(${logo.scale})` } : undefined}
-                    sizes="(max-width: 520px) 90vw, (max-width: 1000px) 44vw, 280px"
-                  />
+              <li className={styles.sponsor} key={sponsor.key}>
+                <div
+                  className={styles.hoveringLogo}
+                  style={{ animationDelay: `${index * -1.15}s` }}
+                >
+                  <div className={styles.logoShadow}>
+                    <Image
+                      className={styles.logo}
+                      data-treatment={sponsor.treatment}
+                      src={logoSrc}
+                      alt={`${sponsor.name} logo`}
+                      fill
+                      sizes="(max-width: 520px) 80vw, (max-width: 1000px) 40vw, 260px"
+                    />
+                  </div>
                 </div>
-                <p className={styles.name}>{sponsor.name}</p>
               </li>
             );
           })}
