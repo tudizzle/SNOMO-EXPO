@@ -17,6 +17,7 @@ const footerColumns: FooterColumn[] = [
   {
     title: "Plan",
     links: [
+      { label: "Plan Your Visit", href: "/plan-your-visit" },
       { label: "Exhibitors & Floor Plan", href: "/exhibitors" },
       { label: "Schedule", href: "/schedule" },
       { label: "Swap Meet", href: "/swap-meet" },

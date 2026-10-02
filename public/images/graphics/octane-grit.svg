@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" preserveAspectRatio="none" fill="none">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <pattern id="scratches" width="310" height="230" patternUnits="userSpaceOnUse" patternTransform="rotate(-28)">
+      <path d="M-20 22 160 17 63 26 272 23M44 39 206 37M120 75 331 66 216 79M-40 114 130 106 58 119 206 111M32 164 208 153M186 188 329 181M-5 220 83 213" stroke="#a7aba3" stroke-opacity=".15"/>
+      <path d="m17 71 59-4-17 5 63-3-72 8ZM152 134l111-9-53 9 76-3-131 10Z" fill="#a7aba3" fill-opacity=".09"/>
+    </pattern>
+    <linearGradient id="shade" x1="600" y1="0" x2="600" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#080908" stop-opacity=".12"/>
+      <stop offset=".5" stop-color="#080908" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#080908" stop-opacity=".12"/>
+    </linearGradient>
+  </defs>
+  <path fill="#10120f" d="M0 0h1200v520H0z"/>
+  <path fill="#fff" opacity=".1" filter="url(#grain)" d="M0 0h1200v520H0z"/>
+  <path fill="url(#scratches)" d="M0 0h1200v520H0z"/>
+  <path fill="url(#shade)" d="M0 0h1200v520H0z"/>
+  <g fill="#c4ff00">
+    <path d="M0 0h232l-51 13 24-1-98 32 42-19-94 28 28-16L0 60Z"/>
+    <path d="m0 78 155-46-50 24 25-3L0 102Zm0 40 83-28-38 20 20-2L0 135ZM81 0h205l-61 9 18-8-88 24Z" opacity=".7"/>
+    <path d="m1200 520-244 0 62-17-28 2 92-32-35 18 89-31-24 18 88-32Z"/>
+    <path d="m1200 426-146 53 34-22-24 5 136-65Zm0-37-85 38 28-22-22 8 79-41Z" opacity=".7"/>
+    <path d="m0 320 35-13-26 19 39-8L0 338Zm1200-188-44 18 24-17-35 7 55-25Z" opacity=".65"/>
+  </g>
+  <g stroke="#080908" stroke-width="2" opacity=".8">
+    <path d="M0 12 123 0M0 34l93-29M5 48l63-17M0 91l45-16M1118 501l82-28M1112 511l81-21M1156 513l44-16M1162 444l38-16"/>
+  </g>
+  <g fill="#c4ff00" opacity=".7">
+    <path d="m34 65 7-3-2 4-8 2Zm105-42 8-4-3 5-8 2Zm-72 78 6-3-1 4-8 2ZM1122 466l8-5-2 5-10 4Zm-51 28 7-4-2 4-6 2Zm80-56 6-4-1 4-8 3Z"/>
+  </g>
+</svg>

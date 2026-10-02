@@ -501,6 +501,23 @@ h1 {
   border-color: rgba(248, 251, 255, 0.58);
 }
 
+.hero-actions .button-primary {
+  background: #b83a2f;
+  border-color: #b83a2f;
+  box-shadow: 0 8px 24px rgba(4, 10, 18, 0.28);
+  color: var(--snow);
+}
+
+.hero-actions .button-primary:hover {
+  background: #c74639;
+  border-color: #c74639;
+}
+
+.hero-actions .button-primary:focus-visible {
+  outline: 2px solid var(--snow);
+  outline-offset: 4px;
+}
+
 .countdown-section {
   align-items: center;
   background: #07101c;
@@ -2712,7 +2729,7 @@ h1 {
 .visit-quick-actions {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-bottom: clamp(64px, 8vw, 104px);
 }
 
@@ -2736,6 +2753,12 @@ h1 {
   background: rgba(248, 251, 255, 0.09);
   border-color: rgba(248, 251, 255, 0.22);
   transform: translateY(-2px);
+}
+
+.visit-action:focus-visible,
+.visit-showtime-link:focus-visible {
+  outline: 2px solid var(--snow);
+  outline-offset: 5px;
 }
 
 .visit-section {
@@ -2797,6 +2820,10 @@ h1 {
   margin-top: 0;
 }
 
+.visit-parking {
+  grid-template-columns: 1fr;
+}
+
 .visit-schedule-list {
   display: grid;
   gap: clamp(16px, 2.4vw, 24px);
@@ -2836,6 +2863,20 @@ h1 {
 
 .visit-schedule-card strong {
   font-size: clamp(2.4rem, 5vw, 5.6rem);
+}
+
+.visit-showtime-link {
+  color: #c4ff00;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 700;
+  justify-self: start;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.visit-showtime-link:hover {
+  color: var(--snow);
 }
 
 .visit-hotel {
@@ -3472,10 +3513,6 @@ h1 {
   .visit-two-column,
   .visit-hotel {
     grid-template-columns: 1fr;
-  }
-
-  .visit-quick-actions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .visit-hotel-details .button {

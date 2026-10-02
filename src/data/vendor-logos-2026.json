@@ -168,7 +168,7 @@
     "background": "light"
   },
   "Fox Factory": {
-    "src": "/images/vendors/fox-factory.svg",
+    "src": "/images/vendors/fox-factory.png",
     "background": "dark"
   },
   "Bear Mountain Outfitters": {
@@ -200,7 +200,7 @@
     "background": "dark"
   },
   "TKI CNC": {
-    "src": "/images/vendors/tki-cnc.webp",
+    "src": "/images/vendors/tki-cnc.jpg",
     "background": "dark"
   },
   "Rocky Mountain Snow MX": {
