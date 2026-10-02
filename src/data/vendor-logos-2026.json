@@ -148,8 +148,9 @@
     "background": "light"
   },
   "ORTOVOX": {
-    "src": "/images/vendors/ortovox.svg",
-    "background": "light"
+    "src": "/images/vendors/ortovox.png",
+    "background": "light",
+    "scale": 1.6
   },
   "AIARE": {
     "src": "/images/vendors/aiare.png",
