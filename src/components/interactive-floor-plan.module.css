@@ -3,13 +3,87 @@
   min-width: 0;
 }
 
+.viewer {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+}
+
+.zoomControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px 12px 8px;
+}
+
+.zoomControls button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid rgba(248, 251, 255, 0.3);
+  border-radius: 5px;
+  background: var(--color-night-950);
+  color: var(--color-snow-50);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.zoomControls button:hover:not(:disabled) {
+  border-color: var(--color-colorado-red-600);
+}
+
+.zoomControls button:focus-visible {
+  outline: 2px solid var(--color-snow-50);
+  outline-offset: 2px;
+}
+
+.zoomControls button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.zoomControls output {
+  min-width: 48px;
+  color: var(--color-snow-50);
+  text-align: center;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.zoomControls .fitButton {
+  padding-inline: 12px;
+  font-size: 0.8rem;
+}
+
 .fullSizeFrame {
+  display: flex;
   min-height: 0;
   min-width: 0;
+  padding: 8px;
+  overscroll-behavior: contain;
 }
 
 .fullSizeMap {
-  width: 2048px;
+  width: 100%;
+  flex: 0 0 auto;
+  margin: auto;
+}
+
+.mapSurface {
+  position: relative;
+  aspect-ratio: 2048 / 1552;
+}
+
+.mapSurface[data-map-gesture] {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+.mapSurface[data-map-gesture]:active {
+  cursor: grabbing;
 }
 
 .overlay {
@@ -27,6 +101,7 @@
   height: 100%;
   pointer-events: none;
   color: var(--color-colorado-red-600);
+  overflow: visible;
 }
 
 .booth {

@@ -15,9 +15,9 @@ export default function FullSizeMapPage() {
       <div className={styles.toolbar}>
         <CloseMapButton />
         <h1>2026 Floor Plan</h1>
-        <nav className={`floorplan-actions ${styles.actions}`} aria-label="Full-size map actions">
+        <nav className={styles.actions} aria-label="Full-size map actions">
           <a className="button button-secondary" href="/exhibitors#vendor-assignments">
-            View Participating Vendors
+            Vendor List
           </a>
           <a
             className="button button-secondary"
@@ -27,7 +27,7 @@ export default function FullSizeMapPage() {
             Download Map
           </a>
         </nav>
-        <p>Hover over or select a booth for vendor details. Scroll to explore the full-size map.</p>
+        <p>Pinch or use +/− to zoom. Drag to explore. Select a booth for vendor details.</p>
       </div>
       <InteractiveFloorPlan src="/images/floorplan/2026-expo-floor-plan-clean-numbers.png" fullSize />
     </main>

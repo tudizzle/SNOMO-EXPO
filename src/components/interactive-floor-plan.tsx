@@ -5,6 +5,7 @@ import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from
 import geometry from "../../docs/floorplan-2026/booth-geometry.json";
 import { vendorAssignments2026 } from "@/data/vendor-assignments-2026";
 import vendorLogos from "@/data/vendor-logos-2026.json";
+import { useFloorPlanZoom } from "./use-floor-plan-zoom";
 import styles from "./interactive-floor-plan.module.css";
 
 const booths = geometry.booths.map((booth) => {
@@ -72,6 +73,14 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
     if (hideTimer.current) clearTimeout(hideTimer.current);
     hideTimer.current = null;
   }, []);
+
+  const beginMapGesture = useCallback(() => {
+    cancelHide();
+    hoverDismissed.current = true;
+    setSelection(null);
+  }, [cancelHide]);
+
+  const zoom = useFloorPlanZoom({ enabled: fullSize, frameRef, mapRef, onGestureStart: beginMapGesture });
 
   const dismiss = useCallback(() => {
     cancelHide();
@@ -141,10 +150,13 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
       const viewBottom = Math.min(viewportTop + (viewport?.height ?? innerHeight), frame?.bottom ?? Infinity);
       const headerBottom = document.querySelector(".site-header")?.getBoundingClientRect().bottom ?? 0;
       const closeMapBottom = fullSize ? document.querySelector("[data-map-close]")?.getBoundingClientRect().bottom ?? 0 : 0;
-      const left = Math.max(8, viewLeft - rect.left + 8);
-      const right = Math.min(rect.width - 8, viewRight - rect.left - 8);
-      const top = Math.max(8, Math.max(viewTop, headerBottom, closeMapBottom) - rect.top + 8);
-      const bottom = Math.min(rect.height - 8, viewBottom - rect.top - 8);
+      // The fitted map can have space around it. Use that visible frame space
+      // for unscaled details as well, instead of squeezing them into the image.
+      const left = fullSize ? viewLeft - rect.left + 8 : Math.max(8, viewLeft - rect.left + 8);
+      const right = fullSize ? viewRight - rect.left - 8 : Math.min(rect.width - 8, viewRight - rect.left - 8);
+      const safeTop = Math.max(viewTop, headerBottom, closeMapBottom) - rect.top + 8;
+      const top = fullSize ? safeTop : Math.max(8, safeTop);
+      const bottom = fullSize ? viewBottom - rect.top - 8 : Math.min(rect.height - 8, viewBottom - rect.top - 8);
       const compact = window.matchMedia("(max-width: 600px), (max-height: 500px)").matches;
       const compactWidth = activeBooth && activeBooth.companies.length > 1 ? 360 : 248;
       const width = Math.max(0, Math.min(compact ? compactWidth : popupWidth, right - left));
@@ -215,6 +227,15 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
   }, [selection, fullSize, activeBooth]);
 
   return (
+    <div className={fullSize ? styles.viewer : undefined}>
+      {fullSize && (
+        <div className={styles.zoomControls} role="group" aria-label="Map zoom controls">
+          <button type="button" aria-label="Zoom out" onClick={zoom.zoomOut} disabled={!zoom.canZoomOut}>−</button>
+          <output aria-label="Map zoom" aria-live="polite">{zoom.zoomPercent}%</output>
+          <button type="button" aria-label="Zoom in" onClick={zoom.zoomIn} disabled={!zoom.canZoomIn}>+</button>
+          <button type="button" className={styles.fitButton} onClick={zoom.fitMap}>Fit map</button>
+        </div>
+      )}
     <div
       className={`floorplan-image-frame${fullSize ? ` ${styles.fullSizeFrame}` : ""}`}
       ref={frameRef}
@@ -225,18 +246,20 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
           className={`${styles.map}${fullSize ? ` ${styles.fullSizeMap}` : ""}`}
           ref={mapRef}
           onPointerMove={(event) => {
-            if (event.pointerType === "touch" || popupRef.current?.contains(event.target as Node)) return;
+            if (event.pointerType === "touch" || event.buttons || popupRef.current?.contains(event.target as Node)) return;
             pointerRef.current = { x: event.clientX, y: event.clientY };
             if (!selection?.pinned) repositionRef.current?.();
           }}
         >
+          <div className={styles.mapSurface} data-map-gesture={fullSize || undefined}>
           <Image
             src={src}
-            alt={`2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas.${fullSize ? " Use View Participating Vendors for the accessible directory." : " 2026 Participating Vendors are listed below."}`}
+            alt={`2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas.${fullSize ? " Use Vendor List for the accessible directory." : " 2026 Participating Vendors are listed below."}`}
             width={2048}
             height={1552}
             unoptimized
             priority
+            draggable={false}
           />
           <svg className={styles.overlay} viewBox="0 0 2048 1552" role="group" aria-label="Interactive booths. Select a booth to view participating vendors.">
             {booths.map((booth) => (
@@ -258,20 +281,22 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
                 aria-controls={selection?.number === booth.number ? popupId : undefined}
                 aria-haspopup="dialog"
                 onPointerEnter={(event) => {
-                  if (event.pointerType === "touch" || hoverDismissed.current) return;
+                  if (event.pointerType === "touch" || event.buttons || hoverDismissed.current) return;
                   pointerRef.current = { x: event.clientX, y: event.clientY };
                   cancelHide();
                   setSelection((current) => current?.pinned ? current : { number: booth.number, pinned: false });
                 }}
                 onPointerMove={(event) => {
-                  if (event.pointerType === "touch") return;
+                  if (event.pointerType === "touch" || event.buttons) return;
                   if (!hoverDismissed.current) return;
                   hoverDismissed.current = false;
                   cancelHide();
                   setSelection((current) => current?.pinned ? current : { number: booth.number, pinned: false });
                 }}
-                onFocus={() => {
-                  if (restoringFocus.current) return;
+                onFocus={(event) => {
+                  // Touches select on click, after the zoom handler has ruled
+                  // out a drag or pinch. Keyboard focus still opens details.
+                  if (restoringFocus.current || !event.currentTarget.matches(":focus-visible")) return;
                   pointerRef.current = null;
                   hoverDismissed.current = false;
                   cancelHide();
@@ -295,6 +320,7 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
               />
             ))}
           </svg>
+          </div>
         {activeBooth && position.visible && position.connectorPath && (
           <svg className={styles.connector} aria-hidden="true">
             <defs>
@@ -324,6 +350,7 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
           </div>
         )}
         </div>
+    </div>
     </div>
   );
 }
