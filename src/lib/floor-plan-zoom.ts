@@ -5,6 +5,8 @@ export const MAX_FLOOR_PLAN_SCALE = 2;
 type Point = { x: number; y: number };
 type Padding = { left: number; right: number; top: number; bottom: number };
 type Pointer = Point & { startX: number; startY: number };
+// Safari exposes trackpad pinches as GestureEvents, outside the standard DOM types.
+type MapGestureEvent = Event & { scale: number; clientX?: number; clientY?: number };
 export type FloorPlanZoomState = { zoomPercent: number; canZoomIn: boolean; canZoomOut: boolean };
 
 export function fitFloorPlanScale(width: number, height: number) {
@@ -44,6 +46,7 @@ export function createFloorPlanZoomController(frame: HTMLDivElement, map: HTMLDi
   let size = { width: 0, height: 0 };
   let sourceCenter: Point = { x: FLOOR_PLAN_WIDTH / 2, y: FLOOR_PLAN_HEIGHT / 2 };
   let pinch: { distance: number; scale: number; source: Point } | null = null;
+  let desktopPinch: { scale: number; source: Point } | null = null;
 
   const padding = () => {
     if (options.getPadding) return options.getPadding(frame);
@@ -110,6 +113,45 @@ export function createFloorPlanZoomController(frame: HTMLDivElement, map: HTMLDi
     const element = target as Element | null;
     return !!element?.closest?.("[data-map-gesture]");
   };
+  const onMap = (target: EventTarget | null) => target === frame || target === map || onSurface(target);
+  const consumeZoom = (event: Event) => {
+    if (event.cancelable) event.preventDefault();
+    event.stopPropagation();
+  };
+  const wheel = (event: WheelEvent) => {
+    // Chrome/Firefox trackpad pinches arrive as Ctrl+wheel, not touch pointers.
+    // Keep ordinary two-finger scrolling available for panning the map.
+    if (!fit || !event.ctrlKey || !onMap(event.target) || !Number.isFinite(event.deltaY)) return;
+    consumeZoom(event);
+    if (desktopPinch || pointers.size >= 2) return;
+    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? frame.clientHeight : 1;
+    const focal = { x: event.clientX, y: event.clientY };
+    options.onGestureStart();
+    apply(scale * Math.exp(-event.deltaY * unit * 0.01), sourceAt(focal), focal);
+  };
+  const gestureFocal = (event: MapGestureEvent): Point =>
+    Number.isFinite(event.clientX) && Number.isFinite(event.clientY)
+      ? { x: event.clientX!, y: event.clientY! } : measure().center;
+  const gestureStart = (event: Event) => {
+    if (!fit || !onMap(event.target)) return;
+    consumeZoom(event);
+    // Touchscreen pointers already handle pinch; do not apply it twice on Safari.
+    if (pointers.size >= 2) return;
+    desktopPinch = { scale, source: sourceAt(gestureFocal(event as MapGestureEvent)) };
+    options.onGestureStart();
+  };
+  const gestureChange = (event: Event) => {
+    if (!desktopPinch && !(pointers.size >= 2 && onMap(event.target))) return;
+    consumeZoom(event);
+    const gesture = event as MapGestureEvent;
+    if (!desktopPinch || pointers.size >= 2 || !Number.isFinite(gesture.scale) || gesture.scale <= 0) return;
+    apply(desktopPinch.scale * gesture.scale, desktopPinch.source, gestureFocal(gesture));
+  };
+  const gestureEnd = (event: Event) => {
+    if (!desktopPinch) return;
+    consumeZoom(event);
+    desktopPinch = null;
+  };
   const capture = (id: number) => {
     try { frame.setPointerCapture(id); } catch { /* The pointer may already have ended. */ }
   };
@@ -151,7 +193,12 @@ export function createFloorPlanZoomController(frame: HTMLDivElement, map: HTMLDi
   };
   const move = (event: PointerEvent) => {
     const previous = pointers.get(event.pointerId);
-    if (!previous) return;
+    if (!previous) {
+      // A trackpad gesture has no pressed pointer; cursor movement must not
+      // reopen booth hover details while Safari is still zooming the map.
+      if (desktopPinch) event.stopPropagation();
+      return;
+    }
     // A mouse released outside the frame before crossing the capture threshold
     // has no pointerup here. Do not turn its later hover into a phantom drag.
     if (event.pointerType === "mouse" && event.buttons === 0) {
@@ -203,13 +250,14 @@ export function createFloorPlanZoomController(frame: HTMLDivElement, map: HTMLDi
     event.preventDefault();
     event.stopImmediatePropagation();
   };
-  const over = (event: PointerEvent) => { if (gestureActive) event.stopPropagation(); };
+  const over = (event: PointerEvent) => { if (gestureActive || desktopPinch) event.stopPropagation(); };
   const drag = (event: DragEvent) => { if (onSurface(event.target)) event.preventDefault(); };
   const resize = () => {
     const current = measure();
     const nextFit = fitFloorPlanScale(current.width, current.height);
     if (!nextFit || (current.width === size.width && current.height === size.height)) return;
     if (pointers.size) { suppressClick = true; clearPointers(); }
+    desktopPinch = null;
     size = { width: current.width, height: current.height };
     fit = nextFit;
     if (atFit) fitMap();
@@ -224,6 +272,11 @@ export function createFloorPlanZoomController(frame: HTMLDivElement, map: HTMLDi
   frame.addEventListener("pointerover", over, true);
   frame.addEventListener("click", click, true);
   frame.addEventListener("dragstart", drag, true);
+  // These must be non-passive so the browser does not zoom the entire page.
+  frame.addEventListener("wheel", wheel, { passive: false });
+  frame.addEventListener("gesturestart", gestureStart, { passive: false });
+  frame.addEventListener("gesturechange", gestureChange, { passive: false });
+  frame.addEventListener("gestureend", gestureEnd, { passive: false });
   frame.addEventListener("scroll", rememberCenter, { passive: true });
   const observe = options.observeResize ?? ((element, callback) => {
     const observer = new ResizeObserver(callback);
@@ -239,6 +292,7 @@ export function createFloorPlanZoomController(frame: HTMLDivElement, map: HTMLDi
     destroy: () => {
       disconnect();
       clearPointers();
+      desktopPinch = null;
       frame.removeEventListener("pointerdown", down, true);
       frame.removeEventListener("pointermove", move, true);
       frame.removeEventListener("pointerup", up, true);
@@ -247,6 +301,10 @@ export function createFloorPlanZoomController(frame: HTMLDivElement, map: HTMLDi
       frame.removeEventListener("pointerover", over, true);
       frame.removeEventListener("click", click, true);
       frame.removeEventListener("dragstart", drag, true);
+      frame.removeEventListener("wheel", wheel);
+      frame.removeEventListener("gesturestart", gestureStart);
+      frame.removeEventListener("gesturechange", gestureChange);
+      frame.removeEventListener("gestureend", gestureEnd);
       frame.removeEventListener("scroll", rememberCenter);
       map.style.width = originalWidth;
     },

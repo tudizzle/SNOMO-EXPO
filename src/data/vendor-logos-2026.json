@@ -148,8 +148,9 @@
     "background": "light"
   },
   "ORTOVOX": {
-    "src": "/images/vendors/ortovox.svg",
-    "background": "light"
+    "src": "/images/vendors/ortovox.png",
+    "background": "light",
+    "scale": 1.6
   },
   "AIARE": {
     "src": "/images/vendors/aiare.png",
@@ -286,6 +287,10 @@
   },
   "Octane Addictions": {
     "src": "/images/vendors/octane-addictions.png",
+    "background": "dark"
+  },
+  "Cole Wilford #252 Pro Builds": {
+    "src": "/images/vendors/cole-willford.png",
     "background": "dark"
   }
 }

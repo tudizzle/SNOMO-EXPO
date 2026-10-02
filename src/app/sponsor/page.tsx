@@ -50,6 +50,7 @@ export default function SponsorPage() {
                     src={logo.src}
                     alt={`${sponsor.name} logo`}
                     fill
+                    style={"scale" in logo ? { transform: `scale(${logo.scale})` } : undefined}
                     sizes="(max-width: 520px) 90vw, (max-width: 1000px) 44vw, 280px"
                   />
                 </div>

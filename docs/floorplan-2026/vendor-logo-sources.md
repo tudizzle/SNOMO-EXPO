@@ -38,7 +38,7 @@ Logos were downloaded from the identified business’s website/header or its lin
 | Mountain Grit | [Website](https://mountaingrit.com/) | [Original](https://mountaingrit.com/cdn/shop/files/MG_Black.webp?height=65&v=1770717716) | `06f40a4bf019c5bbd8ed6b2ce8f013c41b576bdebe815bbdd149b490e78e2223` |
 | Mountain Side Performance | [Website](https://mountainsideperformance.com/) | [Original](https://mountainsideperformance.com/cdn/shop/files/Screenshot_2021-07-24_8.22.06_AM_300x300.png?v=1628649016) | `47dbf8cfd8b75e52ffd560c47624c5210cfedfa5411674b65403e453f99dd379` |
 | Mountain Skillz | [Website](https://www.mountainskillz.com/) | [Original](https://www.mountainskillz.com/wp-content/uploads/2021/11/Mountain-Skillz-Logo.png) | `1e7698295e03b2f57fec20f8f98c5162b9abd6ee1acc661031aea18d2250b649` |
-| ORTOVOX | [Website](https://www.ortovox.com/us-en/) | [Original](https://www.ortovox.com/media/ce/8e/65/1748586330/ortovox-logo.svg?ts=1749655999) | `0460eaf4d2f7ef3a230af6c12988c771ee24da1638039f1a65d8e64f41b2de11` |
+| ORTOVOX | [Website](https://www.ortovox.com/us-en/) | Organizer-supplied `ortovox.png`, October 2, 2026; used on the sponsor page and interactive map | `070f88ab96500e25af1125a7b4e5ac5ebec6b5c8d52fda04b8b72df3a4cd36af` |
 | Oxbow | [Website](https://oxbowgear.com/) | [Original](https://oxbowgear.com/cdn/shop/t/6/assets/TM-Logo-White.png.png?v=47361351201603899941777476682) | `36a2244cc6c5c8e4f870ebe239bdbd8b73dbcadead79785ca135dfd791e52345` |
 | Powder Pro Lab | [Website](https://www.powderprolab.com/) | [Original](https://images.squarespace-cdn.com/content/v1/63e3185a91019c3b13cd9979/f4ffd83b-9525-4de8-81f1-4614bb7313f1/PowderPro_Logo.png?format=1500w) | `71b84aa715a6b32ce437403b982053bddac163197fb4aadcd7db2e4c1ea16a97` |
 | Push industries | [Website](https://www.pushinds.com/) | [Original](https://www.pushinds.com/cdn/shop/files/Push_Industries_White_Logo.png?v=1724171398&width=200x) | `ad367ac4cbacacb711d2515222e85ac0e4aa6d970a597252dd19c69f2477df32` |
@@ -80,6 +80,7 @@ Logos were downloaded from the identified business’s website/header or its lin
 | TruckBoss | [Website](https://truckbossdecks.com/) | [Original](https://truckbossdecks.com/wp-content/uploads/2024/04/truckboss-banner-logo.png) | `4050b8ffd268feb3648dbd023c1cb1785cae432c2f691b6b4d0fc983d3be6a64` |
 | Upper Yellowstone Snowmobile Club | [Website](https://ridecookecity.com/) | [Original](https://img1.wsimg.com/isteam/ip/f65363e7-62c8-471d-95dc-3da422610906/UYSC_NOB-removebg-preview.png) | `568aefe2c28cecac326ec1bb8027e06abeddc5d7e47566b11ba2b02403eb8ebb` |
 | Octane Addictions | User-supplied logo attachment | `octane addictions.png` | `f7f4917f8efb547e65d4118dd3d52f617ad6c153c5473668cf7704d46b064a18` |
+| Cole Wilford #252 Pro Builds | User-supplied logo attachment | Organizer-supplied `cole logo.png`, October 2, 2026; used on the interactive map | `c21ff82754d8f72c094d8a0418abf660f49165abfd88a069c7933190459fe607` |
 
 The October 1 update adds 22 logos, including six submitted Jotform attachments and the user-supplied Octane Addictions logo. Submitted logos were matched to each record’s Business Name before download. Private table access tokens, contact details, agreements, and insurance attachments are not part of this inventory or the website. Mountain Dirty’s submitted PNG includes a large blank canvas; its map tile uses a centered CSS scale of 5 with clipping to display the logo at a readable size while preserving the original file.
 
@@ -93,7 +94,6 @@ These names were researched but no sufficiently confident, accessible own-brand 
 | Sleddiction/4m Grafix | No unambiguous official website and own-brand logo confirmed. |
 | Send It | No unambiguous official website and own-brand logo confirmed. |
 | Pain Management | No unambiguous official website and own-brand logo confirmed. |
-| Cole Wilford #252 Pro Builds | No unambiguous official website and own-brand logo confirmed. |
 | Colorado Backcountry with James Gallegos | No unambiguous official website and own-brand logo confirmed. |
 | Fly High Fire Starters | No unambiguous official website and own-brand logo confirmed. |
 | ULTIMATE DOOR PRIZE | Expo activity, not a company; no separate vendor logo assigned. |

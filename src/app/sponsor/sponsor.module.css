@@ -22,6 +22,7 @@
 
 .logoFrame {
   background: #fff;
+  overflow: hidden;
   position: relative;
 }
 

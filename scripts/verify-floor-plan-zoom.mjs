@@ -30,6 +30,7 @@ function harness(width = 360, height = 600) {
   const mapWidth = () => Number.parseFloat(map.style.width) || FLOOR_PLAN_WIDTH;
   const mapHeight = () => mapWidth() * FLOOR_PLAN_HEIGHT / FLOOR_PLAN_WIDTH;
   class Frame extends EventTarget {
+    listeners = [];
     clientWidth = width;
     clientHeight = height;
     clientLeft = 1;
@@ -37,6 +38,16 @@ function harness(width = 360, height = 600) {
     captured = new Set();
     x = 0;
     y = 0;
+    addEventListener(type, callback, options) {
+      this.listeners.push({ type, callback, options });
+      super.addEventListener(type, callback, options);
+    }
+    removeEventListener(type, callback, options) {
+      const capture = (value) => typeof value === "boolean" ? value : !!value?.capture;
+      this.listeners = this.listeners.filter((entry) => entry.type !== type || entry.callback !== callback
+        || capture(entry.options) !== capture(options));
+      super.removeEventListener(type, callback, options);
+    }
     get scrollWidth() { return Math.max(this.clientWidth, mapWidth() + 24); }
     get scrollHeight() { return Math.max(this.clientHeight, mapHeight() + 24); }
     get scrollLeft() { return this.x; }
@@ -193,10 +204,152 @@ diagonal.send("pointermove", { pointerId: 2, clientX: 161, clientY: 151 });
 near(diagonal.mapWidth(), 336, "Pinch contraction cannot shrink below fit");
 diagonal.zoom.destroy();
 
+const desktop = harness(600, 500);
+const wheel = (target, deltaY, values = {}, element = target.surface) => target.send("wheel", {
+  ctrlKey: true, deltaMode: 0, deltaY, clientX: 401, clientY: 301, ...values,
+}, element);
+const factorDelta = (factor) => -Math.log(factor) / 0.01;
+const initialDesktopWidth = desktop.mapWidth();
+assert.equal(wheel(desktop, factorDelta(2)).defaultPrevented, true,
+  "Trackpad pinch prevents whole-page browser zoom over the map");
+near(desktop.mapWidth(), initialDesktopWidth * 2, "Desktop trackpad pinch changes the map scale");
+assert.ok(desktop.gestures > 0, "Desktop pinch clears the selected vendor");
+desktop.frame.scrollLeft = 220;
+desktop.frame.scrollTop = 200;
+const desktopAnchor = desktop.source(330, 260);
+wheel(desktop, factorDelta(1.2), { clientX: 330, clientY: 260 });
+near(desktop.source(330, 260).x, desktopAnchor.x, "Trackpad pinch preserves off-center focal source X");
+near(desktop.source(330, 260).y, desktopAnchor.y, "Trackpad pinch preserves off-center focal source Y");
+const desktopWidth = desktop.mapWidth();
+const desktopGestures = desktop.gestures;
+assert.equal(wheel(desktop, -100, { ctrlKey: false }).defaultPrevented, false,
+  "Ordinary wheel scrolling remains native");
+assert.equal(wheel(desktop, -100, {}, desktop.control).defaultPrevented, false,
+  "Wheel gestures over popup and zoom controls remain native");
+near(desktop.mapWidth(), desktopWidth, "Ordinary scrolling and control targets do not zoom the map");
+assert.equal(desktop.gestures, desktopGestures, "Unrelated wheel events do not dismiss a selected vendor");
+assert.equal(wheel(desktop, factorDelta(1.1), {}, desktop.frame).defaultPrevented, true,
+  "Desktop pinch also works over fitted-map gutters");
+near(desktop.mapWidth(), desktopWidth * 1.1, "Pinching the frame changes map scale");
+wheel(desktop, -10000);
+near(desktop.mapWidth(), 4096, "Trackpad pinch respects the maximum map scale");
+assert.equal(desktop.state.canZoomIn, false);
+wheel(desktop, 10000);
+near(desktop.mapWidth(), initialDesktopWidth, "Trackpad contraction stops at fit");
+assert.equal(desktop.state.canZoomOut, false);
+for (const mode of [1, 2]) {
+  wheel(desktop, factorDelta(2));
+  const beforeNormalizedWheel = desktop.mapWidth();
+  const unit = mode === 1 ? 16 : desktop.frame.clientHeight;
+  wheel(desktop, 8 / unit, { deltaMode: mode });
+  near(desktop.mapWidth(), beforeNormalizedWheel * Math.exp(-0.08),
+    `Wheel delta mode ${mode} normalizes to the equivalent pixel motion`);
+  desktop.zoom.fitMap();
+}
+assert.equal(desktop.send("click", { detail: 0 }).defaultPrevented, false,
+  "Desktop pinch retains keyboard booth activation");
+desktop.send("pointerdown", { pointerType: "mouse" });
+desktop.send("pointerup", { pointerType: "mouse" });
+assert.equal(desktop.send("click").defaultPrevented, false, "A fresh booth click works after desktop pinch");
+for (const type of ["wheel", "gesturestart", "gesturechange", "gestureend"]) {
+  assert.equal(desktop.frame.listeners.find((entry) => entry.type === type)?.options?.passive, false,
+    `${type} must use a nonpassive native listener to prevent browser zoom`);
+}
+desktop.zoom.destroy();
+const destroyedGestures = desktop.gestures;
+for (const type of ["wheel", "gesturestart", "gesturechange", "gestureend"]) {
+  assert.equal(desktop.frame.listeners.some((entry) => entry.type === type), false,
+    `Destroy removes the ${type} listener`);
+  assert.equal(desktop.send(type, { ctrlKey: true, deltaY: -100, deltaMode: 0, scale: 2 }).defaultPrevented, false,
+    `Destroyed controller does not intercept ${type}`);
+}
+assert.equal(desktop.map.style.width, "", "Desktop gesture cleanup preserves original map width");
+assert.equal(desktop.gestures, destroyedGestures, "Destroyed gesture handlers cannot dismiss a vendor");
+
+const safari = harness(600, 500);
+for (let index = 0; index < 4; index++) safari.zoom.zoomIn();
+safari.frame.scrollLeft = 300;
+safari.frame.scrollTop = 300;
+const safariWidth = safari.mapWidth();
+const safariAnchor = safari.source(390, 280);
+const safariGestures = safari.gestures;
+const gesture = (type, scale, values = {}, target = safari.surface) => safari.send(type, {
+  scale, clientX: 390, clientY: 280, ...values,
+}, target);
+assert.equal(gesture("gesturestart", 1).defaultPrevented, true, "Safari pinch start prevents page zoom");
+let hoverMoveSuppressed = false;
+safari.send("pointermove", { pointerType: "mouse", buttons: 0,
+  stopPropagation: () => { hoverMoveSuppressed = true; } });
+assert.equal(hoverMoveSuppressed, true, "Hover movement cannot reopen a vendor popup during Safari pinch");
+assert.equal(gesture("gesturechange", 1.5).defaultPrevented, true, "Safari pinch change prevents page zoom");
+near(safari.mapWidth(), safariWidth * 1.5, "Safari pinch expands from its starting scale");
+gesture("gesturechange", 1.25);
+near(safari.mapWidth(), safariWidth * 1.25, "Safari cumulative scale is not multiplied on every event");
+near(safari.source(390, 280).x, safariAnchor.x, "Safari pinch preserves source X at its focal point");
+near(safari.source(390, 280).y, safariAnchor.y, "Safari pinch preserves source Y at its focal point");
+assert.equal(safari.gestures, safariGestures + 1, "Safari pinch clears the selection only once per gesture");
+assert.equal(wheel(safari, factorDelta(1.5)).defaultPrevented, true,
+  "A duplicate ctrl-wheel event during Safari pinch cannot trigger page zoom");
+near(safari.mapWidth(), safariWidth * 1.25, "Safari and ctrl-wheel events do not apply the same pinch twice");
+gesture("gestureend", 1.25);
+hoverMoveSuppressed = false;
+safari.send("pointermove", { pointerType: "mouse", buttons: 0,
+  stopPropagation: () => { hoverMoveSuppressed = true; } });
+assert.equal(hoverMoveSuppressed, false, "Normal vendor hover resumes after Safari pinch");
+wheel(safari, factorDelta(1.1));
+near(safari.mapWidth(), safariWidth * 1.25 * 1.1, "Ctrl-wheel pinch resumes after Safari gesture end");
+const secondSafariWidth = safari.mapWidth();
+gesture("gesturestart", 1);
+gesture("gesturechange", 1.2);
+near(safari.mapWidth(), secondSafariWidth * 1.2, "A later Safari pinch starts from the current map scale");
+gesture("gestureend", 1.2);
+const beforeUnrelatedSafari = safari.mapWidth();
+const beforeUnrelatedGestures = safari.gestures;
+for (const type of ["gesturestart", "gesturechange", "gestureend"]) {
+  assert.equal(gesture(type, 2, {}, safari.control).defaultPrevented, false,
+    `Safari ${type} over controls stays native`);
+}
+near(safari.mapWidth(), beforeUnrelatedSafari, "Safari gestures outside the map do not change scale");
+assert.equal(safari.gestures, beforeUnrelatedGestures);
+gesture("gesturestart", 1);
+gesture("gesturechange", 100);
+near(safari.mapWidth(), 4096, "Safari pinch respects the maximum scale");
+gesture("gesturechange", 0.001);
+near(safari.mapWidth(), 576, "Safari pinch respects fit");
+gesture("gestureend", 0.001);
+safari.zoom.destroy();
+
+const safariWithoutPosition = harness(600, 500);
+const centerBeforeSafari = safariWithoutPosition.source(401, 301);
+for (const [type, scale] of [["gesturestart", 1], ["gesturechange", 1.5], ["gestureend", 1.5]]) {
+  safariWithoutPosition.send(type, { scale, clientX: undefined, clientY: undefined });
+}
+near(safariWithoutPosition.mapWidth(), 576 * 1.5, "Safari events without coordinates still zoom the map");
+near(safariWithoutPosition.source(401, 301).x, centerBeforeSafari.x,
+  "Safari events without coordinates use viewport center X");
+near(safariWithoutPosition.source(401, 301).y, centerBeforeSafari.y,
+  "Safari events without coordinates use viewport center Y");
+safariWithoutPosition.zoom.destroy();
+
+const duplicateTouch = harness(600, 500);
+duplicateTouch.send("pointerdown", { clientX: 320, clientY: 300 });
+duplicateTouch.send("pointerdown", { pointerId: 2, clientX: 420, clientY: 300 });
+duplicateTouch.send("gesturestart", { scale: 1 });
+duplicateTouch.send("gesturechange", { scale: 2 });
+wheel(duplicateTouch, factorDelta(2));
+near(duplicateTouch.mapWidth(), 576, "Touch pointer pinch does not double-apply Safari or ctrl-wheel events");
+duplicateTouch.send("pointermove", { clientX: 300, clientY: 300 });
+duplicateTouch.send("pointermove", { pointerId: 2, clientX: 440, clientY: 300 });
+near(duplicateTouch.mapWidth(), 576 * 1.4, "Touch pointer pinch remains responsive with duplicate browser events");
+duplicateTouch.send("gestureend", { scale: 2 });
+duplicateTouch.send("pointerup");
+duplicateTouch.send("pointerup", { pointerId: 2 });
+duplicateTouch.zoom.destroy();
+
 const hidden = harness(0, 0);
 assert.equal(hidden.map.style.width, "", "Zero-sized frame does not write invalid dimensions");
 hidden.resize(360, 600);
 near(hidden.mapWidth(), 336, "A later measurable frame initializes fit");
 hidden.zoom.destroy();
 
-console.log("PASS: floor-plan fit, bounds, focal zoom, resize preservation, pinch/pan transitions, tap/keyboard/control isolation, and cancellation.");
+console.log("PASS: floor-plan fit, bounds, focal zoom, resize preservation, touch/trackpad/Safari pinch, native scroll and control isolation, gesture deduplication, and cleanup.");
