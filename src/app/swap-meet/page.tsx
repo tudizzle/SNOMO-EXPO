@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/site-header";
+import { VisitReturnLink } from "@/components/visit-return-link";
 import { createPageMetadata } from "@/lib/seo";
 
 const swapMeetDetails = [
@@ -54,6 +55,7 @@ export default function SwapMeetPage() {
   return (
     <main className="swap-meet-page">
       <SiteHeader />
+      <VisitReturnLink />
 
       <section className="swap-meet-page-header" aria-labelledby="swap-meet-title">
         <p className="swap-meet-kicker">Colorado Snomo Expo</p>

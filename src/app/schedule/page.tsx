@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
+import { VisitReturnLink } from "@/components/visit-return-link";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "./schedule.module.css";
 
@@ -55,6 +56,7 @@ export default function SchedulePage() {
   return (
     <main className="schedule-page">
       <SiteHeader />
+      <VisitReturnLink />
 
       <section className="schedule-page-header" aria-labelledby="schedule-title">
         <p className="schedule-kicker">Colorado Snomo Expo</p>
@@ -65,7 +67,7 @@ export default function SchedulePage() {
         </p>
       </section>
 
-      <section className={styles.octane} aria-labelledby="octane-title">
+      <section id="octane-show" className={styles.octane} aria-labelledby="octane-title">
         <div className={styles.brand}>
           <h2 id="octane-title" className={styles.title}>
             <span className={styles.logoFrame}>

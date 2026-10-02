@@ -12,6 +12,7 @@
   overflow: hidden;
   padding: clamp(42px, 5vw, 68px) clamp(28px, 4vw, 56px);
   position: relative;
+  scroll-margin-top: 130px;
 }
 
 .brand,

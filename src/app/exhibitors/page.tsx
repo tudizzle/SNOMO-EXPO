@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
+import { VisitReturnLink } from "@/components/visit-return-link";
 import { VendorDirectory } from "./vendor-directory";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "./floorplan.module.css";
@@ -17,6 +18,7 @@ export default function ExhibitorsPage() {
   return (
     <main className="floorplan-page">
       <SiteHeader />
+      <VisitReturnLink />
 
       <section
         className={`floorplan-preview ${styles.anchorTarget}`}

@@ -3,11 +3,14 @@ import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/seo";
 
 const quickActions = [
-  { href: "/exhibitors#vendor-assignments", label: "View Exhibitors" },
-  { href: "/exhibitors#expo-map", label: "View Floor Plan" },
+  { href: "/exhibitors", label: "Exhibitors & Floor Plan" },
   { href: "/schedule", label: "View Schedule" },
   { href: "/swap-meet", label: "Swap Meet Information" },
 ];
+
+const parkingRate = "$15 per vehicle at the National Western Complex.";
+const parkingControl =
+  "Parking is under the sole control of the National Western Complex (NWC).";
 
 const eventInfo = [
   {
@@ -35,11 +38,13 @@ const showHours = [
     title: "Friday",
     date: "October 23, 2026",
     hours: "4:00 PM – 8:00 PM",
+    freestyle: "Octane Addictions Freestyle Show — 5:30 PM",
   },
   {
     title: "Saturday",
     date: "October 24, 2026",
     hours: "9:00 AM – 5:00 PM",
+    freestyle: "Octane Addictions Freestyle Show — Noon",
   },
   {
     title: "Swap Meet",
@@ -52,7 +57,7 @@ const showHours = [
 const hotelFeatures = [
   "Complimentary Breakfast",
   "Free Wi-Fi",
-  "Free Parking",
+  "Free Hotel Parking",
   "Spacious Studio & Suite Rooms",
   "Convenient Denver Central Park Location",
 ];
@@ -71,8 +76,8 @@ const faqs = [
     answer: "Children 12 & Under are admitted free.",
   },
   {
-    question: "Is parking available?",
-    answer: "Yes. Parking details will be announced closer to the event.",
+    question: "How much is parking?",
+    answer: `${parkingRate} ${parkingControl}`,
   },
   {
     question: "Where is the National Western Complex?",
@@ -152,10 +157,27 @@ export default function PlanYourVisitPage() {
               <p>{item.title}</p>
               <h3>{item.date}</h3>
               <strong>{item.hours}</strong>
+              {item.freestyle ? (
+                <Link className="visit-showtime-link" href="/schedule#octane-show">
+                  {item.freestyle}
+                </Link>
+              ) : null}
               {item.note ? <span>{item.note}</span> : null}
             </article>
           ))}
         </div>
+      </section>
+
+      <section
+        className="visit-two-column visit-parking"
+        aria-labelledby="visit-parking-title"
+      >
+        <article>
+          <p className="visit-kicker">National Western Complex</p>
+          <h2 id="visit-parking-title">Parking</h2>
+          <p><strong>{parkingRate}</strong></p>
+          <p>{parkingControl}</p>
+        </article>
       </section>
 
       <section className="visit-hotel" aria-labelledby="visit-hotel-title">
@@ -201,14 +223,6 @@ export default function PlanYourVisitPage() {
             Colorado SnoMo Expo visit.
           </p>
         </div>
-      </section>
-
-      <section className="visit-two-column" aria-label="Parking information">
-        <article>
-          <p className="visit-kicker">Parking</p>
-          <h2>Parking</h2>
-          <p>Parking information and maps will be updated closer to the event.</p>
-        </article>
       </section>
 
       <section className="visit-section" aria-labelledby="visit-faq-title">
