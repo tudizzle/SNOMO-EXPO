@@ -1,6 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/seo";
+import vendorLogos from "@/data/vendor-logos-2026.json";
+import styles from "./sponsor.module.css";
+
+const sponsors = [
+  { key: "Mountain Side Performance", name: "Mountain Side Performance" },
+  { key: "Polaris", name: "Polaris" },
+  { key: "ARVA", name: "ARVA" },
+  { key: "TKI CNC", name: "TKI CNC" },
+  { key: "Push industries", name: "PUSH Industries" },
+  { key: "ORTOVOX", name: "ORTOVOX" },
+  { key: "Fox Factory", name: "FOX" },
+  { key: "Tylers Backcountry Awareness", name: "Tylers Backcountry Awareness" },
+] as const;
 
 const sponsorshipOpportunities = [
   "Logo placement on event marketing materials",
@@ -14,9 +28,9 @@ const sponsorshipOpportunities = [
 ];
 
 export const metadata = createPageMetadata({
-  title: "Sponsor the Colorado Snomo Expo | Colorado Snomo Expo",
+  title: "Sponsors | Colorado Snomo Expo",
   description:
-    "Partner with the Rocky Mountain Region's premier winter powersports event and place your business in front of passionate snowmobile enthusiasts.",
+    "Meet the sponsors supporting the 2026 Colorado Snomo Expo and explore opportunities to become a partner.",
   path: "/sponsor",
 });
 
@@ -27,12 +41,34 @@ export default function SponsorPage() {
 
       <section className="sponsor-page-header" aria-labelledby="sponsor-title">
         <p className="sponsor-kicker">Colorado Snomo Expo</p>
-        <h1 id="sponsor-title">Sponsor the Colorado Snomo Expo</h1>
+        <h1 id="sponsor-title">Our Sponsors</h1>
         <p>
-          Partner with the Rocky Mountain Region&apos;s premier winter powersports
-          event and place your business in front of thousands of passionate
-          snowmobile enthusiasts before, during and after the Expo.
+          Thank you to the partners helping bring the 2026 Colorado Snomo Expo
+          to life.
         </p>
+      </section>
+
+      <section className={styles.sponsors} aria-label="2026 sponsors">
+        <ul className={styles.grid} role="list">
+          {sponsors.map((sponsor) => {
+            const logo = vendorLogos[sponsor.key];
+
+            return (
+              <li className={styles.card} key={sponsor.key}>
+                <div className={styles.logoFrame} data-background={logo.background}>
+                  <Image
+                    className={styles.logo}
+                    src={logo.src}
+                    alt={`${sponsor.name} logo`}
+                    fill
+                    sizes="(max-width: 520px) 90vw, (max-width: 1000px) 44vw, 280px"
+                  />
+                </div>
+                <p className={styles.name}>{sponsor.name}</p>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       <section className="sponsor-introduction" aria-label="Sponsor introduction">
