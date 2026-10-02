@@ -26,11 +26,27 @@
   place-items: center;
 }
 
+.logoLink {
+  border-radius: 4px;
+  display: block;
+  max-width: 290px;
+  width: 100%;
+}
+
+.logoLink:focus-visible {
+  outline: 2px solid var(--snow);
+  outline-offset: 8px;
+}
+
 .hoveringLogo {
   animation: hover 6.8s ease-in-out infinite;
   height: 190px;
-  max-width: 290px;
   width: 100%;
+}
+
+.logoLink:hover .hoveringLogo,
+.logoLink:focus-visible .hoveringLogo {
+  animation-play-state: paused;
 }
 
 .sponsor:nth-child(2n) .hoveringLogo {
@@ -138,9 +154,12 @@
     grid-column: auto;
   }
 
+  .logoLink {
+    max-width: 280px;
+  }
+
   .hoveringLogo {
     height: 170px;
-    max-width: 280px;
   }
 }
 
