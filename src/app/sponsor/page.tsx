@@ -6,17 +6,17 @@ import vendorLogos from "@/data/vendor-logos-2026.json";
 import styles from "./sponsor.module.css";
 
 const sponsors = [
-  { key: "Mountain Side Performance", name: "Mountain Side Performance", treatment: "white-matte" },
-  { key: "Polaris", name: "Polaris", treatment: "blue" },
-  { key: "ARVA", name: "ARVA", treatment: "dark-ink" },
-  { key: "TKI CNC", name: "TKI CNC", treatment: "black-matte" },
-  { key: "Push industries", name: "PUSH Industries", treatment: "original" },
-  { key: "ORTOVOX", name: "ORTOVOX", treatment: "white-cropped" },
-  { key: "Fox Factory", name: "FOX", treatment: "original" },
-  { key: "Tylers Backcountry Awareness", name: "Tylers Backcountry Awareness", treatment: "original" },
-  { key: "Octane Ink", name: "Octane Ink", src: "/images/sponsors/octane-ink.svg", treatment: "dark-ink" },
-  { key: "509", name: "509", src: "/images/sponsors/509.png", treatment: "white" },
-  { key: "Marlon", name: "Marlon Recreational Products USA", src: "/images/sponsors/marlon-usa.jpg", treatment: "monochrome-matte" },
+  { key: "Mountain Side Performance", name: "Mountain Side Performance", website: "https://mountainsideperformance.com/", treatment: "white-matte" },
+  { key: "Polaris", name: "Polaris", website: "https://www.polaris.com/en-us/", treatment: "blue" },
+  { key: "ARVA", name: "ARVA", website: "https://us.arva-equipment.com/", treatment: "dark-ink" },
+  { key: "TKI CNC", name: "TKI CNC", website: "https://tkicnc.com/", treatment: "black-matte" },
+  { key: "Push industries", name: "PUSH Industries", website: "https://www.pushinds.com/", treatment: "original" },
+  { key: "ORTOVOX", name: "ORTOVOX", website: "https://www.ortovox.com/us-en/", treatment: "white-cropped" },
+  { key: "Fox Factory", name: "FOX", website: "https://ridefox.com/", treatment: "original" },
+  { key: "Tylers Backcountry Awareness", name: "Tylers Backcountry Awareness", website: "https://backcountryawareness.org/", treatment: "original" },
+  { key: "Octane Ink", name: "Octane Ink", website: "https://www.octaneinkllc.com/", src: "/images/sponsors/octane-ink.svg", treatment: "dark-ink" },
+  { key: "509", name: "509", website: "https://ride509.com/", src: "/images/sponsors/509.png", treatment: "white" },
+  { key: "Marlon", name: "Marlon Recreational Products USA", website: "https://marlonproducts.com/", src: "/images/sponsors/marlon-usa.jpg", treatment: "monochrome-matte" },
 ] as const;
 
 export const metadata = createPageMetadata({
@@ -67,21 +67,29 @@ export default function SponsorPage() {
 
             return (
               <li className={styles.sponsor} key={sponsor.key}>
-                <div
-                  className={styles.hoveringLogo}
-                  style={{ animationDelay: `${index * -1.15}s` }}
+                <a
+                  className={styles.logoLink}
+                  href={sponsor.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${sponsor.name} website (opens in a new tab)`}
                 >
-                  <div className={styles.logoShadow}>
-                    <Image
-                      className={styles.logo}
-                      data-treatment={sponsor.treatment}
-                      src={logoSrc}
-                      alt={`${sponsor.name} logo`}
-                      fill
-                      sizes="(max-width: 520px) 80vw, (max-width: 1000px) 40vw, 260px"
-                    />
+                  <div
+                    className={styles.hoveringLogo}
+                    style={{ animationDelay: `${index * -1.15}s` }}
+                  >
+                    <div className={styles.logoShadow}>
+                      <Image
+                        className={styles.logo}
+                        data-treatment={sponsor.treatment}
+                        src={logoSrc}
+                        alt={`${sponsor.name} logo`}
+                        fill
+                        sizes="(max-width: 520px) 80vw, (max-width: 1000px) 40vw, 260px"
+                      />
+                    </div>
                   </div>
-                </div>
+                </a>
               </li>
             );
           })}
