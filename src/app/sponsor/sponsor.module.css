@@ -1,64 +1,151 @@
 .sponsors {
-  margin: 0 auto clamp(64px, 8vw, 104px);
+  margin: 0 auto clamp(72px, 9vw, 120px);
   max-width: 1180px;
+}
+
+.filters {
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
 }
 
 .grid {
   display: grid;
-  gap: clamp(16px, 2vw, 24px);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(32px, 5vw, 64px) clamp(24px, 3vw, 40px);
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 12px 0;
 }
 
-.card {
-  background: rgb(248 251 255 / 4%);
-  border: 1px solid rgb(248 251 255 / 16%);
+.sponsor {
   display: grid;
-  grid-template-rows: 180px 1fr;
+  grid-column: span 2;
   min-width: 0;
+  place-items: center;
 }
 
-.logoFrame {
-  background: #fff;
-  overflow: hidden;
+.hoveringLogo {
+  animation: hover 6.8s ease-in-out infinite;
+  height: 190px;
+  max-width: 290px;
+  width: 100%;
+}
+
+.sponsor:nth-child(2n) .hoveringLogo {
+  animation-duration: 7.6s;
+}
+
+.sponsor:nth-child(3n) .hoveringLogo {
+  animation-duration: 6.2s;
+}
+
+.sponsor:nth-child(4n) .hoveringLogo {
+  animation-duration: 8.2s;
+}
+
+/* Shadows wrap the filtered silhouette, including logos with baked-in mattes. */
+.logoShadow {
+  filter:
+    drop-shadow(0 1px 0 rgb(230 241 255 / 18%))
+    drop-shadow(0 3px 1px rgb(0 0 0 / 85%))
+    drop-shadow(0 7px 5px rgb(0 0 0 / 65%));
+  height: 100%;
   position: relative;
-}
-
-.logoFrame[data-background="dark"] {
-  background: #080e17;
+  width: 100%;
 }
 
 .logo {
   object-fit: contain;
-  padding: 24px;
+  padding: 20px 10px;
 }
 
-.name {
-  align-self: center;
-  color: var(--snow);
-  font-size: 0.9rem;
-  font-weight: 700;
-  line-height: 1.4;
-  margin: 0;
-  padding: 18px 16px;
-  text-align: center;
-  text-wrap: balance;
+.logo[data-treatment="white-matte"] {
+  filter: url("#sponsor-white-matte");
 }
 
-@media (max-width: 1000px) {
+.logo[data-treatment="black-matte"] {
+  filter: url("#sponsor-black-matte");
+}
+
+.logo[data-treatment="dark-ink"] {
+  filter: url("#sponsor-dark-ink");
+}
+
+.logo[data-treatment="monochrome-matte"] {
+  filter: url("#sponsor-white-matte") brightness(0) invert(1);
+}
+
+.logo[data-treatment="white"],
+.logo[data-treatment="white-cropped"] {
+  filter: brightness(0) invert(1);
+}
+
+.logo[data-treatment="white-cropped"] {
+  /* Crop ORTOVOX's transparent padding without overflowing the logo stage. */
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.logo[data-treatment="blue"] {
+  filter: brightness(1.65);
+}
+
+@keyframes hover {
+  0%,
+  100% {
+    transform: translate3d(0, 3px, 0) rotate(-0.35deg);
+  }
+
+  50% {
+    transform: translate3d(0, -4px, 0) rotate(0.35deg);
+  }
+}
+
+/* Half-column tracks keep incomplete rows centered at the same logo size. */
+@media (min-width: 1001px) {
+  .sponsor:nth-child(4n + 1):nth-last-child(3) {
+    grid-column: 2 / span 2;
+  }
+
+  .sponsor:nth-child(4n + 1):nth-last-child(2) {
+    grid-column: 3 / span 2;
+  }
+
+  .sponsor:nth-child(4n + 1):last-child {
+    grid-column: 4 / span 2;
+  }
+}
+
+@media (min-width: 521px) and (max-width: 1000px) {
   .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sponsor:last-child:nth-child(odd) {
+    grid-column: 2 / span 2;
   }
 }
 
 @media (max-width: 520px) {
   .grid {
+    gap: 28px;
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .logo {
-    padding: 24px 32px;
+  .sponsor {
+    grid-column: auto;
+  }
+
+  .hoveringLogo {
+    height: 170px;
+    max-width: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsor .hoveringLogo {
+    animation: none;
   }
 }
