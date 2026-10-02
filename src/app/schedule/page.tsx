@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/seo";
+import styles from "./schedule.module.css";
 
 const eventDays = [
   {
@@ -45,7 +47,7 @@ const admissionDetails = [
 export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
-    "Plan your Colorado Snomo Expo weekend and don't miss presentations from some of the snowmobile industry's leading experts.",
+    "Catch the Octane Addictions Freestyle Show Friday at 5:30 PM and Saturday at noon. Explore Colorado Snomo Expo hours and seminar updates.",
   path: "/schedule",
 });
 
@@ -58,9 +60,47 @@ export default function SchedulePage() {
         <p className="schedule-kicker">Colorado Snomo Expo</p>
         <h1 id="schedule-title">Schedule</h1>
         <p>
-          Plan your Colorado Snomo Expo weekend and don&apos;t miss presentations
-          from some of the snowmobile industry&apos;s leading experts.
+          Plan your Colorado Snomo Expo weekend, from the Octane Addictions
+          Freestyle Show to presentations by leading industry experts.
         </p>
+      </section>
+
+      <section className={styles.octane} aria-labelledby="octane-title">
+        <div className={styles.brand}>
+          <h2 id="octane-title" className={styles.title}>
+            <span className={styles.logoFrame}>
+              <Image
+                className={styles.logo}
+                src="/images/logos/octane-addictions.png"
+                alt="Octane Addictions"
+                width={1536}
+                height={1024}
+                sizes="(max-width: 760px) 85vw, (max-width: 1300px) 48vw, 590px"
+              />
+            </span>
+            <span className={styles.freestyle}>Freestyle Show</span>
+          </h2>
+        </div>
+
+        <div className={styles.showtimes}>
+          <p className={styles.kicker}>Showtimes</p>
+          <dl className={styles.times}>
+            <div className={styles.showtime}>
+              <dt>Friday</dt>
+              <dd>
+                <time dateTime="2026-10-23T17:30:00-06:00">
+                  5:30 <span className={styles.period}>PM</span>
+                </time>
+              </dd>
+            </div>
+            <div className={styles.showtime}>
+              <dt>Saturday</dt>
+              <dd>
+                <time dateTime="2026-10-24T12:00:00-06:00">Noon</time>
+              </dd>
+            </div>
+          </dl>
+        </div>
       </section>
 
       <section className="schedule-hours" aria-labelledby="schedule-hours-title">
