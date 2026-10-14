@@ -149,15 +149,14 @@ export default function SchedulePage() {
         </div>
       </section>
 
-      <section className="schedule-hours" aria-labelledby="schedule-admission-title">
-        <div className="schedule-section-heading">
-          <p className="schedule-kicker">Admission</p>
-          <h2 id="schedule-admission-title">$10 Admission</h2>
-        </div>
-
-        <article className="schedule-hours-card schedule-hours-card-gold schedule-admission-card">
-          <div className="schedule-hours-card-header">
+      <section
+        className={`schedule-hours ${styles.admissionSection}`}
+        aria-labelledby="schedule-admission-title"
+      >
+        <article className={`schedule-hours-card schedule-hours-card-gold schedule-admission-card ${styles.admissionCard}`}>
+          <div className={styles.admissionHeading}>
             <p>Box Office Only</p>
+            <h2 id="schedule-admission-title">$10 Admission</h2>
           </div>
           <ul>
             {admissionDetails.map((detail) => (
