@@ -50,12 +50,10 @@ export default function SchedulePage() {
       <VisitReturnLink />
 
       <section className="schedule-page-header" aria-labelledby="schedule-title">
-        <p className="schedule-kicker">Colorado Snomo Expo</p>
-        <h1 id="schedule-title">Schedule</h1>
-        <p>
+        <h1 id="schedule-title">
           Plan your Colorado Snomo Expo weekend, from the Octane Addictions
-          Freestyle Show to presentations by leading industry experts.
-        </p>
+          Freestyle Show to presentations by leading industry experts
+        </h1>
       </section>
 
       <section id="octane-show" className={styles.octane} aria-labelledby="octane-title">
