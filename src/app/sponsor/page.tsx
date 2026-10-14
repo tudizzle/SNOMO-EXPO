@@ -32,12 +32,10 @@ export default function SponsorPage() {
       <SiteHeader />
 
       <section className="sponsor-page-header" aria-labelledby="sponsor-title">
-        <p className="sponsor-kicker">Colorado Snomo Expo</p>
-        <h1 id="sponsor-title">Our Sponsors</h1>
-        <p>
+        <h1 id="sponsor-title">
           Thank you to the partners helping bring the 2026 Colorado Snomo Expo
-          to life.
-        </p>
+          to life
+        </h1>
       </section>
 
       <section className={styles.sponsors} aria-label="2026 sponsors">
