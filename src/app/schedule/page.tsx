@@ -29,15 +29,6 @@ const eventDays = [
   },
 ];
 
-const seminarTopics = [
-  "Snowmobile Performance",
-  "Mountain Riding Techniques",
-  "Avalanche Safety",
-  "Backcountry Winter Survival",
-  "Navigation & Rescue",
-  "New Product Demonstrations",
-];
-
 const admissionDetails = [
   "Tickets Available at the Box Office Only",
   "No Online Ticket Sales",
@@ -48,7 +39,7 @@ const admissionDetails = [
 export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
-    "Catch the Octane Addictions Freestyle Show Friday at 5:30 PM and Saturday at noon. Explore Colorado Snomo Expo hours and seminar updates.",
+    "See the Octane Addictions Freestyle Show and join Jeff Hartsough for Backcountry Winter Survival on Friday, October 23 at 6:30 PM. Explore expo hours and admission.",
   path: "/schedule",
 });
 
@@ -105,6 +96,37 @@ export default function SchedulePage() {
         </div>
       </section>
 
+      <section
+        id="backcountry-winter-survival"
+        className={`schedule-feature ${styles.speakerFeature}`}
+        aria-labelledby="schedule-speaker-title"
+      >
+        <Image
+          className={styles.speakerPoster}
+          src="/images/speakers/jeff-hartsough-backcountry-winter-survival.jpg"
+          alt="Backcountry Winter Survival with retired Green Beret Jeff Hartsough — Tyler’s Backcountry Awareness"
+          width={1152}
+          height={1728}
+          sizes="(max-width: 760px) 90vw, (max-width: 1300px) 40vw, 490px"
+        />
+
+        <div className={`schedule-feature-content ${styles.speakerContent}`}>
+          <p className="schedule-kicker">Friday Guest Speaker</p>
+          <h2 id="schedule-speaker-title">Backcountry Winter Survival</h2>
+          <div className={styles.speakerIdentity}>
+            <p className={styles.speakerName}>Jeff Hartsough</p>
+            <p>Retired Green Beret</p>
+          </div>
+          <time
+            className={styles.speakerTime}
+            dateTime="2026-10-23T18:30:00-06:00"
+          >
+            <span>Friday, October 23, 2026</span>
+            <strong>6:30 PM</strong>
+          </time>
+        </div>
+      </section>
+
       <section className="schedule-hours" aria-labelledby="schedule-hours-title">
         <div className="schedule-section-heading">
           <p className="schedule-kicker">Event Hours</p>
@@ -149,40 +171,10 @@ export default function SchedulePage() {
         </article>
       </section>
 
-      <section className="schedule-feature" aria-labelledby="schedule-feature-title">
-        <div className="schedule-feature-visual" aria-hidden="true">
-          <div>
-            <span>Seminar Stage</span>
-            <strong>Speaker Lineup</strong>
-            <span>Coming Soon</span>
-          </div>
-        </div>
-
-        <div className="schedule-feature-content">
-          <p className="schedule-kicker">Seminars</p>
-          <h2 id="schedule-feature-title">2026 Seminar Schedule Coming Soon</h2>
-          <p>
-            We are currently finalizing an incredible lineup of free seminars
-            presented by leading industry professionals.
-          </p>
-
-          <div className="schedule-topic-list" aria-label="Seminar topics will include">
-            <p>Topics will include:</p>
-            <ul>
-              {seminarTopics.map((topic) => (
-                <li key={topic}>{topic}</li>
-              ))}
-            </ul>
-          </div>
-
-          <p>New seminars and speakers will be added as they are confirmed.</p>
-        </div>
-      </section>
-
       <section className="schedule-bottom-cta" aria-label="Schedule updates">
         <p>
-          Check back for seminar schedule updates and be the first to know when
-          new sessions are announced.
+          More seminars and speakers will be added as they are confirmed.
+          Check back for schedule updates.
         </p>
       </section>
     </main>
