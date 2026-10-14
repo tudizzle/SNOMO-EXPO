@@ -45,6 +45,23 @@ export default function SchedulePage() {
         </h1>
       </section>
 
+      <section
+        className={`schedule-hours ${styles.admissionSection}`}
+        aria-labelledby="schedule-admission-title"
+      >
+        <article className={`schedule-hours-card schedule-hours-card-gold schedule-admission-card ${styles.admissionCard}`}>
+          <div className={styles.admissionHeading}>
+            <p>Box Office Only</p>
+            <h2 id="schedule-admission-title">$10 Admission</h2>
+          </div>
+          <ul>
+            {admissionDetails.map((detail) => (
+              <li key={detail}>{detail}</li>
+            ))}
+          </ul>
+        </article>
+      </section>
+
       <section id="octane-show" className={styles.octane} aria-labelledby="octane-title">
         <div className={styles.brand}>
           <h2 id="octane-title" className={styles.title}>
@@ -146,23 +163,6 @@ export default function SchedulePage() {
             <span>FREE ENTRY</span>
           </article>
         </div>
-      </section>
-
-      <section
-        className={`schedule-hours ${styles.admissionSection}`}
-        aria-labelledby="schedule-admission-title"
-      >
-        <article className={`schedule-hours-card schedule-hours-card-gold schedule-admission-card ${styles.admissionCard}`}>
-          <div className={styles.admissionHeading}>
-            <p>Box Office Only</p>
-            <h2 id="schedule-admission-title">$10 Admission</h2>
-          </div>
-          <ul>
-            {admissionDetails.map((detail) => (
-              <li key={detail}>{detail}</li>
-            ))}
-          </ul>
-        </article>
       </section>
 
       <section className="schedule-bottom-cta" aria-label="Schedule updates">
