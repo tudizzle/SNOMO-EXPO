@@ -4,28 +4,18 @@ import { VisitReturnLink } from "@/components/visit-return-link";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "./schedule.module.css";
 
-const eventDays = [
+const expoDays = [
   {
     day: "Friday",
     date: "October 23, 2026",
     hours: "4:00 PM – 8:00 PM",
     title: "Opening Night",
-    accent: "red",
   },
   {
     day: "Saturday",
     date: "October 24, 2026",
     hours: "9:00 AM – 5:00 PM",
     title: "Main Expo Day",
-    accent: "gold",
-  },
-  {
-    day: "Swap Meet",
-    date: "Saturday, October 24, 2026",
-    hours: "9:00 AM – 5:00 PM",
-    title: "FREE ENTRY",
-    accent: "red",
-    badge: "Free Entry",
   },
 ];
 
@@ -132,22 +122,30 @@ export default function SchedulePage() {
         </div>
 
         <div className="schedule-hours-list">
-          {eventDays.map((eventDay) => (
-            <article
-              className={`schedule-hours-card schedule-hours-card-${eventDay.accent}`}
-              key={eventDay.day}
-            >
-              <div className="schedule-hours-card-header">
-                <p>{eventDay.day}</p>
-                {eventDay.badge ? (
-                  <span className="schedule-hours-badge">{eventDay.badge}</span>
-                ) : null}
-              </div>
-              <h3>{eventDay.date}</h3>
-              <strong>{eventDay.hours}</strong>
-              <span>{eventDay.title}</span>
-            </article>
-          ))}
+          <article className="schedule-hours-card schedule-hours-card-gold" aria-label="Expo hours">
+            <div className={styles.expoDays}>
+              {expoDays.map((eventDay) => (
+                <div className={styles.expoDay} key={eventDay.day}>
+                  <div className="schedule-hours-card-header">
+                    <p>{eventDay.day}</p>
+                  </div>
+                  <h3>{eventDay.date}</h3>
+                  <strong>{eventDay.hours}</strong>
+                  <span>{eventDay.title}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="schedule-hours-card schedule-hours-card-red" aria-label="Swap Meet hours">
+            <div className="schedule-hours-card-header">
+              <p>Swap Meet</p>
+              <span className="schedule-hours-badge">Free Entry</span>
+            </div>
+            <h3>Saturday, October 24, 2026</h3>
+            <strong>9:00 AM – 5:00 PM</strong>
+            <span>FREE ENTRY</span>
+          </article>
         </div>
       </section>
 
