@@ -1922,6 +1922,7 @@ h1 {
   margin-inline: auto;
   max-width: 980px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .sponsor-page-header p:not(.sponsor-kicker) {
