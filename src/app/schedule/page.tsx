@@ -41,8 +41,7 @@ export default function SchedulePage() {
 
       <section className="schedule-page-header" aria-labelledby="schedule-title">
         <h1 id="schedule-title">
-          Plan your Colorado Snomo Expo weekend, from the Octane Addictions
-          Freestyle Show to presentations by leading industry experts
+          Plan your Colorado SnoMO Expo weekend
         </h1>
       </section>
 
