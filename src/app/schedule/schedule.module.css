@@ -224,3 +224,89 @@
   font-weight: 760;
   line-height: 1;
 }
+
+.expoDays {
+  display: grid;
+  gap: clamp(24px, 4vw, 44px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.expoDay {
+  align-content: start;
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.expoDay + .expoDay {
+  border-left: 1px solid rgb(248 251 255 / 18%);
+  padding-left: clamp(24px, 4vw, 44px);
+}
+
+.expoDays .expoDay h3 {
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  line-height: 1.2;
+}
+
+.expoDays .expoDay strong {
+  font-size: clamp(1.5rem, 2.8vw, 2.8rem);
+  line-height: 1.15;
+}
+
+.expoDays .expoDay > span {
+  color: rgb(248 251 255 / 84%);
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+}
+
+.admissionSection {
+  margin-bottom: clamp(54px, 7vw, 88px);
+}
+
+.admissionSection .admissionCard {
+  align-items: center;
+  gap: clamp(24px, 4vw, 44px);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.admissionHeading {
+  display: grid;
+  gap: 12px;
+}
+
+.admissionHeading h2 {
+  color: var(--snow);
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.admissionSection .admissionCard ul {
+  border-left: 1px solid rgb(248 251 255 / 18%);
+  padding-left: clamp(24px, 4vw, 44px);
+}
+
+@media (max-width: 760px) {
+  .expoDays {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .expoDay + .expoDay {
+    border-left: 0;
+    border-top: 1px solid rgb(248 251 255 / 18%);
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .admissionSection .admissionCard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admissionSection .admissionCard ul {
+    border-left: 0;
+    border-top: 1px solid rgb(248 251 255 / 18%);
+    padding-left: 0;
+    padding-top: 24px;
+  }
+}

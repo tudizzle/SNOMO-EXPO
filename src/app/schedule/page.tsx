@@ -4,28 +4,18 @@ import { VisitReturnLink } from "@/components/visit-return-link";
 import { createPageMetadata } from "@/lib/seo";
 import styles from "./schedule.module.css";
 
-const eventDays = [
+const expoDays = [
   {
     day: "Friday",
     date: "October 23, 2026",
     hours: "4:00 PM – 8:00 PM",
     title: "Opening Night",
-    accent: "red",
   },
   {
     day: "Saturday",
     date: "October 24, 2026",
     hours: "9:00 AM – 5:00 PM",
     title: "Main Expo Day",
-    accent: "gold",
-  },
-  {
-    day: "Swap Meet",
-    date: "Saturday, October 24, 2026",
-    hours: "9:00 AM – 5:00 PM",
-    title: "FREE ENTRY",
-    accent: "red",
-    badge: "Free Entry",
   },
 ];
 
@@ -50,12 +40,26 @@ export default function SchedulePage() {
       <VisitReturnLink />
 
       <section className="schedule-page-header" aria-labelledby="schedule-title">
-        <p className="schedule-kicker">Colorado Snomo Expo</p>
-        <h1 id="schedule-title">Schedule</h1>
-        <p>
-          Plan your Colorado Snomo Expo weekend, from the Octane Addictions
-          Freestyle Show to presentations by leading industry experts.
-        </p>
+        <h1 id="schedule-title">
+          Plan your Colorado SnoMO Expo weekend
+        </h1>
+      </section>
+
+      <section
+        className={`schedule-hours ${styles.admissionSection}`}
+        aria-labelledby="schedule-admission-title"
+      >
+        <article className={`schedule-hours-card schedule-hours-card-gold schedule-admission-card ${styles.admissionCard}`}>
+          <div className={styles.admissionHeading}>
+            <p>Box Office Only</p>
+            <h2 id="schedule-admission-title">$10 Admission</h2>
+          </div>
+          <ul>
+            {admissionDetails.map((detail) => (
+              <li key={detail}>{detail}</li>
+            ))}
+          </ul>
+        </article>
       </section>
 
       <section id="octane-show" className={styles.octane} aria-labelledby="octane-title">
@@ -141,41 +145,31 @@ export default function SchedulePage() {
         </div>
 
         <div className="schedule-hours-list">
-          {eventDays.map((eventDay) => (
-            <article
-              className={`schedule-hours-card schedule-hours-card-${eventDay.accent}`}
-              key={eventDay.day}
-            >
-              <div className="schedule-hours-card-header">
-                <p>{eventDay.day}</p>
-                {eventDay.badge ? (
-                  <span className="schedule-hours-badge">{eventDay.badge}</span>
-                ) : null}
-              </div>
-              <h3>{eventDay.date}</h3>
-              <strong>{eventDay.hours}</strong>
-              <span>{eventDay.title}</span>
-            </article>
-          ))}
-        </div>
-      </section>
+          <article className="schedule-hours-card schedule-hours-card-gold" aria-label="Expo hours">
+            <div className={styles.expoDays}>
+              {expoDays.map((eventDay) => (
+                <div className={styles.expoDay} key={eventDay.day}>
+                  <div className="schedule-hours-card-header">
+                    <p>{eventDay.day}</p>
+                  </div>
+                  <h3>{eventDay.date}</h3>
+                  <strong>{eventDay.hours}</strong>
+                  <span>{eventDay.title}</span>
+                </div>
+              ))}
+            </div>
+          </article>
 
-      <section className="schedule-hours" aria-labelledby="schedule-admission-title">
-        <div className="schedule-section-heading">
-          <p className="schedule-kicker">Admission</p>
-          <h2 id="schedule-admission-title">$10 Admission</h2>
+          <article className="schedule-hours-card schedule-hours-card-red" aria-label="Swap Meet hours">
+            <div className="schedule-hours-card-header">
+              <p>Swap Meet</p>
+              <span className="schedule-hours-badge">Free Entry</span>
+            </div>
+            <h3>Saturday, October 24, 2026</h3>
+            <strong>9:00 AM – 5:00 PM</strong>
+            <span>FREE ENTRY</span>
+          </article>
         </div>
-
-        <article className="schedule-hours-card schedule-hours-card-gold schedule-admission-card">
-          <div className="schedule-hours-card-header">
-            <p>Box Office Only</p>
-          </div>
-          <ul>
-            {admissionDetails.map((detail) => (
-              <li key={detail}>{detail}</li>
-            ))}
-          </ul>
-        </article>
       </section>
 
       <section className="schedule-bottom-cta" aria-label="Schedule updates">
