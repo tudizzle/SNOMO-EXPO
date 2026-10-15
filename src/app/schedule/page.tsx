@@ -117,6 +117,13 @@ export default function SchedulePage() {
             <p className={styles.speakerName}>Jeff Hartsough</p>
             <p>Retired Green Beret</p>
           </div>
+          <p>
+            Learn practical winter survival skills with retired U.S. Army Green
+            Beret and avalanche instructor Jeff Hartsough of Tyler’s Backcountry
+            Awareness. Drawing on six years teaching winter warfare, Jeff covers
+            staying warm, building shelters, finding water, navigating whiteouts,
+            signaling for help, and handling backcountry emergencies.
+          </p>
           <time
             className={styles.speakerTime}
             dateTime="2026-10-23T18:30:00-06:00"
