@@ -26,10 +26,74 @@ const admissionDetails = [
   "Cash and major credit cards accepted at the box office",
 ];
 
+const saturdayEvents = [
+  {
+    id: "csa-meeting",
+    time: "9:00 AM",
+    dateTime: "2026-10-24T09:00:00-06:00",
+    title: "Colorado Snowmobile Association Meeting",
+    location: "Back Room",
+  },
+  {
+    id: "entz-family",
+    time: "11:00 AM",
+    dateTime: "2026-10-24T11:00:00-06:00",
+    title: "Matt Entz & Family",
+    topic: "Riding as a Family in the Backcountry",
+    affiliation: "Mountain Skillz · Southern Colorado",
+    description:
+      "Explore the unique dynamics of riding together as a family. Matt and his family own and operate Mountain Skillz, a snowmobile guiding outfit and AIARE avalanche education school in southern Colorado. They share insights from working and playing on the mountain together.",
+    image: {
+      src: "/images/speakers/matt-entz.jpg",
+      alt: "Matt Entz",
+      width: 439,
+      height: 500,
+    },
+  },
+  {
+    id: "saturday-freestyle",
+    time: "Noon",
+    dateTime: "2026-10-24T12:00:00-06:00",
+    title: "Octane Addictions Freestyle Show",
+  },
+  {
+    id: "chris-burandt",
+    time: "1:15 PM",
+    dateTime: "2026-10-24T13:15:00-06:00",
+    title: "Chris Burandt",
+    topic: "Backcountry Tech Tips",
+    affiliation: "Burandt’s Backcountry Adventures · Buena Vista, Colorado",
+    description:
+      "Chris Burandt shares the tech tips, sled setup, and riding practices he uses to get the most from his backcountry days. Learn how he prepares for the best results on the mountain.",
+    image: {
+      src: "/images/speakers/chris-burandt.jpg",
+      alt: "Chris Burandt on his snowmobile",
+      width: 451,
+      height: 550,
+    },
+  },
+  {
+    id: "erik-woog",
+    time: "2:15 PM",
+    dateTime: "2026-10-24T14:15:00-06:00",
+    title: "Erik Woog · Team VOHK",
+    topic: "Performance Tech Talk",
+    affiliation: "Alpine Motorsports · Kremmling, Colorado",
+    description:
+      "Join Erik Woog and Team VOHK for a Q&A on sled performance, with an emphasis on weight reduction, cost versus benefit, and handling improvements for recent OEM sleds. Explore hood and intake combinations that improve performance while reducing weight, with audience questions guiding the discussion and time for individual engagement.",
+    image: {
+      src: "/images/speakers/erik-woog.jpg",
+      alt: "Erik Woog",
+      width: 375,
+      height: 469,
+    },
+  },
+];
+
 export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
-    "See the Octane Addictions Freestyle Show and join Jeff Hartsough for Backcountry Winter Survival on Friday, October 23 at 6:30 PM. Explore expo hours and admission.",
+    "Plan your Colorado Snomo Expo weekend: freestyle shows, Friday survival with Jeff Hartsough, and Saturday seminars with the Entz family, Chris Burandt, and Erik Woog.",
   path: "/schedule",
 });
 
@@ -136,6 +200,56 @@ export default function SchedulePage() {
             <strong>6:30 PM</strong>
           </time>
         </div>
+      </section>
+
+      <section
+        id="saturday-schedule"
+        className={styles.saturdaySchedule}
+        aria-labelledby="saturday-schedule-title"
+      >
+        <div className="schedule-section-heading">
+          <p className="schedule-kicker">October 24, 2026</p>
+          <h2 id="saturday-schedule-title">Saturday Schedule</h2>
+        </div>
+
+        <ol className={styles.eventList} role="list">
+          {saturdayEvents.map((event) => (
+            <li key={event.id}>
+              <article
+                id={event.id}
+                className={styles.event}
+                aria-labelledby={`${event.id}-title`}
+              >
+                <time className={styles.eventTime} dateTime={event.dateTime}>
+                  {event.time}
+                </time>
+                <div className={event.image ? styles.eventWithImage : styles.eventDetails}>
+                  <div className={styles.eventCopy}>
+                    <h3 id={`${event.id}-title`}>{event.title}</h3>
+                    {event.topic ? <p className={styles.eventTopic}>{event.topic}</p> : null}
+                    {event.affiliation ? (
+                      <p className={styles.eventAffiliation}>{event.affiliation}</p>
+                    ) : null}
+                    {event.location ? (
+                      <p className={styles.eventLocation}>{event.location}</p>
+                    ) : null}
+                    {event.description ? <p>{event.description}</p> : null}
+                  </div>
+                  {event.image ? (
+                    <Image
+                      className={styles.eventImage}
+                      src={event.image.src}
+                      alt={event.image.alt}
+                      width={event.image.width}
+                      height={event.image.height}
+                      sizes="200px"
+                    />
+                  ) : null}
+                </div>
+              </article>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="schedule-hours" aria-labelledby="schedule-hours-title">
