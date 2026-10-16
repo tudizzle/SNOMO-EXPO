@@ -286,12 +286,6 @@ export default function SchedulePage() {
         </div>
       </section>
 
-      <section className="schedule-bottom-cta" aria-label="Schedule updates">
-        <p>
-          More seminars and speakers will be added as they are confirmed.
-          Check back for schedule updates.
-        </p>
-      </section>
     </main>
   );
 }
