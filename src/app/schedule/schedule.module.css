@@ -227,39 +227,101 @@
 
 .expoDays {
   display: grid;
-  gap: clamp(24px, 4vw, 44px);
+  gap: 24px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
 }
 
 .expoDay {
   align-content: start;
   display: grid;
-  gap: 18px;
+  gap: 8px;
   min-width: 0;
 }
 
 .expoDay + .expoDay {
   border-left: 1px solid rgb(248 251 255 / 18%);
-  padding-left: clamp(24px, 4vw, 44px);
+  padding-left: 24px;
 }
 
-.expoDays .expoDay h3 {
-  font-size: clamp(1.25rem, 2vw, 1.8rem);
-  line-height: 1.2;
+.expoDay dt {
+  color: rgb(248 251 255 / 76%);
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
-.expoDays .expoDay strong {
-  font-size: clamp(1.5rem, 2.8vw, 2.8rem);
+.expoDay dd {
+  color: var(--snow);
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 760;
   line-height: 1.15;
+  margin: 0;
 }
 
-.expoDays .expoDay > span {
+.weekendSection {
+  margin-bottom: clamp(54px, 7vw, 88px);
+}
+
+.weekendSection .weekendCard {
+  gap: 20px;
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.weekendHeading {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+}
+
+.weekendHeading h2 {
+  color: var(--snow);
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 760;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.weekendCard .weekendHeading p {
+  color: rgb(248 251 255 / 76%);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.weekendCard .swapMeetSummary {
+  align-items: baseline;
+  border-top: 1px solid rgb(248 251 255 / 18%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding-top: 16px;
+}
+
+.weekendCard .swapMeetSummary strong,
+.weekendCard .swapMeetSummary span {
   color: rgb(248 251 255 / 84%);
-  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.weekendCard .swapMeetSummary strong {
+  color: var(--snow);
+  font-weight: 700;
+}
+
+.weekendCard .swapMeetSummary .freeEntry {
+  color: var(--ember);
+  font-weight: 700;
 }
 
 .admissionSection {
-  margin-bottom: clamp(54px, 7vw, 88px);
+  margin-bottom: 24px;
 }
 
 .saturdaySchedule {
@@ -387,17 +449,6 @@
 }
 
 @media (max-width: 760px) {
-  .expoDays {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .expoDay + .expoDay {
-    border-left: 0;
-    border-top: 1px solid rgb(248 251 255 / 18%);
-    padding-left: 0;
-    padding-top: 24px;
-  }
-
   .admissionSection .admissionCard {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -407,5 +458,26 @@
     border-top: 1px solid rgb(248 251 255 / 18%);
     padding-left: 0;
     padding-top: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .expoDays {
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .expoDay {
+    align-items: baseline;
+    grid-template-columns: 85px minmax(0, 1fr);
+  }
+
+  .expoDay + .expoDay {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .expoDay dd {
+    font-size: 1.35rem;
   }
 }
