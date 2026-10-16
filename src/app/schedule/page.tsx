@@ -7,15 +7,11 @@ import styles from "./schedule.module.css";
 const expoDays = [
   {
     day: "Friday",
-    date: "October 23, 2026",
-    hours: "4:00 PM – 8:00 PM",
-    title: "Opening Night",
+    hours: "4–8 PM",
   },
   {
     day: "Saturday",
-    date: "October 24, 2026",
-    hours: "9:00 AM – 5:00 PM",
-    title: "Main Expo Day",
+    hours: "9 AM–5 PM",
   },
 ];
 
@@ -123,6 +119,31 @@ export default function SchedulePage() {
               <li key={detail}>{detail}</li>
             ))}
           </ul>
+        </article>
+      </section>
+
+      <section
+        className={`schedule-hours ${styles.weekendSection}`}
+        aria-labelledby="schedule-hours-title"
+      >
+        <article className={`schedule-hours-card schedule-hours-card-gold ${styles.weekendCard}`}>
+          <div className={styles.weekendHeading}>
+            <h2 id="schedule-hours-title">Weekend Hours</h2>
+            <p>October 23–24, 2026</p>
+          </div>
+          <dl className={styles.expoDays}>
+            {expoDays.map((eventDay) => (
+              <div className={styles.expoDay} key={eventDay.day}>
+                <dt>{eventDay.day}</dt>
+                <dd>{eventDay.hours}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className={styles.swapMeetSummary}>
+            <strong>Swap Meet</strong>
+            <span>Saturday · 9 AM–5 PM</span>
+            <span className={styles.freeEntry}>Free Entry</span>
+          </p>
         </article>
       </section>
 
@@ -250,40 +271,6 @@ export default function SchedulePage() {
             </li>
           ))}
         </ol>
-      </section>
-
-      <section className="schedule-hours" aria-labelledby="schedule-hours-title">
-        <div className="schedule-section-heading">
-          <p className="schedule-kicker">Event Hours</p>
-          <h2 id="schedule-hours-title">Expo Weekend</h2>
-        </div>
-
-        <div className="schedule-hours-list">
-          <article className="schedule-hours-card schedule-hours-card-gold" aria-label="Expo hours">
-            <div className={styles.expoDays}>
-              {expoDays.map((eventDay) => (
-                <div className={styles.expoDay} key={eventDay.day}>
-                  <div className="schedule-hours-card-header">
-                    <p>{eventDay.day}</p>
-                  </div>
-                  <h3>{eventDay.date}</h3>
-                  <strong>{eventDay.hours}</strong>
-                  <span>{eventDay.title}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article className="schedule-hours-card schedule-hours-card-red" aria-label="Swap Meet hours">
-            <div className="schedule-hours-card-header">
-              <p>Swap Meet</p>
-              <span className="schedule-hours-badge">Free Entry</span>
-            </div>
-            <h3>Saturday, October 24, 2026</h3>
-            <strong>9:00 AM – 5:00 PM</strong>
-            <span>FREE ENTRY</span>
-          </article>
-        </div>
       </section>
 
     </main>
