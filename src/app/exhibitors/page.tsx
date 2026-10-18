@@ -1,4 +1,5 @@
 import Image from "next/image";
+import geometry from "../../../docs/floorplan-2026/booth-geometry.json";
 import { SiteHeader } from "@/components/site-header";
 import { VisitReturnLink } from "@/components/visit-return-link";
 import { VendorDirectory } from "./vendor-directory";
@@ -58,8 +59,8 @@ export default function ExhibitorsPage() {
           <Image
             src={floorplanImage}
             alt="2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas. Open Interactive Map for booth details, or browse 2026 Participating Vendors below."
-            width={2048}
-            height={1552}
+            width={geometry.imageWidth}
+            height={geometry.imageHeight}
             unoptimized
             priority
           />

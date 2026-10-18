@@ -1,15 +1,20 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { createFloorPlanZoomController, fitFloorPlanScale, clampFloorPlanScale, scrollForFocalPoint,
-  FLOOR_PLAN_WIDTH, FLOOR_PLAN_HEIGHT } from "../src/lib/floor-plan-zoom.ts";
+  FLOOR_PLAN_WIDTH, FLOOR_PLAN_HEIGHT, MAX_FLOOR_PLAN_SCALE } from "../src/lib/floor-plan-zoom.ts";
+
+const geometry = JSON.parse(readFileSync(new URL("../docs/floorplan-2026/booth-geometry.json", import.meta.url), "utf8"));
+assert.equal(FLOOR_PLAN_WIDTH, geometry.imageWidth, "Zoom width agrees with map and overlay coordinates");
+assert.equal(FLOOR_PLAN_HEIGHT, geometry.imageHeight, "Zoom height agrees with map and overlay coordinates");
 
 const near = (actual, expected, message) => assert.ok(Math.abs(actual - expected) < 0.0001,
   `${message}: expected ${expected}, received ${actual}`);
 
 assert.equal(fitFloorPlanScale(0, 600), 0);
 assert.equal(fitFloorPlanScale(400, Number.NaN), 0);
-near(fitFloorPlanScale(336, 576), 336 / 2048, "Portrait fit uses width");
-near(fitFloorPlanScale(820, 220), 220 / 1552, "Landscape fit uses height");
-assert.equal(clampFloorPlanScale(4, 0.2), 2);
+near(fitFloorPlanScale(336, 576), 336 / FLOOR_PLAN_WIDTH, "Portrait fit uses width");
+near(fitFloorPlanScale(820, 220), 220 / FLOOR_PLAN_HEIGHT, "Landscape fit uses height");
+assert.equal(clampFloorPlanScale(MAX_FLOOR_PLAN_SCALE * 2, 0.2), MAX_FLOOR_PLAN_SCALE);
 assert.equal(clampFloorPlanScale(0.1, 0.2), 0.2);
 assert.deepEqual(scrollForFocalPoint({ x: 400, y: 200 }, 2, { x: 10, y: 20 },
   { x: 210, y: 120 }, { x: 0, y: 0 }, { x: 900, y: 900 }), { x: 600, y: 300 });
@@ -101,13 +106,13 @@ assert.deepEqual(fit.state, { zoomPercent: 100, canZoomIn: true, canZoomOut: fal
 fit.zoom.zoomIn();
 assert.equal(fit.state.zoomPercent, 125);
 assert.equal(fit.gestures, 1, "Zoom controls clear the selected vendor");
-near(fit.source(281, 351).x, 1024, "Button zoom preserves viewport source center X");
-near(fit.source(281, 351).y, 776, "Button zoom preserves viewport source center Y");
+near(fit.source(281, 351).x, FLOOR_PLAN_WIDTH / 2, "Button zoom preserves viewport source center X");
+near(fit.source(281, 351).y, FLOOR_PLAN_HEIGHT / 2, "Button zoom preserves viewport source center Y");
 fit.zoom.zoomOut();
 fit.zoom.zoomOut();
 assert.equal(fit.state.zoomPercent, 100);
 for (let index = 0; index < 30; index++) fit.zoom.zoomIn();
-near(fit.mapWidth(), 4096, "Zoom cannot exceed twice source resolution");
+near(fit.mapWidth(), FLOOR_PLAN_WIDTH * MAX_FLOOR_PLAN_SCALE, "Zoom cannot exceed the maximum source scale");
 assert.equal(fit.state.canZoomIn, false);
 fit.zoom.fitMap();
 const gesturesAfterFit = fit.gestures;
@@ -232,7 +237,7 @@ assert.equal(wheel(desktop, factorDelta(1.1), {}, desktop.frame).defaultPrevente
   "Desktop pinch also works over fitted-map gutters");
 near(desktop.mapWidth(), desktopWidth * 1.1, "Pinching the frame changes map scale");
 wheel(desktop, -10000);
-near(desktop.mapWidth(), 4096, "Trackpad pinch respects the maximum map scale");
+near(desktop.mapWidth(), FLOOR_PLAN_WIDTH * MAX_FLOOR_PLAN_SCALE, "Trackpad pinch respects the maximum map scale");
 assert.equal(desktop.state.canZoomIn, false);
 wheel(desktop, 10000);
 near(desktop.mapWidth(), initialDesktopWidth, "Trackpad contraction stops at fit");
@@ -313,7 +318,7 @@ near(safari.mapWidth(), beforeUnrelatedSafari, "Safari gestures outside the map 
 assert.equal(safari.gestures, beforeUnrelatedGestures);
 gesture("gesturestart", 1);
 gesture("gesturechange", 100);
-near(safari.mapWidth(), 4096, "Safari pinch respects the maximum scale");
+near(safari.mapWidth(), FLOOR_PLAN_WIDTH * MAX_FLOOR_PLAN_SCALE, "Safari pinch respects the maximum scale");
 gesture("gesturechange", 0.001);
 near(safari.mapWidth(), 576, "Safari pinch respects fit");
 gesture("gestureend", 0.001);

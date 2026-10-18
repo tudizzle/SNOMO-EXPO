@@ -72,7 +72,6 @@
 
 .mapSurface {
   position: relative;
-  aspect-ratio: 2048 / 1552;
 }
 
 .mapSurface[data-map-gesture] {

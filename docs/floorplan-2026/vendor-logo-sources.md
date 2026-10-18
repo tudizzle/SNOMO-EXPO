@@ -1,6 +1,6 @@
 # 2026 vendor popup logo sources
 
-Reviewed October 1, 2026. Names and booth assignments remain in `src/data/vendor-assignments-2026.ts`. This inventory records optional decorative logos, not assignment changes.
+Reviewed October 1, 2026; SledLab added October 18, 2026. Names and booth assignments remain in `src/data/vendor-assignments-2026.ts`. This inventory records optional decorative logos, not assignment changes.
 
 Logos were downloaded from the identified business’s website/header or its linked CDN, from the exhibitor’s Company Logo attachment in the supplied Jotform table, or from a logo file supplied directly by the event organizer. Each was visually reviewed and stored locally without altering the original image bytes. No search-result thumbnails, generated logos, partner logos, or photographs are used. White marks use a dark tile; dark marks use a light tile. Unverified/unavailable logos remain text-only.
 
@@ -8,6 +8,7 @@ Logos were downloaded from the identified business’s website/header or its lin
 
 | Company | Website | Original asset | SHA-256 |
 | --- | --- | --- | --- |
+| SledLab | User-supplied logo attachment | Organizer-supplied `sled lab mountain vectorized.png`, October 18, 2026; original bytes saved as `public/images/vendors/sledlab.png` | `6c3569cf7b85f8f8d9d5db27b27501c344a84e82218a5ee2a481a942a176ef05` |
 | AIARE | [Website](https://avtraining.org/) | [Original](https://avtraining.org/wp-content/uploads/2020/12/AIARE-Branding_Final-Logo-03-1.png) | `fe934486d6f998cfafd35c775c53585aa8b94c33552e032708db2ff425e6da6f` |
 | ARCTIC CAT | [Website](https://www.arcticcat.com/) | [Original](https://www.arcticcat.com/hubfs/raw_assets/public/Arctic%20Cat%20Experience/images/brand/arctic-cat-horz-logo-white.svg) | `2d02e28fa146a87bd92799507b2eceb12fbf50a4e2cb1f50e2699a8ad280bf7c` |
 | ARVA | [Website](https://us.arva-equipment.com/) | [Original](https://a.storyblok.com/f/202686/130x30/c5d2ad0e6c/arva-logo.svg) | `2402528255eecfd369819f5cbd56192591812a65a10cdf9c17ab4adde980dd44` |

@@ -9,19 +9,38 @@ const source = await read("src/data/vendor-assignments-2026.ts");
 const assignments = JSON.parse(source.slice(source.indexOf("= [") + 2).trim().replace(/;$/, ""));
 const reference = JSON.parse(await read("docs/floorplan-2026/vendor-assignments.json"));
 const image = await readFile(new URL("public/images/floorplan/2026-expo-floor-plan-clean-numbers.png", root));
-const fingerprint = "549540080f409f85fce3093481351f8a156a840c4cd139a31fa3d93c0d0645ae";
+const editReport = JSON.parse(await read("docs/floorplan-2026/map-edit-verification.json"));
+const spec = JSON.parse(await read("docs/floorplan-2026/map-edit-spec.json"));
+const fingerprint = editReport.outputSha256;
+const original = await readFile(new URL(`docs/floorplan-2026/${spec.sourceFile}`, root));
+assert.equal(createHash("sha256").update(original).digest("hex"), spec.sourceSha256);
+assert.equal(editReport.sourceSha256, spec.sourceSha256);
+assert.deepEqual(editReport.canvas, [2679, 2031]);
+assert.equal(editReport.changedRedOutlinePixelsOutsideLabelWindows, 0);
+assert.equal(editReport.changedPixelsOutsideAllowedAreas, 0);
+assert.equal(editReport.allLabelsInsideBooths, true);
+assert.equal(editReport.roomHeading, "SEMINAR ROOM");
 assert.equal(createHash("sha256").update(image).digest("hex"), fingerprint);
-assert.equal(image.readUInt32BE(16), 2048);
-assert.equal(image.readUInt32BE(20), 1552);
-assert.equal(geometry.imageWidth, 2048);
-assert.equal(geometry.imageHeight, 1552);
-assert.equal(geometry.booths.length, 77);
-assert.equal(assignments.length, 82);
+assert.equal(image.readUInt32BE(16), 2679);
+assert.equal(image.readUInt32BE(20), 2031);
+assert.equal(geometry.imageWidth, 2679);
+assert.equal(geometry.imageHeight, 2031);
+assert.equal(geometry.booths.length, 78);
+assert.equal(assignments.length, 83);
 assert.deepEqual(assignments, reference);
 assert.deepEqual([...new Set(assignments.map((row) => row.booth))], geometry.booths.map((booth) => booth.number));
+assert.deepEqual(editReport.labels.map((label) => label.number), geometry.booths.map((booth) => booth.number));
 assert.ok(assignments.every((row, index) => !index || row.booth >= assignments[index - 1].booth));
-assert.deepEqual(geometry.booths.filter((booth) => booth.polygon).map((booth) => booth.number), [324, 329, 330]);
-console.log("PASS: unchanged 2048×1552 PNG; 82 sorted assignments; 77 booths; three rotated polygons.");
+assert.deepEqual(geometry.booths.filter((booth) => booth.polygon).map((booth) => booth.number), [324, 330, 331]);
+assert.deepEqual(geometry.booths.find((booth) => booth.number === 329).bounds, [1063, 1561.2, 1249, 1629.8]);
+assert.deepEqual(geometry.booths.find((booth) => booth.number === 331).polygon,
+  [[1267, 1843.2], [1438.3, 1825.3], [1446.8, 1902.9], [1275.8, 1920.8]]);
+assert.deepEqual(assignments.filter((row) => row.booth >= 327), [
+  { booth: 327, name: "SledLab" }, { booth: 328, name: "TruckBoss" },
+  { booth: 329, name: "Feral SnowCat Society" }, { booth: 330, name: "TFT-Sno Trac, LLC" },
+  { booth: 331, name: "Octane Addictions" },
+]);
+console.log("PASS: revised 2679×2031 PNG; preserved source outlines; 83 sorted assignments; 78 booths; moved 329 and added 331.");
 
 // Optional preview check; pass /exhibitors/map as a third argument for the full-size view.
 if (process.argv[2]) {
@@ -35,8 +54,8 @@ if (process.argv[2]) {
     return attributes;
   });
   const interactive = path === "/exhibitors/map";
-  assert.equal(polygons.length, interactive ? 77 : 0);
-  assert.equal(html.includes('viewBox="0 0 2048 1552"'), interactive);
+  assert.equal(polygons.length, interactive ? 78 : 0);
+  assert.equal(html.includes('viewBox="0 0 2679 2031"'), interactive);
   if (!interactive) {
     assert.ok(html.includes('aria-label="Open interactive map in a new tab"'));
     assert.ok(html.includes('href="/exhibitors/map"'));
@@ -44,11 +63,11 @@ if (process.argv[2]) {
     assert.ok(!html.includes("Open Full-Size Map"));
     assert.ok(!html.includes('data-booth='));
     assert.ok(!html.includes('role="dialog"'));
-    assert.equal((html.match(/<th scope="row">/g) ?? []).length, 82);
+    assert.equal((html.match(/<th scope="row">/g) ?? []).length, 83);
     assert.ok(html.includes("List Alphabetically"));
     assert.ok(html.includes("List by Booth Number"));
     assert.ok(html.includes('download="2026-colorado-snomo-expo-floorplan.png"'));
-    console.log("PASS: static overview has no booth hit areas or popups; interactive-map link, 82 directory rows, sorting controls and download remain.");
+    console.log("PASS: static overview has no booth hit areas or popups; interactive-map link, 83 directory rows, sorting controls and download remain.");
   }
   const escape = (value) => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("'", "&#x27;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
   for (const booth of interactive ? geometry.booths : []) {
@@ -64,6 +83,6 @@ if (process.argv[2]) {
   const servedImage = await fetch(new URL("/images/floorplan/2026-expo-floor-plan-clean-numbers.png", base));
   assert.equal(servedImage.status, 200);
   assert.equal(createHash("sha256").update(Buffer.from(await servedImage.arrayBuffer())).digest("hex"), fingerprint);
-  if (interactive) console.log("PASS: all 77 rendered hit areas match source geometry exactly; accessible labels match assignments.");
-  console.log("PASS: served PNG unchanged.");
+  if (interactive) console.log("PASS: all 78 rendered hit areas match source geometry exactly; accessible labels match assignments.");
+  console.log("PASS: served PNG matches the revised map.");
 }
