@@ -1,5 +1,5 @@
-export const FLOOR_PLAN_WIDTH = 2048;
-export const FLOOR_PLAN_HEIGHT = 1552;
+export const FLOOR_PLAN_WIDTH = 2679;
+export const FLOOR_PLAN_HEIGHT = 2031;
 export const MAX_FLOOR_PLAN_SCALE = 2;
 
 type Point = { x: number; y: number };

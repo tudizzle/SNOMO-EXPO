@@ -3,7 +3,8 @@ export type VendorAssignment2026 = {
   name: string;
 };
 
-// Source: updated 2026 Colorado SnoMo Expo Vendor List.xlsx, supplied September 23, 2026.
+// Source: updated 2026 Colorado SnoMo Expo Vendor List.xlsx, supplied September 23, 2026,
+// with organizer assignment changes supplied October 18, 2026.
 // One company-booth pair per row, sorted numerically. Booth sizes intentionally omitted.
 export const vendorAssignments2026: VendorAssignment2026[] = [
   {
@@ -320,11 +321,11 @@ export const vendorAssignments2026: VendorAssignment2026[] = [
   },
   {
     "booth": 327,
-    "name": "TruckBoss"
+    "name": "SledLab"
   },
   {
     "booth": 328,
-    "name": "Octane Addictions"
+    "name": "TruckBoss"
   },
   {
     "booth": 329,
@@ -333,5 +334,9 @@ export const vendorAssignments2026: VendorAssignment2026[] = [
   {
     "booth": 330,
     "name": "TFT-Sno Trac, LLC"
+  },
+  {
+    "booth": 331,
+    "name": "Octane Addictions"
   }
 ];

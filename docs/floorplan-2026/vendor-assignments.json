@@ -313,11 +313,11 @@
   },
   {
     "booth": 327,
-    "name": "TruckBoss"
+    "name": "SledLab"
   },
   {
     "booth": 328,
-    "name": "Octane Addictions"
+    "name": "TruckBoss"
   },
   {
     "booth": 329,
@@ -326,5 +326,9 @@
   {
     "booth": 330,
     "name": "TFT-Sno Trac, LLC"
+  },
+  {
+    "booth": 331,
+    "name": "Octane Addictions"
   }
 ]

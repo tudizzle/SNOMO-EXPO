@@ -1,59 +1,60 @@
 # 2026 Expo floor plan handoff
 
-Final image: `2026-expo-floor-plan-clean-numbers.png` (2048 × 1552 pixels).
+## October 18 revision
 
-This is the finished map with slight peach booth interiors, “SEMINAR ROOM” replacing the original room heading, and clean, centered booth numbers. The original booth layout, dimensions, red-outline positions, walls, and other architectural features were retained. “CAPACITY 125” remains in place.
+The user supplied a revised drawing, originally named `2025 expo final floorplan.jpg`, for the **2026** event. Its unchanged source is preserved as `2026-floor-plan-source-october-18.jpg`. The filename's year does not change the event year.
 
-## Image and alignment requirements
+- SledLab is added in booth **327**, with the supplied SledLab logo.
+- TruckBoss moves from 327 to **328**.
+- Octane Addictions moves from 328 to the new booth **331**.
+- **329** moves above 328, to the right of 322/323; Feral SnowCat Society remains assigned to it.
+- **331** is the angled booth below the left FREESTYLE SHOW label. Its outline differs from the previous 329 outline; it has its own measured polygon.
+- Booth 330 and all other assignments remain in place, including every company sharing a booth.
 
-- Use the final PNG as the map. Do not redraw or regenerate its geometry.
-- Preserve the complete image and its exact aspect ratio, 2048:1552 (128:97). Displaying it smaller or larger requires uniform proportional scaling; no stretching, cropping, or distortion.
-- `booth-geometry.json` contains 77 unique booths: 101–118, 201–228, and 300–330. Coordinates are measured in the original image’s pixels, with the origin at the upper-left, x increasing right, and y increasing down.
-- Each `bounds` array is `[x0, y0, x1, y1]` around the existing red outline. Rotated booths 324, 329, and 330 also include their four-corner `polygon` and `center`. Use their polygons for hit areas rather than treating their bounding boxes as booth rectangles.
-- These coordinates support alignment and interaction; they are not real-world measurements or a replacement for the source plan. Keep the image as the visual source of truth. Scale and position any interactive overlays with the same transformation as the image.
-- For a responsive website, preserve the image’s intrinsic aspect ratio. An overlay using a `0 0 2048 1552` coordinate space must occupy the same displayed image rectangle.
+## Map and alignment
 
-## Vendor assignments
+The website's finished map is `public/images/floorplan/2026-expo-floor-plan-clean-numbers.png`, now **2679 × 2031 pixels**, matching the revised source's native dimensions. The prior 2048 × 1552 coordinate system is superseded. Preserve the complete image and its exact aspect ratio when scaling it; no cropping or stretching.
 
-The authoritative assignments are from the updated `2026 Colorado SnoMo Expo Vendor List.xlsx`, supplied September 23, 2026, Sheet1!A1:B80. This workbook supersedes the earlier vendor PDF.
+`booth-geometry.json` records **78** booths: 101–118, 201–228, and 300–331. Coordinates use the new source's pixels, with the origin at the upper-left. Bounds are `[x0, y0, x1, y1]`; rotated booths **324, 330, and 331** have four-corner polygons. Booth 329 is now rectangular. These are alignment coordinates, not real-world dimensions. The supplied drawing remains the visual source of truth.
 
-- `vendor-assignments.json` contains 82 company-booth entries covering all 77 map booths, in numeric booth order. Each company-booth pair occupies a separate row; G-Force Powersports appears separately for 116, 117, and 118. Shared booths retain every listed company.
-- Column C (booth sizes) is intentionally omitted from all displayed assignment data. The source workbook is not exposed by the public website.
-- Confirmed corrections: Logan Coach 311; Transwest Truck Trailer RV 316; Rocky Talkie 315; Tylers Backcountry Awareness 321; Friends of CAIC 323.
-- No map booths are missing an assignment, and no source assignments refer to an unknown map booth. No dimensions are inferred from assignment data.
+The rendering treatment matches the prior approved map: pale peach `#FFF0E5` interiors, centered dark Arial Bold numbers, and **SEMINAR ROOM** replacing **BAR & GRILL**. **CAPACITY 125**, architecture, arrows, and original red outlines are retained.
 
-## SNOMO EXPO integration context
+`map-edit-spec.json` contains the audited original-number windows and heading replacement area. `scripts/prepare-floor-plan.py` applies the treatment without resizing or redrawing the source. Like the previous cleanup, it lifts black overprinted numeral ink from existing red pixels without adding boundary pixels or redrawing lines. It asserts that red outlines outside the old label windows and all pixels outside the allowed edit areas remain unchanged, and that every new label stays within its booth. `map-edit-verification.json` records source/output SHA-256 fingerprints, dimensions, and the 78 final label footprints.
 
-Project: `/Users/brandoncox/Documents/SNOMO EXPO/fix-countdown-and-favicon`.
-
-- Map: `public/images/floorplan/2026-expo-floor-plan-clean-numbers.png`.
-- Geometry and handoff notes: `docs/floorplan-2026/`.
-- Website data: `src/data/vendor-assignments-2026.ts`.
-- `src/app/exhibitors/page.tsx` reuses the approved floor-plan draft for the combined **Exhibitors & Floor Plan** page at `/exhibitors`. `/floorplan` permanently redirects to it. The map uses its intrinsic 2048 × 1552 dimensions and proportional responsive display, with full-size viewing and downloading available.
-- `src/app/exhibitors/floorplan.module.css` retains the draft's scoped directory styles and uses the existing mobile Exhibitors heading scale to accommodate the longer page title.
-- The legacy `placeholderExhibitors` in `src/data/exhibitors.ts` is no longer used by the public directory.
-- The sorted workbook, JSON reference, and website data were verified to contain the same 82 rows covering all 77 booths, including shared booths and repeated company names.
-- Approved PNG SHA-256: `549540080f409f85fce3093481351f8a156a840c4cd139a31fa3d93c0d0645ae`. The copied asset and the image served by the production preview match this fingerprint.
-
-## Interactive map
-
-The map on `/exhibitors` is a non-interactive, proportionally scaled overview. It has no booth hit areas or vendor popups. The **Open Interactive Map** action opens `/exhibitors/map` in a new tab. This dedicated view uses `InteractiveFloorPlan` at exactly 2048 × 1552 CSS pixels in a scrollable frame, retaining offset hover popups, vendor logos, click/touch pinning, keyboard controls, and translucent black/red styling. Popup positioning accounts for the frame's visible bounds and both scroll directions. The download remains the original PNG; `/exhibitors` remains the canonical directory page with both vendor sorting options.
-
-`src/components/interactive-floor-plan.tsx` places a transparent SVG overlay directly over the unchanged image. Its `0 0 2048 1552` viewBox scales proportionally with the image. Hit areas use the supplied bounds or, for booths 324, 329, and 330, the supplied polygons. Popup company names come from the same `vendorAssignments2026` array used by the directory.
-
-Hover or keyboard focus reveals a booth. Click, Enter, or Space pins the popup. Another booth switches the selection. Escape, the close control, or an outside click dismisses it. The compact, translucent black popup with a red border follows the pointer with an 80px horizontal and 48px vertical gap, flipping sides near map edges. When neither side has enough space, it uses the available map area without overflowing. Keyboard/touch activation uses the selected booth as its anchor. Pinned details do not follow pointer movement. Position and size stay within the visible map area on small screens; the map's size never changes when details open. The last hovered booth remains visible while the pointer crosses the map or moves into the popup. Touch activation uses click without requiring hover; normal scrolling and browser zoom are not disabled.
-
-Run `node scripts/verify-floor-plan.mjs` to verify the approved map fingerprint, dimensions, assignment coverage, ordering, and rotated polygon records. With a running preview, the default route check verifies the static overview, interactive-map link, directory, sorting controls, download, and absence of hit areas/popups. The `/exhibitors/map` check verifies every rendered hit area's exact coordinates and accessible name. Both verify the served map fingerprint:
+Rebuild the image with Python, Pillow, NumPy, and Arial Bold installed:
 
 ```sh
-node scripts/verify-floor-plan.mjs http://127.0.0.1:3017
-node scripts/verify-floor-plan.mjs http://127.0.0.1:3017 /exhibitors/map
+python3 scripts/prepare-floor-plan.py
 ```
 
-Browser checks cover all 77 popup assignments, alignment at 1440/1024/768/390/320px, narrow and rotated hit areas, popup visibility at 320px, keyboard operation, pointer transitions, and dismissal. Physical touch gestures still need an on-device review; mobile-width click activation and unrestricted scrolling/zoom were checked in the desktop browser.
+An alternative font path can be supplied with `--font`; review any font change visually before replacing the finished asset.
 
-## Source
+## Vendor data
 
-Prepared in the Codex floor-plan editing task continuing “Edit Booth Floor Plan.” Original referenced ChatGPT conversation: `6ab35f5d-c844-83e8-9502-714cf9afc20b` (`chatgpt-conversation://6ab35f5d-c844-83e8-9502-714cf9afc20b`).
+`src/data/vendor-assignments-2026.ts`, `vendor-assignments.json`, and `2026-vendor-assignments-sorted.xlsx` contain the same **83** company-booth entries covering all 78 booths. G-Force Powersports has separate entries for 116, 117, and 118; shared booths retain every company. Both alphabetical and booth-number directory views use this common data, as do interactive-map popups.
 
-Source workspace: `/Users/brandoncox/Documents/Codex/2026-09-22/referenced-chatgpt-conversation-this-is-an`.
+The September 23 vendor workbook remains the baseline, with the user's October 18 assignments above superseding the affected rows. Booth sizes are intentionally omitted. Logo provenance and hashes are recorded in `vendor-logo-sources.md`; the SledLab PNG is the unchanged user-supplied file.
+
+## Website behavior
+
+`/exhibitors` shows a proportionally scaled static overview, with no booth hit areas or popups, plus both vendor sorting options. **Open Interactive Map** opens `/exhibitors/map` in a new tab. Both map views and both download links use the same revised PNG.
+
+The interactive map starts fitted to the available screen and supports pinch zoom, drag-to-pan, trackpad zoom, +/− buttons, and **Fit map**. A transparent SVG overlay uses the image's 2679 × 2031 coordinate space. The image, aspect ratio, hit areas, and zoom dimensions must agree.
+
+Hover or keyboard focus reveals booth details. Click, Enter, or Space pins them. Escape, the close control, or an outside click dismisses them. Popups remain readable at all zoom levels and are positioned within the visible frame. Starting a map gesture dismisses the popup and suppresses accidental booth activation after dragging. Keyboard access and the accessible vendor directory remain available.
+
+## Verification
+
+```sh
+node scripts/verify-floor-plan.mjs
+node scripts/verify-floor-plan-zoom.mjs
+node scripts/verify-vendor-logos.mjs
+# With a running production preview:
+node scripts/verify-floor-plan.mjs http://127.0.0.1:3100
+node scripts/verify-floor-plan.mjs http://127.0.0.1:3100 /exhibitors/map
+node scripts/verify-vendor-logos.mjs http://127.0.0.1:3100
+```
+
+The map checks cover the image fingerprint, dimensions, 83 assignments, 78 hit areas, updated booth positions, accessible names, directory controls, and served PNG. The zoom suite covers fit sizing, source-relative zoom, touch/trackpad/Safari gesture paths, pan transitions, resize preservation, and popup/control isolation. Physical-phone multi-touch testing is separate from browser viewport and automated gesture checks.
+
+The previous editing workflow is documented in the original floor-plan task workspace: `/Users/brandoncox/Documents/Codex/2026-09-22/referenced-chatgpt-conversation-this-is-an`. Its label-cleanup windows and styling were adapted to the revised source.

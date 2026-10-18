@@ -251,17 +251,17 @@ export function InteractiveFloorPlan({ src, fullSize = false }: { src: string; f
             if (!selection?.pinned) repositionRef.current?.();
           }}
         >
-          <div className={styles.mapSurface} data-map-gesture={fullSize || undefined}>
+          <div className={styles.mapSurface} style={{ aspectRatio: `${geometry.imageWidth} / ${geometry.imageHeight}` }} data-map-gesture={fullSize || undefined}>
           <Image
             src={src}
             alt={`2026 Colorado Snomo Expo floorplan showing numbered booths, the seminar room, entrances and venue areas.${fullSize ? " Use Vendor List for the accessible directory." : " 2026 Participating Vendors are listed below."}`}
-            width={2048}
-            height={1552}
+            width={geometry.imageWidth}
+            height={geometry.imageHeight}
             unoptimized
             priority
             draggable={false}
           />
-          <svg className={styles.overlay} viewBox="0 0 2048 1552" role="group" aria-label="Interactive booths. Select a booth to view participating vendors.">
+          <svg className={styles.overlay} viewBox={`0 0 ${geometry.imageWidth} ${geometry.imageHeight}`} role="group" aria-label="Interactive booths. Select a booth to view participating vendors.">
             {booths.map((booth) => (
               <polygon
                 key={booth.number}

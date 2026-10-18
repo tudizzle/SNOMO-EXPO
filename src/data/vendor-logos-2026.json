@@ -1,4 +1,8 @@
 {
+  "SledLab": {
+    "src": "/images/vendors/sledlab.png",
+    "background": "dark"
+  },
   "SnowBigDeal, Inc": {
     "src": "/images/vendors/snowbigdeal-inc.webp",
     "background": "light"
