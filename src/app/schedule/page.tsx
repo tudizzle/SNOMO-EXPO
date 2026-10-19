@@ -34,16 +34,15 @@ const saturdayEvents = [
     id: "friends-of-caic",
     time: "10:00 AM",
     dateTime: "2026-10-24T10:00:00-06:00",
-    title: "Friends of the CAIC",
-    topic: "The Art of Avalanche Forecasting",
-    description:
-      "Explore the art of avalanche forecasting and why checking the day’s forecast is an essential step before heading into the backcountry.",
+    title: "Austin DiVesta",
+    topic:
+      "How to Have a Bad Day in the Mountains: Common Mistakes from Motorized Accidents.",
+    affiliation: "Avalanche Forecaster · Colorado Avalanche Information Center",
     image: {
-      src: "/images/speakers/friends-of-caic.png",
-      alt: "Friends of the CAIC logo",
-      width: 973,
-      height: 375,
-      isLogo: true,
+      src: "/images/speakers/austin-divesta.png",
+      alt: "Austin DiVesta",
+      width: 223,
+      height: 220,
     },
   },
   {
@@ -105,7 +104,7 @@ const saturdayEvents = [
 export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
-    "Plan your Colorado Snomo Expo weekend: freestyle shows, Friday survival with Jeff Hartsough, and Saturday seminars with Friends of the CAIC, the Entz family, Chris Burandt, and Erik Woog.",
+    "Plan your Colorado Snomo Expo weekend: freestyle shows, Friday survival with Jeff Hartsough, and Saturday seminars with Austin DiVesta of the Colorado Avalanche Information Center, the Entz family, Chris Burandt, and Erik Woog.",
   path: "/schedule",
 });
 
@@ -274,7 +273,7 @@ export default function SchedulePage() {
                   </div>
                   {event.image ? (
                     <Image
-                      className={`${styles.eventImage}${event.image.isLogo ? ` ${styles.eventLogo}` : ""}`}
+                      className={styles.eventImage}
                       src={event.image.src}
                       alt={event.image.alt}
                       width={event.image.width}

@@ -411,12 +411,6 @@
   width: 100%;
 }
 
-.eventLogo {
-  background: var(--snow);
-  object-fit: contain;
-  padding: 18px;
-}
-
 @media (max-width: 920px) {
   .event {
     grid-template-columns: minmax(0, 1fr);
