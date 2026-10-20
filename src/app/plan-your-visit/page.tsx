@@ -38,13 +38,13 @@ const showHours = [
     title: "Friday",
     date: "October 23, 2026",
     hours: "4:00 PM – 8:00 PM",
-    freestyle: "Octane Addictions Freestyle Show — 5:30 PM",
+    freestyle: "Octane Addictions Freestyle — 5:30 PM",
   },
   {
     title: "Saturday",
     date: "October 24, 2026",
     hours: "9:00 AM – 5:00 PM",
-    freestyle: "Octane Addictions Freestyle Show — Noon",
+    freestyle: "Octane Addictions Freestyle — Noon",
   },
   {
     title: "Swap Meet",

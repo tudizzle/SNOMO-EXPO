@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CountdownSection } from "@/components/countdown-section";
 import { HeroAudioButton } from "@/components/hero-audio-button";
+import { OctanePromo } from "@/components/octane-promo";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata, siteUrl } from "@/lib/seo";
 
@@ -123,14 +124,7 @@ export default function Home() {
 
       <div className="px-[clamp(18px,4vw,56px)] pt-[var(--space-2xl)]">
         <div className="experience-container">
-          <Image
-            className="block h-auto w-full"
-            src="/images/home/octane-addictions-turcotte-freestyle-show.png"
-            alt="Octane Addictions Freestyle Show starring X Games gold medalist Brett Turcotte"
-            width={1774}
-            height={887}
-            sizes="(min-width: 1592px) 1480px, (min-width: 1400px) calc(100vw - 112px), (min-width: 450px) 92vw, calc(100vw - 36px)"
-          />
+          <OctanePromo />
         </div>
       </div>
 
