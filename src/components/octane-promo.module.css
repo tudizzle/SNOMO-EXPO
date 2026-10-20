@@ -1,0 +1,244 @@
+.promo {
+  --octane-lime: #c4ff00;
+  background: #090a09 url("/images/graphics/octane-grit.svg") center / 100% 100%;
+  border: 1px solid #3a3d32;
+  color: #fff;
+  overflow: hidden;
+  padding: clamp(32px, 4.5vw, 64px) clamp(24px, 4vw, 56px) clamp(28px, 3.5vw, 44px);
+  scroll-margin-top: 130px;
+}
+
+.headliners {
+  align-items: center;
+  display: grid;
+  gap: clamp(28px, 4vw, 64px);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+.title {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  min-width: 0;
+}
+
+.logoFrame {
+  aspect-ratio: 1.94;
+  display: block;
+  overflow: hidden;
+}
+
+.logo {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 53%;
+  width: 100%;
+}
+
+.freestyle,
+.riders,
+.supporting li,
+.times dd {
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.freestyle {
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 3.2rem);
+  letter-spacing: 0.025em;
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: 3px 3px 0 #000;
+}
+
+.featured {
+  border-left: 1px solid rgb(196 255 0 / 35%);
+  min-width: 0;
+  padding-left: clamp(24px, 3.5vw, 48px);
+}
+
+.kicker {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.riders {
+  color: var(--octane-lime);
+  display: grid;
+  font-size: clamp(1.8rem, 3.3vw, 3.25rem);
+  gap: 8px;
+  line-height: 1.1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.honors {
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin: 16px 0 0;
+  text-transform: uppercase;
+}
+
+.monster {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  margin-top: 20px;
+}
+
+.monster img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: 180px;
+}
+
+.monster p {
+  color: #d0d4c9;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.supporting {
+  align-items: center;
+  border-block: 1px solid rgb(196 255 0 / 35%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  justify-content: center;
+  margin-top: clamp(28px, 4vw, 48px);
+  padding-block: 22px;
+}
+
+.supporting .kicker {
+  color: var(--octane-lime);
+  margin: 0;
+}
+
+.supporting ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.supporting li {
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.times {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 26px auto 0;
+  max-width: 700px;
+  text-align: center;
+}
+
+.times > div + div {
+  border-left: 1px solid rgb(255 255 255 / 22%);
+  padding-left: 24px;
+}
+
+.times dt {
+  color: var(--octane-lime);
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.times dd {
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  margin: 8px 0 0;
+  white-space: nowrap;
+}
+
+.period {
+  font-size: 0.48em;
+}
+
+@media (max-width: 760px) {
+  .headliners {
+    gap: 30px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .title {
+    margin-inline: auto;
+    max-width: 480px;
+    width: 100%;
+  }
+
+  .freestyle {
+    font-size: clamp(1.5rem, 5.4vw, 2.6rem);
+  }
+
+  .featured {
+    border-left: 0;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .riders {
+    font-size: clamp(1.9rem, 7vw, 3rem);
+  }
+
+  .monster {
+    justify-content: center;
+  }
+
+  .monster img {
+    width: 150px;
+  }
+
+  .supporting {
+    flex-direction: column;
+  }
+
+  .supporting ul {
+    column-gap: 20px;
+  }
+
+  .times {
+    gap: 12px;
+  }
+
+  .times > div + div {
+    padding-left: 12px;
+  }
+
+  .times dt {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .times dd {
+    font-size: clamp(2rem, 8vw, 3.6rem);
+  }
+}
+
+@media (max-width: 380px) {
+  .promo {
+    padding-inline: 16px;
+  }
+}
