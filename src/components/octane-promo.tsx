@@ -43,7 +43,7 @@ export function OctanePromo({ className = "" }: { className?: string }) {
         <p className={styles.kicker}>Also Riding</p>
         <ul>
           <li>Cody McDonough</li>
-          <li>Bobby Duham</li>
+          <li>Bobby Duhame</li>
         </ul>
       </div>
 
