@@ -16,7 +16,7 @@ export function OctanePromo({ className = "" }: { className?: string }) {
               sizes="(max-width: 760px) 85vw, (max-width: 1300px) 42vw, 600px"
             />
           </span>
-          <span className={styles.freestyle}>Freestyle Show</span>
+          <span className={styles.freestyle}>Freestyle</span>
         </h2>
 
         <div className={styles.featured}>
@@ -47,7 +47,7 @@ export function OctanePromo({ className = "" }: { className?: string }) {
         </ul>
       </div>
 
-      <dl className={styles.times} aria-label="Freestyle showtimes">
+      <dl className={styles.times} aria-label="Freestyle times">
         <div>
           <dt>Friday</dt>
           <dd>

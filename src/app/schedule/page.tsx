@@ -66,7 +66,7 @@ const saturdayEvents = [
     id: "saturday-freestyle",
     time: "Noon",
     dateTime: "2026-10-24T12:00:00-06:00",
-    title: "Octane Addictions Freestyle Show",
+    title: "Octane Addictions Freestyle",
   },
   {
     id: "chris-burandt",
@@ -105,7 +105,7 @@ const saturdayEvents = [
 export const metadata = createPageMetadata({
   title: "Schedule | Colorado Snomo Expo",
   description:
-    "Plan your Colorado Snomo Expo weekend: freestyle shows, Friday survival with Jeff Hartsough, and Saturday seminars with Austin DiVesta of the Colorado Avalanche Information Center, the Entz family, Chris Burandt, and Erik Woog.",
+    "Plan your Colorado Snomo Expo weekend: freestyle, Friday survival with Jeff Hartsough, and Saturday seminars with Austin DiVesta of the Colorado Avalanche Information Center, the Entz family, Chris Burandt, and Erik Woog.",
   path: "/schedule",
 });
 
